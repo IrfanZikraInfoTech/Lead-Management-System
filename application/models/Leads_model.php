@@ -1174,4 +1174,91 @@ class Leads_model extends App_Model
 
         return $kanBan->get();
     }
+
+
+
+// dahboard widgets:
+
+    // In Leads_model.php
+public function getLeadStatusCounts() {
+    // Dummy data for demonstration purposes
+    return [
+        'new' => 100,
+        'in progress' => 50,
+        'converted' => 20
+    ];
 }
+
+// source tracking
+public function getLeadSourceCounts() {
+    // Dummy data for demonstration purposes
+    return [
+        'website' => 150,
+        'email campaign' => 100,
+        'social media' => 120
+    ];
+}
+// lead distribution by salesperson 
+public function getLeadsBySalesperson() {
+    // Dummy data for demonstration purposes
+    return [
+        'Ali' => 10,
+        'Sana' => 25,
+        'Ahmed' => 5,
+        'Sara' => 15
+    ];
+}
+
+    // Dummy function to fetch lead conversion rates
+    public function getLeadConversionRates() {
+        return array(
+            'dates' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            'rates' => [45, 50, 65, 55, 70, 75]
+        );
+    }
+
+    public function getLeadLifecycleData() {
+        // Filhal dummy data return kar raha hai
+        return [
+            'leads' => ['Lead 1', 'Lead 2', 'Lead 3'],
+            'times' => [
+                [5, 10, 15],  // Lead 1 ke liye status-wise time
+                [10, 15, 20], // Lead 2 ke liye status-wise time
+                [5, 5, 10]    // Lead 3 ke liye status-wise time
+            ]
+        ];
+    }
+
+    public function get_lead_response_times() {
+        // Dummy data for now
+        return [
+            'Lead A' => [1, 2, 3, 5, 7],
+            'Lead B' => [2, 3, 4, 5, 9],
+            'Lead C' => [1, 2, 4, 6, 8],
+            // ... add more dummy data as required
+        ];
+    }
+    public function getLeadInteractions() {
+        // Here we will get dummy data for lead interactions.
+        // In a real scenario, you would query your database.
+        return [
+            ['lead' => 'Lead 1', 'date' => '2023-08-01', 'interaction' => 'Email sent'],
+            ['lead' => 'Lead 1', 'date' => '2023-08-02', 'interaction' => 'Call made'],
+            ['lead' => 'Lead 2', 'date' => '2023-08-02', 'interaction' => 'Meeting scheduled'],
+            // ... Add more dummy data as needed
+        ];
+    }
+    
+
+// dashboard widgets end
+
+}
+
+
+
+
+
+
+
+
+

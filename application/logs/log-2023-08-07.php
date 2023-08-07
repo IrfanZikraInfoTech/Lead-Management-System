@@ -19,3 +19,5 @@ ERROR - 2023-08-07 19:48:19 --> 404 Page Not Found: /index
 ERROR - 2023-08-07 19:48:19 --> 404 Page Not Found: /index
 ERROR - 2023-08-07 19:48:36 --> 404 Page Not Found: /index
 ERROR - 2023-08-07 19:48:53 --> 404 Page Not Found: /index
+ERROR - 2023-08-07 18:05:30 --> 404 Page Not Found: /index
+ERROR - 2023-08-07 18:08:06 --> 404 Page Not Found: admin/Leads/leads_info

@@ -17,7 +17,13 @@ class Leads extends AdminController
         $this->load->model('leads_model');
     }
 
+
     /* List all leads */
+    public function leads_info($id){
+        $data['id'] = $id;
+        $this->load->view('admin/leads/leads_info', $data);
+    }
+    
     public function index($id = '')
     {
         close_setup_menu();
@@ -120,7 +126,7 @@ class Leads extends AdminController
         ]);
     }
 
-    private function _get_lead_data($id = '')
+    public function _get_lead_data($id = '')
     {
         $reminder_data         = '';
         $data['lead_locked']   = false;

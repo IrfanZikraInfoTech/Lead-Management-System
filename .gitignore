@@ -1,3 +1,15 @@
 
 application/config/app-config.php
-install/
+install/steps.php
+install/sqlparser.php
+install/requirements.php
+install/phpass.php
+install/logo.png
+install/install.php
+install/install.class.php
+install/index.php
+install/html.php
+install/finish.php
+install/file_permissions.php
+install/database.sql
+install/database.php

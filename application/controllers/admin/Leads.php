@@ -17,44 +17,90 @@ class Leads extends AdminController
         $this->load->model('leads_model');
     }
 
-
     /* List all leads */
-    public function leads_info($id){
-        $data['id'] = $id;
-        $this->load->view('admin/leads/leads_info', $data);
+
+
+    // widgets work
+    public function index() {
+        $this->load->model('Leads_model');
+        
+        // Fetch lead status counts
+        $statusCounts = $this->Leads_model->getLeadStatusCounts();
+        
+        // Fetch lead source counts
+        $sourceCounts = $this->Leads_model->getLeadSourceCounts();
+        
+        // Fetch lead distribution by salesperson
+        $leadsBySalesperson = $this->Leads_model->getLeadsBySalesperson();
+    
+        // Fetch Lead Conversion Rates
+        $conversionRates = $this->Leads_model->getLeadConversionRates();
+        
+        // Fetch Lead Lifecycle Data
+        $leadLifecycleData = $this->Leads_model->getLeadLifecycleData();
+        
+        // Fetch Lead Response Times
+        $leadResponseTimes = $this->Leads_model->get_lead_response_times(); // Assuming you've added this function to your Leads_model.
+    
+        //getLeadInteractions
+        $leadInteractions = $this->Leads_model->getLeadInteractions();
+
+        // Send all data sets to the view
+        $data = [
+            'statusCounts' => $statusCounts,
+            'sourceCounts' => $sourceCounts,
+            'leadsBySalesperson' => $leadsBySalesperson,
+            'conversionRates' => $conversionRates,
+            'leadLifecycleData' => $leadLifecycleData,
+            'leadResponseTimes' => $leadResponseTimes ,
+            'leadInteractions'=> $leadInteractions    
+            
+        ];
+        
+        $this->load->view('admin/leads/lead_dashboard', $data);
     }
     
-    public function index($id = '')
-    {
-        close_setup_menu();
+    
+    
+    
+    
 
-        if (!is_staff_member()) {
-            access_denied('Leads');
-        }
 
-        $data['switch_kanban'] = true;
 
-        if ($this->session->userdata('leads_kanban_view') == 'true') {
-            $data['switch_kanban'] = false;
-            $data['bodyclass']     = 'kan-ban-body';
-        }
 
-        $data['staff'] = $this->staff_model->get('', ['active' => 1]);
-        if (is_gdpr() && get_option('gdpr_enable_consent_for_leads') == '1') {
-            $this->load->model('gdpr_model');
-            $data['consent_purposes'] = $this->gdpr_model->get_consent_purposes();
-        }
-        $data['summary']  = get_leads_summary();
-        $data['statuses'] = $this->leads_model->get_status();
-        $data['sources']  = $this->leads_model->get_source();
-        $data['title']    = _l('leads');
-        // in case accesed the url leads/index/ directly with id - used in search
-        $data['leadid']   = $id;
-        $data['isKanBan'] = $this->session->has_userdata('leads_kanban_view') &&
-            $this->session->userdata('leads_kanban_view') == 'true';
+    //widget work end 
 
-        $this->load->view('admin/leads/manage_leads', $data);
-    }
+    // public function index($id = '')
+    // {
+    //     close_setup_menu();
+
+    //     if (!is_staff_member()) {
+    //         access_denied('Leads');
+    //     }
+
+    //     $data['switch_kanban'] = true;
+
+    //     if ($this->session->userdata('leads_kanban_view') == 'true') {
+    //         $data['switch_kanban'] = false;
+    //         $data['bodyclass']     = 'kan-ban-body';
+    //     }
+
+    //     $data['staff'] = $this->staff_model->get('', ['active' => 1]);
+    //     if (is_gdpr() && get_option('gdpr_enable_consent_for_leads') == '1') {
+    //         $this->load->model('gdpr_model');
+    //         $data['consent_purposes'] = $this->gdpr_model->get_consent_purposes();
+    //     }
+    //     $data['summary']  = get_leads_summary();
+    //     $data['statuses'] = $this->leads_model->get_status();
+    //     $data['sources']  = $this->leads_model->get_source();
+    //     $data['title']    = _l('leads');
+    //     // in case accesed the url leads/index/ directly with id - used in search
+    //     $data['leadid']   = $id;
+    //     $data['isKanBan'] = $this->session->has_userdata('leads_kanban_view') &&
+    //         $this->session->userdata('leads_kanban_view') == 'true';
+
+    //     $this->load->view('admin/leads/lead_dashboard', $data);
+    // }
 
     public function table()
     {
@@ -126,7 +172,7 @@ class Leads extends AdminController
         ]);
     }
 
-    public function _get_lead_data($id = '')
+    private function _get_lead_data($id = '')
     {
         $reminder_data         = '';
         $data['lead_locked']   = false;
@@ -1363,4 +1409,14 @@ class Leads extends AdminController
         $this->zip->download('files.zip');
         $this->zip->clear_data();
     }
+
+
+
+
+    // In Leads.php
+
+
+
+
+
 }

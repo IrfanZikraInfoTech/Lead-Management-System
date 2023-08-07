@@ -118,7 +118,7 @@ foreach ($rResult as $aRow) {
 
     $row[] = '<div class="checkbox"><input type="checkbox" value="' . $aRow['id'] . '"><label></label></div>';
 
-    $hrefAttr = 'href="' . admin_url('leads/index/' . $aRow['id']) . '" onclick="init_lead(' . $aRow['id'] . ');return false;"';
+    $hrefAttr = 'href="' . admin_url('leads/leads_info/' . $aRow['id']) . '"(' . $aRow['id'] . ');"';
     $row[]    = '<a ' . $hrefAttr . '>' . $aRow['id'] . '</a>';
 
     $nameRow = '<a ' . $hrefAttr . '>' . $aRow['name'] . '</a>';

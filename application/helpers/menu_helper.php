@@ -192,13 +192,24 @@ function app_init_admin_sidebar_menu_items()
     }
     if (is_staff_member()) {
         $CI->app_menu->add_sidebar_children_item('leads', [
-            'slug'     => 'manage_leads',
-            'name'     => _l('Manage Leads'),
-            'href'     => admin_url('leads/manage'),
+            'slug'     => 'leads_dashboard',
+            'name'     => _l('Leads Dashboard'),
+            'href'     => admin_url('leads'),
             'icon'     => 'fa fa-cog', // Aap is icon ko change kar sakti hain
             'position' => 5, // Position aapke child item ka within the 'leads' menu
         ]);
     }
+    if (is_staff_member()) {
+        $CI->app_menu->add_sidebar_children_item('leads', [
+            'slug'     => 'manage_leads',
+            'name'     => _l('Manage Leads'),
+            'href'     => admin_url('leads/manage'),
+            'icon'     => 'fa fa-user', // Yeh icon ab user represent karta hai
+            'position' => 5, // Position aapke child item ka within the 'leads' menu
+        ]);
+    }
+    
+   
     
 
     if ((has_permission('estimate_request', '', 'view') || has_permission('estimate_request', '', 'view_own'))) {

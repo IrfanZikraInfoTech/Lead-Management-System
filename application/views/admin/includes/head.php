@@ -5,6 +5,7 @@
 <html lang="<?php echo $locale; ?>" dir="<?php echo ($isRTL == 'true') ? 'rtl' : 'ltr' ?>">
 
 <head>
+    <script src="https://cdn.tailwindcss.com"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +27,17 @@
         expensePreviewDropzone, taskTrackingChart, cfh_popover_templates = {},
         _table_api;
     </script>
+    <style>
+        .collapse{
+            visibility: inherit !important;
+        }
+        .btn-primary{
+            background-color: rgb(37 99 235/var(--tw-bg-opacity)) !important;
+        }
+        .btn-secondary{
+            background-color: rgb(241 245 249/var(--tw-bg-opacity)) !important;
+        }
+    </style>
     <?php app_admin_head(); ?>
 </head>
 

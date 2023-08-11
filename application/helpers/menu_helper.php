@@ -200,10 +200,11 @@ function app_init_admin_sidebar_menu_items()
 
         $CI->app_menu->add_sidebar_children_item('leads',[
             'slug' => 'list',
-            'name' => 'List',
+            'name' => 'Manage Leads',
             'href' => admin_url("leads/list"),
             'position' => 2
         ]);
+       
 
     }
     

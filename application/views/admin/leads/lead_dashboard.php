@@ -1,22 +1,32 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php init_head(); ?>
 <style>
- .animatefromdown{
-    animation:movefrombottom 0.5s ease-out 0.7s ;
-    animation-fill-mode:backwards;
- }
- @keyframes movefrombottom {
-    0%{
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(0);
-
-    }
+    .heading {
+    position: relative;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    color:#777;
+    letter-spacing: 1.1;
+    display: inline-block; /* Use inline-block to make the width of the element adjust to the text size */
+    
 }
-  
+.heading::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -3px; /* Adjust the position of the line based on your preference */
+    left: 0;
+    width: 0; /* Start the line with zero width */
+    height: 3px;
+    background-color: #777; /* Change the color of the line */
+    transition: width 0.7s ease-in-out; /* Adjust the transition speed as needed */
+}
+
+.heading:hover::before {
+    width: 100%; /* Scale the line to full width on hover */
+}
 </style>
 
 
@@ -25,8 +35,12 @@
 <div class="container ">
 <!-- Responsive Bootstrap grid -->
 <!-- Wrapper div to ensure the cards have the same height in a row -->
-<div class="row mt-4 d-flex align-items-stretch">
+<div class="row mt-4 d-flex align-items-stretch ">
     <!-- Lead Status Distribution Card -->
+    <div class="col-12 text-center my-3">
+    <h2 class="text-2xl text-gray-900 mb-6 heading ">Lead Dashboard</h2>
+    </div>
+    
     <div class="col-lg-5 col-md-5 col-sm-12 mb-4">
         <div  class="card bg-white shadow-lg rounded-lg hoverable h-100 py-3">
             <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
@@ -120,36 +134,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.3/chart.min.js" integrity="sha512-fMPPLjF/Xr7Ga0679WgtqoSyfUoQgdt8IIxJymStR5zV3Fyb6B3u/8DcaZ6R6sXexk5Z64bCgo2TYyn760EdcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     
-    // leadStatusChart
+// leadStatusChart
 var ctx = document.getElementById('leadStatusChart').getContext('2d');
+
 // Gradient colors ke liye separate function:
 function createGradient(ctx, color1, color2) {
-    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    var gradient = ctx.createRadialGradient(150, 150, 100, 150, 150, 150); // This will simulate depth
     gradient.addColorStop(0, color1);
     gradient.addColorStop(1, color2);
     return gradient;
 }
 
 var leadStatusChart = new Chart(ctx, {
-    type: 'pie', // This remains 'pie', donut appearance is controlled with the 'cutout' property
+    type: 'pie',
     data: {
         labels: ['New', 'In Progress', 'Converted'],
         datasets: [{
             data: [<?= $statusCounts['new']; ?>, <?= $statusCounts['in progress']; ?>, <?= $statusCounts['converted']; ?>],
             backgroundColor: [
-                createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 0.8)'),
-                createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 0.8)'),
-                createGradient(ctx, 'rgba(85, 199, 219, 0.6)', 'rgba(85, 199, 219, 0.8)')
+                createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 1)'),
+                createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 1)'),
+                createGradient(ctx, 'rgba(85, 199, 219, 0.6)', 'rgba(85, 199, 219, 1)')
             ],
             hoverBackgroundColor: ['rgb(0, 135, 171)','rgb(0, 135, 171)','rgb(0, 135, 171)'],
             borderColor: ['#fff', '#fff', '#fff'],
-            borderWidth: 1,
+            borderWidth: 2, // Increased border width for more pronounced edges
+            borderAlign: 'inner',
             hoverBorderColor:  ['#fff', '#fff', '#fff'],
         }]
     },
     options: {
         responsive: true,
-        cutout: '50%', // This makes it a donut chart. Adjust the percentage for a bigger or smaller hole.
+        cutout: '50%', 
         animation: {
             animateScale: true,
             animateRotate: true,
@@ -163,6 +179,13 @@ var leadStatusChart = new Chart(ctx, {
                     usePointStyle: true,
                     padding: 20
                 }
+            }
+        },
+        elements: {
+            arc: {
+                borderColor: '#ffffff',
+                borderWidth: 4,
+                borderAlign: 'inner',  // This gives a faux "raised" effect
             }
         }
     }

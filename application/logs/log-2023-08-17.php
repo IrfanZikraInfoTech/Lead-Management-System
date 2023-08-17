@@ -100,6 +100,7 @@ ERROR - 2023-08-17 15:28:56 --> Could not find the language line "New Contract"
 ERROR - 2023-08-17 15:31:11 --> Could not find the language line "New Contract"
 ERROR - 2023-08-17 15:31:45 --> Could not find the language line "New Contract"
 ERROR - 2023-08-17 15:32:54 --> Could not find the language line "New Contract"
+<<<<<<< Updated upstream
 =======
 ERROR - 2023-08-17 00:03:27 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
 ERROR - 2023-08-17 00:03:27 --> Could not find the language line "new_invoice"
@@ -289,3 +290,193 @@ ERROR - 2023-08-17 20:34:07 --> Could not find the language line "new_invoice"
 ERROR - 2023-08-17 20:54:45 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
 ERROR - 2023-08-17 20:54:45 --> Could not find the language line "New Contract"
 ERROR - 2023-08-17 20:54:45 --> Could not find the language line "new_invoice"
+=======
+ERROR - 2023-08-17 16:18:31 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:24:08 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:24:45 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:27:26 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:27:54 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:29:56 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:31:25 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:32:04 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:32:36 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:34:17 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:34:32 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:34:36 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:34:55 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:34:57 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 25
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "lead_value" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 25
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 49
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "name" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 49
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 54
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "email" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 54
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 59
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "phonenumber" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 59
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 65
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "website" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 65
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 69
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "company" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 69
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 74
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "title" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 74
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 79
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "address" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 79
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 84
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "city" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 84
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 89
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "state" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 89
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 94
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "country" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 94
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 99
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "zip" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 99
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 104
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "description" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 104
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 121
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 121
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 127
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 127
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 134
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 134
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $activity_log D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 157
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 157
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 203
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 203
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 206
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 206
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 237
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 237
+ERROR - 2023-08-17 16:35:06 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $contracts D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 275
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 275
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 313
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 313
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:35:06 --> Severity: Warning --> Attempt to read property "attachments" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:35:06 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 25
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "lead_value" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 25
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 49
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "name" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 49
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 54
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "email" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 54
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 59
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "phonenumber" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 59
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 65
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "website" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 65
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 69
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "company" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 69
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 74
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "title" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 74
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 79
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "address" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 79
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 84
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "city" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 84
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 89
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "state" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 89
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 94
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "country" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 94
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 99
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "zip" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 99
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 104
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "description" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 104
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 121
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 121
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 127
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 127
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 134
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 134
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $activity_log D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 157
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 157
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 203
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 203
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 206
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 206
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 237
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 237
+ERROR - 2023-08-17 16:35:11 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $contracts D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 275
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 275
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 313
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 313
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:35:11 --> Severity: Warning --> Attempt to read property "attachments" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:35:11 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 25
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "lead_value" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 25
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 49
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "name" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 49
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 54
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "email" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 54
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 59
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "phonenumber" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 59
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 65
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "website" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 65
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 69
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "company" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 69
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 74
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "title" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 74
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 79
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "address" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 79
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 84
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "city" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 84
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 89
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "state" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 89
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 94
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "country" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 94
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 99
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "zip" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 99
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 104
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "description" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 104
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 121
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 121
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 127
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 127
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 134
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 134
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $activity_log D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 157
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 157
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 203
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 203
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 206
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 206
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 237
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 237
+ERROR - 2023-08-17 16:35:16 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $contracts D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 275
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 275
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 313
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 313
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:35:16 --> Severity: Warning --> Attempt to read property "attachments" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:35:16 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 322
+ERROR - 2023-08-17 16:36:50 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:25:25 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:39:11 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:39:27 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:39:46 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:40:09 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:48:53 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:49:11 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:49:15 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 20:52:37 --> Could not find the language line "New Contract"
+>>>>>>> Stashed changes
+ERROR - 2023-08-17 18:02:09 --> Severity: Warning --> include_once(D:\xampp\htdocs\Lead-Management-System\application\hooks./../libraries/App_modules.php): Failed to open stream: Permission denied D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 12
+ERROR - 2023-08-17 18:02:09 --> Severity: Warning --> include_once(): Failed opening 'D:\xampp\htdocs\Lead-Management-System\application\hooks./../libraries/App_modules.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 12
+ERROR - 2023-08-17 18:02:09 --> Severity: Warning --> include_once(D:\xampp\htdocs\Lead-Management-System\application\hooks./../../system/helpers/directory_helper.php): Failed to open stream: Permission denied D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 14
+ERROR - 2023-08-17 18:02:09 --> Severity: Warning --> include_once(): Failed opening 'D:\xampp\htdocs\Lead-Management-System\application\hooks./../../system/helpers/directory_helper.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 14
+ERROR - 2023-08-17 18:02:09 --> Severity: error --> Exception: Class "App_modules" not found D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 16
+ERROR - 2023-08-17 21:32:25 --> Severity: error --> Exception: Unknown column 'tblinvoices.rel_id' in 'on clause' D:\xampp\htdocs\Lead-Management-System\system\database\drivers\mysqli\mysqli_driver.php 307
+ERROR - 2023-08-17 21:34:29 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:34:29 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-17 21:38:18 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:38:18 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-17 21:38:44 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:38:44 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-17 21:39:03 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:39:15 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:40:31 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:41:49 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:42:18 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:42:25 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:42:59 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:42:59 --> Could not find the language line "new_invoice"

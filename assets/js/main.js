@@ -7230,6 +7230,13 @@ function add_item_to_table(data, itemid, merge_invoice, bill_expense) {
       data.long_description.replace(regex, "\n") +
       "</textarea></td>";
 
+      table_row +=
+      '<td><textarea name="newitems[' +
+      item_key +
+      '][long_description]" class="form-control item_long_description" rows="5">' +
+      data.long_description.replace(regex, "\n") +
+      "</textarea></td>";
+
     var custom_fields = $("tr.main td.custom_field");
     var cf_has_required = false;
 

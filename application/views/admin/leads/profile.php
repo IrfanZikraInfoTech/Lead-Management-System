@@ -240,9 +240,21 @@
                     </dd>
                     <?php } ?>
                     <dt class="lead-field-heading tw-font-medium tw-text-neutral-500">
-                        <?php echo _l('lead_add_edit_assigned'); ?></dt>
+                    <?php echo _l('lead_add_edit_assigned'); ?>
+                    </dt>
                     <dd class="tw-text-neutral-900 tw-mt-1 mbot15">
-                        <?php echo(isset($lead) && $lead->assigned != 0 ? get_staff_full_name($lead->assigned) : '-') ?>
+                        <?php 
+                        if (isset($lead) && $lead->assigned != '') {
+                            $staff_ids = explode(',', $lead->assigned);
+                            $staff_names = [];
+                            foreach ($staff_ids as $staff_id) {
+                                $staff_names[] = get_staff_full_name($staff_id);
+                            }
+                            echo implode(', ', $staff_names);
+                        } else {
+                            echo '-';
+                        }
+                        ?>
                     </dd>
                     <dt class="lead-field-heading tw-font-medium tw-text-neutral-500"><?php echo _l('tags'); ?></dt>
                     <dd class="tw-text-neutral-900 tw-mt-1 mbot10">
@@ -341,20 +353,26 @@
                echo render_leads_source_select($sources, $selected, 'lead_add_edit_source');
             ?>
             </div>
+
+
             <div class="col-md-4">
-                <?php
-               $assigned_attrs = [];
-               $selected       = (isset($lead) ? $lead->assigned : get_staff_user_id());
-               if (isset($lead)
-                  && $lead->assigned == get_staff_user_id()
-                  && $lead->addedfrom != get_staff_user_id()
-                  && !is_admin($lead->assigned)
-                  && !has_permission('leads', '', 'view')
-               ) {
-                   $assigned_attrs['disabled'] = true;
-               }
-               echo render_select('assigned', $members, ['staffid', ['firstname', 'lastname']], 'lead_add_edit_assigned', $selected, $assigned_attrs); ?>
+            <?php
+            $assigned_attrs = [];
+            $selected       = (isset($lead) ? explode(',', $lead->assigned) : [get_staff_user_id()]); // Change to array if multiple values
+            if (isset($lead)
+            && $lead->assigned == get_staff_user_id()
+            && $lead->addedfrom != get_staff_user_id()
+            && !is_admin($lead->assigned)
+            && !has_permission('leads', '', 'view')
+            ) {
+                $assigned_attrs['disabled'] = true;
+            }
+
+            $assigned_attrs['multiple'] = true; // Add this line for multiple selection
+            echo render_select('assigned[]', $members, ['staffid', ['firstname', 'lastname']], 'lead_add_edit_assigned', $selected, $assigned_attrs, [], '', '', true);            ?>
             </div>
+
+
             <div class="clearfix"></div>
             <hr class="mtop5 mbot10" />
             <div class="col-md-12">
@@ -487,17 +505,17 @@
                 <?php $rel_id = (isset($lead) ? $lead->id : false); ?>
                 <?php echo render_custom_fields('leads', $rel_id); ?>
             </div>
-            <div class="clearfix"></div>
+            <div class="clearfix mt-3"></div>
         </div>
     </div>
-    <?php if (isset($lead)) { ?>
+    <!-- <?php if (isset($lead)) { ?>
     <div class="lead-latest-activity tw-mb-3 lead-view">
         <div class="lead-info-heading">
             <h4><?php echo _l('lead_latest_activity'); ?></h4>
         </div>
         <div id="lead-latest-activity" class="pleft5"></div>
     </div>
-    <?php } ?>
+    <?php } ?> -->
     <?php if ($lead_locked == false) { ?>
     <div class="lead-edit<?php echo isset($lead) ? ' hide' : ''; ?>">
         <hr class="-tw-mx-4 tw-border-neutral-200" />

@@ -31,12 +31,21 @@
             } ?>
         <div class="row">
             <div class="col-md-6">
+                <!-- Code we added -->
+                <div class="form-group f_client_id">
+                            <label><span class="text-danger">* </span>Type</label><br>
+                            <select id="typeSelector" name="rel_type" data-live-search="true" data-width="100%" class="w-full rounded-md h-9 focus:outline-none border">
+                                <option value="" class="p-5" <?php echo (!isset($contract->rel_type) || $contract->rel_type == '') ? 'selected' : ''; ?>>Select</option> <!-- Placeholder -->
+                                <option value="customer" <?php echo (isset($contract->rel_type) && $contract->rel_type == 'customer') ? 'selected' : ''; ?>>Customer</option>
+                                <option value="lead" <?php echo (isset($contract->rel_type) && $contract->rel_type == 'lead') ? 'selected' : ''; ?>>Lead</option>
+                            </select>
+                        </div>
                 <div class="f_client_id">
-                    <div class="form-group select-placeholder">
+                    <div class="form-group select-placeholder" id="customerForm">
                         <label for="clientid" class="control-label"><?php echo _l('invoice_select_customer'); ?></label>
                         <select id="clientid" name="clientid" data-live-search="true" data-width="100%" class="ajax-search<?php if (isset($invoice) && empty($invoice->clientid)) {
-                echo ' customer-removed';
-            } ?>" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
+                    echo ' customer-removed';
+                } ?>" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
                             <?php $selected = (isset($invoice) ? $invoice->clientid : '');
                  if ($selected == '') {
                      $selected = (isset($customer_id) ? $customer_id: '');
@@ -48,6 +57,11 @@
                  } ?>
                         </select>
                     </div>
+                </div>
+                <div class="form-group f_client_id" id="leadForm">
+                            <label><span class="text-danger">* </span>Leads</label><br>
+                            <select id="leadid" name="rel_id" data-live-search="true" data-width="100%" class="w-full rounded-md h-9 focus:outline-none border" data-selected="<?php echo isset($contract->rel_id) ? $contract->rel_id : ''; ?>">
+                            </select>
                 </div>
                 <?php
             if (!isset($invoice_from_project)) { ?>
@@ -365,11 +379,11 @@
                                 </label>
                                 <select class="selectpicker" data-width="100%" name="recurring"
                                     data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>" <?php
-                        // The problem is that this invoice was generated from previous recurring invoice
-                        // Then this new invoice you set it as recurring but the next invoice date was still taken from the previous invoice.
-                        if (isset($invoice) && !empty($invoice->is_recurring_from)) {
-                            echo 'disabled';
-                        } ?>>
+                                    // The problem is that this invoice was generated from previous recurring invoice
+                                    // Then this new invoice you set it as recurring but the next invoice date was still taken from the previous invoice.
+                                    if (isset($invoice) && !empty($invoice->is_recurring_from)) {
+                                        echo 'disabled';
+                                    } ?>>
                                     <?php for ($i = 0; $i <= 12; $i++) { ?>
                                     <?php
                               $selected = '';
@@ -867,3 +881,5 @@
         </ul>
     </div>
 </div>
+
+

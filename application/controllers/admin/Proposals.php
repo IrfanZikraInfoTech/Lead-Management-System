@@ -136,68 +136,121 @@ class Proposals extends AdminController
     {
         if ($this->input->post()) {
             $proposal_data = $this->input->post();
-            if ($id == '') {
-                if (!has_permission('proposals', '', 'create')) {
-                    access_denied('proposals');
-                }
-                $id = $this->proposals_model->add($proposal_data);
-                if ($id) {
-                    set_alert('success', _l('added_successfully', _l('proposal')));
-                    if ($this->set_proposal_pipeline_autoload($id)) {
-                        redirect(admin_url('proposals'));
-                    } else {
-                        redirect(admin_url('proposals/list_proposals/' . $id));
-                    }
-                }
-            } else {
-                if (!has_permission('proposals', '', 'edit')) {
-                    access_denied('proposals');
-                }
-                $success = $this->proposals_model->update($proposal_data, $id);
-                if ($success) {
-                    set_alert('success', _l('updated_successfully', _l('proposal')));
-                }
-                if ($this->set_proposal_pipeline_autoload($id)) {
-                    redirect(admin_url('proposals'));
-                } else {
-                    redirect(admin_url('proposals/list_proposals/' . $id));
-                }
+        if (isset($_FILES['pdf_file']) && $_FILES['pdf_file']['error'] == 0) {
+    
+        // ensure if direct exsits
+        if (!is_dir('./uploads/proposals/')) {
+            mkdir('./uploads/proposals/', 0777, TRUE);
+        }
+
+        $config['file_name'] = uniqid() . '_' . time();
+        $config['upload_path'] = './uploads/proposals/';
+        $config['allowed_types'] = 'pdf';
+        $config['max_size'] = 2048;
+    
+        $this->load->library('upload', $config);
+    
+            if (!$this->upload->do_upload('pdf_file')) {
+            set_alert('danger', $this->upload->display_errors());
+            redirect(admin_url('proposals/proposal/' . $id));
+            return;
+            } 
+            else {
+                $data = $this->upload->data();
+                $proposal_data['pdf_path'] = $data['file_name'];
             }
         }
         if ($id == '') {
-            $title = _l('add_new', _l('proposal_lowercase'));
-        } else {
-            $data['proposal'] = $this->proposals_model->get($id);
-
-            if (!$data['proposal'] || !user_can_view_proposal($id)) {
-                blank_page(_l('proposal_not_found'));
-            }
-
-            $data['estimate']    = $data['proposal'];
-            $data['is_proposal'] = true;
-            $title               = _l('edit', _l('proposal_lowercase'));
+        if (!has_permission('proposals', '', 'create')) {
+            access_denied('proposals');
         }
-
+        $id = $this->proposals_model->add($proposal_data);
+        if ($id) {
+            set_alert('success', _l('added_successfully', _l('proposal')));
+        if ($this->set_proposal_pipeline_autoload($id)) {
+            redirect(admin_url('proposals'));
+        } else {
+            redirect(admin_url('proposals/list_proposals/' . $id));
+        }
+    }
+        } 
+        else {
+        if (!has_permission('proposals', '', 'edit')) {
+            access_denied('proposals');
+        }
+        $success = $this->proposals_model->update($proposal_data, $id);
+        if ($success) {
+        set_alert('success', _l('updated_successfully', _l('proposal')));
+        }
+        if ($this->set_proposal_pipeline_autoload($id)) {
+        redirect(admin_url('proposals'));
+        } else {
+        redirect(admin_url('proposals/list_proposals/' . $id));
+        }
+    }
+        }
+        if ($id == '') {
+        $title = _l('add_new', _l('proposal_lowercase'));
+        } else {
+        $data['proposal'] = $this->proposals_model->get($id);
+    
+        if (!$data['proposal'] || !user_can_view_proposal($id)) {
+        blank_page(_l('proposal_not_found'));
+        }
+    
+        $data['estimate']= $data['proposal'];
+        $data['is_proposal'] = true;
+        $title = _l('edit', _l('proposal_lowercase'));
+    }
+    
         $this->load->model('taxes_model');
         $data['taxes'] = $this->taxes_model->get();
         $this->load->model('invoice_items_model');
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-            $data['items'] = $this->invoice_items_model->get_grouped();
+        $data['items'] = $this->invoice_items_model->get_grouped();
         } else {
-            $data['items']     = [];
-            $data['ajaxItems'] = true;
+        $data['items'] = [];
+        $data['ajaxItems'] = true;
         }
         $data['items_groups'] = $this->invoice_items_model->get_groups();
-
-        $data['statuses']      = $this->proposals_model->get_statuses();
-        $data['staff']         = $this->staff_model->get('', ['active' => 1]);
-        $data['currencies']    = $this->currencies_model->get();
+        
+        $data['statuses'] = $this->proposals_model->get_statuses();
+        $data['staff'] = $this->staff_model->get('', ['active' => 1]);
+        $data['currencies']= $this->currencies_model->get();
         $data['base_currency'] = $this->currencies_model->get_base_currency();
-
+        
         $data['title'] = $title;
         $this->load->view('admin/proposals/proposal', $data);
-    }
+        }
+
+    // show pdf
+    public function show_pdf($id = '') {
+        if (empty($id)) {
+        show_404(); // Show a 404 error if no ID is provided.
+        return;
+         }
+        
+        // Load model and get proposal data based on ID
+        $proposal = $this->proposals_model->get($id);
+         
+        if (!$proposal) {
+        show_404(); // Show a 404 error if the proposal doesn't exist.
+        return;
+         }
+        
+        $pdf_path = './uploads/proposals/' . $proposal->pdf_path;
+        
+        if (!file_exists($pdf_path)) {
+        show_404(); // Show a 404 error if the PDF file doesn't exist.
+        return;
+         }
+         
+        // Read and serve the PDF file
+        header('Content-type: application/pdf');
+        header('Content-Disposition: inline; filename="' . $proposal->pdf_path . '"');
+        readfile($pdf_path);
+        }
 
     public function get_template()
     {

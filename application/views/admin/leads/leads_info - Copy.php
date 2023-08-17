@@ -4,24 +4,24 @@
 <div id="wrapper" class="bg-gray-100 p-10">
     <div class="content mx-auto">
 
-      <div class="relative w-full">
-        <div style="background-color:#00B4D8;" class="w-full h-[250px]  rounded-[20px] shadow-lg z-10 text-white text-semibold" >
-            <div class="m-7">
-                <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-8">John Joe</div>
-                    <div class="text-lg sm:text-lg md:text-xl font-bold flex pt-5">
+<div class="relative w-full">
+    <div style="background-color:#00B4D8;" class="w-full h-[250px]  rounded-[20px] shadow-lg z-10 text-white text-semibold" >
+        <div class="m-7">
+            <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-8">John Joe</div>
+                <div class="text-lg sm:text-lg md:text-xl font-bold flex pt-5">
                         <span class="text-base sm:text-lg md:text-lg pl-8">Status:</span>
-                            <div class="bg-white value ml-3">
-                                <?php
-                                    $selected = '';
-                                    if (isset($lead)) {
-                                        $selected = $lead->status;
-                                    } elseif (isset($status_id)) {
-                                        $selected = $status_id;
-                                    }
-                                    echo render_leads_status_select($statuses, $selected, 'lead_add_edit_status');
-                                ?>
-                            </div>
-                    </div>
+                        <div class="bg-white value ml-3">
+                            <?php
+                                $selected = '';
+                                if (isset($lead)) {
+                                    $selected = $lead->status;
+                                } elseif (isset($status_id)) {
+                                    $selected = $status_id;
+                                }
+                                echo render_leads_status_select($statuses, $selected, 'lead_add_edit_status');
+                            ?>
+                        </div>
+                </div>
                     <div class="text-sm sm:text-md flex mt-6 pl-8">
                         <div>leademail@example.com</div>
                         <div class="mx-2">|</div>
@@ -30,86 +30,75 @@
                         <div> City, Country</div>
                     </div>
                 </div>
-                    <!-- Buttons at the top-right -->
-                    <div class="absolute top-4 sm:top-8 md:top-8 right-4 sm:right-8 flex flex-col space-y-2 sm:space-y-4">
-                        <button class="bg-white text-info w-8 h-8 sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full">
-                            <a class="cursor-pointer" data-tooltip="Convert To Customer">
-                                <i class="fas fa-user-plus"></i> 
-                            </a></button>
-                        <button class="bg-white text-info sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full"> 
-                            <a onclick="init_lead(1, true);return false;" class="cursor-pointer" data-tooltip="Edit Leads">
-                                <i class="fas fa-pen"></i> 
-                            </a></button>
-                    </div>
+                  <!-- Buttons at the top-right -->
+                <div class="absolute top-4 sm:top-8 md:top-8 right-4 sm:right-8 flex flex-col space-y-2 sm:space-y-4">
+                    <button class="bg-white text-info w-8 h-8 sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full">
+                        <a class="cursor-pointer" data-tooltip="Convert To Customer">
+                            <i class="fas fa-user-plus"></i> 
+                        </a></button>
+                    <button class="bg-white text-info sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full"> 
+                        <a onclick="init_lead(1, true);return false;" class="cursor-pointer" data-tooltip="Edit Leads">
+                            <i class="fas fa-pen"></i> 
+                        </a></button>
                 </div>
+            </div>
 
-            <div class=" lg:flex relative bg-white shadow-lg rounded-[20px] -mt-8">
-                   
+<div class=" lg:flex relative bg-white shadow-lg rounded-[20px] -mt-8">
+
 <!-- First overlapping div -->
-                <div class=" lg:w-1/3 p-4"> 
-                <div class="text-md sm:text-md md:text-xl px-3 pt-2 font-semibold text-gray-800">More Information:</div>
+            <div class=" lg:w-1/3 p-4"> 
                     <div class="info-section my-5 py-8 space-y-3 ">
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">Email:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->email ?: '<i class="fas fa-envelope" title="No Email Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">Phone:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->phonenumber ?: '<i class="fas fa-phone" title="No Phone Number Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class=" font-semibold">Website:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->website ?: '<i class="fas fa-globe" title="No Website Available"></i>'; ?></span>    
-                        </div>
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">Company:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->company ?: '<i class="fas fa-building" title="No Company Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">Position:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->title ?: '<i class="fas fa-briefcase" title="No Position Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">Address:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->address ?: '<i class="fas fa-map-marker-alt" title="No Address Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">City:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->city ?: '<i class="fas fa-city" title="No City Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">State:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-flag" title="No State Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">Country:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->country ?: '<i class="fas fa-globe-americas" title="No Country Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">Zip Code:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->zip ?: '<i class="fas fa-map-pin" title="No Zip Code Available"></i>'; ?></span>
-                        </div>
-
-                        <div class="flex justify-between text-lg text-gray-700 mb-3">
-                            <span class="font-semibold">Description:</span>
-                            <span class="value1" style="cursor:pointer;"><?= $lead->description ?: '<i class="fas fa-align-left" title="No Description Available"></i>'; ?></span>
-                        </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">Email:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-envelope" title="No Email Available"></i>' ; ?></span>
                     </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">Website:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-globe" title="No Website Available"></i>' ; ?></span>
+                    </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">Position:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-briefcase" title="No Position Available"></i>' ; ?></span>
+                    </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">Company:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-building" title="No Company Available"></i>' ; ?></span>
+                    </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">Address:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-map-marker-alt" title="No Address Available"></i>' ; ?></span>
+                    </div>  
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">City:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-city" title="No City Available"></i>' ; ?></span>
+                    </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">State:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-flag" title="No State Available"></i>' ; ?></span>
+                    </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">Country:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-globe-americas" title="No Country Available"></i>' ; ?></span>
+                    </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">Zip Code:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-map-pin" title="No Zip-code Available"></i>' ; ?></span>
+                    </div>
+                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                        <span class="font-semibold">Description:</span>
+                        <span class="value1" style="cursor:pointer;"><?= $lead->state ?: '<i class="fas fa-align-left" title="No Description Available"></i>' ; ?></span>
+                    </div>
+                    
+
+                </div>
+                    
+                    
                 </div>
 
-<!-- SECOND OVERLAPPING DIV -->
-<div class="w-full lg:w-2/3 p-0">
-            <div class="bg-white rounded-xl p-6">
-                <div class="scrolling-navbar overflow-x-auto whitespace-nowrap  ">
-                    <ul class="tab-container flex flex-nowrap space-x-2 " id="leadTab" role="tablist">
+            <div class="w-full lg:w-2/3">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                 <div class="scrolling-navbar overflow-x-auto whitespace-nowrap pb-2 ">
+                     <ul class="tab-container flex flex-nowrap space-x-2 " id="leadTab" role="tablist">
                          <li class="tab-item">
                             <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200" id="activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="true">Activity</a>
                         </li>
@@ -117,37 +106,37 @@
                           <a class="text-xl text-gray-800 font-medium  py-2 px-2 " id="proposals-tab" data-toggle="tab" href="#proposals" role="tab" aria-controls="proposals" aria-selected="false" onclick="initDataTable('.table-proposals-lead', admin_url + 'proposals/proposal_relations/' + <?php echo $lead->id; ?> + '/lead','undefined', 'undefined','undefined',[6,'desc']);">Proposals</a>
                         </li>
                         <li class="tab-item">
-                            <a class="text-xl text-gray-800 font-medium  py-2 px-2 " id="Contracts-tab" data-toggle="tab" href="#Contracts" role="tab" aria-controls="Contracts" aria-selected="false">Contracts</a>
-                        </li>
-                        <li class="tab-item">
-                            <a class="text-xl text-gray-800 font-medium  py-2 px-2 " id="invoices-tab" data-toggle="tab" href="#invoices" role="tab" aria-controls="invoices" aria-selected="false">Invoices</a>
-                        </li>
-                        <li class="tab-item">
-                            <a class="text-xl text-gray-800 font-medium  py-2 px-2 " id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false" onclick="init_rel_tasks_table(<?php echo $lead->id; ?>,'lead','.table-rel-tasks-leads');">Tasks</a>
+
+                            <a class="text-xl text-gray-800 font-medium py-2 px-2 " id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false" onclick="init_rel_tasks_table(<?php echo $lead->id; ?>,'lead','.table-rel-tasks-leads');">Tasks</a>
                         </li>
                         <li class="tab-item">
                             <a class="text-xl text-gray-800 font-medium py-2 px-2 " id="attachments-tab" data-toggle="tab" href="#attachments" role="tab" aria-controls="attachments" aria-selected="false">Attachments</a>
                         </li>
                         <li class="tab-item">
-                            <a class="text-xl text-gray-800 font-medium py-2 px-2 " id="reminders-tab" data-toggle="tab" href="#reminders" role="tab" aria-controls="reminders" aria-selected="false" onclick="initDataTable('.table-reminders-leads', admin_url + 'misc/get_reminders/' + <?php echo $lead->id; ?> + '/' + 'lead', undefined, undefined,undefined,[1, 'asc']);">Reminders</a>
-                        </li>
-                        <li class="tab-item">
-                            <a class="text-xl text-gray-800 font-medium py-2 px-2" id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="false">Notes</a>
-                        </li>
-                        <li class="tab-item">
-                            <a class="text-xl text-gray-800 font-medium py-2 px-2 " id="communications-tab" data-toggle="tab" href="#communications" role="tab" aria-controls="communications" aria-selected="false">Communication</a>
-                        </li>
-                        <li class="tab-item">
-                            <a class="text-xl text-gray-800 font-medium py-2 px-2" id="event-tab" data-toggle="tab" href="#event" role="tab" aria-controls="event" aria-selected="false">Events</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                
-                <div class="tab-content customcontent p-5 mt-3 rounded-xl shadow-lg" id="leadTabContent">     
+
+                                <a class="text-xl text-gray-800 font-medium py-2 px-2 " id="reminders-tab" data-toggle="tab" href="#reminders" role="tab" aria-controls="reminders" aria-selected="false" onclick="initDataTable('.table-reminders-leads', admin_url + 'misc/get_reminders/' + <?php echo $lead->id; ?> + '/' + 'lead', undefined, undefined,undefined,[1, 'asc']);">Reminders</a>
+                            </li>
+                            <li class="tab-item">
+
+                                <a class="text-xl text-gray-800 font-medium py-2 px-2" id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="false">Notes</a>
+                            </li>
+                            <li class="tab-item">
+
+                                <a class="text-xl text-gray-800 font-medium py-2 px-2 " id="communications-tab" data-toggle="tab" href="#communications" role="tab" aria-controls="communications" aria-selected="false">Communication</a>
+                            </li>
+                            <li class="tab-item">
+
+                                <a class="text-xl text-gray-800 font-medium py-2 px-2" id="event-tab" data-toggle="tab" href="#event" role="tab" aria-controls="event" aria-selected="false">Events</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="tab-content customcontent p-5  shadow-lg" id="leadTabContent">       
                         <div class="tab-pane fade active in text-gray-800" id="activity" role="tabpanel" aria-labelledby="activity-tab">
                             <div>
-                            <div class="activity-feed">
+                                <div class="activity-feed">
                                         <?php foreach ($activity_log as $log) { ?>
                                     <div class="feed-item">
                                             <div class="date">
@@ -190,8 +179,8 @@
                                             </div>
                                         </div>
                                 <div class="clearfix"></div>
-                            </div>
                         </div>
+                    </div>
 
                         <div class="tab-pane fade text-gray-800" role="tabpanel" id="proposals" aria-labelledby="proposals-tab">
                             <?php if (has_permission('proposals', '', 'create')) { ?>
@@ -226,117 +215,6 @@
                                 'data-default-order'         => get_table_last_order('proposals-relation'),
                             ]);
                             ?>
-                        </div>
-                        <div class="tab-pane fade text-gray-800" role="tabpanel" id="Contracts" aria-labelledby="Contracts-tab" >
-                            <?php if (has_permission('proposals', '', 'create')) { ?>
-                            <a href="<?php echo admin_url('contracts/contract/?rel_type=lead&rel_id=' . $lead->id); ?>"
-                                class="btn btn-primary mbot25"><?php echo _l('New Contract'); ?></a>
-                            <?php } ?>
-                            <div class="w-full mx-auto">
-                                <div class="bg-white shadow-md rounded-md p-6">
-                                    <table id="campaigns_table" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    #
-                                                </th>
-                                                <th>
-                                                    Subject
-                                                </th>
-                                                <th>
-                                                    Relative
-                                                </th>
-                                                <th >
-                                                    Contract Type
-                                                </th>
-                                                <th >
-                                                    Contract Value
-                                                </th>
-                                                <th>
-                                                    Start Date
-                                                </th>
-                                                <th>
-                                                    End Date
-                                                </th>
-                                                <th>
-                                                    Project
-                                                </th>
-                                                <th>
-                                                    Signature
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach($contracts as $contract): ?>
-                                                <tr>
-                                                    <td>
-                                                        <?php echo $contract['id']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $contract['subject']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $contract['client_name'] ? $contract['client_name'] : $contract['lead_name']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $contract['contract_type']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $contract['contract_value']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $contract['datestart']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $contract['dateend']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $contract['project_id']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $contract['signature']; ?>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade text-gray-800" role="tabpanel" id="invoices" aria-labelledby="invoices-tab">
-                            <?php if (has_permission('proposals', '', 'create')) { ?>
-                            <a href="<?php echo admin_url('invoices/invoice'); ?>"
-                                class="btn btn-primary mbot25"><?php echo _l('new_invoice'); ?></a>
-                            <?php } ?>
-                            <?php
-                            $table_data = array(
-                                _l('invoice_dt_table_heading_number'),
-                                _l('invoice_dt_table_heading_amount'),
-                                _l('invoice_total_tax'),
-                                array(
-                                  'name'=>_l('invoice_estimate_year'),
-                                  'th_attrs'=>array('class'=>'not_visible')
-                                ),
-                                _l('invoice_dt_table_heading_date'),
-                                array(
-                                  'name'=>_l('invoice_dt_table_heading_client'),
-                                  'th_attrs'=>array('class'=>(isset($client) ? 'not_visible' : ''))
-                                ),
-                                _l('project'),
-                                _l('tags'),
-                                _l('invoice_dt_table_heading_duedate'),
-                                _l('invoice_dt_table_heading_status'));
-                              $custom_fields = get_custom_fields('invoice',array('show_on_table'=>1));
-                              foreach($custom_fields as $field){
-                                array_push($table_data, [
-                                 'name' => $field['name'],
-                                 'th_attrs' => array('data-type'=>$field['type'], 'data-custom-field'=>1)
-                               ]);
-                              }
-                              $table_data = hooks()->apply_filters('invoices_table_columns', $table_data);
-                              render_datatable($table_data, (isset($class) ? $class : 'invoices'));
-                              ?>
                         </div>
 
                         <div class="tab-pane fade text-gray-800" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
@@ -384,10 +262,10 @@
                                 <button id="createEventBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create New Event</button>
                                 
                                 <!-- Here's where we loop through the events to generate the cards -->
-                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 ">
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
                                     
                                     <?php foreach($tblevents as $tblevent): ?>
-                                        <div class="transition-transform transform bg-white hover:scale-105 cursor-pointer border p-4 rounded shadow hover:shadow-lg">
+                                        <div class="transition-transform transform hover:scale-105 cursor-pointer border p-4 rounded shadow hover:shadow-lg">
                                             <h3 class="text-xl font-bold mb-2"><?php echo $tblevent['event_name']; ?></h3>
                                             <p class="mb-2"><?php echo $tblevent['description']; ?></p>
                                             <a href="<?php echo $tblevent['meet_schedule_link']; ?>" target="_blank" class="text-blue-500 hover:text-blue-600 underline">Meet Schedule Link</a>
@@ -500,92 +378,51 @@
                                     </button>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="mt-6 bg-white rounded-xl shadow-md p-4">
-                <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Conversation</h2>
 
-    <!-- Conversation start -->
-    <div class="space-y-4 mt-4">
 
-        <!-- Sender Name and Message -->
-        <div class="flex flex-col items-start justify-start mb-2">
-            <div class="p-2 bg-blue-200 text-blue-800 max-w-xs rounded-tl rounded-tr rounded-br">
-                Hi! How are you?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam labore distinctio rerum veniam accusantium. Dolorem temporibus minus dicta ipsum reprehenderit tenetur, necessitatibus quisquam sit dolor provident animi iure deleniti natus!
+                        <hr>
+                        <div class="mt-6 bg-white rounded-xl shadow-md p-4">
+                        <h2 class="text-2xl font-semibold mb-4 border-b pb-2">Conversation</h2>
+
+                            <!-- Conversation start -->
+                            <div class="space-y-4 mt-4">
+
+                            <!-- Sender Name and Message -->
+                            <div class="flex flex-col items-start justify-start mb-2">
+                                <div class="p-2 bg-blue-200 text-blue-800 max-w-xs rounded-tl rounded-tr rounded-br">
+                                    Hi! How are you?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam labore distinctio rerum veniam accusantium. Dolorem temporibus minus dicta ipsum reprehenderit tenetur, necessitatibus quisquam sit dolor provident animi iure deleniti natus!
+                                </div>
+                            </div>
+
+                            <!-- Receiver Name and Message -->
+                            <div class="flex flex-col items-end justify-end mb-2">
+                                <div class="p-2 bg-green-200 text-green-800 max-w-xs rounded-tr rounded-tl rounded-bl">
+                                    I'm good, thanks! How about you?Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quod iste, quam rem enim atque incidunt quisquam est dignissimos molestiae porro totam id, laborum error adipisci qui vitae repellat quos.you?Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dignissimos atque iure doloremque maiores illum incidunt veniam ducimus voluptate fuga provident nostrum quod, eius similique eaque suscipit veritatis a? Aliquid.
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>        
+
+                          </div>
+                </div>
             </div>
         </div>
-
-        <!-- Receiver Name and Message -->
-        <div class="flex flex-col items-end justify-end mb-2">
-            <div class="p-2 bg-green-200 text-green-800 max-w-xs rounded-tr rounded-tl rounded-bl">
-                I'm good, thanks! How about you?Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quod iste, quam rem enim atque incidunt quisquam est dignissimos molestiae porro totam id, laborum error adipisci qui vitae repellat quos.you?Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dignissimos atque iure doloremque maiores illum incidunt veniam ducimus voluptate fuga provident nostrum quod, eius similique eaque suscipit veritatis a? Aliquid.
-            </div>
-        </div>
     </div>
-</div>
-</div>
-    </div>
-</div>
+</div>              
 
- <!-- Create Event Modal -->
- <div id="createEventModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden" style="z-index:999;">
-    <div class="bg-white p-8 rounded">
-        <div class="flex justify-between items-center">
-            <h2 class="text-2xl">Create New Event</h2>
-            <button id="closeModal" class="text-3xl text-gray-800 hover:text-gray-600" onclick="closeEventModal()">&times;</button>
-        </div>
-        <form id="event_form">
-            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
-            <input type="text" name="event_name" placeholder="Event Name" class="w-full p-2 border rounded mt-2">
-            <textarea name="description" placeholder="Event Description" class="w-full p-2 border rounded mt-2"></textarea>
-            <input type="text" name="meet_schedule_link" placeholder="Meet Schedule Link" class="w-full p-2 border rounded mt-2">
-            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Save</button>
-        </form>
-    </div>
-</div>
-
-
+            
 
 
  <?php init_tail(); ?>
-</body>
-</html>
+
 <script>
-        document.getElementById("createEventBtn").addEventListener("click", function() {
-        document.getElementById("createEventModal").classList.remove('hidden');
-    });
-    function closeEventModal() {
-    document.getElementById("createEventModal").classList.add('hidden');
-    }
-    window.onclick = function(event) {
-        if (event.target == document.getElementById("createEventModal")) {
-            document.getElementById("createEventModal").classList.add('hidden');
-        }
-    };
-    $("#event_form").submit(function(e) {
-    e.preventDefault();
-    $.ajax({
-        url: "<?php echo admin_url("Leads/Event_create") ?>",
-        type: "POST",
-        data: $(this).serialize(),
-        success: function(response) {
-            var jsonResponse = JSON.parse(response);  // Parse the JSON response
-            if(jsonResponse.status === "success") {
-                alert(jsonResponse.message); // Show the success message
-                closeEventModal(); // Close the modal
-            } else {
-                alert(jsonResponse.message); // Show the error message
-            }
-        }
-    });
-});
-$("#campaigns_table").DataTable({
-    initComplete: function() {
-    $('#campaigns_table_wrapper').removeClass('table-loading');
- }
- });
 
-
+    
 </script>
+
+
 <style>
 .customcontent{
         background: #f8f8f8;
@@ -718,7 +555,7 @@ $("#campaigns_table").DataTable({
 
 .value1 {
     font-size: 1em;
-    color: #00B4D8;
+    color: #219ebc;
     text-align: right;
 }
 
@@ -773,3 +610,6 @@ $("#campaigns_table").DataTable({
 }
 
 </style>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<<<<<<< Updated upstream
 ERROR - 2023-08-15 11:29:59 --> Severity: Warning --> Attempt to read property "subject" on array D:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Contracts.php 122
 ERROR - 2023-08-15 11:29:59 --> Severity: Warning --> Attempt to read property "client" on array D:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Contracts.php 124
 ERROR - 2023-08-15 11:30:04 --> Severity: Warning --> Attempt to read property "signed" on array D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 7
@@ -1234,3 +1235,12 @@ ERROR - 2023-08-15 21:49:39 --> Severity: Warning --> Attempt to read property "
 ERROR - 2023-08-15 21:49:39 --> Severity: Warning --> Attempt to read property "id" on array D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 255
 ERROR - 2023-08-15 21:49:39 --> Severity: Warning --> Attempt to read property "attachments" on array D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 287
 ERROR - 2023-08-15 21:49:39 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 287
+=======
+ERROR - 2023-08-15 15:48:44 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
+ERROR - 2023-08-15 15:48:51 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
+ERROR - 2023-08-15 15:49:12 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
+ERROR - 2023-08-15 15:49:15 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
+ERROR - 2023-08-15 15:49:35 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
+ERROR - 2023-08-15 15:51:35 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
+ERROR - 2023-08-15 15:51:41 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
+>>>>>>> Stashed changes

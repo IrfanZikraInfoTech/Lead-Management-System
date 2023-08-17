@@ -27,7 +27,7 @@
 <?php init_tail(); ?>
 <script>
 $(function() {
-    validate_invoice_form();
+    // validate_invoice_form();
     // Init accountacy currency symbol
     init_currency();
     // Project ajax search
@@ -35,6 +35,66 @@ $(function() {
     // Maybe items ajax search
     init_ajax_search('items', '#item_select.ajax-search', undefined, admin_url + 'items/search');
 });
+
+$(document).ready(function() {
+    // Initially hide both forms
+    toggleClientOrLead();
+
+    // Toggle dropdown based on the selected type
+    $('#typeSelector').change(function() {
+        toggleClientOrLead();
+        clearValues();
+    });
+
+    function toggleClientOrLead() {
+        var type = $('#typeSelector').val();
+        if(type == 'customer') {
+            $('#customerForm').show();
+            $('#leadForm').hide();
+        } else if(type == 'lead') {
+            $('#leadForm').show();
+            $('#customerForm').hide();
+        } else {
+            $('#customerForm').hide();
+            $('#leadForm').hide();
+        }
+    }
+
+    function clearValues() {
+        if($('#typeSelector').val() == 'customer') {
+            $("#leadid").val('').trigger('change');
+        } else if($('#typeSelector').val() == 'lead') {
+            $("#clientid").val('').trigger('change');
+        }
+    }
+
+    // If you need this script loading check, you can keep it.
+    console.log("Script loaded!");
+});
+
+function init_ajax_lead_dropdown() {
+    $.get(admin_url + 'leads/get_all_leads', function(response) {
+        var leads = JSON.parse(response);
+        var $leadSelect = $('#leadid');
+        var selectedLead = $leadSelect.data('selected'); // Get the lead ID to be selected
+
+        $leadSelect.empty(); // Clear current options
+        
+        $leadSelect.append('<option value=""></option>');
+        $.each(leads, function(i, lead) {
+            var isSelected = (lead.id == selectedLead) ? 'selected' : ''; // Check if this lead should be selected
+            $leadSelect.append('<option value="' + lead.id + '" ' + isSelected + '>' + lead.name + '</option>');
+        });
+    });
+}
+
+
+// Call the function when the document is ready:
+$(function() {
+    init_ajax_lead_dropdown();
+});
+
+
 </script>
 </body>
 

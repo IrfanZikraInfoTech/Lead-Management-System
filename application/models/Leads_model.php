@@ -122,30 +122,35 @@ class Leads_model extends App_Model
         if (isset($data['custom_contact_date'])) {
             unset($data['custom_contact_date']);
         }
-
+        
         $data['description'] = nl2br($data['description']);
         $data['dateadded']   = date('Y-m-d H:i:s');
         $data['addedfrom']   = get_staff_user_id();
-
+        
+        if (isset($data['assigned']) && is_array($data['assigned'])) {
+            $data['assigned'] = implode(',', $data['assigned']); // Convert array to comma-separated string
+        }
+        
         $data = hooks()->apply_filters('before_lead_added', $data);
-
+        
         $tags = '';
         if (isset($data['tags'])) {
             $tags = $data['tags'];
             unset($data['tags']);
         }
-
+        
         if (isset($data['custom_fields'])) {
             $custom_fields = $data['custom_fields'];
             unset($data['custom_fields']);
         }
-
+        
         $data['address'] = trim($data['address']);
         $data['address'] = nl2br($data['address']);
-
+        
         $data['email'] = trim($data['email']);
         $this->db->insert(db_prefix() . 'leads', $data);
         $insert_id = $this->db->insert_id();
+        
         if ($insert_id) {
             log_activity('New Lead Added [ID: ' . $insert_id . ']');
             $this->log_lead_activity($insert_id, 'not_lead_activity_created');
@@ -297,9 +302,14 @@ class Leads_model extends App_Model
 
         $data['email'] = trim($data['email']);
 
-        $this->db->where('id', $id);
-        $this->db->update(db_prefix() . 'leads', $data);
-        if ($this->db->affected_rows() > 0) {
+
+        if (isset($data['assigned']) && is_array($data['assigned'])) {
+            $data['assigned'] = implode(',', $data['assigned']);
+            }
+
+            $this->db->where('id', $id);
+            $this->db->update(db_prefix() . 'leads', $data);
+            if ($this->db->affected_rows() > 0) {
             $affectedRows++;
             if (isset($data['status']) && $current_status_id != $data['status']) {
                 $this->db->where('id', $id);
@@ -584,9 +594,15 @@ class Leads_model extends App_Model
             if ($lead->addedfrom != get_staff_user_id()) {
                 array_push($not_user_ids, $lead->addedfrom);
             }
-            if ($lead->assigned != get_staff_user_id() && $lead->assigned != 0) {
-                array_push($not_user_ids, $lead->assigned);
+        
+            // Split the assigned users into an array
+            $assigned_user_ids = explode(',', $lead->assigned);
+            foreach ($assigned_user_ids as $assigned_user_id) {
+                if ($assigned_user_id != get_staff_user_id() && $assigned_user_id != 0) {
+                    array_push($not_user_ids, $assigned_user_id);
+                }
             }
+        
             $notifiedUsers = [];
             foreach ($not_user_ids as $uid) {
                 $notified = add_notification([
@@ -892,6 +908,23 @@ class Leads_model extends App_Model
      * @param  mixed $id lead id
      * @return array
      */
+
+    public function get_invoice_for_lead($id)
+    {
+         $this->db->select('tblinvoices.*, tblleads.name as lead_name');
+         $this->db->from('tblinvoices');
+         $this->db->join('tblleads', 'tblinvoices.rel_id = tblleads.id AND tblinvoices.rel_type = "lead"', 'left');
+         $query = $this->db->get();
+     
+         // Check if the query returns a result and then return the data.
+         if ($query->num_rows() > 0) {
+             return $query->result();
+         }
+     
+         return false;
+    }
+
+
     public function get_lead_activity_log($id)
     {
         $sorting = hooks()->apply_filters('lead_activity_log_default_sort', 'ASC');
@@ -912,38 +945,69 @@ class Leads_model extends App_Model
 
         $CI = &get_instance();
 
-        if (total_rows(db_prefix() . 'leads', 'id="' . $CI->db->escape_str($id) . '" AND (assigned=' . $CI->db->escape_str($staff_id) . ' OR is_public=1 OR addedfrom=' . $CI->db->escape_str($staff_id) . ')') > 0) {
+        if (total_rows(db_prefix() . 'leads', 'id="' . $CI->db->escape_str($id) . '" AND (FIND_IN_SET(' . $CI->db->escape_str($staff_id) . ', assigned) OR is_public=1 OR addedfrom=' . $CI->db->escape_str($staff_id) . ')') > 0) {
             return true;
         }
-
+        
         return false;
     }
 
     /**
      * Add lead activity from staff
      * @param  mixed  $id          lead id
-     * @param  string  $description activity description
+     * @param  string  $description activity description 
      */
     public function log_lead_activity($id, $description, $integration = false, $additional_data = '')
     {
+        $current_staff_name = get_staff_full_name(get_staff_user_id());
+    
+        // If description is "not_lead_activity_assigned_to", fetch multiple staff members
+        if($description == 'not_lead_activity_assigned_to') {
+            // Get the lead information.
+            $lead = $this->get($id);
+    
+            // Extract the assigned staff member IDs.
+            $assigned_staff_ids = explode(',', $lead->assigned); // Assuming it's a comma-separated string
+    
+            // Fetch their names using your provided code.
+            $CI =& get_instance();
+            $CI->load->model('staff_model');
+    
+            $staff_names = [];
+            foreach ($assigned_staff_ids as $assignee) {
+                $staff = $CI->staff_model->get($assignee);
+                if ($staff) {
+                    $full_name = $staff->firstname . ' ' . $staff->lastname;
+                    $staff_names[] = $full_name;
+                }
+            }
+    
+            // Convert the names into a single string.
+            $names_string = implode(', ', $staff_names);
+    
+            // Create the final description
+            $description = $current_staff_name . ' - ' . $current_staff_name . ' assigned to ' . $names_string;
+        }
+    
         $log = [
             'date'            => date('Y-m-d H:i:s'),
             'description'     => $description,
             'leadid'          => $id,
             'staffid'         => get_staff_user_id(),
             'additional_data' => $additional_data,
-            'full_name'       => get_staff_full_name(get_staff_user_id()),
+            'full_name'       => $current_staff_name,
         ];
         if ($integration == true) {
             $log['staffid']   = 0;
             $log['full_name'] = '[CRON]';
         }
-
+    
         $this->db->insert(db_prefix() . 'lead_activity_log', $log);
-
+    
         return $this->db->insert_id();
     }
-
+    
+    
     /**
      * Get email integration config
      * @return object
@@ -1282,6 +1346,7 @@ public function getLeadsBySalesperson() {
             // ... Add more dummy data as needed
         ];
     }
+
     
 
 // dashboard widgets end

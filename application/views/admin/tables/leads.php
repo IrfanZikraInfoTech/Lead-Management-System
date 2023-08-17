@@ -86,7 +86,7 @@ if ($this->ci->input->post('source')) {
 }
 
 if (!has_permission('leads', '', 'view')) {
-    array_push($where, 'AND (assigned =' . get_staff_user_id() . ' OR addedfrom = ' . get_staff_user_id() . ' OR is_public = 1)');
+    array_push($where, 'AND (FIND_IN_SET(' . get_staff_user_id() . ', assigned) > 0 OR addedfrom = ' . get_staff_user_id() . ')');
 }
 
 $aColumns = hooks()->apply_filters('leads_table_sql_columns', $aColumns);
@@ -165,15 +165,29 @@ foreach ($rResult as $aRow) {
     $row[] .= render_tags($aRow['tags']);
 
     $assignedOutput = '';
+    $CI =& get_instance();
+    $CI->load->model('staff_model');
+
+    
     if ($aRow['assigned'] != 0) {
-        $full_name = $aRow['assigned_firstname'] . ' ' . $aRow['assigned_lastname'];
+        $assignees = explode(',', $aRow['assigned']); // Split the assigned field into an array
+        $assignedOutput .= '<div class="flex flex-row gap-2">';
+        foreach ($assignees as $assignee) {
+            $staff = $CI->staff_model->get($assignee); 
+        if ($staff){
+                $full_name = $staff->firstname . ' ' . $staff->lastname;
 
-        $assignedOutput = '<a data-toggle="tooltip" data-title="' . $full_name . '" href="' . admin_url('profile/' . $aRow['assigned']) . '">' . staff_profile_image($aRow['assigned'], [
-            'staff-profile-image-small',
-            ]) . '</a>';
+                $assignedOutput .= '<a data-toggle="tooltip" data-title="' . $full_name . '" href="' . admin_url('profile/' . $assignee) . '">' . staff_profile_image($assignee, [
+                    'staff-profile-image-small',
+                    ]) . '</a>';
 
-        // For exporting
-        $assignedOutput .= '<span class="hide">' . $full_name . '</span>';
+                // For exporting
+                $assignedOutput .= '<span class="hide">' . $full_name . '</span>';
+        }
+        }
+        $assignedOutput .= '</div>';
+
+
     }
 
     $row[] = $assignedOutput;
@@ -238,3 +252,4 @@ foreach ($rResult as $aRow) {
 
     $output['aaData'][] = $row;
 }
+

@@ -20,7 +20,7 @@
             }
             ?>
             <?php
-         echo form_open($this->uri->uri_string(), ['id' => 'proposal-form', 'class' => '_transaction_form proposal-form']);
+         echo form_open($this->uri->uri_string(), ['id' => 'proposal-form', 'class' => '_transaction_form proposal-form', 'enctype' => 'multipart/form-data']);
 
          if ($this->input->get('estimate_request_id')) {
              echo form_hidden('estimate_request_id', $this->input->get('estimate_request_id'));

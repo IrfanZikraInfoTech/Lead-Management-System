@@ -43,7 +43,7 @@ class Proposals_model extends App_Model
      * Inserting new proposal function
      * @param mixed $data $_POST data
      */
-    public function add($data)
+    public function add($data, $uploaded_file_path = '')
     {
         $data['allow_comments'] = isset($data['allow_comments']) ? 1 : 0;
 
@@ -100,6 +100,10 @@ class Proposals_model extends App_Model
 
         $data  = $hook['data'];
         $items = $hook['items'];
+
+        if (!empty($uploaded_file_path)) {
+            $data['upload'] = $uploaded_file_path;
+        }
 
         $this->db->insert(db_prefix() . 'proposals', $data);
         $insert_id = $this->db->insert_id();

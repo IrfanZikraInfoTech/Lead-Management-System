@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<<<<<<< Updated upstream
 ERROR - 2023-08-14 20:09:22 --> Severity: Warning --> Undefined variable $leads D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 77
 ERROR - 2023-08-14 20:09:22 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 77
 ERROR - 2023-08-14 20:16:32 --> Severity: Warning --> Undefined variable $leads D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 77
@@ -105,3 +106,7 @@ ERROR - 2023-08-14 23:18:11 --> Severity: Warning --> Attempt to read property "
 ERROR - 2023-08-14 23:18:11 --> Severity: Warning --> Attempt to read property "id" on array D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 255
 ERROR - 2023-08-14 23:18:11 --> Severity: Warning --> Attempt to read property "attachments" on array D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 287
 ERROR - 2023-08-14 23:18:11 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 287
+=======
+ERROR - 2023-08-14 18:26:58 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-14 21:17:15 --> Severity: Warning --> Undefined variable $uploadedFilePath C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 144
+>>>>>>> Stashed changes

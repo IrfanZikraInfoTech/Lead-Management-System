@@ -39,7 +39,7 @@
                             data-toggle="tooltip"
                             data-title="<?php echo _l('item_description_new_lines_notice'); ?>"></i>
                         <?php echo _l('estimate_table_item_heading'); ?></th>
-                    <th width="25%" align="left"><?php echo _l('estimate_table_item_description'); ?></th>
+                    <th width="50%" align="left"><?php echo _l('estimate_table_item_description'); ?></th>
                     <?php
                   $custom_fields = get_custom_fields('items');
                   foreach ($custom_fields as $cf) {
@@ -53,6 +53,7 @@
                       $qty_heading = _l('estimate_table_quantity_heading') . '/' . _l('estimate_table_hours_heading');
                   }
                   ?>
+                    <th>Upload PDF</th>
                     <th width="10%" class="qty" align="right"><?php echo $qty_heading; ?></th>
                     <th width="15%" align="right"><?php echo _l('estimate_table_rate_heading'); ?></th>
                     <th width="20%" align="right"><?php echo _l('estimate_table_tax_heading'); ?></th>
@@ -71,6 +72,10 @@
                         <textarea name="long_description" rows="4" class="form-control"
                             placeholder="<?php echo _l('item_long_description_placeholder'); ?>"></textarea>
                     </td>
+                    <td>
+                    <input type="file" name="pdf_file" id="pdfUpload" accept=".pdf">
+                    </td>
+                    
                     <?php echo render_custom_fields_items_table_add_edit_preview(); ?>
                     <td>
                         <input type="number" name="quantity" min="0" value="1" class="form-control"
@@ -123,7 +128,7 @@
 
                          foreach ($add_items as $item) {
                              $manual    = false;
-                             $table_row = '<tr class="sortable item">';
+                             $table_row = '<tr class="sortable item xyz">';
                              $table_row .= '<td class="dragger">';
                              if ($item['qty'] == '' || $item['qty'] == 0) {
                                  $item['qty'] = 1;
@@ -263,3 +268,14 @@
     </div>
     <div id="removed-items"></div>
 </div>
+
+<script>
+    document.getElementById('pdfUpload').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+
+    if(file.type !== "application/pdf") {
+        alert('Please upload PDF file.');
+        event.target.value = '';  // Reset the input field
+    }
+});
+</script>

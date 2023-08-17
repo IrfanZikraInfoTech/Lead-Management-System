@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<<<<<<< Updated upstream
 ERROR - 2023-08-16 14:56:38 --> Severity: Warning --> Undefined variable $leads D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 78
 ERROR - 2023-08-16 14:56:38 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 78
 ERROR - 2023-08-16 14:59:49 --> Severity: Warning --> Array to string conversion D:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Contracts.php 85
@@ -1255,3 +1256,76 @@ ERROR - 2023-08-16 23:52:03 --> Could not find the language line "New Contract"
 ERROR - 2023-08-16 23:52:14 --> Could not find the language line "New Contract"
 ERROR - 2023-08-16 23:52:22 --> Could not find the language line "Relative"
 ERROR - 2023-08-16 21:35:12 --> 404 Page Not Found: admin/Invoices/index
+=======
+ERROR - 2023-08-16 17:38:36 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 17:40:43 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 17:41:04 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 17:41:28 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 17:42:20 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 17:42:29 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 17:42:56 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 17:44:46 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:40:26 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:40:26 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 20:41:21 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:41:21 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 20:41:43 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:41:43 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 20:43:17 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:43:17 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 20:43:17 --> Severity: Warning --> Undefined variable $contracts C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 356
+ERROR - 2023-08-16 20:43:17 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 356
+ERROR - 2023-08-16 20:43:59 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:43:59 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 20:48:54 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:48:54 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 20:49:05 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:49:05 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 20:50:10 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 20:50:10 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 20:59:49 --> Severity: Warning --> Undefined variable $contract C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice_template.php 890
+ERROR - 2023-08-16 20:59:49 --> Severity: Warning --> Attempt to read property "id" on null C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice_template.php 890
+ERROR - 2023-08-16 21:00:55 --> Severity: Warning --> Undefined variable $contract C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice_template.php 942
+ERROR - 2023-08-16 21:00:55 --> Severity: Warning --> Attempt to read property "id" on null C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice_template.php 942
+ERROR - 2023-08-16 21:02:45 --> Severity: Warning --> Undefined variable $contract C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice.php 91
+ERROR - 2023-08-16 21:02:45 --> Severity: Warning --> Attempt to read property "id" on null C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice.php 91
+ERROR - 2023-08-16 21:05:35 --> Severity: Warning --> Undefined variable $contract C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice.php 91
+ERROR - 2023-08-16 21:05:35 --> Severity: Warning --> Attempt to read property "id" on null C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice.php 91
+ERROR - 2023-08-16 21:10:48 --> Severity: Warning --> Undefined variable $contract C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice.php 106
+ERROR - 2023-08-16 21:10:48 --> Severity: Warning --> Attempt to read property "id" on null C:\xampp\htdocs\Lead-Management-System\application\views\admin\invoices\invoice.php 106
+ERROR - 2023-08-16 18:13:09 --> 404 Page Not Found: admin/Leads/get_all_leads
+ERROR - 2023-08-16 22:49:58 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 22:49:58 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 22:50:17 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 22:50:17 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 22:51:14 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 22:51:14 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:36:51 --> Query error: Unknown column 'rel_type' in 'field list' - Invalid query: INSERT INTO `tblinvoices` (`rel_type`, `clientid`, `rel_id`, `project_id`, `billing_street`, `billing_city`, `billing_state`, `billing_zip`, `billing_country`, `show_shipping_on_invoice`, `shipping_street`, `shipping_city`, `shipping_state`, `shipping_zip`, `shipping_country`, `number`, `date`, `duedate`, `allowed_payment_modes`, `currency`, `sale_agent`, `recurring`, `discount_type`, `adminnote`, `show_quantity_as`, `subtotal`, `discount_percent`, `discount_total`, `adjustment`, `total`, `clientnote`, `terms`, `prefix`, `number_format`, `datecreated`, `addedfrom`, `cancel_overdue_reminders`, `hash`, `include_shipping`) VALUES ('', '', '', 0, '', '', '', '', 0, 1, NULL, NULL, NULL, NULL, NULL, '000001', '2023-08-16', '2023-09-15', 'a:1:{i:0;s:1:\"1\";}', '1', '1', '0', '', '', '1', '0.00', '0', '0.00', '0.00', '0.00', '', '', 'INV-', '1', '2023-08-16 23:36:51', '1', 0, '8b3d974d472bda7fce51fe1388874e7d', 0)
+ERROR - 2023-08-16 23:41:31 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:41:31 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:55:44 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:55:44 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:55:44 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 359
+ERROR - 2023-08-16 23:55:56 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:55:56 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:55:56 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 359
+ERROR - 2023-08-16 23:56:27 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:56:27 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:56:27 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 359
+ERROR - 2023-08-16 23:57:02 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:57:02 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:57:02 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 359
+ERROR - 2023-08-16 23:57:05 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:57:05 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:57:05 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 359
+ERROR - 2023-08-16 23:57:33 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:57:33 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:57:33 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 359
+ERROR - 2023-08-16 23:58:48 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:58:48 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:58:48 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 362
+ERROR - 2023-08-16 23:59:00 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:59:00 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-16 23:59:03 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-16 23:59:03 --> Could not find the language line "new_invoice"
+>>>>>>> Stashed changes

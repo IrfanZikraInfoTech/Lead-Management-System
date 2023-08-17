@@ -505,3 +505,33 @@ ERROR - 2023-08-17 21:31:18 --> Could not find the language line "new_invoice"
 ERROR - 2023-08-17 21:31:50 --> Could not find the language line "New Contract"
 ERROR - 2023-08-17 21:31:50 --> Could not find the language line "new_invoice"
 ERROR - 2023-08-17 21:32:06 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 22:11:40 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 22:11:40 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-17 22:11:44 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 22:13:36 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 22:15:04 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:15:35 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:17:16 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:21:14 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:21:35 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:21:42 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:21:56 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:22:03 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:22:16 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:22:22 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:22:41 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:23:05 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:23:14 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:23:39 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:23:48 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:24:56 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:25:18 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:25:39 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:25:50 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:25:58 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:26:09 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:26:50 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:27:11 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:27:18 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:27:26 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176
+ERROR - 2023-08-17 22:27:58 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 176

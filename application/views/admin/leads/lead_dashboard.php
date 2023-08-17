@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack.css" integrity="sha512-wGn4psGeoo2QCOeNTGMSPqApjOg8IAzIyI01xgK9jWGBz93aA3DIRIcHSitP6H4pPA5xnqa30nAwkCzvOvHJJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
 <style>
-
 .grid-stack-placeholder{
     border: 2px dashed black;
 }
@@ -193,7 +192,7 @@
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Status Distribution</h2>
                         <div class="d-flex justify-content-center">
-                            <canvas id="leadStatusChart" style="max-width: 85%; height: 500px;"class="my-4 mx-auto"></canvas>
+                            <canvas id="leadStatusChart" style="max-width: 100%; height: auto;"class="my-4 mx-auto"></canvas>
                         </div>
                     </div>
                 </div>
@@ -207,7 +206,7 @@
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center py-2" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Source Tracking</h2>
                         <div class="d-flex justify-content-center">
-                            <canvas id="leadSourceChart"  style="max-width: 85%; height: 260px;"class=" mx-auto"></canvas>
+                            <canvas id="leadSourceChart"  style="max-width: 80%; height: auto;"class=" mx-auto"></canvas>
                         </div>
                     </div>
                 </div>
@@ -222,7 +221,7 @@
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Distribution by Salesperson</h2>
                         <div class="d-flex justify-content-center">
-                            <canvas class="mx-auto" id="leadBySalespersonChart"  style="max-width: 90%; height: 300px;"></canvas>
+                            <canvas class="mx-auto" id="leadBySalespersonChart"  style="max-width: 90%; height: auto;"></canvas>
                         </div>
                     </div>
                 </div>
@@ -235,7 +234,7 @@
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                     <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Conversion Rate Over Time</h2>
                     <div class="d-flex justify-content-center">
-                        <canvas class="mx-auto" id="leadConversionRateProgressBarChart" style="max-width: 90%; height: 300px;"></canvas>
+                        <canvas class="mx-auto" id="leadConversionRateProgressBarChart" style="max-width: 90%; height: 200px;"></canvas>
                     </div>
                 </div>
             </div>
@@ -299,12 +298,12 @@
                 <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                 <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Lifecycle</h2>
                     <div class="d-flex justify-content-center">
-                        <canvas class="mx-auto"id="leadLifecycleChart" style="max-width: 85%; height: 250px;"></canvas>
+                        <canvas class="mx-auto"id="leadLifecycleChart" style="max-width: 72%; height: auto;"></canvas>
                     </div>
                 </div>
             </div>
         </div>
-
+s
         <div class="col-lg-3 col-md-3 col-sm-3 mb-4">
             <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
@@ -337,7 +336,7 @@
                 <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                     <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Response Time Distribution</h2>
                     <div class="d-flex justify-content-center">
-                        <canvas id="leadResponseTimeDonutChart" style="max-width: 90%; height: 300px;"></canvas>
+                        <canvas id="leadResponseTimeDonutChart" style="max-width: 90%; height: 200px;"></canvas>
                     </div>
                 </div>
             </div>
@@ -348,7 +347,7 @@
                 <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                 <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Interaction History</h2>
                 <div class="d-flex justify-content-center">
-                <canvas id="leadInteractionChart"style="max-width: 90%; height: 300px;"></canvas>
+                <canvas id="leadInteractionChart"style="max-width: 90%; height: 200px;"></canvas>
             </div>
             </div>
         </div>

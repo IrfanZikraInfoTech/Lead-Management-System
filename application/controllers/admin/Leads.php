@@ -19,7 +19,25 @@ class Leads extends AdminController
     }
 
     /* List all leads */
-
+    public function Event_create() {
+        if($this->input->post()) {
+            $data = $this->input->post();
+            $success = $this->leads_model->create_event($data);
+    
+            if ($success) {
+                echo json_encode(['status' => 'success', 'message' => 'Event created successfully!']);
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Error in creating event.']);
+            }
+        }
+    }
+    
+    public function contracts_relation($lead_id) {
+        $data['contracts'] = $this->leads_model->get_contracts_for_lead($lead_id);
+        $this->load->view('leads_info', $data); // replace 'path_to_your_view_file' with your actual path.
+    }
+    
+    
 
     // widgets work
     public function index() {
@@ -104,6 +122,7 @@ class Leads extends AdminController
         $data['status_id']     = $this->input->get('status_id') ? $this->input->get('status_id') : get_option('leads_default_status');
         $data['base_currency'] = get_base_currency();
 
+
         if (is_numeric($id)) {
             $leadWhere = (has_permission('leads', '', 'view') ? [] : '(assigned = ' . get_staff_user_id() . ' OR addedfrom=' . get_staff_user_id() . ' OR is_public=1)');
 
@@ -130,6 +149,8 @@ class Leads extends AdminController
             $data['mail_activity'] = $this->leads_model->get_mail_activity($id);
             $data['notes']         = $this->misc_model->get_notes($id, 'lead');
             $data['activity_log']  = $this->leads_model->get_lead_activity_log($id);
+            $data['tblevents']     = $this->leads_model->get_all_events($id);
+            $data['contracts']     = $this->leads_model->get_contracts_for_lead($id);
 
             if (is_gdpr() && get_option('gdpr_enable_consent_for_leads') == '1') {
                 $this->load->model('gdpr_model');
@@ -143,6 +164,7 @@ class Leads extends AdminController
             $data['total_attachments'] = $leadProfileBadges->getCount('attachments');
             $data['total_tasks']       = $leadProfileBadges->getCount('tasks');
             $data['total_proposals']   = $leadProfileBadges->getCount('proposals');
+            // $data['total_events']      = $leadProfileBadges->getCount('events');
         }
 
 
@@ -259,6 +281,7 @@ class Leads extends AdminController
             $data['mail_activity'] = $this->leads_model->get_mail_activity($id);
             $data['notes']         = $this->misc_model->get_notes($id, 'lead');
             $data['activity_log']  = $this->leads_model->get_lead_activity_log($id);
+            $data['events']        = $this->leads_model->get_all_events($id);
 
             if (is_gdpr() && get_option('gdpr_enable_consent_for_leads') == '1') {
                 $this->load->model('gdpr_model');
@@ -272,6 +295,7 @@ class Leads extends AdminController
             $data['total_attachments'] = $leadProfileBadges->getCount('attachments');
             $data['total_tasks']       = $leadProfileBadges->getCount('tasks');
             $data['total_proposals']   = $leadProfileBadges->getCount('proposals');
+            $data['total_events']      = $leadProfileBadges->getCount('events');
         }
 
 
@@ -285,7 +309,14 @@ class Leads extends AdminController
             'reminder_data' => $reminder_data,
         ];
     }
-
+    public function get_all_leads() {
+        if ($this->input->is_ajax_request()) {
+            $this->load->model('leads_model');
+            
+            $leads = $this->leads_model->get();
+            echo json_encode($leads);
+        }
+    }
     public function leads_kanban_load_more()
     {
         if (!is_staff_member()) {

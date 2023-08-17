@@ -6,7 +6,7 @@ $table_data = [
  _l('the_number_sign'),
  _l('contract_list_subject'),
  [
-   'name'     => _l('contract_list_client'),
+   'name'     => _l('Relative'),
    'th_attrs' => ['class' => (isset($client) ? 'not_visible' : '')],
  ],
  _l('contract_types_list_name'),

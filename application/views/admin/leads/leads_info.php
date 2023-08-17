@@ -120,9 +120,11 @@
                         <li class="tab-item">
                           <a class="text-xl text-gray-800 font-medium  py-2 px-2 " id="proposals-tab" data-toggle="tab" href="#proposals" role="tab" aria-controls="proposals" aria-selected="false" onclick="initDataTable('.table-proposals-lead', admin_url + 'proposals/proposal_relations/' + <?php echo $lead->id; ?> + '/lead','undefined', 'undefined','undefined',[6,'desc']);">Proposals</a>
                         </li>
-                        <li class="tab-item">
-
-                            <a class="text-xl text-gray-800 font-medium py-2 px-2 " id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false" onclick="init_rel_tasks_table(<?php echo $lead->id; ?>,'lead','.table-rel-tasks-leads');">Tasks</a>
+                        <li>
+                            <a class="text-xl text-gray-800 font-medium hover:text-blue-600" id="Contracts-tab" data-toggle="tab" href="#Contracts" role="tab" aria-controls="Contracts" aria-selected="false">Contracts</a>
+                        </li>
+                        <li>
+                            <a class="text-xl text-gray-800 font-medium hover:text-blue-600" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false" onclick="init_rel_tasks_table(<?php echo $lead->id; ?>,'lead','.table-rel-tasks-leads');">Tasks</a>
                         </li>
                         <li class="tab-item">
                             <a class="text-xl text-gray-800 font-medium py-2 px-2 " id="attachments-tab" data-toggle="tab" href="#attachments" role="tab" aria-controls="attachments" aria-selected="false">Attachments</a>
@@ -230,6 +232,82 @@
                             ]);
                             ?>
                         </div>
+                        <div class="tab-pane fade text-gray-800" role="tabpanel" id="Contracts" aria-labelledby="Contracts-tab" >
+                            <?php if (has_permission('proposals', '', 'create')) { ?>
+                            <a href="<?php echo admin_url('contracts/contract/?rel_type=lead&rel_id=' . $lead->id); ?>"
+                                class="btn btn-primary mbot25"><?php echo _l('New Contract'); ?></a>
+                            <?php } ?>
+                            <div class="w-full mx-auto">
+                                <div class="bg-white shadow-md rounded-md p-6">
+                                    <table id="campaigns_table" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    #
+                                                </th>
+                                                <th>
+                                                    Subject
+                                                </th>
+                                                <th>
+                                                    Relative
+                                                </th>
+                                                <th >
+                                                    Contract Type
+                                                </th>
+                                                <th >
+                                                    Contract Value
+                                                </th>
+                                                <th>
+                                                    Start Date
+                                                </th>
+                                                <th>
+                                                    End Date
+                                                </th>
+                                                <th>
+                                                    Project
+                                                </th>
+                                                <th>
+                                                    Signature
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($contracts as $contract): ?>
+                                                <tr>
+                                                    <td>
+                                                        <?php echo $contract['id']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $contract['subject']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $contract['client_name'] ? $contract['client_name'] : $contract['lead_name']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $contract['contract_type']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $contract['contract_value']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $contract['datestart']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $contract['dateend']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $contract['project_id']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $contract['signature']; ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="tab-pane fade text-gray-800" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
                             <?php init_relation_tasks_table(['data-new-rel-id' => $lead->id, 'data-new-rel-type' => 'lead']); ?>
@@ -270,7 +348,24 @@
                             <hr />
                             <?php render_datatable([ _l('reminder_description'), _l('reminder_date'), _l('reminder_staff'), _l('reminder_is_notified')], 'reminders-leads'); ?>
                         </div>
-
+                        <div role="tabpanel" class="tab-pane fade text-gray-800" id="event" aria-labelledby="event-tab">
+                            <!-- Tab Content for Events -->
+                            <div id="eventsContent" class="tab-pane mt-4">
+                                <button id="createEventBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create New Event</button>
+                                
+                                <!-- Here's where we loop through the events to generate the cards -->
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+                                    
+                                    <?php foreach($tblevents as $tblevent): ?>
+                                        <div class="transition-transform transform hover:scale-105 cursor-pointer border p-4 rounded shadow hover:shadow-lg">
+                                            <h3 class="text-xl font-bold mb-2"><?php echo $tblevent['event_name']; ?></h3>
+                                            <p class="mb-2"><?php echo $tblevent['description']; ?></p>
+                                            <a href="<?php echo $tblevent['meet_schedule_link']; ?>" target="_blank" class="text-blue-500 hover:text-blue-600 underline">Meet Schedule Link</a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
                         <div role="tabpanel" class="tab-pane" id="notes" aria-labelledby="notes-tab">
                             <?php echo form_open(admin_url('leads/add_note/' . $lead->id), ['id' => 'lead-notes']); ?>
                             <div class="form-group">
@@ -398,12 +493,22 @@
     </div>
 </div>
 
-                          </div>
-                </div>
-            </div>
+ <!-- Create Event Modal -->
+ <div id="createEventModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden" style="z-index:999;">
+    <div class="bg-white p-8 rounded">
+        <div class="flex justify-between items-center">
+            <h2 class="text-2xl">Create New Event</h2>
+            <button id="closeModal" class="text-3xl text-gray-800 hover:text-gray-600" onclick="closeEventModal()">&times;</button>
         </div>
+        <form id="event_form">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
+            <input type="text" name="event_name" placeholder="Event Name" class="w-full p-2 border rounded mt-2">
+            <textarea name="description" placeholder="Event Description" class="w-full p-2 border rounded mt-2"></textarea>
+            <input type="text" name="meet_schedule_link" placeholder="Meet Schedule Link" class="w-full p-2 border rounded mt-2">
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Save</button>
+        </form>
     </div>
-</div>              
+</div>
 
 
 
@@ -412,8 +517,41 @@
 </body>
 </html>
 <script>
+        document.getElementById("createEventBtn").addEventListener("click", function() {
+        document.getElementById("createEventModal").classList.remove('hidden');
+    });
+    function closeEventModal() {
+    document.getElementById("createEventModal").classList.add('hidden');
+    }
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("createEventModal")) {
+            document.getElementById("createEventModal").classList.add('hidden');
+        }
+    };
+    $("#event_form").submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: "<?php echo admin_url("Leads/Event_create") ?>",
+        type: "POST",
+        data: $(this).serialize(),
+        success: function(response) {
+            var jsonResponse = JSON.parse(response);  // Parse the JSON response
+            if(jsonResponse.status === "success") {
+                alert(jsonResponse.message); // Show the success message
+                closeEventModal(); // Close the modal
+            } else {
+                alert(jsonResponse.message); // Show the error message
+            }
+        }
+    });
+});
+$("#campaigns_table").DataTable({
+    initComplete: function() {
+    $('#campaigns_table_wrapper').removeClass('table-loading');
+ }
+ });
 
-    
+
 </script>
 <style>
 .customcontent{

@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<<<<<<< Updated upstream
 ERROR - 2023-08-09 18:03:52 --> Severity: Warning --> Undefined variable $lead C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 19
 ERROR - 2023-08-09 18:03:52 --> Severity: Warning --> Attempt to read property "name" on null C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 19
 ERROR - 2023-08-09 18:03:52 --> Severity: Warning --> Undefined variable $lead C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 33
@@ -96,3 +97,13 @@ ERROR - 2023-08-09 18:05:35 --> Severity: Warning --> Attempt to read property "
 ERROR - 2023-08-09 18:05:35 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 239
 ERROR - 2023-08-09 18:37:17 --> Severity: error --> Exception: syntax error, unexpected token "else", expecting end of file C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 16
 ERROR - 2023-08-09 21:27:31 --> Severity: Warning --> Undefined property: stdClass::$phone C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 76
+=======
+ERROR - 2023-08-09 16:29:05 --> Severity: Warning --> include_once(D:\xampp\htdocs\lms\application\hooks./../libraries/App_modules.php): Failed to open stream: Permission denied D:\xampp\htdocs\lms\application\hooks\InitModules.php 12
+ERROR - 2023-08-09 16:29:05 --> Severity: Warning --> include_once(): Failed opening 'D:\xampp\htdocs\lms\application\hooks./../libraries/App_modules.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\lms\application\hooks\InitModules.php 12
+ERROR - 2023-08-09 16:29:05 --> Severity: Warning --> include_once(D:\xampp\htdocs\lms\application\hooks./../../system/helpers/directory_helper.php): Failed to open stream: Permission denied D:\xampp\htdocs\lms\application\hooks\InitModules.php 14
+ERROR - 2023-08-09 16:29:05 --> Severity: Warning --> include_once(): Failed opening 'D:\xampp\htdocs\lms\application\hooks./../../system/helpers/directory_helper.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\lms\application\hooks\InitModules.php 14
+ERROR - 2023-08-09 16:29:05 --> Severity: error --> Exception: Class "App_modules" not found D:\xampp\htdocs\lms\application\hooks\InitModules.php 16
+ERROR - 2023-08-09 16:30:11 --> Severity: Warning --> include_once(D:\xampp\htdocs\lms\application\hooks./../../system/helpers/directory_helper.php): Failed to open stream: Permission denied D:\xampp\htdocs\lms\application\hooks\InitModules.php 14
+ERROR - 2023-08-09 16:30:11 --> Severity: Warning --> include_once(): Failed opening 'D:\xampp\htdocs\lms\application\hooks./../../system/helpers/directory_helper.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\lms\application\hooks\InitModules.php 14
+ERROR - 2023-08-09 16:30:11 --> Severity: error --> Exception: Call to undefined function directory_map() D:\xampp\htdocs\lms\application\libraries\App_modules.php 602
+>>>>>>> Stashed changes

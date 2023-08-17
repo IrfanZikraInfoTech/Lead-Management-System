@@ -1200,7 +1200,7 @@ $lang['amount_display_in_base_currency'] = 'Amount is displayed in your base cur
 $lang['leads_summary'] = 'Leads Summary';
 
 # Contracts
-$lang['contract_value']                       = 'Contract Value';
+$lang['contract_value']                       = '';
 $lang['contract_trash']                       = 'Trash';
 $lang['contracts_view_trash']                 = 'View Trash';
 $lang['contracts_view_all']                   = 'All';
@@ -1224,7 +1224,7 @@ $lang['contract_renewed_by']                  = '%s renewed this contract';
 $lang['contract_renewal_deleted']             = 'Renewal successfully deleted';
 $lang['contract_renewal_delete_fail']         = 'Failed to delete contract renewal. Contact administrator';
 $lang['contract_renewal_new_value']           = 'New Contract Value: %s';
-$lang['contract_renewal_old_value']           = 'Old Contract Value: %s';
+$lang['contract_renewal_old_value']           = 'Old : %s';
 $lang['contract_renewal_new_start_date']      = 'New Start Date: %s';
 $lang['contract_renewal_old_start_date']      = 'Old Contract Start Date was: %s';
 $lang['contract_renewal_new_end_date']        = 'New End Date: %s';

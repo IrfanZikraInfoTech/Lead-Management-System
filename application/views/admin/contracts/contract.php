@@ -3,23 +3,28 @@
 <div id="wrapper">
     <div class="content">
         <div class="row">
-            <?php
-         if (isset($contract) && $contract->signed == 1) { ?>
-            <div class="col-md-12">
-                <div class="alert alert-warning">
-                    <?php echo  _l('contract_signed_not_all_fields_editable'); ?>
-                </div>
+        <?php
+    if (isset($contract) && isset($contract->signed) && $contract->signed == 1) { ?>
+        <div class="col-md-12">
+            <div class="alert alert-warning">
+                <?php echo _l('contract_signed_not_all_fields_editable'); ?>
             </div>
-            <?php } ?>
+        </div>
+<?php } ?>
+
             <div class="col-md-5 left-column">
                 <h4 class="tw-mt-0 tw-font-semibold tw-text-lg tw-text-neutral-700">
                     <?php echo _l('contract_information') ?>
                     <?php
-                        if (isset($contract) && $contract->trash > 0) {
-                            echo '<div class="label label-default"><span>' . _l('contract_trash') . '</span></div>';
+if (isset($contract) && isset($contract->trash) && $contract->trash > 0) {
+    echo '<div class="label label-default"><span>' . _l('contract_trash') . '</span></div>';
                         }
                     ?>
                 </h4>
+                <?php
+                    $selected_rel_type = isset($_GET['rel_type']) ? $_GET['rel_type'] : null;
+                    $selected_lead_id = isset($_GET['rel_id']) ? $_GET['rel_id'] : null;
+                    ?>
                 <div class="panel_s">
                     <div class="panel-body">
                         <?php echo form_open($this->uri->uri_string(), ['id' => 'contract-form']); ?>
@@ -39,27 +44,48 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group select-placeholder f_client_id">
-                            <label for="clientid" class="control-label"><span class="text-danger">*
-                                </span><?php echo _l('contract_client_string'); ?></label>
-                            <select id="clientid" name="client" data-live-search="true" data-width="100%"
-                                class="ajax-search"
-                                data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>"
-                                <?php echo isset($contract) && $contract->signed == 1 ? ' disabled' : ''; ?>>
-                                <?php $selected = (isset($contract) ? $contract->client : '');
-                        if ($selected == '') {
-                            $selected = (isset($customer_id) ? $customer_id: '');
-                        }
-                       if ($selected != '') {
-                           $rel_data = get_relation_data('customer', $selected);
-                           $rel_val  = get_relation_values($rel_data, 'customer');
-                           echo '<option value="' . $rel_val['id'] . '" selected>' . $rel_val['name'] . '</option>';
-                       } ?>
+                        
+
+                        <div class="form-group f_client_id">
+                            <label><span class="text-danger">* </span>Type</label><br>
+                            <select id="typeSelector" name="rel_type" data-live-search="true" data-width="100%" class="w-full rounded-md h-9 focus:outline-none border">
+                                <option value="" class="p-5" <?php echo (!$selected_rel_type || $selected_rel_type == '') ? 'selected' : ''; ?>>Select</option> <!-- Placeholder -->
+                                <option value="customer" <?php echo ($selected_rel_type == 'customer') ? 'selected' : ''; ?>>Customer</option>
+                                <option value="lead" <?php echo ($selected_rel_type == 'lead') ? 'selected' : ''; ?>>Lead</option>
                             </select>
                         </div>
-                        <div class="form-group select-placeholder projects-wrapper<?php if ((!isset($contract)) || (isset($contract) && !customer_has_projects($contract->client))) {
-                           echo ' hide';
-                       } ?>">
+
+                        <div class="form-group select-placeholder f_client_id " id="customerForm">
+                            <label id="clientLabel" for="clientid" class="control-label">
+                                <span class="text-danger">*</span>
+                                <?php echo _l('contract_client_string'); ?>
+                            </label>
+                                <select id="clientid" name="client" data-live-search="true" data-width="100%"
+                                    class="ajax-search"
+                                    data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>"
+                                    <?php echo isset($contract) && $contract->signed == 1 ? ' disabled' : ''; ?>>
+                                    <?php $selected = (isset($contract) ? $contract->client : '');
+                                    if ($selected == '') {
+                                        $selected = (isset($customer_id) ? $customer_id: '');
+                                    }
+                                    if ($selected != '') {
+                                        $rel_data = get_relation_data('customer', $selected);
+                                        $rel_val  = get_relation_values($rel_data, 'customer');
+                                        echo '<option value="' . $rel_val['id'] . '" selected>' . $rel_val['name'] . '</option>';
+                                    } ?>
+                                </select>
+                        </div>
+                        
+                        <div class="form-group f_client_id w-100" id="leadForm">
+                            <label><span class="text-danger">* </span>Leads</label><br>
+                            <select id="leadid" name="rel_id" class="selectpicker w-100 rounded-md h-9 focus:outline-none border" data-width="100%" data-live-search="true" data-selected="<?php echo $selected_lead_id; ?>">
+                            </select>
+                        </div>
+
+
+
+                        <div class="form-group select-placeholder projects-wrapper<?php if ((!isset($contract)) || (isset($contract) && !customer_has_projects($contract->client))) { echo ' hide'; } ?>">
+
                             <label for="project_id"><?php echo _l('project'); ?></label>
                             <div id="project_ajax_search_wrapper">
                                 <select name="project_id" id="project_id" class="projects ajax-search ays-ignore"
@@ -67,13 +93,15 @@
                                     data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>"
                                     <?php echo isset($contract) && $contract->signed == 1 ? ' disabled' : ''; ?>>
                                     <?php
-                      if (isset($contract) && $contract->project_id != 0) {
-                          echo '<option value="' . $contract->project_id . '" selected>' . get_project_name_by_id($contract->project_id) . '</option>';
-                      }
-                     ?>
+                                    if (isset($contract) && $contract->project_id != 0) {
+                                        echo '<option value="' . $contract->project_id . '" selected>' . get_project_name_by_id($contract->project_id) . '</option>';
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
+
+                        
 
                         <?php $value = (isset($contract) ? $contract->subject : ''); ?>
                         <i class="fa-regular fa-circle-question pull-left tw-mt-0.5 tw-mr-1" data-toggle="tooltip"
@@ -92,31 +120,31 @@
                             </div>
                         </div>
                         <?php
-            $selected = (isset($contract) ? $contract->contract_type : '');
-            if (is_admin() || get_option('staff_members_create_inline_contract_types') == '1') {
-                echo render_select_with_input_group('contract_type', $types, ['id', 'name'], 'contract_type', $selected, '<div class="input-group-btn"><a href="#" class="btn btn-default" onclick="new_type();return false;"><i class="fa fa-plus"></i></a></div>');
-            } else {
-                echo render_select('contract_type', $types, ['id', 'name'], 'contract_type', $selected);
-            }
-         ?>
+                            $selected = (isset($contract) && isset($contract->contract_type) ? $contract->contract_type : '');
+                            if (is_admin() || get_option('staff_members_create_inline_contract_types') == '1') {
+                                echo render_select_with_input_group('contract_type', $types, ['id', 'name'], 'contract_type', $selected, '<div class="input-group-btn"><a href="#" class="btn btn-default" onclick="new_type();return false;"><i class="fa fa-plus"></i></a></div>');
+                            } else {
+                                echo render_select('contract_type', $types, ['id', 'name'], 'contract_type', $selected);
+                            }
+                        ?>
                         <div class="row">
                             <div class="col-md-6">
-                                <?php $value = (isset($contract) ? _d($contract->datestart) : _d(date('Y-m-d'))); ?>
+                            <?php $value = (isset($contract) && isset($contract->datestart) ? _d($contract->datestart) : _d(date('Y-m-d'))); ?>
                                 <?php echo render_date_input(
-             'datestart',
-             'contract_start_date',
-             $value,
-             isset($contract) && $contract->signed == 1 ? ['disabled' => true] : []
-         ); ?>
+                                'datestart',
+                                'contract_start_date',
+                                $value,
+                                isset($contract) && isset($contract->signed) && $contract->signed == "1" ? ['disabled' => true] : []
+                            ); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php $value = (isset($contract) ? _d($contract->dateend) : ''); ?>
+                            <?php $value = (isset($contract) && isset($contract->dateend) ? _d($contract->dateend) : ''); ?>
                                 <?php echo render_date_input(
-             'dateend',
-             'contract_end_date',
-             $value,
-             isset($contract) && $contract->signed == 1 ? ['disabled' => true] : []
-         ); ?>
+                                'dateend',
+                                'contract_end_date',
+                                $value,
+                                isset($contract) && isset($contract->signed) && $contract->signed == 1 ? ['disabled' => true] : []
+                            ); ?>
                             </div>
                         </div>
                         <?php $value = (isset($contract) ? $contract->description : ''); ?>
@@ -134,7 +162,7 @@
                 </div>
             </div>
 
-            <?php if (isset($contract)) { ?>
+            <!-- <?php if (isset($contract)) { ?> -->
             <div class="col-md-7 right-column">
                 <div class="sm:tw-flex sm:tw-justify-between sm:tw-items-center tw-mb-1 -tw-mt-px">
                     <h4 class="tw-my-0 tw-font-semibold tw-text-lg tw-text-neutral-700">
@@ -244,15 +272,15 @@
                             <div class="horizontal-tabs">
                                 <ul class="nav nav-tabs contract-tab nav-tabs-horizontal mbot15" role="tablist">
                                     <li role="presentation" class="<?php if (!$this->input->get('tab') || $this->input->get('tab') == 'tab_content') {
-                                  echo 'active';
-                              } ?>">
+                                        echo 'active';
+                                    } ?>">
                                         <a href="#tab_content" aria-controls="tab_content" role="tab" data-toggle="tab">
                                             <?php echo _l('contract_content'); ?>
                                         </a>
                                     </li>
                                     <li role="presentation" class="<?php if ($this->input->get('tab') == 'attachments') {
-                                  echo 'active';
-                              } ?>">
+                                        echo 'active';
+                                    } ?>">
                                         <a href="#attachments" aria-controls="attachments" role="tab" data-toggle="tab">
                                             <?php echo _l('contract_attachments'); ?>
                                             <?php if ($totalAttachments = count($contract->attachments)) { ?>
@@ -266,15 +294,15 @@
                                             data-toggle="tab" onclick="get_contract_comments(); return false;">
                                             <?php echo _l('contract_comments'); ?>
                                             <?php
-                        $totalComments = total_rows(db_prefix() . 'contract_comments', 'contract_id=' . $contract->id)
-                        ?>
+                                            $totalComments = total_rows(db_prefix() . 'contract_comments', 'contract_id=' . $contract->id)
+                                            ?>
                                             <span
                                                 class="badge comments-indicator<?php echo $totalComments == 0 ? ' hide' : ''; ?>"><?php echo $totalComments; ?></span>
                                         </a>
                                     </li>
                                     <li role="presentation" class="<?php if ($this->input->get('tab') == 'renewals') {
-                            echo 'active';
-                        } ?>">
+                                        echo 'active';
+                                    } ?>">
                                         <a href="#renewals" aria-controls="renewals" role="tab" data-toggle="tab">
                                             <?php echo _l('no_contract_renewals_history_heading'); ?>
                                             <?php if ($totalRenewals = count($contract_renewal_history)) { ?>
@@ -344,12 +372,12 @@
                                     <div class="col-md-12">
                                         <div class="alert alert-success">
                                             <?php echo _l(
-                                                    'document_signed_info',
-                                                    [
-                                 '<b>' . $contract->acceptance_firstname . ' ' . $contract->acceptance_lastname . '</b> (<a href="mailto:' . $contract->acceptance_email . '">' . $contract->acceptance_email . '</a>)',
-                                 '<b>' . _dt($contract->acceptance_date) . '</b>',
-                                 '<b>' . $contract->acceptance_ip . '</b>', ]
-                                                ); ?>
+                                                'document_signed_info',
+                                                [
+                                                '<b>' . $contract->acceptance_firstname . ' ' . $contract->acceptance_lastname . '</b> (<a href="mailto:' . $contract->acceptance_email . '">' . $contract->acceptance_email . '</a>)',
+                                                '<b>' . _dt($contract->acceptance_date) . '</b>',
+                                                '<b>' . $contract->acceptance_ip . '</b>', ]
+                                            ); ?>
                                         </div>
                                     </div>
                                     <?php } elseif ($contract->marked_as_signed == 1) { ?>
@@ -368,12 +396,12 @@
                                         <div class=" avilable_merge_fields mtop15 hide">
                                             <ul class="list-group">
                                                 <?php
-                                 foreach ($contract_merge_fields as $field) {
-                                     foreach ($field as $f) {
-                                         echo '<li class="list-group-item"><b>' . $f['name'] . '</b>  <a href="#" class="pull-right" onclick="insert_merge_field(this); return false">' . $f['key'] . '</a></li>';
-                                     }
-                                 }
-                               ?>
+                                                    foreach ($contract_merge_fields as $field) {
+                                                        foreach ($field as $f) {
+                                                            echo '<li class="list-group-item"><b>' . $f['name'] . '</b>  <a href="#" class="pull-right" onclick="insert_merge_field(this); return false">' . $f['key'] . '</a></li>';
+                                                        }
+                                                    }
+                                                ?>
                                             </ul>
                                         </div>
                                         <?php } ?>
@@ -386,16 +414,16 @@
                                 </div>
                                 <?php } ?>
                                 <div class="tc-content<?php if (staff_can('edit', 'contracts') &&
-                  !($contract->signed == 1)) {
-                                   echo ' editable';
-                               } ?>" style="border:1px solid #d2d2d2;min-height:70px; border-radius:4px;">
+                                    !($contract->signed == 1)) {
+                                        echo ' editable';
+                                        } ?>" style="border:1px solid #d2d2d2;min-height:70px; border-radius:4px;">
                                     <?php
-                  if (empty($contract->content) && staff_can('edit', 'contracts')) {
-                      echo hooks()->apply_filters('new_contract_default_content', '<span class="text-danger text-uppercase mtop15 editor-add-content-notice"> ' . _l('click_to_add_content') . '</span>');
-                  } else {
-                      echo $contract->content;
-                  }
-                ?>
+                                        if (empty($contract->content) && staff_can('edit', 'contracts')) {
+                                            echo hooks()->apply_filters('new_contract_default_content', '<span class="text-danger text-uppercase mtop15 editor-add-content-notice"> ' . _l('click_to_add_content') . '</span>');
+                                        } else {
+                                            echo $contract->content;
+                                        }
+                                        ?>
                                 </div>
                                 <?php if (!empty($contract->signature)) { ?>
                                 <div class="row mtop25">
@@ -452,8 +480,8 @@
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane<?php if ($this->input->get('tab') == 'attachments') {
-                    echo ' active';
-                } ?>" id="attachments">
+                                    echo ' active';
+                                } ?>" id="attachments">
                                 <?php echo form_open(admin_url('contracts/add_contract_attachment/' . $contract->id), ['id' => 'contract-attachments-form', 'class' => 'dropzone mtop15']); ?>
                                 <?php echo form_close(); ?>
                                 <div class="tw-flex tw-justify-end tw-items-center tw-space-x-2 mtop15">
@@ -467,34 +495,34 @@
 
                                 <div id="contract_attachments" class="mtop30">
                                     <?php
-            $data = '<div class="row">';
-            foreach ($contract->attachments as $attachment) {
-                $href_url = site_url('download/file/contract/' . $attachment['attachment_key']);
-                if (!empty($attachment['external'])) {
-                    $href_url = $attachment['external_link'];
-                }
-                $data .= '<div class="display-block contract-attachment-wrapper">';
-                $data .= '<div class="col-md-10">';
-                $data .= '<div class="pull-left"><i class="' . get_mime_class($attachment['filetype']) . '"></i></div>';
-                $data .= '<a href="' . $href_url . '"' . (!empty($attachment['external']) ? ' target="_blank"' : '') . '>' . $attachment['file_name'] . '</a>';
-                $data .= '<p class="text-muted">' . $attachment['filetype'] . '</p>';
-                $data .= '</div>';
-                $data .= '<div class="col-md-2 text-right">';
-                if ($attachment['staffid'] == get_staff_user_id() || is_admin()) {
-                    $data .= '<a href="#" class="text-danger" onclick="delete_contract_attachment(this,' . $attachment['id'] . '); return false;"><i class="fa fa fa-times"></i></a>';
-                }
-                $data .= '</div>';
-                $data .= '<div class="clearfix"></div><hr/>';
-                $data .= '</div>';
-            }
-         $data .= '</div>';
-         echo $data;
-         ?>
+                                        $data = '<div class="row">';
+                                        foreach ($contract->attachments as $attachment) {
+                                            $href_url = site_url('download/file/contract/' . $attachment['attachment_key']);
+                                            if (!empty($attachment['external'])) {
+                                                $href_url = $attachment['external_link'];
+                                            }
+                                            $data .= '<div class="display-block contract-attachment-wrapper">';
+                                            $data .= '<div class="col-md-10">';
+                                            $data .= '<div class="pull-left"><i class="' . get_mime_class($attachment['filetype']) . '"></i></div>';
+                                            $data .= '<a href="' . $href_url . '"' . (!empty($attachment['external']) ? ' target="_blank"' : '') . '>' . $attachment['file_name'] . '</a>';
+                                            $data .= '<p class="text-muted">' . $attachment['filetype'] . '</p>';
+                                            $data .= '</div>';
+                                            $data .= '<div class="col-md-2 text-right">';
+                                            if ($attachment['staffid'] == get_staff_user_id() || is_admin()) {
+                                                $data .= '<a href="#" class="text-danger" onclick="delete_contract_attachment(this,' . $attachment['id'] . '); return false;"><i class="fa fa fa-times"></i></a>';
+                                            }
+                                            $data .= '</div>';
+                                            $data .= '<div class="clearfix"></div><hr/>';
+                                            $data .= '</div>';
+                                        }
+                                        $data .= '</div>';
+                                        echo $data;
+                                    ?>
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane<?php if ($this->input->get('tab') == 'renewals') {
-             echo ' active';
-         } ?>" id="renewals">
+                                    echo ' active';
+                                } ?>" id="renewals">
                                 <div class="mtop20">
                                     <?php if (has_permission('contracts', '', 'edit')) { ?>
                                     <div class="_buttons">
@@ -507,17 +535,17 @@
                                     <?php } ?>
                                     <div class="clearfix"></div>
                                     <?php
-      if (count($contract_renewal_history) == 0) {
-          echo '<p class="tw-m-0 tw-text-base tw-font-medium tw-text-neutral-500">' . _l('no_contract_renewals_found') . '</p>';
-      }
-    foreach ($contract_renewal_history as $renewal) { ?>
-                                    <div class="display-block">
-                                        <div class="media-body">
-                                            <div class="display-block">
-                                                <b>
-                                                    <?php
-                  echo _l('contract_renewed_by', $renewal['renewed_by']);
-                  ?>
+                                        if (count($contract_renewal_history) == 0) {
+                                            echo '<p class="tw-m-0 tw-text-base tw-font-medium tw-text-neutral-500">' . _l('no_contract_renewals_found') . '</p>';
+                                        }
+                                        foreach ($contract_renewal_history as $renewal) { ?>
+                                                                        <div class="display-block">
+                                                                            <div class="media-body">
+                                                                                <div class="display-block">
+                                                                                    <b>
+                                                                                        <?php
+                                                    echo _l('contract_renewed_by', $renewal['renewed_by']);
+                                                    ?>
                                                 </b>
                                                 <?php if ($renewal['renewed_by_staff_id'] == get_staff_user_id() || is_admin()) { ?>
                                                 <a href="<?php echo admin_url('contracts/delete_renewal/' . $renewal['id'] . '/' . $renewal['contractid']); ?>"
@@ -534,17 +562,17 @@
                                                 </span>
                                                 <br />
                                                 <?php if (is_date($renewal['new_end_date'])) {
-                      $tooltip = '';
-                      if (is_date($renewal['old_end_date'])) {
-                          $tooltip = _l('contract_renewal_old_end_date', _d($renewal['old_end_date']));
-                      } ?>
+                                                $tooltip = '';
+                                                if (is_date($renewal['old_end_date'])) {
+                                                    $tooltip = _l('contract_renewal_old_end_date', _d($renewal['old_end_date']));
+                                                } ?>
                                                 <span class="text-success bold" data-toggle="tooltip"
                                                     title="<?php echo $tooltip; ?>">
                                                     <?php echo _l('contract_renewal_new_end_date', _d($renewal['new_end_date'])); ?>
                                                 </span>
                                                 <br />
                                                 <?php
-                  } ?>
+                                                } ?>
                                                 <?php if ($renewal['new_value'] > 0) {
                       $contract_renewal_value_tooltip = '';
                       if ($renewal['old_value'] > 0) {
@@ -601,9 +629,7 @@
 <?php init_tail(); ?>
 <?php if (isset($contract)) { ?>
 <!-- init table tasks -->
-<script>
-var contract_id = '<?php echo $contract->id; ?>';
-</script>
+
 <?php $this->load->view('admin/contracts/send_to_client'); ?>
 <?php $this->load->view('admin/contracts/renew_contract'); ?>
 <?php } ?>
@@ -641,11 +667,30 @@ $(function() {
         }));
     }
 
-    appValidateForm($('#contract-form'), {
-        client: 'required',
-        datestart: 'required',
-        subject: 'required'
+    $(document).ready(function() {
+    $("#typeSelector").change(function() {
+        adjustValidation($(this).val());
     });
+
+    function adjustValidation(type) {
+        if(type == "customer") {
+            appValidateForm($('#contract-form'), {
+                client: 'required',
+                datestart: 'required',
+                subject: 'required'
+            });
+        } else if(type == "lead") {
+            appValidateForm($('#contract-form'), {
+                leadid: 'required',
+                datestart: 'required',
+                subject: 'required'
+            });
+        }
+    }
+    // Call adjustValidation on page load
+    adjustValidation($("#typeSelector").val());
+});
+
 
     appValidateForm($('#renew-contract-form'), {
         new_start_date: 'required'
@@ -763,6 +808,32 @@ function save_contract_content(manual) {
         alert_float('danger', response.message);
     });
 }
+function init_ajax_lead_dropdown() {
+    $.get(admin_url + 'leads/get_all_leads', function(response) {
+        var leads = JSON.parse(response);
+        var $leadSelect = $('#leadid');
+        var selectedLead = $leadSelect.data('selected'); // Get the lead ID to be selected
+
+        $leadSelect.empty(); // Clear current options
+        
+        $leadSelect.append('<option value=""></option>');
+        $.each(leads, function(i, lead) {
+            var isSelected = (lead.id == selectedLead) ? 'selected' : ''; // Check if this lead should be selected
+            $leadSelect.append('<option value="' + lead.id + '" ' + isSelected + '>' + lead.name + '</option>');
+        });
+
+        // Re-initialize the select picker with search functionality
+        $leadSelect.selectpicker('refresh');
+    });
+}
+
+
+
+// Call the function when the document is ready:
+$(document).ready(function() {
+    init_ajax_lead_dropdown();
+});
+
 
 function delete_contract_attachment(wrapper, id) {
     if (confirm_delete()) {
@@ -885,6 +956,85 @@ function contractGoogleDriveSave(pickData) {
         window.location.href = location.split('?')[0] + '?tab=attachments';
     });
 }
+$(document).ready(function() {
+    // Initially hide both forms
+    $("#customerForm").hide();
+    $("#leadForm").hide();
+
+    // When value changes on type dropdown
+    $("#typeSelector").change(function() {
+        var selection = $(this).val();
+
+        // Hide both forms by default
+        $("#customerForm").hide();
+        $("#leadForm").hide();
+
+        // Show the correct form based on the selection
+        if (selection === "customer") {
+            $("#customerForm").show();
+        } else if (selection === "lead") {
+            $("#leadForm").show();
+        }
+    });
+});
+$(document).ready(function() {
+        toggleClientOrLead();
+
+        // Toggle dropdown based on the selected type
+        $('#typeSelector').change(function() {
+            toggleClientOrLead();
+        });
+
+        function toggleClientOrLead() {
+            var type = $('#typeSelector').val();
+            if(type == 'customer') {
+                $('#customerForm').show();
+                $('#leadForm').hide();
+            } else if(type == 'lead') {
+                $('#leadForm').show();
+                $('#customerForm').hide();
+            } else {
+                $('#customerForm').hide();
+                $('#leadForm').hide();
+            }
+        }
+    });
+    $("#typeSelector").change(function() {
+    if($(this).val() == 'customer') {
+        $("#leadid").val('').trigger('change');
+    } else if($(this).val() == 'lead') {
+        $("#clientid").val('').trigger('change');
+    }
+});
+
+</script>
+<script>
+
+    $(document).ready(function() {
+        console.log("Script loaded!");
+
+            // Listen for changes on the dropdown
+            $('#client_id').on('change', function() {
+                var selectedValue = $(this).val();
+                var labelText = '';
+
+                // Determine the label text based on the selected value
+                if (selectedValue === 'customer') {
+                    labelText = 'Customer';
+                } else if (selectedValue === 'lead') {
+                    labelText = 'Lead';
+                } else {
+                    labelText = '<?php echo _l('contract_client_string'); ?>';
+                }
+
+                // Update the label text
+                $('#clientLabel').text(labelText);
+            });
+        });
+        $(document).ready(function() {
+    $('#leadid').selectpicker();
+});
+
 </script>
 </body>
 

@@ -49,6 +49,15 @@ class Contracts extends AdminController
     public function contract($id = '')
     {
         if ($this->input->post()) {
+            
+            if(isset($data['rel_type'])){
+                if($data['rel_type'] == 'customer' && isset($data['clientid'])) {
+                    unset($data['leadid']);
+                } elseif($data['rel_type'] == 'lead' && isset($data['leadid'])) {
+                    unset($data['clientid']);
+                }
+            }
+            
             if ($id == '') {
                 if (!has_permission('contracts', '', 'create')) {
                     access_denied('contracts');

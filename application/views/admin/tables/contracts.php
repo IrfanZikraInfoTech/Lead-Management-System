@@ -14,6 +14,7 @@ $aColumns = [
     'dateend',
     db_prefix() . 'projects.name as project_name',
     'signature',
+    // db_prefix() . 'leads.name as lead_name',
     ];
 
 $sIndexColumn = 'id';
@@ -23,6 +24,8 @@ $join = [
     'LEFT JOIN ' . db_prefix() . 'clients ON ' . db_prefix() . 'clients.userid = ' . db_prefix() . 'contracts.client',
     'LEFT JOIN ' . db_prefix() . 'projects ON ' . db_prefix() . 'projects.id = ' . db_prefix() . 'contracts.project_id',
     'LEFT JOIN ' . db_prefix() . 'contracts_types ON ' . db_prefix() . 'contracts_types.id = ' . db_prefix() . 'contracts.contract_type',
+    'LEFT JOIN ' . db_prefix() . 'leads ON ' . db_prefix() . 'leads.id = ' . db_prefix() . 'contracts.rel_id AND ' . db_prefix() . 'contracts.rel_type = "lead"',
+
 ];
 
 $custom_fields = get_table_custom_fields('contracts');
@@ -125,7 +128,7 @@ if (count($custom_fields) > 4) {
     @$this->ci->db->query('SET SQL_BIG_SELECTS=1');
 }
 
-$result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [db_prefix() . 'contracts.id', 'trash', 'client', 'hash', 'marked_as_signed', 'project_id']);
+$result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [db_prefix() . 'contracts.id','trash', 'client', 'tblcontracts.hash', 'marked_as_signed', 'project_id','rel_type','tblleads.name as lead_name','rel_id']);
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
@@ -154,9 +157,16 @@ foreach ($rResult as $aRow) {
 
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;
+    // print_r($aRow);
+    
+    if ($aRow['rel_type'] == 'lead') {
+        $leadName = $aRow['lead_name'];
+        $row[] = '<a href="' . admin_url('leads/index/' . $aRow['rel_id']) . '">' . $leadName . '</a>';
+    } else {
+        $row[] = '<a href="' . admin_url('clients/client/' . $aRow['client']) . '">' . $aRow['company'] . '</a>';
 
-    $row[] = '<a href="' . admin_url('clients/client/' . $aRow['client']) . '">' . $aRow['company'] . '</a>';
-
+    }
+    
     $row[] = $aRow['type_name'];
 
     $row[] = app_format_money($aRow['contract_value'], $base_currency);

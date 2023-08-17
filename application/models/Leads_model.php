@@ -16,6 +16,40 @@ class Leads_model extends App_Model
      * @param  string $id Optional - leadid
      * @return mixed
      */
+
+    public function create_event($data) {
+       $this->db->insert('tblevent', $data);
+       $error = $this->db->error();
+        if (!empty($error['message'])) {
+            // there was an error in the query
+            log_message('error', $error['message']);
+            return false;
+        }
+        return true;
+        
+    }
+
+    public function get_all_events($id) {
+        $query = $this->db->get('tblevent');  // 'tblevent' is the name of your table
+        return $query->result_array();   
+    }
+
+    public function get_contracts_for_lead($id) {
+        $this->db->select('tblcontracts.*, tblclients.company as client_name, tblleads.name as lead_name');
+        
+        // tblclients se join karte hain 
+        $this->db->join('tblclients', 'tblclients.userid = tblcontracts.client AND tblcontracts.rel_type = "customer"', 'left'); 
+        
+        // tblleads se join karte hain
+        $this->db->join('tblleads', 'tblleads.id = tblcontracts.rel_id AND tblcontracts.rel_type = "lead"', 'left'); 
+    
+        $this->db->where('tblcontracts.rel_id', $id);
+        $this->db->where('tblcontracts.rel_type', 'lead'); 
+        return $this->db->get('tblcontracts')->result_array();
+    }
+    
+    
+      
     public function get($id = '', $where = [])
     {
         $this->db->select('*,' . db_prefix() . 'leads.name, ' . db_prefix() . 'leads.id,' . db_prefix() . 'leads_status.name as status_name,' . db_prefix() . 'leads_sources.name as source_name');

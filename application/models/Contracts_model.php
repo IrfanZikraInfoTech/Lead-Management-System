@@ -17,12 +17,74 @@ class Contracts_model extends App_Model
      * @param  boolean $for_editor if for editor is false will replace the field if not will not replace
      * @return mixed
      */
+    // public function get($id = '', $where = [], $for_editor = false) {
+    //     $this->db->select('*,' . db_prefix() . 'contracts_types.name as type_name,' . db_prefix() . 'contracts.id as id, ' . db_prefix() . 'contracts.addedfrom');
+    //     $this->db->where($where);
+    //     $this->db->select('*, ' . db_prefix() . 'contracts.id as id, ' . db_prefix() . 'clients.company as client_name, ' . db_prefix() . 'leads.name as lead_name');
+
+    //     // Default JOIN for clients
+    //     $this->db->join(db_prefix() . 'contracts_types', '' . db_prefix() . 'contracts_types.id = ' . db_prefix() . 'contracts.contract_type', 'left');
+
+    //     if (is_numeric($id)) {
+    //         $this->db->where(db_prefix() . 'contracts.id', $id);
+    //         $contract = $this->db->get(db_prefix() . 'contracts')->row();
+
+    //         // JOINs based on rel_type
+    //             // $this->db->join(db_prefix() . 'contracts_types', '' . db_prefix() . 'contracts_types.id = ' . db_prefix() . 'contracts.contract_type', 'left');
+    //             if ($contract && $contract->rel_type == 'customer') {
+    //                 $this->db->join(db_prefix() . 'clients', '' . db_prefix() . 'clients.userid = ' . db_prefix() . 'contracts.client', 'left');
+    //             } elseif ($contract && $contract->rel_type == 'lead') {
+    //                 $this->db->join(db_prefix() . 'leads', '' . db_prefix() . 'leads.id = ' . db_prefix() . 'contracts.rel_id', 'left');
+    //             }
+            
+    //         // Check if the contract client ID is 0 and rel_type is lead, then perform the JOIN with tblleads
+    //         // if($contract && $contract->rel_type == 'customer'){
+    //         //     $this->db->join(db_prefix() . 'clients', '' . db_prefix() . 'clients.userid = ' . db_prefix() . 'contracts.client');
+    //         // }
+    //         if ($contract) {
+    //             $contract->attachments = $this->get_contract_attachments('', $contract->id);
+    //             if($contract->rel_type == 'customer'){
+    //                 $this->db->join(db_prefix() . 'clients', '' . db_prefix() . 'clients.userid = ' . db_prefix() . 'contracts.client');
+    //             } elseif($contract->rel_type == 'lead') {
+    //                 $this->db->join(db_prefix() . 'leads', '' . db_prefix() . 'leads.id = ' . db_prefix() . 'contracts.rel_id', 'left'); // Assuming column in leads is `id` and in contracts for relation it's `client`
+    //             }
+    //             if ($contract->content !== null && $for_editor == false) {
+    //                 $this->load->library('merge_fields/client_merge_fields');
+    //                 $this->load->library('merge_fields/contract_merge_fields');
+    //                 $this->load->library('merge_fields/other_merge_fields');
+
+    //                 $merge_fields = [];
+    //                 $merge_fields = array_merge($merge_fields, $this->contract_merge_fields->format($id));
+    //                 $merge_fields = array_merge($merge_fields, $this->client_merge_fields->format($contract->client));
+    //                 $merge_fields = array_merge($merge_fields, $this->other_merge_fields->format());
+    //                 foreach ($merge_fields as $key => $val) {
+    //                     if (stripos($contract->content, $key) !== false) {
+    //                         $contract->content = str_ireplace($key, $val, $contract->content);
+    //                     } else {
+    //                         $contract->content = str_ireplace($key, '', $contract->content);
+    //                     }
+    //                 }
+    //             }
+    //         }
+
+    //         return $contract;
+    //     }
+    //     $contracts = $this->db->get(db_prefix() . 'contracts')->result_array();
+    //     $i         = 0;
+    //     foreach ($contracts as $contract) {
+    //         $contracts[$i]['attachments'] = $this->get_contract_attachments('', $contract['id']);
+    //         $i++;
+    //     }
+
+    //     return $contracts;
+    // }
+
     public function get($id = '', $where = [], $for_editor = false)
     {
         $this->db->select('*,' . db_prefix() . 'contracts_types.name as type_name,' . db_prefix() . 'contracts.id as id, ' . db_prefix() . 'contracts.addedfrom');
         $this->db->where($where);
         $this->db->join(db_prefix() . 'contracts_types', '' . db_prefix() . 'contracts_types.id = ' . db_prefix() . 'contracts.contract_type', 'left');
-        $this->db->join(db_prefix() . 'clients', '' . db_prefix() . 'clients.userid = ' . db_prefix() . 'contracts.client');
+        // $this->db->join(db_prefix() . 'clients', '' . db_prefix() . 'clients.userid = ' . db_prefix() . 'contracts.client');
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'contracts.id', $id);
             $contract = $this->db->get(db_prefix() . 'contracts')->row();
@@ -93,53 +155,47 @@ class Contracts_model extends App_Model
      * Add new contract
      */
     public function add($data)
-    {
-        $data['dateadded'] = date('Y-m-d H:i:s');
-        $data['addedfrom'] = get_staff_user_id();
+{
+    $data['dateadded'] = date('Y-m-d H:i:s');
+    $data['addedfrom'] = get_staff_user_id();
 
-        $data['datestart'] = to_sql_date($data['datestart']);
-        unset($data['attachment']);
-        if ($data['dateend'] == '') {
-            unset($data['dateend']);
-        } else {
-            $data['dateend'] = to_sql_date($data['dateend']);
-        }
 
-        if (isset($data['trash']) && ($data['trash'] == 1 || $data['trash'] === 'on')) {
-            $data['trash'] = 1;
-        } else {
-            $data['trash'] = 0;
-        }
-
-        if (isset($data['not_visible_to_client']) && ($data['not_visible_to_client'] == 1 || $data['not_visible_to_client'] === 'on')) {
-            $data['not_visible_to_client'] = 1;
-        } else {
-            $data['not_visible_to_client'] = 0;
-        }
-        if (isset($data['custom_fields'])) {
-            $custom_fields = $data['custom_fields'];
-            unset($data['custom_fields']);
-        }
-
-        $data['hash'] = app_generate_hash();
-
-        $data = hooks()->apply_filters('before_contract_added', $data);
-
-        $this->db->insert(db_prefix() . 'contracts', $data);
-        $insert_id = $this->db->insert_id();
-
-        if ($insert_id) {
-            if (isset($custom_fields)) {
-                handle_custom_fields_post($insert_id, $custom_fields);
-            }
-            hooks()->do_action('after_contract_added', $insert_id);
-            log_activity('New Contract Added [' . $data['subject'] . ']');
-
-            return $insert_id;
-        }
-
-        return false;
+    $data['datestart'] = to_sql_date($data['datestart']);
+    unset($data['attachment']);
+    if ($data['dateend'] == '') {
+        unset($data['dateend']);
+    } else {
+        $data['dateend'] = to_sql_date($data['dateend']);
     }
+
+    $data['trash'] = isset($data['trash']) && ($data['trash'] == 1 || $data['trash'] === 'on') ? 1 : 0;
+    $data['not_visible_to_client'] = isset($data['not_visible_to_client']) && ($data['not_visible_to_client'] == 1 || $data['not_visible_to_client'] === 'on') ? 1 : 0;
+
+    if (isset($data['custom_fields'])) {
+        $custom_fields = $data['custom_fields'];
+        unset($data['custom_fields']);
+    }
+
+    $data['hash'] = app_generate_hash();
+
+    $data = hooks()->apply_filters('before_contract_added', $data);
+
+    $this->db->insert(db_prefix() . 'contracts', $data);
+    $insert_id = $this->db->insert_id();
+
+    if ($insert_id) {
+        if (isset($custom_fields)) {
+            handle_custom_fields_post($insert_id, $custom_fields);
+        }
+        hooks()->do_action('after_contract_added', $insert_id);
+        log_activity('New Contract Added [' . $data['subject'] . ']');
+
+        return $insert_id;
+    }
+
+    return false;
+}
+
 
     /**
      * @param  array $_POST data

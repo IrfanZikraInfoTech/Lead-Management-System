@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-11 00:01:30 --> Severity: Warning --> Undefined property: Leads::$events_model D:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 119
 ERROR - 2023-08-11 00:01:30 --> Severity: error --> Exception: Call to a member function create_event() on null D:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 119
 ERROR - 2023-08-11 00:02:02 --> Severity: Warning --> Undefined variable $count D:\xampp\htdocs\Lead-Management-System\application\services\LeadProfileBadges.php 28
@@ -628,4 +629,17 @@ ERROR - 2023-08-11 22:35:58 --> Could not find the language line "Ahmed Usman - 
 ERROR - 2023-08-11 22:45:18 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
 ERROR - 2023-08-11 22:45:41 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
 ERROR - 2023-08-11 22:45:59 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
+>>>>>>> Stashed changes
+=======
+ERROR - 2023-08-11 15:38:09 --> Severity: Warning --> Undefined property: Leads::$lead_modal C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 51
+ERROR - 2023-08-11 15:38:09 --> Severity: error --> Exception: Call to a member function get_total_leads() on null C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 51
+ERROR - 2023-08-11 15:38:26 --> Severity: Warning --> Undefined property: Leads::$lead_model C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 51
+ERROR - 2023-08-11 15:38:26 --> Severity: error --> Exception: Call to a member function get_total_leads() on null C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 51
+ERROR - 2023-08-11 16:52:42 --> Severity: Warning --> Undefined property: Leads::$model C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 53
+ERROR - 2023-08-11 16:52:42 --> Severity: error --> Exception: Call to a member function getNewCustomersCount() on null C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 53
+ERROR - 2023-08-11 16:52:58 --> Severity: Warning --> Undefined variable $total_new_customers C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 66
+ERROR - 2023-08-11 16:53:43 --> Severity: Warning --> Undefined variable $total_new_customers C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 66
+ERROR - 2023-08-11 17:03:46 --> Could not find the language line "features"
+ERROR - 2023-08-11 17:04:12 --> Could not find the language line "features"
+ERROR - 2023-08-11 17:04:48 --> Could not find the language line "features"
 >>>>>>> Stashed changes

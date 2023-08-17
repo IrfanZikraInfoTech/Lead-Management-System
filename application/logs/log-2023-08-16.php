@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-16 14:56:38 --> Severity: Warning --> Undefined variable $leads D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 78
 ERROR - 2023-08-16 14:56:38 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 78
 ERROR - 2023-08-16 14:59:49 --> Severity: Warning --> Array to string conversion D:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Contracts.php 85
@@ -1328,4 +1329,7 @@ ERROR - 2023-08-16 23:59:00 --> Could not find the language line "Ahmed Usman - 
 ERROR - 2023-08-16 23:59:00 --> Could not find the language line "new_invoice"
 ERROR - 2023-08-16 23:59:03 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
 ERROR - 2023-08-16 23:59:03 --> Could not find the language line "new_invoice"
+>>>>>>> Stashed changes
+=======
+ERROR - 2023-08-16 22:02:20 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
 >>>>>>> Stashed changes

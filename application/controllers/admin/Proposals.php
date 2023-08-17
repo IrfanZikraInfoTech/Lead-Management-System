@@ -132,6 +132,7 @@ class Proposals extends AdminController
         }
     }
 
+ 
     public function proposal($id = '')
     {
         if ($this->input->post()) {
@@ -224,6 +225,7 @@ class Proposals extends AdminController
         $this->load->view('admin/proposals/proposal', $data);
         }
 
+<<<<<<< Updated upstream
     // show pdf
     public function show_pdf($id = '') {
         if (empty($id)) {
@@ -246,11 +248,43 @@ class Proposals extends AdminController
         return;
          }
          
+=======
+
+
+
+    // show pdf
+    public function show_pdf($id = '') {
+        if (empty($id)) {
+            show_404(); // Show a 404 error if no ID is provided.
+            return;
+        }
+    
+        // Load model and get proposal data based on ID
+        $proposal = $this->proposals_model->get($id);
+    
+        if (!$proposal) {
+            show_404(); // Show a 404 error if the proposal doesn't exist.
+            return;
+        }
+    
+        $pdf_path = './uploads/proposals/' . $proposal->pdf_path;
+    
+        if (!file_exists($pdf_path)) {
+            show_404(); // Show a 404 error if the PDF file doesn't exist.
+            return;
+        }
+    
+>>>>>>> Stashed changes
         // Read and serve the PDF file
         header('Content-type: application/pdf');
         header('Content-Disposition: inline; filename="' . $proposal->pdf_path . '"');
         readfile($pdf_path);
+<<<<<<< Updated upstream
         }
+=======
+    }
+    
+>>>>>>> Stashed changes
 
     public function get_template()
     {

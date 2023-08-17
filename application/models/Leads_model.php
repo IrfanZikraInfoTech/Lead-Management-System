@@ -1351,7 +1351,67 @@ public function getLeadsBySalesperson() {
 
 // dashboard widgets end
 
+
+// random cards
+
+public function get_total_leads() {
+    // Dummy data return 
+    return rand(100, 1000); 
 }
+public function getNewCustomersCount() {
+    // Example: Fetch data from the database
+    return 100; // Placeholder value, use actual DB query to get count
+}
+public function getEngagementData() {
+    // Filhal, main dummy data return 
+    return [
+        'interactions' => 150, 
+    ];
+}
+public function getLeadSources() {
+    // Replace this with your actual data retrieval logic
+    $dummyData = [
+        ['source' => 'Website', 'count' => 120],
+        ['source' => 'Email Campaigns', 'count' => 50],
+        ['source' => 'Social Media', 'count' => 75],
+        // Add more sources as needed
+    ];
+    return $dummyData;
+}
+public function get_top_lead_source() {
+    // Dummy data
+    $lead_sources = [
+        'Website' => 150,
+        'Email Campaign' => 95,
+        'Social Media' => 200,
+        'Referral' => 80
+    ];
+
+    // Get the top lead source using array keys and values functions
+    $max_value = max($lead_sources);
+    $top_source = array_search($max_value, $lead_sources);
+
+    return $top_source;
+}
+
+    public function getLeadsNotRespondedInAWeek() {
+        // Yahaan pe hum dummy data return kar rahe hain
+        return 150;  // for example, 150 leads haven't responded
+    }
+    public function get_campaign_performance() {
+        // Filhal ke liye dummy data
+        return [
+            'campaign_name' => 'Spring Sale',
+            'total_sent' => 1000,
+            'opened' => 750,
+            'clicked' => 250,
+            'conversion_rate' => 25 // yeh percentage hai
+        ];
+    }
+
+}
+
+
 
 
 

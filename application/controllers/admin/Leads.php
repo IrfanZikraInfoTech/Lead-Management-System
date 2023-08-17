@@ -64,6 +64,19 @@ class Leads extends AdminController
         //getLeadInteractions
         $leadInteractions = $this->Leads_model->getLeadInteractions();
 
+
+        // ctop cards
+        $total_leads= $this->leads_model->get_total_leads();
+
+        $new_customers_count =$this->leads_model->getNewCustomersCount();
+
+        $engagement_data=  $this->leads_model->getEngagementData();
+        $leadSources = $this->leads_model->getLeadSources(); // Assuming a function to get lead sources from the model
+        $top_lead_source= $this->leads_model->get_top_lead_source();
+        $leads_not_responded= $this->leads_model->getLeadsNotRespondedInAWeek();
+        $campaign_performance=$this->leads_model->get_campaign_performance();
+
+
         // Send all data sets to the view
         $data = [
             'statusCounts' => $statusCounts,
@@ -72,14 +85,19 @@ class Leads extends AdminController
             'conversionRates' => $conversionRates,
             'leadLifecycleData' => $leadLifecycleData,
             'leadResponseTimes' => $leadResponseTimes ,
-            'leadInteractions'=> $leadInteractions    
-            
+            'leadInteractions'=> $leadInteractions  ,
+            'total_leads' =>$total_leads,
+            'new_customers_count'=> $new_customers_count,
+            'engagement_data'=>$engagement_data,
+            'leadSources'=> $leadSources,
+            'top_lead_source'=>$top_lead_source,
+            'leads_not_responded'=>$leads_not_responded,
+            'campaign_performance'=>$campaign_performance
         ];
         
         $this->load->view('admin/leads/lead_dashboard', $data);
     }
     
-
     //widget work end 
 
     public function list($id = '')

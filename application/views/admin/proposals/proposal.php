@@ -20,12 +20,20 @@
             }
             ?>
             <?php
+<<<<<<< Updated upstream
          echo form_open($this->uri->uri_string(), ['id' => 'proposal-form', 'class' => '_transaction_form proposal-form', 'enctype' => 'multipart/form-data']);
 
          if ($this->input->get('estimate_request_id')) {
              echo form_hidden('estimate_request_id', $this->input->get('estimate_request_id'));
          }
          ?>
+=======
+                echo form_open($this->uri->uri_string(), ['id' => 'proposal-form', 'class' => '_transaction_form proposal-form', 'enctype' => 'multipart/form-data']);
+                if ($this->input->get('estimate_request_id')) {
+                echo form_hidden('estimate_request_id', $this->input->get('estimate_request_id'));
+            }
+            ?>
+>>>>>>> Stashed changes
 
             <div class="col-md-12">
                 <h4
@@ -422,6 +430,8 @@ function validate_proposal_form() {
             required: true
         },
         currency: 'required',
+        pdf_file: 'required',  //  PDF is mandatory 
+
     });
 }
 </script>

@@ -480,3 +480,28 @@ ERROR - 2023-08-17 21:42:18 --> Could not find the language line "New Contract"
 ERROR - 2023-08-17 21:42:25 --> Could not find the language line "New Contract"
 ERROR - 2023-08-17 21:42:59 --> Could not find the language line "New Contract"
 ERROR - 2023-08-17 21:42:59 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-17 21:16:22 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 21:16:37 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 21:17:51 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 21:25:25 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 21:25:29 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 21:25:34 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-17 21:25:41 --> Query error: Table 'lmsdb.tblevent' doesn't exist - Invalid query: SELECT *
+FROM `tblevent`
+ERROR - 2023-08-17 21:28:46 --> Query error: Unknown column 'tblcontracts.rel_id' in 'where clause' - Invalid query: SELECT `tblcontracts`.*, `tblclients`.`company` as `client_name`, `tblleads`.`name` as `lead_name`
+FROM `tblcontracts`
+LEFT JOIN `tblclients` ON `tblclients`.`userid` = `tblcontracts`.`client` AND `tblcontracts`.`rel_type` = "customer"
+LEFT JOIN `tblleads` ON `tblleads`.`id` = `tblcontracts`.`rel_id` AND `tblcontracts`.`rel_type` = "lead"
+WHERE `tblcontracts`.`rel_id` = '4'
+AND `tblcontracts`.`rel_type` = 'lead'
+ERROR - 2023-08-17 21:29:59 --> Query error: Unknown column 'tblinvoices.rel_id' in 'on clause' - Invalid query: SELECT `tblinvoices`.*, `tblleads`.`name` as `lead_name`
+FROM `tblinvoices`
+LEFT JOIN `tblleads` ON `tblinvoices`.`rel_id` = `tblleads`.`id` AND `tblinvoices`.`rel_type` = "lead"
+ERROR - 2023-08-17 21:30:37 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:30:37 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-17 16:30:51 --> Severity: error --> Exception: syntax error, unexpected token "<<", expecting "function" or "const" C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 228
+ERROR - 2023-08-17 21:31:18 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:31:18 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-17 21:31:50 --> Could not find the language line "New Contract"
+ERROR - 2023-08-17 21:31:50 --> Could not find the language line "new_invoice"
+ERROR - 2023-08-17 21:32:06 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177

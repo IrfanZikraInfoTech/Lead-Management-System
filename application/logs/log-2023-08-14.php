@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-14 20:09:22 --> Severity: Warning --> Undefined variable $leads D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 77
 ERROR - 2023-08-14 20:09:22 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 77
 ERROR - 2023-08-14 20:16:32 --> Severity: Warning --> Undefined variable $leads D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 77
@@ -109,4 +110,21 @@ ERROR - 2023-08-14 23:18:11 --> Severity: error --> Exception: count(): Argument
 =======
 ERROR - 2023-08-14 18:26:58 --> Could not find the language line "Ahmed Usman - Ahmed Usman assigned to Atika Ibrahim, Ahmed Usman"
 ERROR - 2023-08-14 21:17:15 --> Severity: Warning --> Undefined variable $uploadedFilePath C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 144
+>>>>>>> Stashed changes
+=======
+ERROR - 2023-08-14 14:51:41 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-14 15:16:53 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 182
+ERROR - 2023-08-14 15:18:26 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 182
+ERROR - 2023-08-14 15:22:50 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 182
+ERROR - 2023-08-14 15:23:37 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 182
+ERROR - 2023-08-14 15:24:08 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 182
+ERROR - 2023-08-14 15:25:30 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 182
+ERROR - 2023-08-14 15:26:40 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 182
+ERROR - 2023-08-14 15:28:32 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 182
+ERROR - 2023-08-14 15:29:37 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 190
+ERROR - 2023-08-14 15:30:47 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 190
+ERROR - 2023-08-14 15:32:03 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 190
+ERROR - 2023-08-14 15:33:29 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-14 18:31:35 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-14 20:23:22 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
 >>>>>>> Stashed changes

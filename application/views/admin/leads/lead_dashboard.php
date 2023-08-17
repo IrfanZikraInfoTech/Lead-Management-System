@@ -1,6 +1,49 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php init_head(); ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack-extra.css" integrity="sha512-Md0HUNKPdLfqkOrXH/ZhF2L5jxu8apjEGFK4XI5o94+G4cZYum+f3CSAWSTa5JknScPfUMTW8yKuDPqL2dHFHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack.css" integrity="sha512-wGn4psGeoo2QCOeNTGMSPqApjOg8IAzIyI01xgK9jWGBz93aA3DIRIcHSitP6H4pPA5xnqa30nAwkCzvOvHJJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 <style>
+
+.grid-stack-placeholder{
+    border: 2px dashed black;
+}
+
+.grid-stack .grid-stack-item[data-gs-width="5"] {
+  width: 100%
+}
+
+.grid-stack .grid-stack-item[data-gs-width="4"] {
+  width: 80%
+}
+
+.grid-stack .grid-stack-item[data-gs-width="3"] {
+  width: 60%
+}
+
+.grid-stack .grid-stack-item[data-gs-width="2"] {
+  width: 40%
+}
+
+.grid-stack .grid-stack-item[data-gs-width="1"] {
+  width: 20%
+}
+
+
+.grid-stack .grid-stack-item[data-gs-x="4"] {
+  left: 80%
+}
+.grid-stack .grid-stack-item[data-gs-x="3"] {
+  left: 60%
+}
+.grid-stack .grid-stack-item[data-gs-x="2"] {
+  left: 40%
+}
+.grid-stack .grid-stack-item[data-gs-x="1"] {
+  left: 20%
+}
+
+
     .heading {
     position: relative;
     font-weight: 600;
@@ -27,113 +70,353 @@
 .heading:hover::before {
     width: 100%; /* Scale the line to full width on hover */
 }
+
 </style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/1.2.0/gridstack.min.css" />
 
 
 
 <div id="wrapper">
 <div class="container ">
-<!-- Responsive Bootstrap grid -->
-<!-- Wrapper div to ensure the cards have the same height in a row -->
-<div class="row mt-4 d-flex align-items-stretch ">
-    <!-- Lead Status Distribution Card -->
-    <div class="col-12 text-center my-3">
-    <h2 class="text-2xl text-gray-900 mb-6 heading ">Lead Dashboard</h2>
+    <div class="row">
+        <div class="col-12 text-center my-3">
+          <h2 class="text-2xl text-gray-900 mb-6 heading ">Lead Dashboard</h2>
+        </div>
+<!-- top cards -->
+        <div class="flex flex-wrap gap-4 justify-start ">
+    <!-- Total Leads Card -->
+            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
+                    <!-- Text section -->
+                    <div class="mr-6">
+                    <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" id="leadCounter" data-target="<?= $total_leads ?>">0</p>
+                        <h5 class="text-lg font-medium text-uppercase text-monospace mb-2 text-[rgba(0,135,171,0.6)]">Total Leads</h5>
+                    </div>
+
+                    <!-- Right Circle with Icon for Total Leads -->
+                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+
+<!-- New Customers Card -->
+            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
+                        
+                    <!-- Text section -->
+                    <div class="mr-6">
+                        <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" id="customer" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
+                        <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">New Customers</h5>
+                
+                    </div>
+
+                    <!-- Right Circle with Icon for Total Leads -->
+                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <i class="fas fa-user-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+<!-- top lead source -->
+            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
+                    
+                    <!-- Text section -->
+                    <div class="mr-6">
+                        <p class="text-2xl mb-2 font-bold text-[rgba(0,135,171)]" id="topLeadSource"><?= $top_lead_source ?></p>
+                        <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Top Lead Source</h5>
+                
+                    </div>
+
+                    <!-- Right Circle with Icon for Top Lead Source -->
+                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+<!-- lead not response in 1 week  -->
+            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
+                    
+                    <!-- Text section -->
+                    <div class="mr-6">
+                        <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" id="leadsNotResponded"><?= $leads_not_responded ?></p>
+                        <h6 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Awaiting Response</h6>
+                    </div>
+
+                    <!-- Right Circle with Icon for this data -->
+                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+<!-- Campaign  -->
+            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
+                    
+                    <!-- Text section -->
+                    <div class="mr-5">
+                    <p class="text-2xl font-semibold text-[rgba(0,135,171)]">Conversion: <?= $campaign_performance['conversion_rate'] ?>%</p>
+                        <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]"><?= $campaign_performance['campaign_name'] ?></h5>
+                    </div>
+
+                    <!-- Right Circle with Icon for Campaign -->
+                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <i class="fas fa-chart-bar text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+
+                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+        <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
+            <!-- Text section -->
+            <div class="mr-6">
+                <p class="text-lg mb-2">Interactions: <span  class="font-extrabold text-[rgba(0,135,171)]"><?= $engagement_data['interactions'] ?></span></p>
+                <h5 class="text-lg font-medium text-uppercase text-monospace mb-2 text-[rgba(0,135,171,0.6)]">Total TEngagement</h5>
+
+                <!-- <p class="text-lg">Content Type: <span class="font-extrabold text-[rgba(0,135,171)]"><?= $engagement_data['content_type'] ?></span></p> -->
+            </div>
+
+            <!-- Right Circle with Icon for Engagement -->
+            <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                <i class="fas fa-eye text-white text-2xl"></i>
+            </div>
+        </div>
+                </div>
+        </div>
     </div>
-    
-    <div class="col-lg-5 col-md-5 col-sm-12 mb-4">
-        <div  class="card bg-white shadow-lg rounded-lg hoverable h-100 py-3">
-            <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Status Distribution</h2>
-                <div class="d-flex justify-content-center">
-                    <canvas id="leadStatusChart" style="max-width: 90%; height: 500px;"class="my-4"></canvas>
+
+ <!-- charts -->
+        <div class="row mt-4 d-flex align-items-stretch ">
+            <div class="col-lg-5 col-md-5 col-sm-12 mb-4 ">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                        <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Status Distribution</h2>
+                        <div class="d-flex justify-content-center">
+                            <canvas id="leadStatusChart" style="max-width: 85%; height: 500px;"class="my-4 mx-auto"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+
+            <!-- Lead Source Tracking Card -->
+            <div class="col-lg-7 col-md-7 col-sm-12 mb-4">
+
+             <div class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                        <h2 class="card-title ms-1 text-uppercase text-center py-2" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Source Tracking</h2>
+                        <div class="d-flex justify-content-center">
+                            <canvas id="leadSourceChart"  style="max-width: 85%; height: 260px;"class=" mx-auto"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+        <div class="row mt-4 d-flex align-items-stretch">
+            <!-- Lead Distribution by Salesperson -->
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                <div  class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                        <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Distribution by Salesperson</h2>
+                        <div class="d-flex justify-content-center">
+                            <canvas class="mx-auto" id="leadBySalespersonChart"  style="max-width: 90%; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lead Conversion Rate Over Time -->
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4 ">
+            <div  class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                    <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Conversion Rate Over Time</h2>
+                    <div class="d-flex justify-content-center">
+                        <canvas class="mx-auto" id="leadConversionRateProgressBarChart" style="max-width: 90%; height: 300px;"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div> 
 
-    <!-- Lead Source Tracking Card -->
-    <div class="col-lg-7 col-md-7 col-sm-12 mb-4">
-        <div class="card bg-white shadow-lg rounded-lg hoverable h-100">
-            <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Source Tracking</h2>
-                <div class="d-flex justify-content-center">
-                    <canvas id="leadSourceChart"  style="max-width: 90%; height: 300px;"></canvas>
+        <!-- calender -->
+        <div class="row mt-4 d-flex align-items-stretch ">
+        <div class="col-lg-3 col-md-3 col-sm-12 mb-4">
+        <div class="card bg-white shadow-lg rounded-lg hoverable h-95 py-1 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
+                        Lead Source Breakdown</h2>
+                        <?php foreach ($leadSources as $source): ?>
+            <div class="mb-4 flex flex-col items-center">
+                <div class="relative w-32 h-32">
+                <svg class="absolute transform -rotate-90" width="100%" height="95%" viewBox="0 0 42 42">
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgba(85, 199, 219, 1);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(110, 231, 183, 1);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <circle class="text-gray-300" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="#f3f3f3" stroke-width="5"></circle>
+            <circle class="text-blue-600" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="url(#gradient)" stroke-width="5" stroke-dasharray="<?= $source['count'] * 0.3183098861837907 ?>, 100"></circle>
+        </svg>
+
+                    <div class="absolute top-0 left-0 flex justify-center items-center w-full h-full">
+                        <p class="text-2xl font-semibold"><?= $source['count'] ?>%</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 font-bold text-center mb-2"><?= $source['source'] ?></p>
+            </div>
+        <?php endforeach; ?>
+
+                </div>  
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 mb-4">
+            <div class="card bg-white shadow-lg rounded-lg hoverable h-95 py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                    <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
+                    Event Calendar</h2>
+                    <div class="d-flex justify-content-center w-[85%] h-[500px] mx-auto overflow-x-auto overflow-y-auto">
+                        <div id="calendar" class="w-full h-full"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        
+
+
+        
+        </div>   
+
+        <div class="row mt-4 d-flex align-items-stretch text-center">
+            
+        <div class="col-lg-9 col-md-9 col-sm-9 mb-4 ">
+        <div class="card bg-white shadow-lg rounded-lg hoverable h-90  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Lifecycle</h2>
+                    <div class="d-flex justify-content-center">
+                        <canvas class="mx-auto"id="leadLifecycleChart" style="max-width: 85%; height: 250px;"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="row mt-4 d-flex align-items-stretch">
-    <!-- Lead Distribution by Salesperson -->
-    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-        <div class="card bg-white shadow-lg rounded-lg hoverable h-100">
-            <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Distribution by Salesperson</h2>
-                <div class="d-flex justify-content-center">
-                    <canvas id="leadBySalespersonChart"  style="max-width: 90%; height: 300px;"></canvas>
+
+        <div class="col-lg-3 col-md-3 col-sm-3 mb-4">
+            <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                    <h2 class="card-title ms-1 text-uppercase text-center mb-5" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
+                        Quick Actions
+                    </h2>
+                    <hr class="mx-auto my-4 w-1/3 bg-gray-300">
+                    <div class="d-flex justify-content-between ">
+                        <div class="mb-5 w-20 h-20 bg-[#55C7DB] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative">
+                            <i data-tooltip="Send Message" class="fas fa-comment text-white text-2xl"></i>
+                        </div>
+                        <div class="mb-5 w-20 h-20 bg-[#55C7DB] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative">
+                            <i data-tooltip="Add New Attachment" class="fas fa-paperclip text-white text-2xl"></i>
+                        </div>
+                        <div class="mb-5  w-20 h-20 bg-[#55C7DB] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative">
+                            <i data-tooltip="Set New Reminder" class="fas fa-bell text-white text-2xl"></i>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Lead Conversion Rate Over Time -->
 
-    <div class="col-lg-6 col-md-6 col-sm-12 mb-4 ">
-    <div class="card bg-white shadow-lg rounded-lg hoverable h-100">
-        <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-            <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Conversion Rate Over Time</h2>
-            <div class="d-flex justify-content-center">
-                <canvas id="leadConversionRateProgressBarChart" style="max-width: 90%; height: 300px;"></canvas>
+        </div>
+
+        <div class="row mt-4 d-flex align-items-stretch ">
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+        <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                    <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Response Time Distribution</h2>
+                    <div class="d-flex justify-content-center">
+                        <canvas id="leadResponseTimeDonutChart" style="max-width: 90%; height: 300px;"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-<div class="row mt-4 d-flex align-items-stretch ">
-<div class="col-lg-12 col-md-12 col-sm-12 mb-4">
-    <div class="card bg-white shadow-lg rounded-lg hoverable h-100">
-        <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-            <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Lifecycle</h2>
-            <div class="d-flex justify-content-center">
-                <canvas id="leadLifecycleChart" style="max-width: 90%; height: 250px;"></canvas>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+        <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Interaction History</h2>
+                <div class="d-flex justify-content-center">
+                <canvas id="leadInteractionChart"style="max-width: 90%; height: 300px;"></canvas>
+            </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-
-<div class="row mt-4 d-flex align-items-stretch ">
-<div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-    <div class="card bg-white shadow-lg rounded-lg hoverable h-100">
-        <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-            <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Response Time Distribution</h2>
-            <div class="d-flex justify-content-center">
-                <canvas id="leadResponseTimeDonutChart" style="max-width: 90%; height: 300px;"></canvas>
-            </div>
         </div>
-    </div>
-</div>
 
-<div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-<div class="card bg-white shadow-lg rounded-lg hoverable h-100">
-<div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-        <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Interaction History</h2>
-        <div class="d-flex justify-content-center">
-        <canvas id="leadInteractionChart"style="max-width: 90%; height: 300px;"></canvas>
-    </div>
-    </div>
-</div>
-</div>
+        </div>
 
 </div>
 </div>
-</div>
+
 <?php init_tail(); ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.3/chart.min.js" integrity="sha512-fMPPLjF/Xr7Ga0679WgtqoSyfUoQgdt8IIxJymStR5zV3Fyb6B3u/8DcaZ6R6sXexk5Z64bCgo2TYyn760EdcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     
+// top cards
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const counterElement = document.getElementById('leadCounter');
+    if (counterElement) {
+        const targetValue = +counterElement.getAttribute('data-target');
+        const duration = 2000; // Duration for counter animation in milliseconds
+
+        let startTimestamp;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const elapsed = timestamp - startTimestamp;
+            const progress = Math.min(elapsed / duration, 1);
+
+            counterElement.textContent = Math.floor(progress * targetValue);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+});
+
+
+
+// customer counter:
+$(document).ready(function() {
+    // Counter function
+    function animateValue(id, start, end, duration) {
+        var range = end - start;
+        var current = start;
+        var increment = end > start? 1 : -1;
+        var stepTime = Math.abs(Math.floor(duration / range));
+        var obj = document.getElementById(id);
+        var timer = setInterval(function() {
+            current += increment;
+            obj.innerHTML = current;
+            if (current == end) {
+                clearInterval(timer);
+            }
+        }, stepTime);
+    }
+
+    // Call the counter function for customers on page load
+    var customerEndValue = parseInt($("#customer").attr("data-target")); 
+    animateValue("customer", 0, customerEndValue, 1500);
+
+});
+
+
+
+
 // leadStatusChart
 var ctx = document.getElementById('leadStatusChart').getContext('2d');
 
@@ -196,13 +479,13 @@ var ctx = document.getElementById('leadSourceChart').getContext('2d');
 
 // Gradient for bar color
 var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-gradient.addColorStop(0, 'rgba(59, 167, 255, 0.6)');
-gradient.addColorStop(1, 'rgba(110, 231, 183, 0.6)');
+gradient.addColorStop(0, 'rgba(110, 231, 183, 1)');
+gradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
 
 // Gradient for bar border color (darker shades)
 var borderGradient = ctx.createLinearGradient(0, 0, 0, 400);
-borderGradient.addColorStop(0, 'rgba(47, 137, 207, 0.6)');
-borderGradient.addColorStop(1, 'rgba(90, 198, 157, 0.6)');
+borderGradient.addColorStop(0, 'rgba(110, 231, 183, 1)');
+borderGradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
 
 var leadSourceChart = new Chart(ctx, {
     type: 'bar',
@@ -215,11 +498,16 @@ var leadSourceChart = new Chart(ctx, {
             borderWidth: 2,
             hoverBackgroundColor: ['rgb(0, 135, 171)','rgb(0, 135, 171)','rgb(0, 135, 171)'],
             hoverBorderColor: 'rgb(0, 135, 171)',
-            borderRadius: 50,
+            borderRadius: 10,
             borderSkipped: false
         }]
     },
     options: {
+        elements: {
+            bar: {
+                borderSkipped: false
+            }
+        },
         responsive: true,
         layout: {
             padding: {
@@ -279,7 +567,20 @@ var leadSourceChart = new Chart(ctx, {
     }
 });
 
-
+// Add shadow effect
+var originalDraw = Chart.controllers.bar.prototype.draw;
+Chart.controllers.bar.prototype.draw = function() {
+    originalDraw.apply(this, arguments);
+    var ctx = this.chart.chart.ctx;
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+    ctx.shadowBlur = 7;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 7;
+    ctx.responsive = true;
+    originalDraw.apply(this, arguments);
+    ctx.restore();
+};
 // leadBySalespersonChart
 var ctx = document.getElementById('leadBySalespersonChart').getContext('2d');
 
@@ -543,6 +844,35 @@ var leadInteractionChart = new Chart(ctx, {
     }
 });
 
+
+
+// calender
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    timeZone: 'America/New_York', // Set your desired time zone here
+    events: [
+      {
+        title: 'Meeting',
+        start: '2023-08-10T10:00:00' // Use ISO 8601 format for accurate time
+      },
+      {
+        title: 'Conference',
+        start: '2023-08-15T14:00:00',
+        end: '2023-08-17T17:00:00'
+      }
+      // Add more events as needed
+    ]
+  });
+
+  calendar.render();
+});
+
 </script>
+
+
 </body>
 </html>

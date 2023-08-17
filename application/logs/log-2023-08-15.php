@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-15 11:29:59 --> Severity: Warning --> Attempt to read property "subject" on array D:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Contracts.php 122
 ERROR - 2023-08-15 11:29:59 --> Severity: Warning --> Attempt to read property "client" on array D:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Contracts.php 124
 ERROR - 2023-08-15 11:30:04 --> Severity: Warning --> Attempt to read property "signed" on array D:\xampp\htdocs\Lead-Management-System\application\views\admin\contracts\contract.php 7
@@ -1243,4 +1244,42 @@ ERROR - 2023-08-15 15:49:15 --> Severity: Warning --> readfile(./uploads/proposa
 ERROR - 2023-08-15 15:49:35 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
 ERROR - 2023-08-15 15:51:35 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
 ERROR - 2023-08-15 15:51:41 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 255
+>>>>>>> Stashed changes
+=======
+ERROR - 2023-08-15 09:16:15 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-15 10:44:02 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-15 10:57:04 --> Severity: error --> Exception: Call to undefined method Proposals::list_proposals() C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 18
+ERROR - 2023-08-15 11:08:45 --> Severity: error --> Exception: syntax error, unexpected token "<", expecting end of file C:\wamp64\www\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 81
+ERROR - 2023-08-15 06:30:15 --> 404 Page Not Found: admin/Uploads/proposals
+ERROR - 2023-08-15 06:32:17 --> 404 Page Not Found: admin/Uploads/proposals
+ERROR - 2023-08-15 12:55:56 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-15 12:56:15 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-15 07:58:29 --> 404 Page Not Found: admin/Uploads/proposals
+ERROR - 2023-08-15 13:04:03 --> Severity: error --> Exception: Call to undefined function base_ur() C:\wamp64\www\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 166
+ERROR - 2023-08-15 08:08:58 --> 404 Page Not Found: admin/Uploads/proposals
+ERROR - 2023-08-15 08:32:16 --> 404 Page Not Found: /index
+ERROR - 2023-08-15 08:32:22 --> 404 Page Not Found: /index
+ERROR - 2023-08-15 13:38:35 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 13:38:39 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 13:38:43 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 13:38:45 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 15:06:22 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-15 15:09:34 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 15:09:37 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 15:10:13 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 15:10:34 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 15:10:37 --> Severity: Warning --> readfile(./uploads/proposals/): Failed to open stream: No such file or directory C:\wamp64\www\Lead-Management-System\application\controllers\admin\Proposals.php 254
+ERROR - 2023-08-15 15:19:16 --> 404 Page Not Found: 
+ERROR - 2023-08-15 15:19:25 --> 404 Page Not Found: 
+ERROR - 2023-08-15 15:34:46 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 15:35:41 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 15:37:34 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 15:39:28 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 15:41:16 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 15:44:42 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 16:03:10 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 16:18:47 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 16:51:43 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 17:09:27 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
+ERROR - 2023-08-15 19:12:29 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 177
 >>>>>>> Stashed changes

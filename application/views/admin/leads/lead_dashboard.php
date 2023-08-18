@@ -4,79 +4,38 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack.css" integrity="sha512-wGn4psGeoo2QCOeNTGMSPqApjOg8IAzIyI01xgK9jWGBz93aA3DIRIcHSitP6H4pPA5xnqa30nAwkCzvOvHJJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
 <style>
-.grid-stack-placeholder{
-    border: 2px dashed black;
-}
-
-.grid-stack .grid-stack-item[data-gs-width="5"] {
-  width: 100%
-}
-
-.grid-stack .grid-stack-item[data-gs-width="4"] {
-  width: 80%
-}
-
-.grid-stack .grid-stack-item[data-gs-width="3"] {
-  width: 60%
-}
-
-.grid-stack .grid-stack-item[data-gs-width="2"] {
-  width: 40%
-}
-
-.grid-stack .grid-stack-item[data-gs-width="1"] {
-  width: 20%
-}
-
-
-.grid-stack .grid-stack-item[data-gs-x="4"] {
-  left: 80%
-}
-.grid-stack .grid-stack-item[data-gs-x="3"] {
-  left: 60%
-}
-.grid-stack .grid-stack-item[data-gs-x="2"] {
-  left: 40%
-}
-.grid-stack .grid-stack-item[data-gs-x="1"] {
-  left: 20%
-}
-
-
     .heading {
-    position: relative;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 2px;
-    color:#777;
-    letter-spacing: 1.1;
-    display: inline-block; /* Use inline-block to make the width of the element adjust to the text size */
-    
-}
-.heading::before {
-    content: "";
-    position: absolute;
-    display: block;
-    bottom: -3px; /* Adjust the position of the line based on your preference */
-    left: 0;
-    width: 0; /* Start the line with zero width */
-    height: 3px;
-    background-color: #777; /* Change the color of the line */
-    transition: width 0.7s ease-in-out; /* Adjust the transition speed as needed */
-}
+        position: relative;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 2px;
+        color:#777;
+        letter-spacing: 1.1;
+        display: inline-block; /* Use inline-block to make the width of the element adjust to the text size */
+        
+    }
+    .heading::before {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: -3px; /* Adjust the position of the line based on your preference */
+        left: 0;
+        width: 0; /* Start the line with zero width */
+        height: 3px;
+        background-color: #777; /* Change the color of the line */
+        transition: width 0.7s ease-in-out; /* Adjust the transition speed as needed */
+    }
 
-.heading:hover::before {
-    width: 100%; /* Scale the line to full width on hover */
-}
+    .heading:hover::before {
+        width: 100%; /* Scale the line to full width on hover */
+    }
 
 </style>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/1.2.0/gridstack.min.css" />
-
 
 
 <div id="wrapper">
-<div class="container ">
+<div class="container p-12">
     <div class="row">
         <div class="col-12 text-center my-3">
           <h2 class="text-2xl text-gray-900 mb-6 heading ">Lead Dashboard</h2>

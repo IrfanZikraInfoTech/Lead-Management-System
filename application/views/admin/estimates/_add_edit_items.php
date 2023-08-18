@@ -39,12 +39,7 @@
                             data-toggle="tooltip"
                             data-title="<?php echo _l('item_description_new_lines_notice'); ?>"></i>
                         <?php echo _l('estimate_table_item_heading'); ?></th>
-<<<<<<< Updated upstream
                     <th width="50%" align="left"><?php echo _l('estimate_table_item_description'); ?></th>
-=======
-                    <th width="25%" align="left"><?php echo _l('estimate_table_item_description'); ?></th>
-                    <th width="15%" >Add Pdf</th>
->>>>>>> Stashed changes
                     <?php
                   $custom_fields = get_custom_fields('items');
                   foreach ($custom_fields as $cf) {
@@ -79,16 +74,9 @@
                             placeholder="<?php echo _l('item_long_description_placeholder'); ?>"></textarea>
                     </td>
                     <td>
-<<<<<<< Updated upstream
                     <input type="file" name="pdf_file" id="pdfUpload" accept=".pdf">
                     </td>
                     
-=======
-                        
-                    <input type="file" name="pdf_file" id="pdfUpload" accept=".pdf">
-
-                    </td>
->>>>>>> Stashed changes
                     <?php echo render_custom_fields_items_table_add_edit_preview(); ?>
                     <td>
                         <input type="number" name="quantity" min="0" value="1" class="form-control"
@@ -282,25 +270,13 @@
     <div id="removed-items"></div>
 </div>
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 <script>
     document.getElementById('pdfUpload').addEventListener('change', function(event) {
     var file = event.target.files[0];
 
     if(file.type !== "application/pdf") {
-<<<<<<< Updated upstream
         alert('Please upload PDF file.');
         event.target.value = '';  // Reset the input field
     }
 });
-=======
-        alert('Only PDF file can be uploaded');
-        event.target.value = '';  // Reset the input field
-    }
-});
-
->>>>>>> Stashed changes
 </script>

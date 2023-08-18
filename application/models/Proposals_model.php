@@ -159,10 +159,6 @@ class Proposals_model extends App_Model
 
             log_activity('New Proposal Created [ID: ' . $insert_id . ']');
 
-            if ($save_and_send === true) {
-                $this->send_proposal_to_email($insert_id);
-            }
-
             hooks()->do_action('proposal_created', $insert_id);
 
             return $insert_id;
@@ -766,6 +762,19 @@ class Proposals_model extends App_Model
                         send_mail_template('proposal_declined_to_staff', $original_proposal, $member['email']);
                     }
 
+                    if($original_proposal->rel_type="lead"){
+                        $this->load->model("leads_model");
+                        $messageData = array(
+                            'lead_id' => $original_proposal->rel_id,
+                            'subject' => "Client Declined Proposal",
+                            'body' => "Proposal <a href='".admin_url("proposals#".$original_proposal->id)."'>".format_proposal_number($original_proposal->id)."</a> was rejected!",
+                            'sent_by' => 'lead',
+                            'sent_by_id' => $original_proposal->rel_id,
+                            'created_at' => date('Y-m-d H:i:s')
+                        );
+                        $this->leads_model->add_message($messageData);
+                    }
+
                     hooks()->do_action('proposal_declined', $id);
                 }
             } else {
@@ -966,6 +975,16 @@ class Proposals_model extends App_Model
 
     public function send_proposal_to_email($id, $attachpdf = true, $cc = '')
     {
+        $proposal = $this->get($id);
+        if($proposal->rel_type=="lead"){
+            return $this->send_proposal_to_email_real(false, $id, $attachpdf = true, $cc = '');
+        }else{
+            return $this->send_proposal_to_email_real(true, $id, $attachpdf = true, $cc = '');
+        }
+    }
+
+    public function send_proposal_to_email_real($send, $id, $attachpdf = true, $cc = '')
+    {
         // Proposal status is draft update to sent
         if (total_rows(db_prefix() . 'proposals', ['id' => $id, 'status' => 6]) > 0) {
             $this->db->where('id', $id);
@@ -974,7 +993,11 @@ class Proposals_model extends App_Model
 
         $proposal = $this->get($id);
 
-        $sent = send_mail_template('proposal_send_to_customer', $proposal, $attachpdf, $cc);
+        if($send){
+            $sent = send_mail_template('proposal_send_to_customer', $proposal, $attachpdf, $cc);
+        }else{
+            $sent = true;
+        }
 
         if ($sent) {
 

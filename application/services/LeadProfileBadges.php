@@ -25,10 +25,16 @@ class LeadProfileBadges
             $count = $this->{$feature}();
         }
 
-        $count = hooks()->apply_filters('lead_tab_badge_count', $count, [
-            'feature' => $feature,
-            'lead_id' => $this->leadId,
-        ]);
+        if(isset($count)){
+            $count = hooks()->apply_filters('lead_tab_badge_count', $count, [
+                'feature' => $feature,
+                'lead_id' => $this->leadId,
+            ]);
+        }else{
+            $count = 0;
+        }
+
+        
 
         return $count;
     }

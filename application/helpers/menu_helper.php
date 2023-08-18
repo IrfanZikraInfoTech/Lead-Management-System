@@ -212,6 +212,14 @@ function app_init_admin_sidebar_menu_items()
         ]);
        
 
+        $CI->app_menu->add_sidebar_children_item('leads',[
+            'slug' => 'builder',
+            'name' => 'Builder',
+            'href' => admin_url("leads/territories"),
+            'position' => 3
+        ]);
+
+
     }
     
     

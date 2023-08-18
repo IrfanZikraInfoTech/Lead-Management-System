@@ -25,13 +25,19 @@ class Leads_model extends App_Model
             log_message('error', $error['message']);
             return false;
         }
-        return true;
+        return $this->db->insert_id();
         
     }
 
     public function get_all_events($id) {
         $query = $this->db->get('tblevent');  // 'tblevent' is the name of your table
         return $query->result_array();   
+    }
+
+    public function get_event($id) {
+        $this->db->where('id', $id);
+        $query = $this->db->get('tblevent');  // 'tblevent' is the name of your table
+        return $query->row();   
     }
 
     public function get_contracts_for_lead($id) {
@@ -50,7 +56,7 @@ class Leads_model extends App_Model
     
     //Lead LifeCycle
     public function save_or_update_flow($data) {
-        $query = $this->db->get('tbl_lead_flows');
+        $query = $this->db->get('tbl_lead_lifecycle');
     
         if ($query->num_rows() > 0) {
             // Row already exists, update the row
@@ -61,16 +67,12 @@ class Leads_model extends App_Model
             $this->insert_flow($data);
         }
     }
-    public function get_flow() {
-        $query = $this->db->get('tbl_lead_flows');
+    public function get_lifecycle() {
+        $query = $this->db->get('tbl_lead_lifecycle');
         if($query->num_rows() > 0) {
             return $query->row_array(); // Assuming only one row should exist
         }
         return null;
-    }
-    public function get_lifecycle_steps() {
-        $this->db->order_by('flow', 'ASC');
-        return $this->db->get('tbl_lead_flows')->result_array();
     }
     
     public function save_step($lead_id, $step) {
@@ -88,15 +90,13 @@ class Leads_model extends App_Model
     
     
     
-    
-    
     public function insert_flow($data) {
-        $this->db->insert('tbl_lead_flows', $data); // Assuming your table name is 'lead_flows'
+        $this->db->insert('tbl_lead_lifecycle', $data); // Assuming your table name is 'lead_flows'
     }
 
     public function update_flow($id, $data) {
         $this->db->where('id', $id);
-        $this->db->update('tbl_lead_flows', $data);
+        $this->db->update('tbl_lead_lifecycle', $data);
     }
       
     public function get($id = '', $where = [])
@@ -1322,39 +1322,37 @@ class Leads_model extends App_Model
         return $kanBan->get();
     }
 
-
-
-// dahboard widgets:
+    // dahboard widgets:
 
     // In Leads_model.php
-public function getLeadStatusCounts() {
-    // Dummy data for demonstration purposes
-    return [
-        'new' => 100,
-        'in progress' => 50,
-        'converted' => 20
-    ];
-}
+    public function getLeadStatusCounts() {
+        // Dummy data for demonstration purposes
+        return [
+            'new' => 100,
+            'in progress' => 50,
+            'converted' => 20
+        ];
+    }
 
-// source tracking
-public function getLeadSourceCounts() {
-    // Dummy data for demonstration purposes
-    return [
-        'website' => 150,
-        'email campaign' => 100,
-        'social media' => 120
-    ];
-}
-// lead distribution by salesperson 
-public function getLeadsBySalesperson() {
-    // Dummy data for demonstration purposes
-    return [
-        'Ali' => 10,
-        'Sana' => 25,
-        'Ahmed' => 5,
-        'Sara' => 15
-    ];
-}
+    // source tracking
+    public function getLeadSourceCounts() {
+        // Dummy data for demonstration purposes
+        return [
+            'website' => 150,
+            'email campaign' => 100,
+            'social media' => 120
+        ];
+    }
+    // lead distribution by salesperson 
+    public function getLeadsBySalesperson() {
+        // Dummy data for demonstration purposes
+        return [
+            'Ali' => 10,
+            'Sana' => 25,
+            'Ahmed' => 5,
+            'Sara' => 15
+        ];
+    }
 
     // Dummy function to fetch lead conversion rates
     public function getLeadConversionRates() {
@@ -1398,50 +1396,50 @@ public function getLeadsBySalesperson() {
 
     
 
-// dashboard widgets end
+    // dashboard widgets end
 
 
-// random cards
+    // random cards
 
-public function get_total_leads() {
-    // Dummy data return 
-    return rand(100, 1000); 
-}
-public function getNewCustomersCount() {
-    // Example: Fetch data from the database
-    return 100; // Placeholder value, use actual DB query to get count
-}
-public function getEngagementData() {
-    // Filhal, main dummy data return 
-    return [
-        'interactions' => 150, 
-    ];
-}
-public function getLeadSources() {
-    // Replace this with your actual data retrieval logic
-    $dummyData = [
-        ['source' => 'Website', 'count' => 120],
-        ['source' => 'Email Campaigns', 'count' => 50],
-        ['source' => 'Social Media', 'count' => 75],
-        // Add more sources as needed
-    ];
-    return $dummyData;
-}
-public function get_top_lead_source() {
-    // Dummy data
-    $lead_sources = [
-        'Website' => 150,
-        'Email Campaign' => 95,
-        'Social Media' => 200,
-        'Referral' => 80
-    ];
+    public function get_total_leads() {
+        // Dummy data return 
+        return rand(100, 1000); 
+    }
+    public function getNewCustomersCount() {
+        // Example: Fetch data from the database
+        return 100; // Placeholder value, use actual DB query to get count
+    }
+    public function getEngagementData() {
+        // Filhal, main dummy data return 
+        return [
+            'interactions' => 150, 
+        ];
+    }
+    public function getLeadSources() {
+        // Replace this with your actual data retrieval logic
+        $dummyData = [
+            ['source' => 'Website', 'count' => 120],
+            ['source' => 'Email Campaigns', 'count' => 50],
+            ['source' => 'Social Media', 'count' => 75],
+            // Add more sources as needed
+        ];
+        return $dummyData;
+    }
+    public function get_top_lead_source() {
+        // Dummy data
+        $lead_sources = [
+            'Website' => 150,
+            'Email Campaign' => 95,
+            'Social Media' => 200,
+            'Referral' => 80
+        ];
 
-    // Get the top lead source using array keys and values functions
-    $max_value = max($lead_sources);
-    $top_source = array_search($max_value, $lead_sources);
+        // Get the top lead source using array keys and values functions
+        $max_value = max($lead_sources);
+        $top_source = array_search($max_value, $lead_sources);
 
-    return $top_source;
-}
+        return $top_source;
+    }
 
     public function getLeadsNotRespondedInAWeek() {
         // Yahaan pe hum dummy data return kar rahe hain
@@ -1458,6 +1456,111 @@ public function get_top_lead_source() {
         ];
     }
 
+    //Lead Email Communication
+
+    public function get_email_id($lead_id){
+        $this->db->select('email_message_id');
+        $this->db->from('tblleads');
+        $this->db->where('id', $lead_id);
+        $result = $this->db->get()->result_array()[0];
+        return $result;
+    }
+
+    public function add_message($data) {
+        // Insert the new campaign into the database
+        $this->db->insert('tbl_leadsinbox', $data);
+    
+        // Get the ID of the newly inserted campaign
+        $message_id = $this->db->insert_id();
+    
+        // Return the campaign ID if the insertion was successful, or false if not
+        return $message_id ? $message_id : false;
+    }
+
+    public function get_messages($id) {
+        // Insert the new campaign into the database
+        $this->db->select('*');
+        $this->db->from('tbl_leadsinbox');
+        $this->db->where('lead_id', $id);
+        $this->db->order_by('id', 'desc');
+        
+        return $this->db->get()->result_array();
+    }
+
+    public function set_lead_message_id($lead_id, $message_id){
+        $this->db->select('email_message_id');
+        $this->db->from('tblleads');
+        $this->db->where('id', $lead_id);
+        $result = $this->db->get()->result_array()[0];
+        
+        $allIDS = "";
+        if($result['email_message_id']){
+            $allIDS = $result['email_message_id'];
+        }
+
+        $allIDS = $allIDS."|".$message_id;
+
+
+        $this->db->where('id', $lead_id);
+        return $this->db->update('tblleads', ['email_message_id' => $allIDS]);
+    
+    }
+
+    public function search_counties($term) {
+        $this->db->like('county_name', $term);
+        $query = $this->db->get('tbl_counties');
+
+        return $query->result_array();
+    }
+
+    public function search_zipcodes($fip){
+        $this->db->select('zip, city');
+        $this->db->like('county_fips', $fip);
+        $query = $this->db->get('tbl_zip_maps');
+        
+        return $query->result_array();
+    }
+
+    public function get_territories(){
+        return $this->db->get('tbl_territories')->result_array();
+    }
+
+    public function get_territory($id){
+        $this->db->where('id', $id);
+        return $this->db->get('tbl_territories')->result_array();
+
+    }
+
+    public function add_territory($data) {
+        $this->db->insert('tbl_territories', $data);
+
+        if ($this->db->affected_rows() > 0) {
+            return $this->db->insert_id();
+        } else {
+            return false;
+        }
+    }
+
+    public function update_territory($id, $data) {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_territories', $data);
+        
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function update_flow_data($lead_id, $flow_data) {
+        $this->db->set('flow', $flow_data);
+        $this->db->where('id', $lead_id);
+        return $this->db->update('tblleads');
+    }
+    
+
+    
 }
 
 

@@ -147,7 +147,7 @@ class Proposals extends AdminController
         $config['file_name'] = uniqid() . '_' . time();
         $config['upload_path'] = './uploads/proposals/';
         $config['allowed_types'] = 'pdf';
-        $config['max_size'] = 2048;
+        $config['max_size'] = 10000;
     
         $this->load->library('upload', $config);
     
@@ -225,7 +225,6 @@ class Proposals extends AdminController
         $this->load->view('admin/proposals/proposal', $data);
         }
 
-<<<<<<< Updated upstream
     // show pdf
     public function show_pdf($id = '') {
         if (empty($id)) {
@@ -248,43 +247,11 @@ class Proposals extends AdminController
         return;
          }
          
-=======
-
-
-
-    // show pdf
-    public function show_pdf($id = '') {
-        if (empty($id)) {
-            show_404(); // Show a 404 error if no ID is provided.
-            return;
-        }
-    
-        // Load model and get proposal data based on ID
-        $proposal = $this->proposals_model->get($id);
-    
-        if (!$proposal) {
-            show_404(); // Show a 404 error if the proposal doesn't exist.
-            return;
-        }
-    
-        $pdf_path = './uploads/proposals/' . $proposal->pdf_path;
-    
-        if (!file_exists($pdf_path)) {
-            show_404(); // Show a 404 error if the PDF file doesn't exist.
-            return;
-        }
-    
->>>>>>> Stashed changes
         // Read and serve the PDF file
         header('Content-type: application/pdf');
         header('Content-Disposition: inline; filename="' . $proposal->pdf_path . '"');
         readfile($pdf_path);
-<<<<<<< Updated upstream
-        }
-=======
     }
-    
->>>>>>> Stashed changes
 
     public function get_template()
     {
@@ -580,46 +547,46 @@ class Proposals extends AdminController
     }
 
     /* Send proposal to email */
-    public function send_to_email($id)
-    {
-        $canView = user_can_view_proposal($id);
-        if (!$canView) {
-            access_denied('proposals');
-        } else {
-            if (!has_permission('proposals', '', 'view') && !has_permission('proposals', '', 'view_own') && $canView == false) {
-                access_denied('proposals');
-            }
-        }
+    // public function send_to_email($id)
+    // {
+    //     $canView = user_can_view_proposal($id);
+    //     if (!$canView) {
+    //         access_denied('proposals');
+    //     } else {
+    //         if (!has_permission('proposals', '', 'view') && !has_permission('proposals', '', 'view_own') && $canView == false) {
+    //             access_denied('proposals');
+    //         }
+    //     }
 
-        if ($this->input->post()) {
-            try {
-                $success = $this->proposals_model->send_proposal_to_email(
-                    $id,
-                    $this->input->post('attach_pdf'),
-                    $this->input->post('cc')
-                );
-            } catch (Exception $e) {
-                $message = $e->getMessage();
-                echo $message;
-                if (strpos($message, 'Unable to get the size of the image') !== false) {
-                    show_pdf_unable_to_get_image_size_error();
-                }
-                die;
-            }
+    //     if ($this->input->post()) {
+    //         try {
+    //             $success = $this->proposals_model->send_proposal_to_email(
+    //                 $id,
+    //                 $this->input->post('attach_pdf'),
+    //                 $this->input->post('cc')
+    //             );
+    //         } catch (Exception $e) {
+    //             $message = $e->getMessage();
+    //             echo $message;
+    //             if (strpos($message, 'Unable to get the size of the image') !== false) {
+    //                 show_pdf_unable_to_get_image_size_error();
+    //             }
+    //             die;
+    //         }
 
-            if ($success) {
-                set_alert('success', _l('proposal_sent_to_email_success'));
-            } else {
-                set_alert('danger', _l('proposal_sent_to_email_fail'));
-            }
+    //         if ($success) {
+    //             set_alert('success', _l('proposal_sent_to_email_success'));
+    //         } else {
+    //             set_alert('danger', _l('proposal_sent_to_email_fail'));
+    //         }
 
-            if ($this->set_proposal_pipeline_autoload($id)) {
-                redirect($_SERVER['HTTP_REFERER']);
-            } else {
-                redirect(admin_url('proposals/list_proposals/' . $id));
-            }
-        }
-    }
+    //         if ($this->set_proposal_pipeline_autoload($id)) {
+    //             redirect($_SERVER['HTTP_REFERER']);
+    //         } else {
+    //             redirect(admin_url('proposals/list_proposals/' . $id));
+    //         }
+    //     }
+    // }
 
     public function copy($id)
     {

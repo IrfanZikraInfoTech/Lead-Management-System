@@ -19,24 +19,18 @@ class Leads extends AdminController
     }
 
     /* List all leads */
-    public function Event_create() {
+    public function event_create() {
         if($this->input->post()) {
             $data = $this->input->post();
-            $success = $this->leads_model->create_event($data);
+            $id = $this->leads_model->create_event($data);
     
-            if ($success) {
-                echo json_encode(['status' => 'success', 'message' => 'Event created successfully!']);
+            if ($id) {
+                echo json_encode(['status' => 'success', 'message' => 'Event created successfully!', 'id'=>$id]);
             } else {
                 echo json_encode(['status' => 'error', 'message' => 'Error in creating event.']);
             }
         }
     }
-    
-    public function contracts_relation($lead_id) {
-        $data['contracts'] = $this->leads_model->get_contracts_for_lead($lead_id);
-        $this->load->view('leads_info', $data); // replace 'path_to_your_view_file' with your actual path.
-    }
-    
     
 
     // widgets work
@@ -151,16 +145,16 @@ class Leads extends AdminController
         echo json_encode($response);
     }
     
-    public function view_flow() {
-        $flow = $this->leads_model->get_flow(); // Assumption: get_flow() will fetch the flow from the database
-        print_r($flow);
-        $data['flow'] = $flow;
-        $this->load->view('lead_lifecycle', $data); // Replace with your view's path
+    public function lifecycle() {
+        $lifecycle = $this->leads_model->get_lifecycle();
+
+        $data['lifecycle'] = $lifecycle;
+        $this->load->view('admin/leads/lifecycle_builder', $data); // Replace with your view's path
     }
     
     
 
-    public function info($id){
+    public function info($id, $rel_type = null, $rel_id = null){
         $reminder_data         = '';
         $data['lead_locked']   = false;
         $data['openEdit']      = $this->input->get('edit') ? true : false;
@@ -168,7 +162,8 @@ class Leads extends AdminController
         $data['status_id']     = $this->input->get('status_id') ? $this->input->get('status_id') : get_option('leads_default_status');
         $data['base_currency'] = get_base_currency();
 
-        $data['steps'] = $this->leads_model->get_lifecycle_steps();
+        $data['lifecycle'] = $this->leads_model->get_lifecycle();
+        $data['messages'] = $this->leads_model->get_messages($id);
 
         if (is_numeric($id)) {
             $leadWhere = (has_permission('leads', '', 'view') ? [] : '(assigned = ' . get_staff_user_id() . ' OR addedfrom=' . get_staff_user_id() . ' OR is_public=1)');
@@ -191,7 +186,7 @@ class Leads extends AdminController
                     'members'        => $data['members'],
                     'reminder_title' => _l('lead_set_reminder_title'),
                 ], true);
-
+            $data['reminder_data'] = $reminder_data;
             $data['lead']          = $lead;
             $data['mail_activity'] = $this->leads_model->get_mail_activity($id);
             $data['notes']         = $this->misc_model->get_notes($id, 'lead');
@@ -215,66 +210,44 @@ class Leads extends AdminController
             // $data['total_events']      = $leadProfileBadges->getCount('events');
         }
 
-        $step = $this->input->post('step');
-        $lead_id = $this->input->post('lead_id');
-    
-        // Save the step to the database
-        $result = $this->leads_model->save_step($lead_id, $step);
-    
-        // Send a response back to the JavaScript
-        if ($result) {
-            echo json_encode(['success' => true]);
-        } else {
-            echo json_encode(['success' => false]);
-        }
-
         $data['statuses'] = $this->leads_model->get_status();
         $data['sources']  = $this->leads_model->get_source();
 
         $data = hooks()->apply_filters('lead_view_data', $data);
 
+        if($rel_type == 'proposal'){
+            $this->load->model("proposals_model");
+            $proposal = $this->proposals_model->get($rel_id);
+
+            $data['rel_type'] = $rel_type;
+            $data['rel_id'] = $rel_id;
+
+            if($proposal->status != "4"){
+                $data['resend'] = false;
+            }else{
+                $data['resend'] = true;
+            }
+        }
+
         $this->load->view('admin/leads/leads_info', $data);
     }
-    
-    public function lifecycle(){
-        $flow = $this->leads_model->get_flow(); // Assumption: get_flow() will fetch the flow from the database
-        $data['flow'] = $flow;
-        $this->load->view('admin/leads/lead_lifecycle', $data);
+
+    public function territories(){
+        $data['territories'] = $this->leads_model->get_territories();
+        $this->load->view("admin/leads/territory/manage", $data);
     }
-    // public function lead_lifecycle() {
-    //     $data['steps'] = $this->leads_model->get_lifecycle_steps();
-    //     $this->load->view('leads_info', $data);
-    // }
-    public function save_current_step() {    
-        $step = $this->input->post('step');
-        $lead_id = $this->input->post('lead_id');
-    
-        // Save the step to the database
-        $result = $this->leads_model->update_step($lead_id, $step);
-    
-        // Send a response back to the JavaScript
-        // if ($result) {
-        //     echo json_encode(['success' => true]);
-        // } else {
-        //     echo json_encode(['success' => false]);
-        // }
+
+    public function territory_builder($function, $id = null){
+        if($function == "new"){
+            $this->load->view("admin/leads/territory/builder");
+        }else if($function == "edit"){
+            if($id){
+                $data['territory'] = $this->leads_model->get_territory($id);
+                $this->load->view("admin/leads/territory/builder", $data);
+            }
+                
+        }
     }
-    // public function save_current_step() {
-    //     $step = $this->input->post('step');
-    //     // $lead_id = /* Get the lead_id based on your context */;
-    
-    //     $result = $this->leads_model->update_step($lead_id, $step);
-    
-    //     echo json_encode(['success' => $result]);
-    // }
-    
-    
-    
-    public function move_to_next($currentStepId) {
-        $this->leads_model->move_to_next_step($currentStepId);
-        redirect('leads/lead_lifecycle');
-    }
-    
 
     public function table()
     {
@@ -1592,5 +1565,545 @@ class Leads extends AdminController
         $this->zip->clear_data();
     }
 
+    // In Leads.php
 
+    public function add_message() {
+
+        if ($this->input->is_ajax_request()) {
+
+            $this->load->library('email');
+
+            $email = $this->input->post('email');
+            $body = $this->input->post('body');
+            $subject = $this->input->post('subject');
+            $lead_id = $this->input->post('lead_id');
+
+            $lead = $this->leads_model->get($lead_id);
+
+            $emailAt = explode("@",get_option("smtp_email"))[1]; 
+
+            $this->email->initialize();
+            $this->email->reply_to("proposals+l_id".$lead_id."@".$emailAt, 'Proposals Management');
+            $this->email->from("proposals@".$emailAt, get_option('companyname'));
+            $this->email->to($email);
+
+            $this->email->initialize();
+            $this->email->reply_to("proposals+l_id".$lead_id."@".$emailAt, 'Proposals Management');
+            $this->email->from("proposals@".$emailAt, get_option('companyname'));
+            $this->email->to($email);
+
+            $this->email->subject("Hey ".$lead->name.", Here is the lead update");
+
+            $this->email->message(get_option('email_header') . $body . get_option('email_footer'));
+
+            $email_message_id = $this->leads_model->get_email_id($lead_id)['email_message_id'];
+
+            if($email_message_id){
+                $email_message_id = substr($email_message_id, 1);
+                $email_message_ids = explode('|', $email_message_id);
+
+                if($email_message_ids){
+                    // Preparing the References string with all the email IDs separated by a space
+                    $references = implode(' ', $email_message_ids);
+                    
+                    // Setting the headers
+                    $this->email->set_header('References', $references);
+                    $this->email->set_header('In-Reply-To', end($email_message_ids));
+                }
+            }
+
+            $this->email->set_header('X-SES-CONFIGURATION-SET', 'ZikraLeadInbox');
+            $this->email->set_header('lead_id', $lead_id);
+
+            $email_sent = $this->email->send(false);
+
+
+            // Check if the campaign was added successfully
+            if ($email_sent) {
+
+                // Get the form data from the AJAX request
+                $data = array(
+                    'lead_id' => $lead_id,
+                    'subject' => $subject,
+                    'body' => $body,
+                    'sent_by' => 'admin',
+                    'sent_by_id' => get_staff_user_id(),
+                    'created_at' => date('Y-m-d H:i:s')
+                );
+        
+                // Add the new campaign to the database using the model
+                $message_id = $this->leads_model->add_message($data);
+
+                if($message_id){
+                    echo json_encode(array('success' => true, 'message' => 'Message added successfully.'));
+                }else{
+                    echo json_encode(array('success' => false, 'message' => 'Failed to add the Message.'));
+
+                }
+
+            } else {
+                echo json_encode(array('success' => false, 'message' => 'Failed to mail!', 'error'=>$this->email->print_debugger()));
+            }
+        } else {
+            show_error('No direct script access allowed.');
+        }
+    }
+
+    function truncateReply($original) {
+        $markers = array(
+            'On Mon,', 'On Tue,', 'On Wed,', 'On Thu,', 'On Fri,', 'On Sat,', 'On Sun,',
+            'On Monday,', 'On Tuesday,', 'On Wednesday,', 'On Thursday,', 'On Friday,', 'On Saturday,', 'On Sunday,',
+            '-----Original Message-----'
+            // Add more markers as needed
+        );
+    
+        foreach ($markers as $marker) {
+            $pos = strpos($original, $marker);
+            if ($pos !== false) {
+                return trim(substr($original, 0, $pos));
+            }
+        }
+    
+        // If no marker was found, return the whole message
+        return $original;
+    }
+
+    public function capture_lead_reply_skip_auth(){
+
+        $data = json_decode(file_get_contents('php://input'), true);
+
+        $body = $data['body'];
+        $subject = $data['subject'];
+        $lead_id = $data['lead_id'];
+        $message_id = $data['message_id'];
+
+        $message = str_replace("\\n", "\n", $message);
+        $message = str_replace("\\r", "\r", $message);
+        $message = nl2br($message);
+
+        $message = $this->truncateReply($message);
+
+        $this->leads_model->set_lead_message_id($lead_id, $message_id);
+
+        $data = array(
+            'lead_id' => $lead_id,
+            'subject' => $subject,
+            'body' => $body,
+            'sent_by' => 'lead',
+            'sent_by_id' => $lead_id,
+            'created_at' => date('Y-m-d H:i:s')
+        );
+
+        // Add the new campaign to the database using the model
+        $message_id = $this->leads_model->add_message($data);
+
+        if($message_id){
+            echo json_encode(array('success' => true, 'message' => 'Message added successfully.'));
+            //Send mails to all assigned staff members / Pausing for now since I dont have multiple staff members assigned functionality
+        }else{
+            echo json_encode(array('success' => false, 'message' => 'Failed to add the Message.'));
+
+        }
+    }
+
+    public function compose_context($lead_id, $model , $prompt = null){
+
+        $staff = $this->staff_model->get(get_staff_user_id());
+        $staff_fullname = $staff->firstname . ' '.$staff->lastname;
+
+
+        $messages = $this->leads_model->get_messages($lead_id);
+        $lead_name = $this->leads_model->get($lead_id)->name;
+  
+        // Truncate the array, ignoring the system prompt
+        $messages = array_slice($messages, 0, 3);
+        $messages = array_reverse($messages);
+
+        $messages_array = [];
+
+        $systemPrompt = "";
+
+        if(count($messages) > 0){
+            $systemPrompt .= "Here is the context:";
+            foreach($messages as $message){
+                $body = Strip_tags($message["body"]);
+
+                if($message["sent_by"] == "lead"){
+                    $systemPrompt .=  $lead_name." said ``".$body."``. ";
+                }else if($message["sent_by"] == "admin"){
+                    $systemPrompt .=  "I said ``".$body."``. ";
+                }
+                
+            }
+        }
+        $subjectPrompt = $systemPrompt;
+
+        if($prompt){
+            $systemPrompt = ' '.$prompt.'. '.$systemPrompt;
+        }
+
+        $subjectPrompt = "I want you to generate me a subject for my next message." . $subjectPrompt;
+        $systemPrompt = "I am ".$staff_fullname.". I want you to generate me body of email to my lead, Use HTML tags for formatting." . $systemPrompt;
+
+
+        $messages_array[] = ['role' => 'system', 'content' => $systemPrompt];
+        $messages_array_subject[] = ['role' => 'system', 'content' => $subjectPrompt];
+
+        $body = $this->makeAIRequest($messages_array, $model, 700);
+        $subject = $this->makeAIRequest($messages_array_subject, "gpt-3.5-turbo", 40);
+
+        echo json_encode(['success' => true, 'subject' =>$subject, 'body' => $body]);
+    }
+
+    public function proposalAIRequest($proposal_id, $model, $prompt=null){
+        $this->load->model("proposals_model");
+        $this->load->model("staff_model");
+
+        $proposal = $this->proposals_model->get($proposal_id);
+
+        if($proposal->status != "4" && $proposal->rel_type=="lead"){
+
+            $staff = $this->staff_model->get(get_staff_user_id());
+            $staff_fullname = $staff->firstname . ' '.$staff->lastname;
+
+            $lead_name = $this->leads_model->get($proposal->rel_id)->name;
+
+            $subject = $proposal->subject;
+            $link = base_url("proposal/".$proposal_id."/".$proposal->hash);
+        
+            $bodyMessage = "I am ".$staff_fullname.". I want you to generate me body of email to my lead, I want to send ".$lead_name." a proposal. Subject of the proposal is ```".$subject."``` and link to the proposal is: ```".$link."``` \n Make sure to give me the body of the email in html format with proper spaces and newlines. Please add link in <a> tag.";
+
+            if($prompt){
+                $bodyMessage .= $prompt;
+            }
+
+            $body_flow[] = ['role' => 'system', 'content' => $bodyMessage];
+            $subject_flow[] = ['role' => 'system', 'content' => 'I want you to generate me subject for my email to my lead. I want to send him proposal with subject ```'.$subject.'```'];
+
+
+            $body = $this->makeAIRequest($body_flow, $model, 700);
+            $subject = $this->makeAIRequest($subject_flow, "gpt-3.5-turbo", 40);
+
+            echo json_encode(['success' => true, 'subject' =>$subject, 'body' => $body]);
+        }
+    }
+
+    public function eventAIRequest($event_id, $model, $prompt=null){
+        $this->load->model("staff_model");
+
+        $event = $this->leads_model->get_event($event_id);
+
+        if($event->status != "1"){
+
+            $staff = $this->staff_model->get(get_staff_user_id());
+            $staff_fullname = $staff->firstname . ' '.$staff->lastname;
+
+            $lead_name = "John Doe";
+
+            $subject = $event->event_name;
+            $link = $event->meet_schedule_link;
+        
+            $bodyMessage = "I am ".$staff_fullname.". I want you to generate me body of email to my lead, I want to send ".$lead_name." an event invite. Subject of the meeting is ```".$subject."``` and link to the schedule is: ```".$link."``` \n Make sure to give me the body of the email in html format with proper spaces and newlines. Please add link in <a> tag.";
+
+            if($prompt){
+                $bodyMessage .= $prompt;
+            }
+
+            $body_flow[] = ['role' => 'system', 'content' => $bodyMessage];
+            $subject_flow[] = ['role' => 'system', 'content' => 'I want you to generate me subject for my email to my lead. I want to send him an event invitation with subject ```'.$subject.'```'];
+
+
+            $body = $this->makeAIRequest($body_flow, $model, 700);
+            $subject = $this->makeAIRequest($subject_flow, "gpt-3.5-turbo", 40);
+
+            echo json_encode(['success' => true, 'subject' =>$subject, 'body' => $body]);
+        }
+    }
+
+    
+
+    public function makeAIRequest($message_array, $model, $max_token){
+
+        $headers = [
+            'Content-Type: application/json',
+            'Authorization: Bearer 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'
+        ];
+    
+        $data = [
+            'model' => $model,
+            'messages' => $message_array,
+            'max_tokens' => $max_token,
+            'temperature' => 0.8,
+            'top_p' => 0.8,
+        ];
+    
+        $ch = curl_init('https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    
+        $response = curl_exec($ch);
+        curl_close($ch);
+    
+        $response_data = json_decode($response, true);
+        $gpt_response = $response_data['choices'][0]['message']['content'];
+        
+        return $gpt_response;
+    }
+
+    public function send_proposal_status($id){
+        $this->load->model("proposals_model");
+        if($this->proposals_model->send_proposal_to_email($id)){
+            echo json_encode(['success'=>true]);
+        }else{
+            echo json_encode(['success'=>false]);
+        } 
+    }
+
+    //Territory Builder Stuff
+    public function get_counties() {
+        $searchTerm = $this->input->get('query'); 
+        $results = $this->leads_model->search_counties($searchTerm);
+
+        $response = [];
+        foreach ($results as $result) {
+            $response[] = ['name' => $result['county_name'], 'fips' => $result['county_fips']];
+        }
+
+        echo json_encode($response);
+    }
+
+    public function get_zips(){
+        $countyFIPS = $this->input->get('countyFIPS');
+        $results = $this->leads_model->search_zipcodes($countyFIPS);
+
+        $response = [];
+        foreach ($results as $result) {
+            $response[] = ['zip' => $result["zip"], 'city' => $result["city"]];
+        }
+
+        echo json_encode($response);
+    }
+
+    public function get_stats(){
+        $censusAPI = '15523c7a6cf114697f193339f376b599cc9bbbab'; //Census API Key
+        $placesAPI = 'AIzaSyD0_-K6RCtt2KzvvwXg-e_pFX6VST1yHto';
+
+        $zipCodes = $this->input->get('zipCodes');
+        
+        $fields = [
+            "B01003_001E", "B01001_002E", "B01001_026E", // Total, Male, Female
+            "B01001_003E", "B01001_027E", // Under 5 years old
+            "B01001_004E", "B01001_005E", "B01001_006E", "B01001_007E", "B01001_008E", "B01001_009E", "B01001_010E", "B01001_011E", "B01001_012E", "B01001_013E", "B01001_014E", "B01001_028E", "B01001_029E", "B01001_030E", "B01001_031E", "B01001_032E", "B01001_033E", "B01001_034E", "B01001_035E", "B01001_036E", "B01001_037E", "B01001_038E", // Under 18
+            "B01001_022E", "B01001_023E", "B01001_024E", "B01001_047E", "B01001_048E", "B01001_049E", // 65 and over
+            "B02001_002E", "B02001_003E", "B02001_005E", "B02001_006E", "B02001_008E", "B02001_009E", // Races
+            "B03001_003E" // Hispanic
+        ];
+        $zipCodesString = implode(",", $zipCodes);
+        $fieldsString = implode(",", $fields);
+
+        $url = "https://api.census.gov/data/2021/acs/acs5?get=NAME,$fieldsString&for=zip%20code%20tabulation%20area:$zipCodesString&key=$censusAPI";
+
+        $response = file_get_contents($url);
+        $response = json_decode($response, true);
+        $headers = array_shift($response);
+
+        $combinedMetrics = [
+            'Total Population' => 0,
+            'Total Hospitals' => 0,
+            '% Male' => 0,
+            '% Female' => 0,
+            '% Under 5 Years Old' => 0,
+            '% Under 18 Years Old' => 0,
+            '% 21 Years and Over' => 0,
+            '% Working Age (25 to 64)' => 0,
+            '% 65 and Over' => 0,
+            '% White' => 0,
+            '% Black or African American' => 0,
+            '% Asian' => 0,
+            '% Native Hawaiian' => 0,
+            '% Some Other Race' => 0,
+            '% Two or More Races' => 0,
+            '% Hispanic (of Any Race)' => 0
+        ];
+
+        // Initialization
+        $totalPopulation = $totalMales = $totalFemales = $totalUnder5 = $totalUnder18 = $total65AndOver = $totalWhite = $totalBlack = $totalAsian = $totalNativeHawaiian = $totalOtherRace = $totalTwoOrMoreRaces = $totalHispanic = 0;
+
+        // Iterating over the response and processing each row
+        foreach ($response as $row) {
+            $totalPopulation += $row[1];
+            $totalMales += $row[2];
+            $totalFemales += $row[3];
+            $totalUnder5 += $row[4] + $row[5];
+            $totalUnder18 += array_sum(array_slice($row, 6, 21));
+            $total65AndOver += array_sum(array_slice($row, 27, 6));
+            $totalWhite += $row[34];
+            $totalBlack += $row[35];
+            $totalAsian += $row[33];
+            $totalNativeHawaiian += $row[36];
+            $totalOtherRace += $row[37];
+            $totalTwoOrMoreRaces += $row[38];
+            $totalHispanic += $row[39];
+        }
+
+        $combinedMetrics['Total Population'] = $totalPopulation;
+        $combinedMetrics['% Male'] = ($totalMales / $totalPopulation) * 100;
+        $combinedMetrics['% Female'] = ($totalFemales / $totalPopulation) * 100;
+        $combinedMetrics['% Under 5 Years Old'] = ($totalUnder5 / $totalPopulation) * 100;
+        $combinedMetrics['% Under 18 Years Old'] = ($totalUnder18 / $totalPopulation) * 100;
+        $combinedMetrics['% 21 Years and Over'] = ((($totalPopulation - $totalUnder18) / $totalPopulation) * 100) - ($total65AndOver / $totalPopulation * 100);
+        $combinedMetrics['% Working Age (25 to 64)'] = ($totalPopulation - ($totalUnder5 + $totalUnder18 + $total65AndOver)) / $totalPopulation * 100;
+        $combinedMetrics['% 65 and Over'] = ($total65AndOver / $totalPopulation) * 100;
+        $combinedMetrics['% White'] = ($totalWhite / $totalPopulation) * 100;
+        $combinedMetrics['% Black or African American'] = ($totalBlack / $totalPopulation) * 100;
+        $combinedMetrics['% Asian'] = ($totalAsian / $totalPopulation) * 100;
+        $combinedMetrics['% Native Hawaiian'] = ($totalNativeHawaiian / $totalPopulation) * 100;
+        $combinedMetrics['% Some Other Race'] = ($totalOtherRace / $totalPopulation) * 100;
+        $combinedMetrics['% Two or More Races'] = ($totalTwoOrMoreRaces / $totalPopulation) * 100;
+        $combinedMetrics['% Hispanic (of Any Race)'] = ($totalHispanic / $totalPopulation) * 100;
+
+
+        $newFields = [
+            "B19013_001E", // Median Household Income
+            "B25003_002E", "B25003_003E", // Owner occupied, Renter occupied
+            "B11001_001E", "B11001_007E", // Households, Single-person households
+            "B01001_022E", "B01001_023E", "B01001_024E", // 65 and over
+            "B23025_005E", "B23025_002E", // Unemployed, Labor force
+            // Add any additional required fields
+        ];
+    
+        $newFieldsString = implode(",", $newFields);
+    
+        $urlNew = "https://api.census.gov/data/2021/acs/acs5?get=NAME,$newFieldsString&for=zip%20code%20tabulation%20area:$zipCodesString&key=$censusAPI";
+    
+        $responseNew = file_get_contents($urlNew);
+        $responseNew = json_decode($responseNew, true);
+        // Assuming the headers follow the same pattern
+        array_shift($responseNew);
+    
+        // Initialization for the new metrics
+        $totalIncome = $totalIncomeDivision = $totalOwnerOccupied = $totalRenterOccupied = $totalHouseholds = $totalSinglePersonHouseholds = $totalUnemployed = $totalLaborForce = 0;
+    
+        // Iterating over the new response and processing each row
+        foreach ($responseNew as $row) {
+            if($row[1] > 0){
+                $totalIncome += $row[1];
+                $totalIncomeDivision += 1;
+            }
+            
+            $totalOwnerOccupied += $row[2];
+            $totalRenterOccupied += $row[3];
+            $totalHouseholds += $row[4];
+            $totalSinglePersonHouseholds += $row[5];
+            $total65AndOver += array_sum(array_slice($row, 6, 3)); // Update as this was already declared earlier
+            $totalUnemployed += $row[9];
+            $totalLaborForce += $row[10];
+        }
+    
+        // Calculating new metrics and adding them to the `combinedMetrics` object
+        $combinedMetrics['Median Income'] = ($totalIncomeDivision > 0) ? $totalIncome / $totalIncomeDivision : 0; // Average median income across all ZIPs
+        $combinedMetrics['% Owned Houses'] = ($totalOwnerOccupied / ($totalOwnerOccupied + $totalRenterOccupied)) * 100;
+        $combinedMetrics['% Rented Houses'] = 100 - $combinedMetrics['% Owned Houses']; // Or ($totalRenterOccupied / ($totalOwnerOccupied + $totalRenterOccupied)) * 100;
+        $combinedMetrics['% Single-Person Households'] = ($totalSinglePersonHouseholds / $totalHouseholds) * 100;
+        $combinedMetrics['% Families'] = 100 - $combinedMetrics['% Single-Person Households'];
+        $combinedMetrics['% Unemployed'] = ($totalUnemployed / $totalLaborForce) * 100;
+
+
+
+        foreach($zipCodes as $zip) {
+            $geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=$zip&key=$placesAPI";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $geocodeUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);    
+            $geocodeResponse = curl_exec($ch);
+            $geocodeData = json_decode($geocodeResponse, true);
+            if (isset($geocodeData['results'][0]['geometry']['location'])) {
+                $lat = $geocodeData['results'][0]['geometry']['location']['lat'];
+                $lng = $geocodeData['results'][0]['geometry']['location']['lng'];
+                $radius = 15000;
+                $url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=$lat,$lng&radius=$radius&type=hospital&key=$placesAPI";
+                curl_setopt($ch, CURLOPT_URL, $url);
+                $response = curl_exec($ch);
+                $places = json_decode($response, true);
+                if (isset($places['results'])) {
+                    $hospitalCount = count($places['results']);
+                    $combinedMetrics['Total Hospitals'] += $hospitalCount;
+                }
+            }
+            curl_close($ch);
+        }
+
+
+        echo json_encode($combinedMetrics);
+
+    }
+
+    public function save_territory() {
+        $territoryData = json_decode($_POST['territoryData'], true); 
+        $territoryId = $_POST['territory_id'] ?? null;
+
+        // Extract data from POST request
+        $title = $territoryData['title'];
+        $population = $territoryData['population'];
+        $value = ($territoryData['value']) ?? 0;
+
+        if ($territoryId) {
+
+            $result = $this->leads_model->update_territory($territoryId, [
+                'title' => $title,
+                'population' => $population,
+                'value' => $value,
+                'data' => json_encode($territoryData),
+                'created_at' => date("Y-m-d H:i:s")
+            ]);
+        }else{
+            $result = $this->leads_model->add_territory([
+                'title' => $title,
+                'population' => $population,
+                'value' => $value,
+                'data' => json_encode($territoryData),
+                'created_at' => date("Y-m-d H:i:s")
+            ]);
+        }
+        
+        
+    
+         if ($result) {
+             echo json_encode(['success' => true]);
+         } else {
+             echo json_encode(['success' => false]);
+         }
+    }
+
+    // Inside your Controller
+    public function serveGeoJson() {
+        $filePath = APPPATH . 'views/admin/leads/territory/geoJson.json';
+
+        if (file_exists($filePath)) {
+            $data = file_get_contents($filePath);
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output($data);
+        } else {
+            show_404();
+        }
+    }
+
+    public function save_current_step() { 
+       $step = $this->input->post('step');
+       $lead_id = $this->input->post('lead_id');
+       
+       $result = $this->leads_model->update_step($lead_id, $step);
+     
+        //Send a response back to the JavaScript
+        if ($result) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false]);
+        }
+    }
+    
+    
 }

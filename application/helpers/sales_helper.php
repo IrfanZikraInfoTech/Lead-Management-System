@@ -239,7 +239,12 @@ function _maybe_remove_first_and_last_br_tag($text)
  */
 function _info_format_replace($mergeCode, $val, $txt)
 {
-    $tmpVal = strip_tags($val);
+    if($val){
+        $tmpVal = strip_tags($val);
+    }else{
+        $tmpVal = $val;
+    }
+    
 
     if ($tmpVal != '') {
         $result = preg_replace('/({' . $mergeCode . '})/i', $val, $txt);
@@ -443,7 +448,7 @@ if (!function_exists('format_proposal_info')) {
         if ($for == 'admin') {
             $hrefAttrs = '';
             if ($proposal->rel_type == 'lead') {
-                $hrefAttrs = ' href="#" onclick="init_lead(' . $proposal->rel_id . '); return false;" data-toggle="tooltip" data-title="' . _l('lead') . '"';
+                $hrefAttrs = ' href="'.admin_url("leads/info/".$proposal->rel_id).'" data-toggle="tooltip" data-title="' . _l('lead') . '"';
             } else {
                 $hrefAttrs = ' href="' . admin_url('clients/client/' . $proposal->rel_id) . '" data-toggle="tooltip" data-title="' . _l('client') . '"';
             }

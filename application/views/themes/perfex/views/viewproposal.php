@@ -161,14 +161,8 @@
             <div class="panel_s mtop20">
                 <div class="panel-body proposal-content tc-content">
                     <?php echo $proposal->content; ?>
-<<<<<<< Updated upstream
                     <iframe src="<?php echo admin_url('proposals/show_pdf/' . $proposal->id); ?>" width="100%" height="500px"></iframe>
 
-=======
-                    <!-- <?php echo base_url('assets/uploads/' . $proposal->pdf_path); ?> -->
-
-                    <iframe src="<?php echo admin_url('proposals/show_pdf/' . $proposal->id); ?>" width="100%" height="500px"></iframe>
->>>>>>> Stashed changes
                 </div>
             </div>
         </div>

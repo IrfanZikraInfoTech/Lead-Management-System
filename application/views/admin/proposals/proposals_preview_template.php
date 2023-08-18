@@ -150,10 +150,20 @@
                         </li>
                     </ul>
                 </div>
+                <?php
+                $this->session->set_userdata('resend', true);
+                if($proposal->rel_type="lead"){
+                    ?>
+                <a href="<?= admin_url("leads/info/".$proposal->rel_id."/proposal/".$proposal->id) ?>" class="btn btn-default btn-with-tooltip"><span data-toggle="tooltip" class="btn-with-tooltip"
+                        data-title="<?php echo _l('proposal_send_to_email'); ?>" data-placement="bottom"><i
+                            class="fa-regular fa-envelope"></i></span></a>
+                <?php 
+                }else{ ?>
                 <a href="#" class="btn btn-default btn-with-tooltip" data-target="#proposal_send_to_customer"
                     data-toggle="modal"><span data-toggle="tooltip" class="btn-with-tooltip"
                         data-title="<?php echo _l('proposal_send_to_email'); ?>" data-placement="bottom"><i
                             class="fa-regular fa-envelope"></i></span></a>
+                <?php }?>
                 <div class="btn-group ">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">

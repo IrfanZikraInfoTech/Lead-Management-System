@@ -43,7 +43,11 @@
         .btn-secondary{
             background-color: rgb(241 245 249/var(--tw-bg-opacity)) !important;
         }
+        .btn-success{
+            background-color: rgb(34 197 94/var(--tw-border-opacity)) !important;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php app_admin_head(); ?>
 </head>
 

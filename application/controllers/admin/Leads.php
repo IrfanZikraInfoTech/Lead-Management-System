@@ -131,6 +131,34 @@ class Leads extends AdminController
 
         $this->load->view('admin/leads/manage_leads', $data);
     }
+    
+    public function save_flow() {
+        $flowItems = $this->input->post('flowItems');
+        $id = $this->input->post('id'); // If you're updating an existing record
+    
+        $data = array(
+            'flow' => json_encode($flowItems)
+        );
+    
+        $this->leads_model->save_or_update_flow($data); // Call the new method here
+    
+        // You can customize this response as per your needs
+        $response = array(
+            'success' => true,
+            'message' => 'Flow saved successfully.'
+        );
+    
+        echo json_encode($response);
+    }
+    
+    public function view_flow() {
+        $flow = $this->leads_model->get_flow(); // Assumption: get_flow() will fetch the flow from the database
+        print_r($flow);
+        $data['flow'] = $flow;
+        $this->load->view('lead_lifecycle', $data); // Replace with your view's path
+    }
+    
+    
 
     public function info($id){
         $reminder_data         = '';
@@ -140,6 +168,7 @@ class Leads extends AdminController
         $data['status_id']     = $this->input->get('status_id') ? $this->input->get('status_id') : get_option('leads_default_status');
         $data['base_currency'] = get_base_currency();
 
+        $data['steps'] = $this->leads_model->get_lifecycle_steps();
 
         if (is_numeric($id)) {
             $leadWhere = (has_permission('leads', '', 'view') ? [] : '(assigned = ' . get_staff_user_id() . ' OR addedfrom=' . get_staff_user_id() . ' OR is_public=1)');
@@ -186,6 +215,18 @@ class Leads extends AdminController
             // $data['total_events']      = $leadProfileBadges->getCount('events');
         }
 
+        $step = $this->input->post('step');
+        $lead_id = $this->input->post('lead_id');
+    
+        // Save the step to the database
+        $result = $this->leads_model->save_step($lead_id, $step);
+    
+        // Send a response back to the JavaScript
+        if ($result) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false]);
+        }
 
         $data['statuses'] = $this->leads_model->get_status();
         $data['sources']  = $this->leads_model->get_source();
@@ -194,6 +235,46 @@ class Leads extends AdminController
 
         $this->load->view('admin/leads/leads_info', $data);
     }
+    
+    public function lifecycle(){
+        $flow = $this->leads_model->get_flow(); // Assumption: get_flow() will fetch the flow from the database
+        $data['flow'] = $flow;
+        $this->load->view('admin/leads/lead_lifecycle', $data);
+    }
+    // public function lead_lifecycle() {
+    //     $data['steps'] = $this->leads_model->get_lifecycle_steps();
+    //     $this->load->view('leads_info', $data);
+    // }
+    public function save_current_step() {    
+        $step = $this->input->post('step');
+        $lead_id = $this->input->post('lead_id');
+    
+        // Save the step to the database
+        $result = $this->leads_model->update_step($lead_id, $step);
+    
+        // Send a response back to the JavaScript
+        // if ($result) {
+        //     echo json_encode(['success' => true]);
+        // } else {
+        //     echo json_encode(['success' => false]);
+        // }
+    }
+    // public function save_current_step() {
+    //     $step = $this->input->post('step');
+    //     // $lead_id = /* Get the lead_id based on your context */;
+    
+    //     $result = $this->leads_model->update_step($lead_id, $step);
+    
+    //     echo json_encode(['success' => $result]);
+    // }
+    
+    
+    
+    public function move_to_next($currentStepId) {
+        $this->leads_model->move_to_next_step($currentStepId);
+        redirect('leads/lead_lifecycle');
+    }
+    
 
     public function table()
     {

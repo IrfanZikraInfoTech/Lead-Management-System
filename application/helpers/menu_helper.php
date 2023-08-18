@@ -204,6 +204,12 @@ function app_init_admin_sidebar_menu_items()
             'href' => admin_url("leads/list"),
             'position' => 2
         ]);
+        $CI->app_menu->add_sidebar_children_item('leads',[
+            'slug' => 'list',
+            'name' => 'LifeCycle Setup',
+            'href' => admin_url("leads/lifecycle"),
+            'position' => 3
+        ]);
        
 
     }

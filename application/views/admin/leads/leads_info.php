@@ -107,6 +107,36 @@
 
 <!-- SECOND OVERLAPPING DIV -->
 <div class="w-full lg:w-2/3 p-0">
+            <!-- Lead Life Cycle -->
+            <div>
+                <div class="text-md sm:text-md md:text-xl my-4 px-3 pt-2 font-semibold text-gray-800">
+                    <p >Lead Life Cycle</p>
+                </div>
+                <div class="lead-lifecycle-chart tab-content customcontent p-5 mt-3 rounded-xl shadow-lg mx-5" >
+                    <?php 
+                        $currentStepFromDB = $lead->lifecycle_stage;
+                        $stepNumber = 0;
+                        foreach ($steps as $step):
+                            $flowData = json_decode($step['flow'], true);
+                            if ($flowData) {
+                                foreach($flowData as $flowItem):
+                                    if (isset($flowItem['name'])) {
+                                        $class = ($stepNumber < $currentStepFromDB) ? 'completed-step' : '';
+                                        echo '<div class="step shadow-lg hover:shadow-xl p-2 m-2 transition-all duration-300 ease-in-out  rounded-xl border border-transparent hover:border-gray-300 ' . $class . '" id="step-' . $stepNumber . '">';
+                                        echo '<p class="text-gray-900 my-1">' . htmlspecialchars($flowItem['name']) . '</p>';
+                                        echo '</div>';
+                                        $stepNumber++;
+                                    }
+                                endforeach;
+                            }
+                        endforeach;
+                    ?>
+                </div>
+                <div>
+                    <button class="btn btn-primary mt-2 ml-5 move-btn" id="move-btn">Move</button>
+                </div>
+            </div>
+
             <div class="bg-white rounded-xl p-6">
                 <div class="scrolling-navbar overflow-x-auto whitespace-nowrap  ">
                     <ul class="tab-container flex flex-nowrap space-x-2 " id="leadTab" role="tablist">
@@ -584,6 +614,46 @@ $("#campaigns_table").DataTable({
  }
  });
 
+ let currentStep = <?php echo $lead->lifecycle_stage; ?>;
+
+document.getElementById("move-btn").addEventListener("click", function() {
+    // If current step is already at the last, do nothing
+    if (currentStep >= <?= $stepNumber - 1 ?>) return;
+
+    // Remove active class from the current step and add completed class
+    document.getElementById("step-" + currentStep).classList.remove("active-step");
+    document.getElementById("step-" + currentStep).classList.add("completed-step");
+
+    // Increment current step
+    currentStep++;
+
+    // Add active class to the new current step
+    document.getElementById("step-" + currentStep).classList.add("active-step");
+
+    // AJAX request to save the current step to the database
+    $.ajax({
+        url: '<?= admin_url('leads/save_current_step'); ?>',
+        type: 'POST',
+        data: { step: currentStep, lead_id: '<?= $lead->id; ?>' },
+        success: function(response) {
+            if (!response.success) {
+                console.log('Failed to save step.');
+            }
+        },
+        error: function(error) {
+            console.log('Request failed.');
+        }
+    });
+});
+
+// Initialize the previous steps as completed and the current step as active
+for (let i = 0; i < currentStep; i++) {
+    document.getElementById("step-" + i).classList.add("completed-step");
+}
+document.getElementById("step-" + currentStep).classList.add("active-step");
+
+
+
 
 </script>
 <style>
@@ -613,9 +683,32 @@ $("#campaigns_table").DataTable({
         box-shadow: 0 10px 20px rgb(0,0,0,0.2);
 
     }
+    
+    .lead-lifecycle-chart {
+    display: flex;
+    }
+
+    .step {
+        /* padding: 10px; */
+        border: 1px solid #ccc;
+    }
+
+    .move-btn {
+        background-color: blue;
+        color: white;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+    .active-step {
+        background-color: lightpink;
+    }
+    .completed-step {
+    background-color: lightblue;
+}
+
     .custombtn:active{
         transform: scale(0.98); /* You can adjust this value to your liking */
-    box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
+        box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
     }
 
     .custombtn[data-tooltip]:hover:after {

@@ -48,11 +48,60 @@ class Leads_model extends App_Model
         return $this->db->get('tblcontracts')->result_array();
     }
     
+    //Lead LifeCycle
+    public function save_or_update_flow($data) {
+        $query = $this->db->get('tbl_lead_flows');
     
+        if ($query->num_rows() > 0) {
+            // Row already exists, update the row
+            $row = $query->row();
+            $this->update_flow($row->id, $data);
+        } else {
+            // No row exists, insert a new row
+            $this->insert_flow($data);
+        }
+    }
+    public function get_flow() {
+        $query = $this->db->get('tbl_lead_flows');
+        if($query->num_rows() > 0) {
+            return $query->row_array(); // Assuming only one row should exist
+        }
+        return null;
+    }
+    public function get_lifecycle_steps() {
+        $this->db->order_by('flow', 'ASC');
+        return $this->db->get('tbl_lead_flows')->result_array();
+    }
+    
+    public function save_step($lead_id, $step) {
+        $this->db->where('id', $lead_id);
+        $result = $this->db->update('tblleads', ['lifecycle_stage' => $step]); // Assuming 'step' is the column name in your table
+    
+        return $result;
+    }
+    
+    public function update_step($lead_id, $step) {
+        $data = ['lifecycle_stage' => $step];
+        $this->db->where('id', $lead_id);
+        return $this->db->update('tblleads', $data);
+    }
+    
+    
+    
+    
+    
+    public function insert_flow($data) {
+        $this->db->insert('tbl_lead_flows', $data); // Assuming your table name is 'lead_flows'
+    }
+
+    public function update_flow($id, $data) {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_lead_flows', $data);
+    }
       
     public function get($id = '', $where = [])
     {
-        $this->db->select('*,' . db_prefix() . 'leads.name, ' . db_prefix() . 'leads.id,' . db_prefix() . 'leads_status.name as status_name,' . db_prefix() . 'leads_sources.name as source_name');
+        $this->db->select('*,' . db_prefix() . 'leads.name, ' . db_prefix() . 'leads.id,' . db_prefix() . 'leads.lifecycle_stage,' . db_prefix() . 'leads_status.name as status_name,' . db_prefix() . 'leads_sources.name as source_name');
         $this->db->join(db_prefix() . 'leads_status', db_prefix() . 'leads_status.id=' . db_prefix() . 'leads.status', 'left');
         $this->db->join(db_prefix() . 'leads_sources', db_prefix() . 'leads_sources.id=' . db_prefix() . 'leads.source', 'left');
 

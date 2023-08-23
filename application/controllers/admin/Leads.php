@@ -32,6 +32,24 @@ class Leads extends AdminController
         }
     }
     
+    
+    // public function getColors() {
+    //     $this->db->select('color');
+    //     $this->db->from('lmstheme');
+    //     $query = $this->db->get();
+    
+    //     if ($query->num_rows() > 0) {
+    //         $colors = [];
+    //         foreach ($query->result() as $row) {
+    //             $colors[] = $row->color;
+    //         }
+    //         echo json_encode($colors);
+    //     } else {
+    //         // Handle the case where the colors are not found.
+    //         $this->output->set_status_header(404);
+    //         echo json_encode(['error' => 'No colors found']);
+    //     }
+    // }
 
     // widgets work
     public function index() {
@@ -87,10 +105,17 @@ class Leads extends AdminController
     
         //getLeadInteractions
         $leadInteractions = $this->Leads_model->getLeadInteractions();
-
-
-       
         
+        // ctop cards
+        $total_leads= $this->leads_model->get_total_leads();
+
+        $new_customers_count =$this->leads_model->getNewCustomersCount();
+
+        $engagement_data=  $this->leads_model->getEngagementData();
+        $leadSources = $this->leads_model->getLeadSources(); // Assuming a function to get lead sources from the model
+        $top_lead_source= $this->leads_model->get_top_lead_source();
+        $leads_not_responded= $this->leads_model->getLeadsNotRespondedInAWeek();
+        $campaign_performance=$this->leads_model->get_campaign_performance();
 
 
         // Send all data sets to the view
@@ -108,7 +133,8 @@ class Leads extends AdminController
             'leadSources'=> $leadSources,
             'top_lead_source'=>$top_lead_source,
             'leads_not_responded'=>$leads_not_responded,
-            'campaign_performance'=>$campaign_performance
+            'campaign_performance'=>$campaign_performance,
+            // 'chart_color' => $chart_color
         ];
         
         $this->load->view('admin/leads/lead_dashboard', $data);

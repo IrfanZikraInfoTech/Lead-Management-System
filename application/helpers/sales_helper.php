@@ -680,7 +680,9 @@ function add_new_sales_item_post($item, $rel_id, $rel_type)
         $custom_fields = $item['custom_fields'];
     }
 
+
     $CI = &get_instance();
+
 
     $CI->db->insert(db_prefix() . 'itemable', [
                     'description'      => $item['description'],

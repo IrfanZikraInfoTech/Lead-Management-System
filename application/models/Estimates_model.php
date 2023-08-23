@@ -344,6 +344,7 @@ class Estimates_model extends App_Model
             $new_estimate_data['newitems'][$key]['long_description'] = clear_textarea_breaks($item['long_description']);
             $new_estimate_data['newitems'][$key]['qty']              = $item['qty'];
             $new_estimate_data['newitems'][$key]['unit']             = $item['unit'];
+            $new_estimate_data['newitems'][$key]['pdf_path']         = $item['pdf_path'];
             $new_estimate_data['newitems'][$key]['taxname']          = [];
             $taxes                                                   = get_estimate_item_taxes($item['id']);
             foreach ($taxes as $tax) {
@@ -375,6 +376,7 @@ class Estimates_model extends App_Model
                     'fieldid' => $field['id'],
                     'fieldto' => 'estimate',
                     'value'   => $value,
+                    'pdf_path'=> $pdf_path,
                 ]);
             }
 

@@ -33,10 +33,7 @@ class LeadProfileBadges
         }else{
             $count = 0;
         }
-
-        
-
-        return $count;
+      return $count;
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-22 18:23:50 --> Severity: Warning --> Undefined variable $setup_menu D:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
 ERROR - 2023-08-22 18:23:50 --> Severity: Warning --> foreach() argument must be of type array|object, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
 ERROR - 2023-08-22 18:23:50 --> Severity: Warning --> Undefined variable $sidebar_menu D:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
@@ -927,4 +928,541 @@ ERROR - 2023-08-22 20:42:47 --> Severity: Warning --> Undefined variable $lead C
 ERROR - 2023-08-22 20:42:47 --> Severity: Warning --> Attempt to read property "attachments" on null C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 443
 ERROR - 2023-08-22 20:42:47 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 443
 ERROR - 2023-08-22 20:44:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+>>>>>>> Stashed changes
+=======
+ERROR - 2023-08-22 11:48:50 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 11:48:50 --> Severity: Warning --> Undefined array key "lms" C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 337
+ERROR - 2023-08-22 11:48:50 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\views\theme_style.php 200
+ERROR - 2023-08-22 11:59:58 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:03:04 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:04:34 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:05:44 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:04 --> Could not find the language line "Charts_color"
+ERROR - 2023-08-22 12:21:52 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:22:31 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:23:07 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:23:48 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:26:45 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 12:27:12 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-22 12:27:17 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 12:28:19 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 12:28:27 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:28:45 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:39:03 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:39:11 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:39:15 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 12:39:36 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 12:39:41 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:39:49 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 12:39:53 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 12:45:47 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 12:46:03 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 12:46:16 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 16:23:14 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 16:46:28 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:00:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Undefined variable $lms C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:03:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 348
+ERROR - 2023-08-22 17:04:13 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:07:28 --> Severity: error --> Exception: Call to undefined method Leads_model::get_chart_color() C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 79
+ERROR - 2023-08-22 17:08:00 --> Severity: error --> Exception: Call to undefined method Leads_model::get_chart_color() C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 79
+ERROR - 2023-08-22 17:08:11 --> Severity: error --> Exception: Call to undefined method Leads_model::get_chart_color() C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 79
+ERROR - 2023-08-22 17:08:12 --> Severity: error --> Exception: Call to undefined method Leads_model::get_chart_color() C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 79
+ERROR - 2023-08-22 17:08:38 --> Severity: error --> Exception: Call to undefined method Leads_model::get_chart_color() C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 79
+ERROR - 2023-08-22 17:09:02 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:09:06 --> Severity: error --> Exception: Call to undefined method Leads_model::get_chart_color() C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 79
+ERROR - 2023-08-22 17:10:02 --> Severity: error --> Exception: Too few arguments to function Leads_model::get_chart_color(), 0 passed in C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php on line 79 and exactly 1 expected C:\xampp\htdocs\Lead-Management-System\application\models\Leads_model.php 20
+ERROR - 2023-08-22 17:11:43 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:11:45 --> Severity: Warning --> Undefined variable $setup_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 17:11:45 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 17:11:45 --> Severity: Warning --> Undefined variable $sidebar_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 17:11:45 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 17:11:45 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:11:59 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:28:38 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:28:48 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:28:59 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:29:27 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:30:55 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:32:35 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:33:06 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:35:12 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:40:54 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:41:44 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:43:16 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:45:41 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 17:46:52 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:55:35 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:55:37 --> Severity: Warning --> Undefined variable $setup_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 17:55:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 17:55:37 --> Severity: Warning --> Undefined variable $sidebar_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 17:55:37 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 17:55:37 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:56:26 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:56:28 --> Severity: Warning --> Undefined variable $setup_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 17:56:28 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 17:56:28 --> Severity: Warning --> Undefined variable $sidebar_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 17:56:28 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 17:56:28 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:56:42 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 17:56:44 --> Severity: Warning --> Undefined variable $setup_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 17:56:44 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 17:56:44 --> Severity: Warning --> Undefined variable $sidebar_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 17:56:44 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 17:56:44 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:43:47 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:49:09 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:51:27 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:52:24 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 18:52:31 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 18:52:38 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:54:39 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:54:51 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 18:54:58 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 18:55:03 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:55:19 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:55:50 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 18:55:55 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 18:56:04 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 18:56:07 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:12:07 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:17:50 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:20:42 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:21:28 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:22:26 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:22:36 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 19:22:47 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 19:22:52 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:29:10 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:41:08 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:55:04 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:55:34 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:55:39 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 19:55:46 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 19:55:51 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:59:07 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 19:59:40 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:01:31 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:02:04 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:02:04 --> Severity: Warning --> Undefined variable $labels_json C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 362
+ERROR - 2023-08-22 20:02:04 --> Severity: Warning --> Undefined variable $statusCharts_json C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 364
+ERROR - 2023-08-22 20:02:41 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:02:41 --> Severity: Warning --> Undefined variable $labels_json C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 362
+ERROR - 2023-08-22 20:02:41 --> Severity: Warning --> Undefined variable $statusCharts_json C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 364
+ERROR - 2023-08-22 20:03:34 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:03:34 --> Severity: Warning --> Undefined variable $labels_json C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 364
+ERROR - 2023-08-22 20:03:34 --> Severity: Warning --> Undefined variable $statusCharts_json C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 366
+ERROR - 2023-08-22 20:03:38 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:03:38 --> Severity: Warning --> Undefined variable $labels_json C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 364
+ERROR - 2023-08-22 20:03:38 --> Severity: Warning --> Undefined variable $statusCharts_json C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 366
+ERROR - 2023-08-22 20:03:53 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:03:55 --> Severity: Warning --> Undefined variable $setup_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 20:03:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\setup_menu.php 13
+ERROR - 2023-08-22 20:03:55 --> Severity: Warning --> Undefined variable $sidebar_menu C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 20:03:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\admin\includes\aside.php 12
+ERROR - 2023-08-22 20:03:55 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:04:23 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:06:14 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-22 20:06:36 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 133
+ERROR - 2023-08-22 20:06:54 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:08:05 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:08:22 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:08:38 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:08:50 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:08:54 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:09:38 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:09:45 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:09:50 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:09:55 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:10:24 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:10:30 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:10:35 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:10:39 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:16:24 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:20:47 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:21:20 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:22:55 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:23:43 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 134
+ERROR - 2023-08-22 20:24:23 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:26:20 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-22 20:26:26 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-22 20:26:26 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-22 20:26:47 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:28:09 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:28:17 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:28:24 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:29:00 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:29:05 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:29:10 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:29:19 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:29:28 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:29:44 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:30:59 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:31:13 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 20:31:19 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 20:32:45 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 162
+ERROR - 2023-08-22 20:32:45 --> Severity: Warning --> Undefined array key "address" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 65
+ERROR - 2023-08-22 20:32:45 --> Query error: Unknown column 'items' in 'field list' - Invalid query: INSERT INTO `tblproposals` (`items`, `allow_comments`, `address`, `datecreated`, `addedfrom`, `hash`, `content`, `adjustment`) VALUES (NULL, 0, '', '2023-08-22 20:32:45', '1', 'c2d9ee1d15d6f42fe9cbb69f7a1ad9fd', '{proposal_items}', 0)
+ERROR - 2023-08-22 20:34:07 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 162
+ERROR - 2023-08-22 20:34:07 --> Severity: Warning --> Undefined array key "address" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 65
+ERROR - 2023-08-22 20:34:07 --> Query error: Unknown column 'items' in 'field list' - Invalid query: INSERT INTO `tblproposals` (`items`, `allow_comments`, `address`, `datecreated`, `addedfrom`, `hash`, `content`, `adjustment`) VALUES (NULL, 0, '', '2023-08-22 20:34:07', '1', '2b9da738c4a5d1f2a78143ad75b45414', '{proposal_items}', 0)
+ERROR - 2023-08-22 20:36:06 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 162
+ERROR - 2023-08-22 20:36:06 --> Severity: Warning --> Undefined array key "address" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 65
+ERROR - 2023-08-22 20:36:06 --> Query error: Unknown column 'items' in 'field list' - Invalid query: INSERT INTO `tblproposals` (`items`, `allow_comments`, `address`, `datecreated`, `addedfrom`, `hash`, `content`, `adjustment`) VALUES (NULL, 0, '', '2023-08-22 20:36:06', '1', '423b75f0b1a0a57ca01ed579229a6d29', '{proposal_items}', 0)
+ERROR - 2023-08-22 20:55:22 --> Severity: error --> Exception: Call to undefined function render_file_input() C:\xampp\htdocs\Lead-Management-System\application\views\admin\proposals\proposal.php 267
+ERROR - 2023-08-22 20:55:45 --> Severity: error --> Exception: Call to undefined function render_file_input() C:\xampp\htdocs\Lead-Management-System\application\views\admin\proposals\proposal.php 268
+ERROR - 2023-08-22 20:58:25 --> Severity: error --> Exception: Call to undefined function render_file_input() C:\xampp\htdocs\Lead-Management-System\application\views\admin\proposals\proposal.php 268
+ERROR - 2023-08-22 22:07:47 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:08:03 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:08:10 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:09:54 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:10:04 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:10:18 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:10:26 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:12:30 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:12:36 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:12:42 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:12:50 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:14:49 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:34:50 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:35:15 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:35:19 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:35:27 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:35:36 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:35:40 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:36:18 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:36:23 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:36:27 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:36:35 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:36:48 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:36:59 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:47:17 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:47:41 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:53:17 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:53:43 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-22 22:54:42 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 22:54:54 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 23:07:33 --> Could not find the language line "LMS"
+ERROR - 2023-08-22 23:07:40 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
 >>>>>>> Stashed changes

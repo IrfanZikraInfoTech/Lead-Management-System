@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-19 00:00:01 --> Severity: error --> Exception: Table 'lms.tbl_zip_maps' doesn't exist D:\xampp\htdocs\Lead-Management-System\system\database\drivers\mysqli\mysqli_driver.php 307
 ERROR - 2023-08-19 00:00:05 --> Severity: error --> Exception: Table 'lms.tbl_zip_maps' doesn't exist D:\xampp\htdocs\Lead-Management-System\system\database\drivers\mysqli\mysqli_driver.php 307
 ERROR - 2023-08-19 00:00:05 --> Severity: error --> Exception: Table 'lms.tbl_zip_maps' doesn't exist D:\xampp\htdocs\Lead-Management-System\system\database\drivers\mysqli\mysqli_driver.php 307
@@ -202,4 +203,90 @@ ERROR - 2023-08-19 23:59:29 --> Severity: Warning --> Undefined array key "conte
 ERROR - 2023-08-19 23:59:47 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
 ERROR - 2023-08-19 19:07:55 --> 404 Page Not Found: admin/Leads/URL_FOR_LEAD_LIFE_CYCLE
 ERROR - 2023-08-19 19:08:37 --> 404 Page Not Found: admin/Leads/leads
+>>>>>>> Stashed changes
+=======
+ERROR - 2023-08-19 00:11:19 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-19 00:11:45 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-19 16:31:58 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-19 18:06:52 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 18:06:52 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 133
+ERROR - 2023-08-19 18:06:52 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 134
+ERROR - 2023-08-19 18:06:52 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 133
+ERROR - 2023-08-19 18:06:52 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 134
+ERROR - 2023-08-19 18:06:52 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\Lead-Management-System\system\core\Exceptions.php:271) C:\xampp\htdocs\Lead-Management-System\system\helpers\url_helper.php 564
+ERROR - 2023-08-19 18:13:31 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 18:13:31 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 133
+ERROR - 2023-08-19 18:13:31 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 134
+ERROR - 2023-08-19 18:13:31 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 133
+ERROR - 2023-08-19 18:13:31 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 134
+ERROR - 2023-08-19 18:13:31 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\Lead-Management-System\system\core\Exceptions.php:271) C:\xampp\htdocs\Lead-Management-System\system\helpers\url_helper.php 564
+ERROR - 2023-08-19 18:23:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 18:23:41 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 133
+ERROR - 2023-08-19 18:23:41 --> Severity: Warning --> Undefined variable $pdf_file C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 134
+ERROR - 2023-08-19 18:23:41 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 133
+ERROR - 2023-08-19 18:23:41 --> Severity: Warning --> Undefined variable $pdf_file C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 134
+ERROR - 2023-08-19 18:23:41 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\Lead-Management-System\system\core\Exceptions.php:271) C:\xampp\htdocs\Lead-Management-System\system\helpers\url_helper.php 564
+ERROR - 2023-08-19 18:44:33 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 18:44:33 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 137
+ERROR - 2023-08-19 18:44:33 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 137
+ERROR - 2023-08-19 18:53:07 --> Severity: error --> Exception: syntax error, unexpected token "else" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 155
+ERROR - 2023-08-19 18:53:20 --> Severity: error --> Exception: syntax error, unexpected token "public" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 196
+ERROR - 2023-08-19 18:53:22 --> Severity: error --> Exception: syntax error, unexpected token "public" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 196
+ERROR - 2023-08-19 18:53:23 --> Severity: error --> Exception: syntax error, unexpected token "public" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 196
+ERROR - 2023-08-19 18:58:43 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 18:58:43 --> Failed to move PDF file for proposal item 1
+ERROR - 2023-08-19 18:58:43 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 154
+ERROR - 2023-08-19 19:16:02 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 19:16:02 --> Failed to move PDF file for proposal item 1
+ERROR - 2023-08-19 19:16:02 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 154
+ERROR - 2023-08-19 19:18:08 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 19:18:08 --> Failed to insert proposal item for proposal ID 15
+ERROR - 2023-08-19 19:27:48 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 19:30:57 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 19:30:57 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 137
+ERROR - 2023-08-19 19:42:29 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 19:42:29 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 139
+ERROR - 2023-08-19 19:43:54 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Proposals.php 143
+ERROR - 2023-08-19 19:43:54 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\Lead-Management-System\application\models\Proposals_model.php 139
+ERROR - 2023-08-19 20:02:09 --> 404 Page Not Found: 
+ERROR - 2023-08-19 20:06:28 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 167
+ERROR - 2023-08-19 20:06:28 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 167
+ERROR - 2023-08-19 20:08:15 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:08:15 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:08:19 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:08:19 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:09:57 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 165
+ERROR - 2023-08-19 20:09:57 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 166
+ERROR - 2023-08-19 20:09:57 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 166
+ERROR - 2023-08-19 20:10:03 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 165
+ERROR - 2023-08-19 20:10:03 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 166
+ERROR - 2023-08-19 20:10:03 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 166
+ERROR - 2023-08-19 20:14:14 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:14:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:15:55 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:15:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:21:06 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:21:06 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:21:09 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:21:09 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:22:53 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:22:53 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:23:10 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:23:10 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:23:49 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:23:49 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:26:46 --> Severity: Warning --> Undefined variable $pdf_paths C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:26:46 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:27:15 --> Severity: Warning --> Undefined variable $data C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:27:15 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:27:52 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:28:04 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:28:15 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:28:33 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:29:11 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:29:29 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:36:04 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:36:12 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:36:17 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
+ERROR - 2023-08-19 20:41:14 --> Severity: Warning --> Undefined variable $pdf_path C:\xampp\htdocs\Lead-Management-System\application\views\themes\perfex\views\viewproposal.php 164
 >>>>>>> Stashed changes

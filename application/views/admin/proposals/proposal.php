@@ -262,6 +262,10 @@
                                         <?php $value = (isset($proposal) ? $proposal->phone : ''); ?>
                                         <?php echo render_input('phone', 'proposal_phone', $value); ?>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label for="pdf">Upload PDF</label>
+                                    <input type="file" class="form-control" name="pdf_path" id="pdf_path" accept=".pdf">
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -424,7 +428,7 @@ function validate_proposal_form() {
             required: true
         },
         currency: 'required',
-        pdf_file: 'required',  //  PDF is mandatory 
+
 
     });
 }

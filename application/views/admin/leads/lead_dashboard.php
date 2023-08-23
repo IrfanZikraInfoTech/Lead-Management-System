@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<?php init_head(); ?>   
+<?php init_head(); ?>
 <style>
     .heading {
         position: relative;
@@ -29,7 +29,6 @@
     }
 
 </style>
-
 
 <div id="wrapper">
     <div class="container">
@@ -112,11 +111,11 @@
         <div class="row mt-4 d-flex align-items-stretch ">
             <!-- lead Distribution -->
             <div class="col-lg-5 col-md-5 col-sm-12 mb-4 ">
-                <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card bg-white shadow-lg rounded-lg hoverable py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Status Distribution</h2>
                         <div class="d-flex justify-content-center">
-                            <canvas id="leadStatusChart" style="max-width: 100%; height: auto;"class="my-4 mx-auto"></canvas>
+                            <canvas id="leadStatusChart" style="max-width: 85%; height: auto;"class="my-4 mx-auto"></canvas>
                         </div>
                     </div>
                 </div>
@@ -141,7 +140,7 @@
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Distribution by Salesperson</h2>
                         <div class="d-flex justify-content-center">
-                            <canvas class="mx-auto" id="leadBySalespersonChart"  style="max-width: 90%; height: auto;"></canvas>
+                            <canvas class="mx-auto" id="leadBySalespersonChart"  style="max-width: 90%; height:auto;"></canvas>
                         </div>
                     </div>
                 </div>

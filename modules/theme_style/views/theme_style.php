@@ -65,13 +65,13 @@ $tags = get_styling_areas('tags');
                      foreach (get_styling_areas('admin') as $area) { ?>
                                         <label class="bold mbot10 inline-block"><?php echo $area['name']; ?></label>
                                         <?php render_theme_styling_picker(
-    $area['id'],
-    get_custom_style_values('admin', $area['id']),
-    $area['target'],
-    $area['css'],
-    $area['additional_selectors']
-);
-                           ?>
+                    $area['id'],
+                    get_custom_style_values('admin', $area['id']),
+                    $area['target'],
+                    $area['css'],
+                    $area['additional_selectors']
+                );
+                                        ?>
                                         <hr />
                                         <?php  } ?>
                                     </div>
@@ -269,7 +269,7 @@ $(function() {
             format: "hex"
         });
 
-        $(this).colorpicker().on('changeColor', function(e) {
+        $(this).colorpicker().on('changeColor', function(e) {   
             var color = e.color.toHex();
             var _class = 'custom_style_' + $(this).find('input').data('id');
             var val = $(this).find('input').val();
@@ -319,6 +319,7 @@ function save_theme_style() {
         admin_area: $('#theme_style_custom_admin_area').val(),
         clients_area: $('#theme_style_custom_clients_area').val(),
         clients_and_admin: $('#theme_style_custom_clients_and_admin_area').val(),
+        
     }).done(function() {
         var tab = $('#theme_styling_areas').find('li.active > a:eq(0)').attr('href');
         tab = tab.substring(1, tab.length)

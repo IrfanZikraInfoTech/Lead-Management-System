@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
@@ -640,5 +641,7 @@ ERROR - 2023-08-18 20:25:18 --> Severity: Warning --> include_once(): Failed ope
 ERROR - 2023-08-18 20:25:18 --> Severity: error --> Exception: Class "App_modules" not found D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 16
 ERROR - 2023-08-18 23:55:38 --> Severity: Warning --> Undefined array key "content_type" D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 135
 ERROR - 2023-08-18 23:55:46 --> Severity: error --> Exception: Table 'lms.tbl_lead_lifecycle' doesn't exist D:\xampp\htdocs\Lead-Management-System\system\database\drivers\mysqli\mysqli_driver.php 307
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

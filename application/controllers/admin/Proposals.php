@@ -132,12 +132,12 @@ class Proposals extends AdminController
         }
     }
 
- 
+
     public function proposal($id = '')
     {
         if ($this->input->post()) {
             $proposal_data = $this->input->post();
-        if (isset($_FILES['pdf_file']) && $_FILES['pdf_file']['error'] == 0) {
+        if (isset($_FILES['pdf_path']) && $_FILES['pdf_path']['error'] == 0) {
     
         // ensure if direct exsits
         if (!is_dir('./uploads/proposals/')) {
@@ -151,7 +151,7 @@ class Proposals extends AdminController
     
         $this->load->library('upload', $config);
     
-            if (!$this->upload->do_upload('pdf_file')) {
+            if (!$this->upload->do_upload('pdf_path')) {
             set_alert('danger', $this->upload->display_errors());
             redirect(admin_url('proposals/proposal/' . $id));
             return;

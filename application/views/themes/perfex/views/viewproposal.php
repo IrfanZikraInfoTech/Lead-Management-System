@@ -162,7 +162,7 @@
                 <div class="panel-body proposal-content tc-content">
                     <?php echo $proposal->content; ?>
                     <iframe src="<?php echo admin_url('proposals/show_pdf/' . $proposal->id); ?>" width="100%" height="500px"></iframe>
-
+                
                 </div>
             </div>
         </div>

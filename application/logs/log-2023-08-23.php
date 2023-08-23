@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-23 00:30:18 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 42
 ERROR - 2023-08-23 00:30:18 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 42
 ERROR - 2023-08-23 00:30:18 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 60
@@ -126,4 +127,33 @@ ERROR - 2023-08-23 12:54:57 --> Severity: Warning --> Undefined array key "conte
 ERROR - 2023-08-23 12:58:55 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
 ERROR - 2023-08-23 16:00:57 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
 ERROR - 2023-08-23 16:01:17 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
+>>>>>>> Stashed changes
+=======
+ERROR - 2023-08-23 00:06:04 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:06:09 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:06:14 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:06:17 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:06:20 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:07:12 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:07:23 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:07:29 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:07:33 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:09:17 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:09:23 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:09:31 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:09:38 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:09:42 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:09:49 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:15:18 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:15:27 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:15:40 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:15:44 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:18:44 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 00:18:50 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:18:55 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 00:19:00 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 16:33:19 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 16:33:24 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 16:34:22 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
+ERROR - 2023-08-23 16:38:52 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
 >>>>>>> Stashed changes

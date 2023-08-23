@@ -1193,7 +1193,7 @@ refresh_lifecycle();
     }
     .custombtn:active{
         transform: scale(0.98); /* You can adjust this value to your liking */
-    box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
+        box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
     }
 
     .tab-item {

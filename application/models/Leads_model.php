@@ -1391,24 +1391,40 @@ public function updateEvent($eventId, $updatedData) {
     // dahboard widgets:
 
     // In Leads_model.php
-    public function getLeadStatusCounts() {
-        // Dummy data for demonstration purposes
-        return [
-            'new' => 100,
-            'in progress' => 50,
-            'converted' => 20
-        ];
+    public function statusCharts() {
+        $this->db->select('tblleads_status.name AS status_name, COUNT(tblleads.id) AS total');
+        $this->db->join('tblleads_status', 'tblleads.status = tblleads_status.id', 'left');
+        $this->db->group_by('tblleads.status');
+        $query = $this->db->get('tblleads');
+        
+        $result = $query->result_array();
+    
+        $statusCharts = [];
+        foreach ($result as $row) {
+            $statusCharts[$row['status_name']] = $row['total'];
+        }
+    
+        return $statusCharts;
     }
+    
 
     // source tracking
-    public function getLeadSourceCounts() {
-        // Dummy data for demonstration purposes
-        return [
-            'website' => 150,
-            'email campaign' => 100,
-            'social media' => 120
-        ];
+    public function sourceTrackingChart() {
+        $this->db->select('tblleads_sources.name AS source_name, COUNT(tblleads.id) AS total');
+        $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left');
+        $this->db->group_by('tblleads.source');
+        $query = $this->db->get('tblleads');
+    
+        $result = $query->result_array();
+    
+        $sourceTrackingChart = [];
+        foreach ($result as $row) {
+            $sourceTrackingChart[$row['source_name']] = $row['total'];
+        }
+    
+        return $sourceTrackingChart;
     }
+    
     // lead distribution by salesperson 
     public function getLeadsBySalesperson() {
         // Dummy data for demonstration purposes
@@ -1429,16 +1445,67 @@ public function updateEvent($eventId, $updatedData) {
     }
 
     public function getLeadLifecycleData() {
-        // Filhal dummy data return kar raha hai
+        $query = $this->db->query("SELECT flow FROM tbl_lead_lifecycle");
+        $result = $query->result();
+    
+        $leads = [];
+        foreach ($result as $row) {
+            $stages = json_decode($row->flow);
+            foreach ($stages as $stage) {
+                if (!in_array($stage->name, $leads)) {
+                    $leads[] = $stage->name;
+                }
+            }
+        }
+        $times = array_fill(0, count($leads), 0);
+    
+        foreach ($leads as $index => $stageName) {
+            $this->db->select("COUNT(tblleads.id) AS leads_count");
+            $this->db->from('tblleads');
+            $this->db->join('tbl_lead_lifecycle', 'tblleads.lifecycle_stage = tbl_lead_lifecycle.id', 'left');
+            $this->db->where("JSON_EXTRACT(tbl_lead_lifecycle.flow, '$[*].name') LIKE", '%"'.$stageName.'"%');
+            $query = $this->db->get();
+            $row = $query->row();
+            $times[$index] = (int)$row->leads_count;
+        }
+    
         return [
-            'leads' => ['Lead 1', 'Lead 2', 'Lead 3'],
-            'times' => [
-                [5, 10, 15],  // Lead 1 ke liye status-wise time
-                [10, 15, 20], // Lead 2 ke liye status-wise time
-                [5, 5, 10]    // Lead 3 ke liye status-wise time
-            ]
+            'leads' => $leads,
+            'times' => $times
         ];
     }
+    
+
+//     public function getLeadLifecycleData() {
+//     $query = $this->db->query("SELECT id, flow FROM tbl_lead_lifecycle");
+//     $result = $query->result();
+
+//     $leads = [];
+//     $times = array_fill(0, count($result), 0); // Initialize time array with zeros
+
+//     foreach ($result as $index => $row) {
+//         $stages = json_decode($row->flow);
+//         foreach ($stages as $stage) {
+//             if (!in_array($stage->name, $leads)) {
+//                 $leads[] = $stage->name;
+//             }
+//         }
+//         $this->db->select("COUNT(tblleads.id) AS leads_count");
+//         $this->db->from('tblleads');
+//         $this->db->where('lifecycle_stage', $row->id);
+//         $query = $this->db->get();
+//         $leadCountRow = $query->row();
+//         $times[$index] = (int)$leadCountRow->leads_count;
+//     }
+
+//     return [
+//         'leads' => $leads,
+//         'times' => [$times]
+//     ];
+// }
+
+    
+    
 
     public function get_lead_response_times() {
         // Dummy data for now
@@ -1467,49 +1534,62 @@ public function updateEvent($eventId, $updatedData) {
 
     // random cards
 
-    public function get_total_leads() {
-        // Dummy data return 
-        return rand(100, 1000); 
-    }
-    public function getNewCustomersCount() {
-        // Example: Fetch data from the database
-        return 100; // Placeholder value, use actual DB query to get count
-    }
-    public function getEngagementData() {
-        // Filhal, main dummy data return 
-        return [
-            'interactions' => 150, 
-        ];
-    }
-    public function getLeadSources() {
-        // Replace this with your actual data retrieval logic
-        $dummyData = [
-            ['source' => 'Website', 'count' => 120],
-            ['source' => 'Email Campaigns', 'count' => 50],
-            ['source' => 'Social Media', 'count' => 75],
-            // Add more sources as needed
-        ];
-        return $dummyData;
-    }
-    public function get_top_lead_source() {
-        // Dummy data
-        $lead_sources = [
-            'Website' => 150,
-            'Email Campaign' => 95,
-            'Social Media' => 200,
-            'Referral' => 80
-        ];
+public function get_total_leads() {
 
-        // Get the top lead source using array keys and values functions
-        $max_value = max($lead_sources);
-        $top_source = array_search($max_value, $lead_sources);
+        $this->db->select('COUNT(*) as total');
+        $this->db->from('tblleads');
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result->total;
 
-        return $top_source;
+}
+
+public function getNewCustomersCount() {
+    $query = $this->db->get('tblclients`');
+    return $query->num_rows(); // Returns the number of rows in the result
+}
+public function getEngagementData() {
+    // Filhal, main dummy data return 
+    return [
+        'interactions' => 150, 
+    ];
+}
+public function getLeadSources() {
+    $this->db->select('tblleads_sources.name AS source_name, COUNT(tblleads.id) AS total');
+    $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left');
+    $this->db->group_by('tblleads.source');
+    $this->db->order_by('total', 'desc'); // Sorting by total in descending order to get top sources
+    $this->db->limit(3); // Limiting to top 3 sources
+    $query = $this->db->get('tblleads');
+
+    $result = $query->result_array();
+    $leadSources = [];
+    foreach ($result as $row) {
+        $leadSources[] = [
+            'source' => $row['source_name'],
+            'count' => $row['total'], // You can modify this part if you want to calculate the percentage or any other logic
+        ];
     }
+
+    return $leadSources;
+}
+
+public function get_top_lead_source() {
+    $this->db->select('tblleads_sources.name'); // Selecting the name column from the source table
+    $this->db->from('tblleads');
+    $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left'); // Joining on the source ID
+    $this->db->group_by('tblleads.source');
+    $this->db->order_by('COUNT(tblleads.source)', 'desc');
+    $this->db->limit(1);
+    $query = $this->db->get();
+    $result = $query->row();
+    return $result->name; // Returning the name of the top lead source
+}
+
 
     public function getLeadsNotRespondedInAWeek() {
         // Yahaan pe hum dummy data return kar rahe hain
-        return 150;  // for example, 150 leads haven't responded
+        return 0;  // for example, 150 leads haven't responded
     }
     public function get_campaign_performance() {
         // Filhal ke liye dummy data
@@ -1625,7 +1705,6 @@ public function updateEvent($eventId, $updatedData) {
         return $this->db->update('tblleads');
     }
     
-
     
 }
 

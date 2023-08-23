@@ -8,41 +8,44 @@
 
             <div class="w-full rounded-t-2xl shadow-lg z-10 text-white font-semibold bg-cyan-600">
                 <div class="pb-16">
-                    <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-8">John Joe</div>
+                <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-8">Name :<?php echo $lead->name; ?></div>
                         <div class="text-lg sm:text-lg md:text-xl font-bold flex pt-5">
                             <span class="text-base sm:text-lg md:text-lg pl-8">Status:</span>
-                                <div class="bg-white ml-3 customStatus rounded ">
-                                    <?php
-                                        $selected = '';
-                                        if (isset($lead)) {
-                                            $selected = $lead->status;
-                                        } elseif (isset($status_id)) {
-                                            $selected = $status_id;
-                                        }
-                                        echo render_leads_status_select($statuses, $selected, 'lead_add_edit_status');
-                                    ?>
-                                </div>
+                            <div class="bg-white ml-3 customStatus rounded ">
+                                <?php
+                                    $selected = '';
+                                    if (isset($lead)) {
+                                        $selected = $lead->status;
+                                        $lead_id = $lead->id; // Yeh lead ki ID ko store karega
+                                    } elseif (isset($status_id)) {
+                                        $selected = $status_id;
+                                    }
+                                    echo render_leads_status_select($statuses, $selected, 'lead_add_edit_status_' . $lead_id); // ID ko bhi dynamic bana diya
+                                ?>
+                            </div>
+
                         </div>
-                        <div class="text-sm sm:text-md flex mt-6 pl-8">
-                            <div>leademail@example.com</div>
+                        <div class="text-sm sm:text-md flex mt-6 pl-8 mx-3">
+                            <div><?php echo $lead->email ? $lead->email : '<i class="cursor-pointer fas fa-envelope" title="No Email Available"></i>'; ?></div>
                             <div class="mx-2">|</div>
-                            <div> +123456789</div>
+                            <div><?php echo $lead->phonenumber ? $lead->phonenumber : '<i class="cursor-pointer fas fa-phone" title="No Phone number Available"></i>'; ?></div>
                             <div class="mx-2">|</div>
-                            <div> City, Country</div>
+                            <div><?php echo ($lead->city && $lead->country) ? ($lead->city . ', ' . $lead->country) : '<i class="cursor-pointer fas fa-map-marker-alt" title="No city/Country Available"></i>'; ?></div>
                         </div>
+
                     </div>
                     <!-- Buttons at the top-right -->
                     <div class="absolute top-4 sm:top-8 md:top-8 right-4 sm:right-8 flex flex-col space-y-2 sm:space-y-4">
-                        <button class="bg-white text-info w-8 h-8 sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full">
-                            <a class="cursor-pointer" data-tooltip="Convert To Customer">
-                                <i class="fas fa-user-plus"></i>
-                            </a>
+                        <button onclick="window.history.back();" title="Manage leads" class="cursor-pointer bg-white text-info w-8 h-8 sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full">                            
+                        <!-- <a href="<?php  admin_url('leads/list'); ?>"> -->
+                            <i class="fas fa-chevron-left"></i>
+                        <!-- </a> -->
                         </button>
-                        <button class="bg-white text-info sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full">
-                            <a onclick="init_lead(<?= $lead->id ?>, true);return false;" class="cursor-pointer" data-tooltip="Edit Leads">
-                                <i class="fas fa-pen"></i>
-                            </a>
+                        <button title="Edit Leads"  class="cursor-pointer bg-white text-info w-8 h-8 sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full">
+                               <a href="" onclick="init_lead(<?= $lead->id ?>, true);return false;"><i class="fas fa-pen" ></i></a> 
                         </button>
+
+
                     </div>
                 </div>
             </div>

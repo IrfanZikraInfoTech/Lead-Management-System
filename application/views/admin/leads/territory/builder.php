@@ -108,6 +108,10 @@
                     <a href="<?= admin_url("leads/territories") ?>" class="w-1/5 text-center py-3 transform transition-transform duration-300 ease-in-out bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl hover:-translate-y-1 text-white rounded-lg hover:text-white focus:text-white">
                         Back
                     </a>
+                    <!-- <a target="_blank" href="<?= admin_url('leads/mypdf')?>" class="w-1/5 text-center py-3 transform transition-transform duration-300 ease-in-out bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl hover:-translate-y-1 text-white rounded-lg hover:text-white focus:text-white">
+                        <i class="fas fa-file-pdf mr-2"></i> PDF
+                    </a> -->
+
 
                     <!-- Save Button -->
                     <button class="w-4/5 text-center py-3 ml-3 transform transition-transform duration-300 ease-in-out bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl hover:-translate-y-1 text-white rounded-lg" id="save_territory">
@@ -121,7 +125,7 @@
                 <div class="w-full p-6 bg-white shadow-lg rounded-lg space-y-6">
 
                     <table class="w-full bg-white rounded-md overflow-hidden">
-                        <thead class="bg-gray-100">
+                        <thead class="bg-gray-100 ">
                             <tr>
                                 <th class="py-2 px-3 border-b text-left text-gray-600">Name</th>
                                 <th class="py-2 px-3 border-b text-left text-gray-600">Estimate</th>
@@ -362,6 +366,9 @@
         });
 
     });
+
+
+    
     $("#save_territory").on('click', function(){
         let counties = [];
         $(".county-select").each(function() {
@@ -384,12 +391,7 @@
         });
 
         // Extract Stats
-        let stats = {};
-        $("#stats-table-body tr").each(function() {
-            let key = $(this).find("td").eq(0).text();
-            let value = $(this).find("td").eq(1).text();
-            stats[key] = value;
-        });
+      
 
         // Package data into an object
         let territoryData = {
@@ -779,9 +781,6 @@
                 }
             }
         });
-
-
-
         var ctxRace = document.getElementById("racePieChart").getContext('2d');
         new Chart(ctxRace, {
             type: 'pie',

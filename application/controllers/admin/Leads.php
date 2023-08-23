@@ -36,12 +36,42 @@ class Leads extends AdminController
     // widgets work
     public function index() {
         $this->load->model('Leads_model');
+
+ // ctop cards
+        $total_leads= $this->leads_model->get_total_leads();
+
+        $new_customers_count =$this->leads_model->getNewCustomersCount();
+
+        $engagement_data=  $this->leads_model->getEngagementData();
+        $leadSources = $this->leads_model->getLeadSources(); // Assuming a function to get lead sources from the model
+        $top_lead_source= $this->leads_model->get_top_lead_source();
+        $leads_not_responded= $this->leads_model->getLeadsNotRespondedInAWeek();
+        $campaign_performance=$this->leads_model->get_campaign_performance();
         
         // Fetch lead status counts
-        $statusCounts = $this->Leads_model->getLeadStatusCounts();
+        $statusCharts = $this->Leads_model->statusCharts();
         
         // Fetch lead source counts
-        $sourceCounts = $this->Leads_model->getLeadSourceCounts();
+        $sourceTrackingChart = $this->Leads_model->sourceTrackingChart();
+        $totalLeadsFromSources = array_sum($sourceTrackingChart);
+        $leadSources = [];
+        foreach ($sourceTrackingChart as $source => $count) {
+            $percentage = $totalLeadsFromSources > 0 ? ($count / $totalLeadsFromSources) * 100 : 0;
+            $leadSources[] = [
+                'source' => $source,
+                'count' => round($percentage), // This will round the percentage to the nearest whole number
+            ];
+        }
+        
+        // Sort the lead sources by count in descending order
+        usort($leadSources, function ($a, $b) {
+            return $b['count'] - $a['count'];
+        });
+        
+        // If you want only the top 3 lead sources
+        $leadSources = array_slice($leadSources, 0, 3);
+        
+
         
         // Fetch lead distribution by salesperson
         $leadsBySalesperson = $this->Leads_model->getLeadsBySalesperson();
@@ -59,22 +89,14 @@ class Leads extends AdminController
         $leadInteractions = $this->Leads_model->getLeadInteractions();
 
 
-        // ctop cards
-        $total_leads= $this->leads_model->get_total_leads();
-
-        $new_customers_count =$this->leads_model->getNewCustomersCount();
-
-        $engagement_data=  $this->leads_model->getEngagementData();
-        $leadSources = $this->leads_model->getLeadSources(); // Assuming a function to get lead sources from the model
-        $top_lead_source= $this->leads_model->get_top_lead_source();
-        $leads_not_responded= $this->leads_model->getLeadsNotRespondedInAWeek();
-        $campaign_performance=$this->leads_model->get_campaign_performance();
+       
+        
 
 
         // Send all data sets to the view
         $data = [
-            'statusCounts' => $statusCounts,
-            'sourceCounts' => $sourceCounts,
+            'statusCharts' => $statusCharts,
+            'sourceTrackingChart' => $sourceTrackingChart,
             'leadsBySalesperson' => $leadsBySalesperson,
             'conversionRates' => $conversionRates,
             'leadLifecycleData' => $leadLifecycleData,
@@ -91,6 +113,31 @@ class Leads extends AdminController
         
         $this->load->view('admin/leads/lead_dashboard', $data);
     }
+
+    public function mypdf($id){
+        $data['territory'] = $this->leads_model->get_territory($id);
+        $this->load->view('admin/dynamic_pdf/index', $data);
+
+    }
+
+    // public function fetch_events_for_calander() {
+    //     $this->load->model('Leads_model'); // Apne model ka naam yahan dalen
+    //     $events = $this->Leads_model->get_all_events(); // Apne function ko call karo
+    
+    //     $output_events = array();
+    //     foreach ($events as $event) {
+    //         $output_events[] = array(
+    //             'title' => $event['event_name'], // event_name column ka use karo
+    //             'start' => $event['datetime'],   // datetime column ka use karo
+    //             // Agar end time nahi hai to ise chhod do, warna appropriate column ka use karo
+    //             'url'   => $event['meet_schedule_link'] // Meeting link ke liye, agar aap ise calendar pe click karke open karna chahte hain
+    //         );
+    //     }
+    
+    //     header('Content-Type: application/json');
+    //     echo json_encode($output_events); // JSON format mein events return karo
+    // }
+    
     
     //widget work end 
 
@@ -1777,7 +1824,7 @@ function getInactiveLeadsAndNotify($daysInactive = 3) {
 
         $data = json_decode(file_get_contents('php://input'), true);
 
-        $body = $data['body'];
+        $message = $data['body'];
         $subject = $data['subject'];
         $lead_id = $data['lead_id'];
         $message_id = $data['message_id'];
@@ -1793,7 +1840,7 @@ function getInactiveLeadsAndNotify($daysInactive = 3) {
         $data = array(
             'lead_id' => $lead_id,
             'subject' => $subject,
-            'body' => $body,
+            'body' => $message,
             'sent_by' => 'lead',
             'sent_by_id' => $lead_id,
             'created_at' => date('Y-m-d H:i:s')

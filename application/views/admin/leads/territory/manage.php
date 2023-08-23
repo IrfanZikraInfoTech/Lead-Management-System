@@ -28,6 +28,9 @@
                                 Data
                             </th>
                             <th>
+                                PDF
+                            </th>
+                            <th>
                                 Date
                             </th>
                         </tr>
@@ -44,7 +47,8 @@
                                 <td><a class="text-blue-500 " href="'.admin_url("leads/territory_builder/edit/".$territory['id']).'">'.$territory['title'].'</a></td>
                                 <td>'.$territory['population'].'</td>
                                 <td>'.$territory['value'].'</td>
-                                <td><a class="text-blue-700" href="#"> Show Data!</a></td>
+                                <td><a class="text-blue-700" href="#">Data</a></td>
+                                <td><a class="text-blue-700" target="_blank" href="'.admin_url("leads/mypdf/".$territory['id']).'">Show PDF</a></td> 
                                 <td>'.$formattedDate.'</td>
                                 </tr>
                                 ';

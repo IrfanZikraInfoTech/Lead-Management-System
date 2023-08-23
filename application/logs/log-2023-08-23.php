@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<<<<<<< Updated upstream
 ERROR - 2023-08-23 00:30:18 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 42
 ERROR - 2023-08-23 00:30:18 --> Severity: Warning --> Attempt to read property "id" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 42
 ERROR - 2023-08-23 00:30:18 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 60
@@ -106,3 +107,23 @@ ERROR - 2023-08-23 00:33:23 --> Severity: Warning --> Attempt to read property "
 ERROR - 2023-08-23 00:33:23 --> Severity: Warning --> Undefined variable $lead D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 440
 ERROR - 2023-08-23 00:33:23 --> Severity: Warning --> Attempt to read property "attachments" on null D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 440
 ERROR - 2023-08-23 00:33:23 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given D:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\leads_info.php 440
+=======
+ERROR - 2023-08-23 12:47:01 --> Query error: Unknown column 'tbl_lead_lifecycle.flow-' in 'where clause' - Invalid query: SELECT COUNT(tblleads.id) AS leads_count
+FROM `tblleads`
+LEFT JOIN `tbl_lead_lifecycle` ON `tblleads`.`lifecycle_stage` = `tbl_lead_lifecycle`.`id`
+WHERE `tbl_lead_lifecycle`.`flow-` > '$[*].name' 'capture lead'
+ERROR - 2023-08-23 12:47:02 --> Query error: Unknown column 'tbl_lead_lifecycle.flow-' in 'where clause' - Invalid query: SELECT COUNT(tblleads.id) AS leads_count
+FROM `tblleads`
+LEFT JOIN `tbl_lead_lifecycle` ON `tblleads`.`lifecycle_stage` = `tbl_lead_lifecycle`.`id`
+WHERE `tbl_lead_lifecycle`.`flow-` > '$[*].name' 'capture lead'
+ERROR - 2023-08-23 12:47:19 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
+ERROR - 2023-08-23 12:51:32 --> Query error: Unknown column 'tbl_lead_lifecycle.flow-' in 'where clause' - Invalid query: SELECT COUNT(tblleads.id) AS leads_count
+FROM `tblleads`
+LEFT JOIN `tbl_lead_lifecycle` ON `tblleads`.`lifecycle_stage` = `tbl_lead_lifecycle`.`id`
+WHERE `tbl_lead_lifecycle`.`flow-` > '$[*].name' 'capture lead'
+ERROR - 2023-08-23 12:54:29 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
+ERROR - 2023-08-23 12:54:57 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
+ERROR - 2023-08-23 12:58:55 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
+ERROR - 2023-08-23 16:00:57 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
+ERROR - 2023-08-23 16:01:17 --> Severity: Warning --> Undefined array key "content_type" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 132
+>>>>>>> Stashed changes

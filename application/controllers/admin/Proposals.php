@@ -223,7 +223,7 @@ class Proposals extends AdminController
         
         $data['title'] = $title;
         $this->load->view('admin/proposals/proposal', $data);
-        }
+    } 
 
     // show pdf
     public function show_pdf($id = '') {

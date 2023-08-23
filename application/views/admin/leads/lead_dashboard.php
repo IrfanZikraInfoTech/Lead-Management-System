@@ -1,8 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<?php init_head(); ?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack-extra.css" integrity="sha512-Md0HUNKPdLfqkOrXH/ZhF2L5jxu8apjEGFK4XI5o94+G4cZYum+f3CSAWSTa5JknScPfUMTW8yKuDPqL2dHFHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack.css" integrity="sha512-wGn4psGeoo2QCOeNTGMSPqApjOg8IAzIyI01xgK9jWGBz93aA3DIRIcHSitP6H4pPA5xnqa30nAwkCzvOvHJJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+<?php init_head(); ?>   
 <style>
     .heading {
         position: relative;
@@ -35,117 +32,85 @@
 
 
 <div id="wrapper">
-<div class="container p-12">
-    <div class="row">
-        <div class="col-12 text-center my-3">
-          <h2 class="text-2xl text-gray-900 mb-6 heading ">Lead Dashboard</h2>
-        </div>
-<!-- top cards -->
-        <div class="flex flex-wrap gap-4 justify-start ">
-    <!-- Total Leads Card -->
-            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
-                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
-                    <!-- Text section -->
-                    <div class="mr-6">
-                    <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" id="leadCounter" data-target="<?= $total_leads ?>">0</p>
-                        <h5 class="text-lg font-medium text-uppercase text-monospace mb-2 text-[rgba(0,135,171,0.6)]">Total Leads</h5>
-                    </div>
-
-                    <!-- Right Circle with Icon for Total Leads -->
-                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
-                        <i class="fas fa-users text-white text-2xl"></i>
-                    </div>
-                </div>
-            </div>
-
-<!-- New Customers Card -->
-            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
-                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
-                        
-                    <!-- Text section -->
-                    <div class="mr-6">
-                        <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" id="customer" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
-                        <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">New Customers</h5>
-                
-                    </div>
-
-                    <!-- Right Circle with Icon for Total Leads -->
-                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
-                        <i class="fas fa-user-plus text-white text-2xl"></i>
-                    </div>
-                </div>
-            </div>
-<!-- top lead source -->
-            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
-                <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
-                    
-                    <!-- Text section -->
-                    <div class="mr-6">
-                        <p class="text-2xl mb-2 font-bold text-[rgba(0,135,171)]" id="topLeadSource"><?= $top_lead_source ?></p>
-                        <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Top Lead Source</h5>
-                
-                    </div>
-
-                    <!-- Right Circle with Icon for Top Lead Source -->
-                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
-                        <i class="fas fa-trophy text-white text-2xl"></i>
-                    </div>
-                </div>
-            </div>
-<!-- lead not response in 1 week  -->
-            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
-                <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
-                    
-                    <!-- Text section -->
-                    <div class="mr-6">
-                        <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" id="leadsNotResponded"><?= $leads_not_responded ?></p>
-                        <h6 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Awaiting Response</h6>
-                    </div>
-
-                    <!-- Right Circle with Icon for this data -->
-                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
-                        <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
-                    </div>
-                </div>
-            </div>
-<!-- Campaign  -->
-            <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
-                <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
-                    
-                    <!-- Text section -->
-                    <div class="mr-5">
-                    <p class="text-2xl font-semibold text-[rgba(0,135,171)]">Conversion: <?= $campaign_performance['conversion_rate'] ?>%</p>
-                        <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]"><?= $campaign_performance['campaign_name'] ?></h5>
-                    </div>
-
-                    <!-- Right Circle with Icon for Campaign -->
-                    <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
-                        <i class="fas fa-chart-bar text-white text-2xl"></i>
-                    </div>
-                </div>
-            </div>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center my-3">
+                <h2 class="text-2xl text-gray-900 mb-6 heading ">Lead Dashboard</h2>
+            </div>        
+            <!-- top cards -->
+            <div class="flex flex-wrap gap-3 justify-start ">
                 <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
-        <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
-            <!-- Text section -->
-            <div class="mr-6">
-                <p class="text-lg mb-2">Interactions: <span  class="font-extrabold text-[rgba(0,135,171)]"><?= $engagement_data['interactions'] ?></span></p>
-                <h5 class="text-lg font-medium text-uppercase text-monospace mb-2 text-[rgba(0,135,171,0.6)]">Total TEngagement</h5>
-
-                <!-- <p class="text-lg">Content Type: <span class="font-extrabold text-[rgba(0,135,171)]"><?= $engagement_data['content_type'] ?></span></p> -->
-            </div>
-
-            <!-- Right Circle with Icon for Engagement -->
-            <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
-                <i class="fas fa-eye text-white text-2xl"></i>
-            </div>
-        </div>
+                        <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
+                        <div class="mr-6">
+                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)]"><?php echo $total_leads; ?></p>
+                            <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Total Leads</h5>
+                        </div>    
+                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                    </div>
                 </div>
+                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                        <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
+                        <div class="mr-6">
+                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
+                            <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">New Customers</h5>
+                        </div>
+                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                            <i class="fas fa-user-plus text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
+                        <div class="mr-6">
+                            <p class="text-2xl mb-2 font-bold text-[rgba(0,135,171)]"><?= $top_lead_source ?></p>
+                            <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Top Lead Source</h5>
+                        </div>
+                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                            <i class="fas fa-trophy text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
+                        <div class="mr-6">
+                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" id="leadsNotResponded"><?= $leads_not_responded ?></p>
+                            <h6 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Awaiting Response</h6>
+                        </div>
+                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                            <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
+                        <div class="mr-5">
+                        <p class="text-2xl font-semibold text-[rgba(0,135,171)]">Conversion: <?= $campaign_performance['conversion_rate'] ?>%</p>
+                            <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]"><?= $campaign_performance['campaign_name'] ?></h5>
+                        </div>
+                            <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                            <i class="fas fa-chart-bar text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
+                        <div class="mr-6">
+                            <p class="text-lg mb-2">Interactions: <span  class="font-extrabold text-[rgba(0,135,171)]"><?= $engagement_data['interactions'] ?></span></p>
+                            <h5 class="text-lg font-medium text-uppercase text-monospace mb-2 text-[rgba(0,135,171,0.6)]">Total TEngagement</h5>
+                        </div>
+                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                            <i class="fas fa-eye text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- top cards ends-->
         </div>
-    </div>
-
- <!-- charts -->
+        <!-- charts -->
         <div class="row mt-4 d-flex align-items-stretch ">
+            <!-- lead Distribution -->
             <div class="col-lg-5 col-md-5 col-sm-12 mb-4 ">
                 <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
@@ -156,23 +121,19 @@
                     </div>
                 </div>
             </div>
-          
-
             <!-- Lead Source Tracking Card -->
             <div class="col-lg-7 col-md-7 col-sm-12 mb-4">
 
-             <div class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center py-2" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Source Tracking</h2>
                         <div class="d-flex justify-content-center">
-                            <canvas id="leadSourceChart"  style="max-width: 80%; height: auto;"class=" mx-auto"></canvas>
+                            <canvas id="leadSourceChart"  style="max-width: 83%; height: auto;"class=" mx-auto"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-
-
+        </div>
         <div class="row mt-4 d-flex align-items-stretch">
             <!-- Lead Distribution by Salesperson -->
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
@@ -185,200 +146,142 @@
                     </div>
                 </div>
             </div>
-
             <!-- Lead Conversion Rate Over Time -->
-
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4 ">
-            <div  class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div  class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                    <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Conversion Rate Over Time</h2>
-                    <div class="d-flex justify-content-center">
-                        <canvas class="mx-auto" id="leadConversionRateProgressBarChart" style="max-width: 90%; height: 200px;"></canvas>
+                        <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Conversion Rate Over Time</h2>
+                        <div class="d-flex justify-content-center">
+                            <canvas class="mx-auto" id="leadConversionRateProgressBarChart" style="max-width: 90%; height: 200px;"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div> 
-
-        <!-- calender -->
         <div class="row mt-4 d-flex align-items-stretch ">
-        <div class="col-lg-3 col-md-3 col-sm-12 mb-4">
-        <div class="card bg-white shadow-lg rounded-lg hoverable h-95 py-1 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
-                        Lead Source Breakdown</h2>
+            <!-- lead source top 3 -->
+            <div class="col-lg-3 col-md-3 col-sm-12 mb-4">
+                <div class=" card bg-white shadow-lg rounded-lg hoverable  py-1 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                        <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
+                                Top Leads Source</h2>
                         <?php foreach ($leadSources as $source): ?>
-            <div class="mb-4 flex flex-col items-center">
-                <div class="relative w-32 h-32">
-                <svg class="absolute transform -rotate-90" width="100%" height="95%" viewBox="0 0 42 42">
-            <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:rgba(85, 199, 219, 1);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(110, 231, 183, 1);stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <circle class="text-gray-300" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="#f3f3f3" stroke-width="5"></circle>
-            <circle class="text-blue-600" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="url(#gradient)" stroke-width="5" stroke-dasharray="<?= $source['count'] * 0.3183098861837907 ?>, 100"></circle>
-        </svg>
+                            <div class="mb-4 flex flex-col items-center">
+                                <div class="relative w-32 h-32">
+                                    <svg class="absolute transform -rotate-90" width="100%" height="95%" viewBox="0 0 42 42">
+                                        <defs>
+                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" style="stop-color:rgba(85, 199, 219, 1);stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:rgba(110, 231, 183, 1);stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="text-gray-300" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="#f3f3f3" stroke-width="5"></circle>
+                                        <circle class="text-blue-600" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="url(#gradient)" stroke-width="5" stroke-dasharray="<?= $source['count'] * 0.3183098861837907 ?>, 100"></circle>
+                                    </svg>
 
-                    <div class="absolute top-0 left-0 flex justify-center items-center w-full h-full">
-                        <p class="text-2xl font-semibold"><?= $source['count'] ?>%</p>
-                    </div>
-                </div>
-                <p class="text-gray-600 font-bold text-center mb-2"><?= $source['source'] ?></p>
-            </div>
-        <?php endforeach; ?>
-
-                </div>  
-            </div>
-        </div>
-        <div class="col-lg-9 col-md-9 col-sm-12 mb-4">
-            <div class="card bg-white shadow-lg rounded-lg hoverable h-95 py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                    <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
-                    Event Calendar</h2>
-                    <div class="d-flex justify-content-center w-[85%] h-[500px] mx-auto overflow-x-auto overflow-y-auto">
-                        <div id="calendar" class="w-full h-full"></div>
-                    </div>
+                                        <div class="absolute top-0 left-0 flex justify-center items-center w-full h-full">
+                                            <p class="text-2xl font-semibold"><?= $source['count'] ?>%</p>
+                                        </div>
+                                </div>
+                                <p class="text-gray-600 font-bold text-center mb-2"><?= $source['source'] ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>  
                 </div>
             </div>
-            </div>
 
-        
-
-
-        
+                <!-- calender -->
+            <div class="col-lg-9 col-md-9 col-sm-12 mb-4">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-95 py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                        <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
+                        Event Calendar</h2>
+                        <div class="d-flex justify-content-center w-[85%] h-[500px] mx-auto overflow-x-auto overflow-y-auto">
+                            <div id="calendar" class="w-full h-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>      
         </div>   
-
         <div class="row mt-4 d-flex align-items-stretch text-center">
-            
-        <div class="col-lg-9 col-md-9 col-sm-9 mb-4 ">
-        <div class="card bg-white shadow-lg rounded-lg hoverable h-90  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Lifecycle</h2>
-                    <div class="d-flex justify-content-center">
-                        <canvas class="mx-auto"id="leadLifecycleChart" style="max-width: 72%; height: auto;"></canvas>
+            <!-- lifecycle -->
+            <div class="col-lg-9 col-md-9 col-sm-9 mb-4 ">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-auto  cursor-pointer rounded-[20px]      
+                    shadow-xl hover:shadow-2xl border border-gray-200">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                    <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Lifecycle</h2>
+                        <div class="d-flex justify-content-center">
+                            <canvas class="mx-auto"id="leadLifecycleChart" style="max-width: 80%; height: auto;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- quick actions -->
+            <div class="col-lg-3 col-md-3 col-sm-3 mb-4">
+                <div class="card bg-white shadow-lg rounded-lg cursor-pointer rounded-[20px] shadow-xl border border-gray-200 transition-all duration-300">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                        <h2 class="card-title ms-1 text-uppercase text-center mb-2 font-semibold text-gray-700">
+                            Quick Actions
+                        </h2>
+                        <hr class="mx-auto my-4 w-1/3 bg-gray-300">
+                        <div class="d-flex justify-content-between ">
+                            <div title=" lead's list"class="mb-5 w-20 h-20 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                                onclick="window.location.href='<?= admin_url('leads/list')?>'">
+                                <i class="fas fa-tasks text-white text-2xl"></i>
+                            </div>
+                            <div title="lead lifecycle" class="mb-5 w-20 h-20 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                                onclick="window.location.href='<?= admin_url('leads/lifecycle')?>'">
+                                <i class="fas fa-project-diagram text-white text-2xl"></i>
+                            </div>
+                            <div title="teritory builder" class="mb-5 w-20 h-20 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                                onclick="window.location.href='<?= admin_url('leads/territories')?>'">
+                                <i class="fas fa-map-marked-alt text-white text-2xl"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-s
-        <div class="col-lg-3 col-md-3 col-sm-3 mb-4">
-            <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                    <h2 class="card-title ms-1 text-uppercase text-center mb-5" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
-                        Quick Actions
-                    </h2>
-                    <hr class="mx-auto my-4 w-1/3 bg-gray-300">
-                    <div class="d-flex justify-content-between ">
-                        <div class="mb-5 w-20 h-20 bg-[#55C7DB] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative">
-                            <i data-tooltip="Send Message" class="fas fa-comment text-white text-2xl"></i>
-                        </div>
-                        <div class="mb-5 w-20 h-20 bg-[#55C7DB] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative">
-                            <i data-tooltip="Add New Attachment" class="fas fa-paperclip text-white text-2xl"></i>
-                        </div>
-                        <div class="mb-5  w-20 h-20 bg-[#55C7DB] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative">
-                            <i data-tooltip="Set New Reminder" class="fas fa-bell text-white text-2xl"></i>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        </div>
-
         <div class="row mt-4 d-flex align-items-stretch ">
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-        <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                    <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Response Time Distribution</h2>
-                    <div class="d-flex justify-content-center">
-                        <canvas id="leadResponseTimeDonutChart" style="max-width: 90%; height: 200px;"></canvas>
+            <!-- response time -->
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                        <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Response Time Distribution</h2>
+                        <div class="d-flex justify-content-center">
+                            <canvas id="leadResponseTimeDonutChart" style="max-width: 90%; height: 200px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- history -->
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                        <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Interaction History</h2>
+                        <div class="d-flex justify-content-center">
+                        <canvas id="leadInteractionChart"style="max-width: 90%; height: 200px;"></canvas>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-        <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Interaction History</h2>
-                <div class="d-flex justify-content-center">
-                <canvas id="leadInteractionChart"style="max-width: 90%; height: 200px;"></canvas>
-            </div>
-            </div>
-        </div>
-        </div>
-
-        </div>
-
-</div>
+        <!-- charts end -->
+    </div>
 </div>
 
 <?php init_tail(); ?>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.3/chart.min.js" integrity="sha512-fMPPLjF/Xr7Ga0679WgtqoSyfUoQgdt8IIxJymStR5zV3Fyb6B3u/8DcaZ6R6sXexk5Z64bCgo2TYyn760EdcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    
-// top cards
-
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    const counterElement = document.getElementById('leadCounter');
-    if (counterElement) {
-        const targetValue = +counterElement.getAttribute('data-target');
-        const duration = 2000; // Duration for counter animation in milliseconds
-
-        let startTimestamp;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const elapsed = timestamp - startTimestamp;
-            const progress = Math.min(elapsed / duration, 1);
-
-            counterElement.textContent = Math.floor(progress * targetValue);
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
-});
-
-
-
-// customer counter:
-$(document).ready(function() {
-    // Counter function
-    function animateValue(id, start, end, duration) {
-        var range = end - start;
-        var current = start;
-        var increment = end > start? 1 : -1;
-        var stepTime = Math.abs(Math.floor(duration / range));
-        var obj = document.getElementById(id);
-        var timer = setInterval(function() {
-            current += increment;
-            obj.innerHTML = current;
-            if (current == end) {
-                clearInterval(timer);
-            }
-        }, stepTime);
-    }
-
-    // Call the counter function for customers on page load
-    var customerEndValue = parseInt($("#customer").attr("data-target")); 
-    animateValue("customer", 0, customerEndValue, 1500);
-
-});
-
-
 
 
 // leadStatusChart
+<?php 
+    $statusCharts_json = json_encode(array_values($statusCharts)); 
+    $labels_json = json_encode(array_keys($statusCharts)); 
+?>
 var ctx = document.getElementById('leadStatusChart').getContext('2d');
 
-// Gradient colors ke liye separate function:
 function createGradient(ctx, color1, color2) {
     var gradient = ctx.createRadialGradient(150, 150, 100, 150, 150, 150); // This will simulate depth
     gradient.addColorStop(0, color1);
@@ -389,9 +292,9 @@ function createGradient(ctx, color1, color2) {
 var leadStatusChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['New', 'In Progress', 'Converted'],
+        labels: <?php echo $labels_json; ?>,
         datasets: [{
-            data: [<?= $statusCounts['new']; ?>, <?= $statusCounts['in progress']; ?>, <?= $statusCounts['converted']; ?>],
+            data: <?php echo $statusCharts_json; ?>,
             backgroundColor: [
                 createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 1)'),
                 createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 1)'),
@@ -432,15 +335,20 @@ var leadStatusChart = new Chart(ctx, {
     }
 });
 
+
+
 // leadSourceChart
+
+<?php 
+    $sourceTracking_values_json = json_encode(array_values($sourceTrackingChart)); 
+    $sourceTracking_labels_json = json_encode(array_map('ucfirst', array_keys($sourceTrackingChart))); 
+?>
 var ctx = document.getElementById('leadSourceChart').getContext('2d');
 
-// Gradient for bar color
 var gradient = ctx.createLinearGradient(0, 0, 0, 400);
 gradient.addColorStop(0, 'rgba(110, 231, 183, 1)');
 gradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
 
-// Gradient for bar border color (darker shades)
 var borderGradient = ctx.createLinearGradient(0, 0, 0, 400);
 borderGradient.addColorStop(0, 'rgba(110, 231, 183, 1)');
 borderGradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
@@ -448,9 +356,9 @@ borderGradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
 var leadSourceChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Website', 'Email Campaign', 'Social Media'],
+        labels: <?= $sourceTracking_labels_json; ?>,
         datasets: [{
-            data: [<?= $sourceCounts['website']; ?>, <?= $sourceCounts['email campaign']; ?>, <?= $sourceCounts['social media']; ?>],
+            data: <?= $sourceTracking_values_json; ?>,
             backgroundColor: gradient,
             borderColor: borderGradient,
             borderWidth: 2,
@@ -539,10 +447,11 @@ Chart.controllers.bar.prototype.draw = function() {
     originalDraw.apply(this, arguments);
     ctx.restore();
 };
+
+
+
 // leadBySalespersonChart
 var ctx = document.getElementById('leadBySalespersonChart').getContext('2d');
-
-// Gradient for line fill
 var gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
 gradientFill.addColorStop(0, 'rgba(110, 231, 183, 0.6)');  // Starting color with transparency
 gradientFill.addColorStop(1, 'rgba(59, 167, 255, 0.6)');   // Ending color with transparency
@@ -589,6 +498,8 @@ var leadBySalespersonChart = new Chart(ctx, {
     }
 });
 
+
+
 // leadConversionRateChart
 var ctx = document.getElementById('leadConversionRateProgressBarChart').getContext('2d');
 var gradient = ctx.createLinearGradient(0, 0, 0, 400);
@@ -634,48 +545,33 @@ var leadConversionRateProgressBarChart = new Chart(ctx, {
         }
     }
 });
-
-
-// leadLifecycleChart
-
 var ctx = document.getElementById('leadLifecycleChart').getContext('2d');
 
 // Colors for the histogram bars
-var colors =  [
-                createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 0.8)'),
-                createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 0.8)'),
-                createGradient(ctx, 'rgba(85, 199, 219, 0.6)', 'rgba(85, 199, 219, 0.8)')  // A shade similar to the provided colors
-            ];
+var colors = [
+    createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 0.8)'),
+    createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 0.8)'),
+    createGradient(ctx, 'rgba(85, 199, 219, 0.6)', 'rgba(85, 199, 219, 0.8)')
+];
+
+var leadLifecycleData = <?= json_encode($leadLifecycleData); ?>;
+var datasets = leadLifecycleData.leads.map(function(stageName, index) {
+    return {
+        label: stageName, // Using stage name as the label
+        data: [leadLifecycleData.times[index]], // Single data point per stage, using "times" array
+        backgroundColor: colors[index % colors.length],
+        borderColor: colors[index % colors.length],
+        borderWidth: 2,
+        borderRadius: 4,
+        hoverBackgroundColor: colors[index % colors.length]
+    };
+});
+
 var leadLifecycleChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: <?= json_encode($leadLifecycleData['leads']); ?>,
-        datasets: [{
-    label: 'Stage 1',
-    data: <?= json_encode($leadLifecycleData['times'][0]); ?>,
-    backgroundColor: colors[0],
-    borderColor: colors[0],
-    borderWidth: 2,
-    borderRadius: 4,
-    hoverBackgroundColor: colors[0] // Added this line
-}, {
-    label: 'Stage 2',
-    data: <?= json_encode($leadLifecycleData['times'][1]); ?>,
-    backgroundColor: colors[1],
-    borderColor: colors[1],
-    borderWidth: 2,
-    borderRadius: 4,
-    hoverBackgroundColor: colors[1] // Added this line
-}, {
-    label: 'Stage 3',
-    data: <?= json_encode($leadLifecycleData['times'][2]); ?>,
-    backgroundColor: colors[2],
-    borderColor: colors[2],
-    borderWidth: 2,
-    borderRadius: 4,
-    hoverBackgroundColor: colors[2] // Added this line
-}]
-
+        datasets: datasets
     },
     options: {
         responsive: true,
@@ -687,7 +583,7 @@ var leadLifecycleChart = new Chart(ctx, {
                 beginAtZero: true,
                 title: {
                     display: true,
-                    text: 'Hours'
+                    text: 'Number of Leads' // Updated title to "Number of Leads"
                 }
             }
         },
@@ -804,7 +700,7 @@ var leadInteractionChart = new Chart(ctx, {
 
 
 
-// calender
+// // calender
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
@@ -828,6 +724,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   calendar.render();
 });
+// document.addEventListener('DOMContentLoaded', function() {
+//   var calendarEl = document.getElementById('calendar');
+
+//   var calendar = new FullCalendar.Calendar(calendarEl, {
+//     initialView: 'dayGridMonth',
+//     timeZone: 'America/New_York', // Set your desired time zone here
+//     events: function(fetchInfo, successCallback, failureCallback) {
+//       $.ajax({
+//         url: '<?php echo base_url('leads/fetch_events_for_calander')?>', // Aapke controller ka path yahan dalein
+//         type: 'GET',
+//         success: function(data) {
+//           successCallback(data);
+//         },
+//         error: function() {
+//           failureCallback('There was an error while fetching events.');
+//         }
+//       });
+//     }
+//   });
+
+//   calendar.render();
+// });
 
 </script>
 

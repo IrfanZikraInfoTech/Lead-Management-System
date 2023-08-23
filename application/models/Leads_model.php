@@ -28,11 +28,20 @@ class Leads_model extends App_Model
         return $this->db->insert_id();
         
     }
-
-    public function get_all_events($id) {
-        $query = $this->db->get('tblevent');  // 'tblevent' is the name of your table
-        return $query->result_array();   
+    public function increaseStatus($id) {
+        $this->db->set('status', 'status+1', FALSE);
+        $this->db->where('id', $id);
+        return $this->db->update('tblevent');
     }
+    
+    
+    public function get_all_events($lead_id) {
+        $this->db->where('rel_id
+        ', $lead_id); // Assuming 'lead_id' is the column that connects events to leads
+        $query = $this->db->get('tblevent');
+        return $query->result_array();
+    }
+    
 
     public function get_event($id) {
         $this->db->where('id', $id);
@@ -53,7 +62,48 @@ class Leads_model extends App_Model
         $this->db->where('tblcontracts.rel_type', 'lead'); 
         return $this->db->get('tblcontracts')->result_array();
     }
+
+    public function save_schedule($eventId, $datetime, $link)
+    {
+        // Fetching the current status of the event
+        $this->db->select('status');
+        $this->db->where('id', $eventId);
+        $query = $this->db->get('tblevent');
+        $currentStatus = $query->row()->status;
     
+        // Checking if the status is less than 3
+        if($currentStatus < 3) {
+            // Incrementing the status by 1
+            $newStatus = $currentStatus + 1;
+    
+            // Data array including the new status
+            $data = array(
+                'datetime' => $datetime,
+                'link' => $link,
+                'status' => $newStatus // Adding the new status here
+            );
+    
+            // Updating the event
+            $this->db->where('id', $eventId);
+            return $this->db->update('tblevent', $data);
+        } else {
+            // If the status is 3, then returning false or some error message
+            return false;
+        }
+    }
+    
+public function getEventDetails($eventId) {
+    // Fetch event details from the database using $eventId
+    $query = $this->db->get_where('tblevent', ['id' => $eventId]);
+    return $query->row_array();
+}
+
+public function updateEvent($eventId, $updatedData) {
+    // Update the event details in the database for $eventId using $updatedData
+    $this->db->where('id', $eventId)->update('tblevent', $updatedData);
+}
+
+
     //Lead LifeCycle
     public function save_or_update_flow($data) {
         $query = $this->db->get('tbl_lead_lifecycle');
@@ -838,7 +888,23 @@ class Leads_model extends App_Model
 
         return false;
     }
+    public function update_status_complete($eventId)
+    {
+        // Fetching the current status of the event
+        $this->db->select('status');
+        $this->db->where('id', $eventId);
+        $query = $this->db->get('tblevent');
+        $currentStatus = $query->row()->status;
 
+        if ($currentStatus < 3) {
+            // Updating the status to 3
+            $data = array('status' => 3);
+            $this->db->where('id', $eventId);
+            return $this->db->update('tblevent', $data);
+        }
+
+        return false;
+    }
     public function update_status($data, $id)
     {
         $this->db->where('id', $id);

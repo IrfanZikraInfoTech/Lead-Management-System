@@ -166,7 +166,7 @@
                                     <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200 rounded-t-xl" id="invoices-tab" data-toggle="tab" href="#invoices" role="tab" aria-controls="invoices" aria-selected="false">Invoices</a>
                                 </li>
                                 <li class="tab-item pt-[6px]">
-                                    <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200 rounded-t-xl" id="event-tab" data-toggle="tab" href="#event" role="tab" aria-controls="event" aria-selected="false">Events</a>
+                                <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200 rounded-t-xl" id="event-tab" data-toggle="tab" href="#event" role="tab" aria-controls="event" aria-selected="false">Events</a>
                                 </li>
                                 <li class="tab-item pt-[6px]">
                                     <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200 rounded-t-xl" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-selected="false" onclick="init_rel_tasks_table(<?php echo $lead->id; ?>,'lead','.table-rel-tasks-leads');">Tasks</a>
@@ -467,20 +467,43 @@
                                 <?php render_datatable([ _l('reminder_description'), _l('reminder_date'), _l('reminder_staff'), _l('reminder_is_notified')], 'reminders-leads'); ?>
                             </div>
 
-
                             <div role="tabpanel" class="tab-pane fade text-gray-800 p-4" id="event" aria-labelledby="event-tab">
                                 <!-- Tab Content for Events -->
                                 <div id="eventsContent" class="tab-pane mt-4">
                                     <button onclick="openEventModal();" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">Create New Event</button>
-                                    
-                                    <!-- Here's where we loop through the events to generate the cards -->
+
                                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                                        
                                         <?php foreach($tblevents as $tblevent): ?>
-                                            <div class="transition-transform transform bg-white hover:scale-105 cursor-pointer border p-4 rounded shadow hover:shadow-lg">
+                                            <!-- Class 'event-card' added and data attributes for event details -->
+                                            <div class="event-card transition-transform transform bg-white hover:scale-105 cursor-pointer border p-4 rounded shadow hover:shadow-lg"
+                                                data-event-name="<?php echo $tblevent['event_name']; ?>"
+                                                data-description="<?php echo $tblevent['description']; ?>"
+                                                data-meet-schedule-link="<?php echo $tblevent['meet_schedule_link']; ?>"
+                                                data-link="<?php echo $tblevent['link']; ?>"
+                                                data-datetime="<?php echo $tblevent['datetime']; ?>"
+                                                data-status="<?php echo $tblevent['status']; ?>"
+                                                data-id="<?php echo $tblevent['id']; ?>">
                                                 <h3 class="text-xl font-bold mb-2"><?php echo $tblevent['event_name']; ?></h3>
                                                 <p class="mb-2 text-gray-700"><?php echo $tblevent['description']; ?></p>
                                                 <a href="<?php echo $tblevent['meet_schedule_link']; ?>" target="_blank" class="text-blue-500 hover:text-blue-600 underline">Meet Schedule Link</a>
+                                                <div class="text-sm text-gray-500">
+                                                    <?php
+                                                    switch ($tblevent['status']) {
+                                                        case 0:
+                                                            echo 'Status: Waiting to Send';
+                                                            break;
+                                                        case 1:
+                                                            echo 'Status: Sent';
+                                                            break;
+                                                        case 2:
+                                                            echo 'Status: Scheduled';
+                                                            break;
+                                                        case 3:
+                                                            echo 'Status: Complete';
+                                                            break;
+                                                    }
+                                                    ?>
+                                                </div>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -585,17 +608,62 @@
             <div class="modal-body">
                 <form id="event_form">
                     <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
-                    <input type="text" name="event_name" placeholder="Event Name" class="w-full p-2 border rounded mt-2">
-                    <textarea name="description" placeholder="Event Description" class="w-full p-2 border rounded mt-2"></textarea>
-                    <input type="text" name="meet_schedule_link" placeholder="Meet Schedule Link" class="w-full p-2 border rounded mt-2">
+                    <input type="hidden" name="rel_id" value="<?= $lead->id; ?>">
+                    <input type="text" name="event_name" id="event_name" placeholder="Event Name" class="w-full p-2 border rounded mt-2">
+                    <textarea name="description"id="event_description" placeholder="Event Description" class="w-full p-2 border rounded mt-2"></textarea>
+                    <input type="text" name="meet_schedule_link" id="meet_link" placeholder="Meet Schedule Link" class="w-full p-2 border rounded mt-2">
                     <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Save</button>
                 </form>
             </div>
 
-
         </div>
     </div>
 </div>
+<div class="modal fade" id="eventDetailModal" tabindex="-1" aria-labelledby="eventDetailModal" aria-hidden="true">
+    <div class="flex justify-center m-10">
+        <div class="modal-content modal-lg">
+
+            <div class="modal-header text-white py-3">
+                <h5 class="modal-title text-xl" id="eventDetailModal">Event Details</h5>
+            </div>
+            <div class="modal-body">
+                <p class="mb-2"><strong>Event Name:</strong> <span id="modal_event_name" class="text-gray-700"></span></p>
+                <p class="mb-2"><strong>Description:</strong> <span id="modal_description" class="text-gray-700"></span></p>
+                <p class="mb-2"><strong>Meet Schedule Link:</strong> <a id="modal_meet_schedule_link" target="_blank" class="text-primary hover:text-primary-dark underline"></a></p>
+                <p class="mb-2 date-time-field"><strong>Date and Time:</strong> <span id="modal_date_time" class="text-gray-700"></span></p>
+                <p class="mb-2 meeting-actual-link-field"><strong>Meeting Actual Link:</strong> <a id="modal_meeting_actual_link" target="_blank" class="text-primary hover:text-primary-dark underline"></a></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger text-black" data-dismiss="modal">Close</button>     
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="schedule_form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="scheduleModalLabel">Schedule Meeting</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+        <input type="hidden" id="event_id" name="event_id" value="">
+          <label for="datetime">Date and Time:</label>
+          <input type="datetime-local" id="meeting_datetime" name="datetime">
+          <br>
+          <label for="link">Meeting Link:</label>
+          <input type="text" id="meeting_link" name="link">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeSecduleModal();" data-bs-dismiss="modal">Close</button>
+          <button id="saveButton" class="btn btn-primary" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 
 <!-- Action Template Modal -->
@@ -625,6 +693,7 @@
                     </div>
  
                     <div class="mb-6">
+                        <input type="hidden" name="event_id" id="event_id" value="">
                         <label for="subject" class="block text-gray-700 font-bold mb-2">Subject <span class="text-red-600">*</span></label>
                         <input required type="text" placeholder="Subject" name="subject" id="subject" class="form-input border border-gray-400 w-full py-2 px-3 rounded-lg transition duration-500 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500">
                     </div>
@@ -651,6 +720,354 @@
  <?php init_tail(); ?>
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js"></script>
+ <!-- <script>
+    function openEventModal(){
+            $("#createEventModal").modal('show');
+    };
+    function closeEventModal() {
+        $('#eventDetailModal').modal('hide');
+        $("#createEventModal").modal('hide');
+    }
+    function closeSecduleModal() {
+        // $('#eventDetailModal').modal('hide');
+        $("#scheduleModal").modal('hide');
+    }
+    $("#eventsContent .grid").on('click', '.transition-transform', function() {
+    var eventName = $(this).data('event-name');
+    var datetime = $(this).data('datetime');
+    var actuallink = $(this).data('link');
+    var description = $(this).data('description');
+    var meetScheduleLink = $(this).data('meet-schedule-link');
+    showEventDetails(eventName, description, meetScheduleLink,actuallink,datetime, this);
+    });
+    $("#event_form").submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: "<?php echo admin_url("leads/event_create") ?>",
+        type: "POST",
+        data: $(this).serialize(),
+        success: function(response) {
+        var jsonResponse = JSON.parse(response);  // Parse the JSON response
+        var name = $("#event_name").val();
+        var dis = $("#event_description").val();
+        var link = $("#meet_link").val();
+        var date = $("#meeting_datetime").val();
+        var actuallink = $("#meeting_link").val();
+        if(jsonResponse.status === "success") {
+            closeEventModal(); // Close the modal
+            initEventSend(jsonResponse.id);
+            // Here we append the new event to the grid
+            var newEvent = '<div class="transition-transform transform bg-white hover:scale-105 cursor-pointer border p-4 rounded shadow hover:shadow-lg">';
+            newEvent += '<h3 class="text-xl font-bold mb-2">' + name + '</h3>';
+            newEvent += '<p class="mb-2 text-gray-700">' + dis + '</p>';
+            newEvent += '<p class="mb-2 text-gray-700">' + date + '</p>';
+            newEvent += '<a href="' + link + '" target="_blank" class="text-blue-500 hover:text-blue-600 underline">Meet Schedule Link</a>';
+            newEvent += '<a href="' + actuallink + '" target="_blank" class="text-blue-500 hover:text-blue-600 underline">Meet Schedule Link</a>';
+            newEvent += '</div>';
+        $("#eventsContent .grid").append(newEvent); // Append the new event to the grid
+        } else {
+            alert(jsonResponse.message); // Show the error message
+        }
+    }
+
+    });
+    });
+    $("#contracts_table").DataTable({
+        initComplete: function() {
+        $('#contracts_table_wrapper').removeClass('table-loading');
+    }
+    });
+    
+</script> -->
+<!-- <script>
+    function openScheduleModal(eventId) {
+    console.log("Setting event ID:", eventId); // Debugging line
+    $('#event_id').val(eventId);
+    $('#scheduleModal').modal('show');
+    closeEventModal();
+    }
+    $("#schedule_form").submit(function(e) {
+    e.preventDefault();
+    var eventId = $("#event_id").val();
+    var datetime = $("#meeting_datetime").val();
+    var link = $("#meeting_link").val();
+    
+    $.ajax({
+        url: "<?php echo admin_url('leads/save_schedule') ?>",
+        type: "POST",
+        data: { eventId: eventId, datetime: datetime, link: link },
+        success: function(response) {
+            var jsonResponse = JSON.parse(response);
+            if(jsonResponse.status === "success") {
+                $('#scheduleModal').modal('hide');
+            } else {
+                alert(jsonResponse.message);
+            }
+        }
+    });
+    $('#scheduleModal').modal('hide');
+    });
+    function increaseStatusAndInitSend(eventId) {
+    $.ajax({
+        url: "<?php echo admin_url('leads/updateStatus'); ?>/" + eventId,
+        type: "POST",
+        success: function(response) {
+            var jsonResponse = JSON.parse(response);
+            if(jsonResponse.success) {
+                closeEventModal();
+                initEventSend(eventId);
+            } else {
+                alert("An error occurred while updating the status.");
+            }
+        }
+    });
+    }   
+    function showEventDetails(eventName, description, meetScheduleLink,actuallink,datetime, element) {
+    // Fill in the details in the modal
+    document.getElementById('modal_event_name').textContent = eventName;
+    document.getElementById('modal_description').textContent = description;
+    document.getElementById('modal_date_time').textContent = datetime;
+    document.getElementById('modal_meeting_actual_link').textContent = actuallink;
+    document.getElementById('modal_meet_schedule_link').textContent = meetScheduleLink;
+    document.getElementById('modal_meet_schedule_link').href = meetScheduleLink;
+    var status = $(element).data('status');
+    var id = $(element).data('id');
+
+    // Remove any existing status buttons
+    $('#eventDetailModal').find('.modal-footer button:not(.btn-danger)').remove();
+
+    // Create and append the new button based on status
+    var buttonHtml = '';
+    if (status == 0) {
+        buttonHtml = '<button class="btn btn-info" onclick="increaseStatusAndInitSend(' + id + ')">Sent</button>';
+    } else if (status == 1) {
+        buttonHtml = '<button class="btn btn-success" onclick="openScheduleModal('+ id +')">Scheduled</button>';
+    } else if (status == 2) {
+        buttonHtml = '<button class="btn btn-primary">Completed</button>';
+    }
+    $('#eventDetailModal').find('.modal-footer').append(buttonHtml);
+
+    $('#eventDetailModal').modal('show');
+    }
+    $('#eventDetailModal').on('hidden.bs.modal', function() {
+    $(this).find('.modal-footer button:not(.btn-danger)').remove();
+    document.getElementById('modal_event_name').textContent = "";
+    document.getElementById('modal_description').textContent = "";
+    document.getElementById('modal_date_time').textContent = "";
+    document.getElementById('modal_meeting_actual_link').textContent = "";
+    document.getElementById('modal_meeting_actual_link').href = "";
+    document.getElementById('modal_meet_schedule_link').textContent = "";
+    document.getElementById('modal_meet_schedule_link').href = "";
+}); -->
+<script>
+    $(document).ready(function() {
+    $('.event-card').click(function() {
+        var eventName = $(this).attr('data-event-name');
+        var description = $(this).attr('data-description');
+        var meetScheduleLink = $(this).attr('data-meet-schedule-link');
+        var link = $(this).attr('data-link');
+        var dateTime = $(this).attr('data-datetime');
+
+        $('#modal_event_name').text(eventName);
+        $('#modal_description').text(description);
+        $('#modal_meet_schedule_link').attr('href', meetScheduleLink).text(meetScheduleLink);
+        $('#modal_date_time').text(dateTime);
+        // Yahan par aapko apni zaroorat ke hisab se aur fields ko set karna hoga.
+
+        $('#eventDetailModal').modal('show');
+    });
+});
+
+
+    function openEventModal() {
+    $("#createEventModal").modal('show');
+    }
+    function updateStatus(eventId) {
+    $.ajax({
+        url: "<?php echo admin_url('leads/update_event_status') ?>",
+        type: 'POST',
+        data: { event_id: eventId },
+        success: function(response) {
+            // Handling success response
+            // alert('Status updated successfully!');
+            window.location.hash = "event";
+            location.reload();
+        },
+        error: function(error) {
+            // Handling error response
+            alert('Error updating status.');
+        }
+    });
+}
+
+    function closeEventModal() {
+        $('#eventDetailModal').modal('hide');
+        $("#createEventModal").modal('hide');
+    }
+
+    function closeScheduleModal() {
+        $("#scheduleModal").modal('hide');
+    }
+
+    // Function to handle grid item click
+    function onGridItemClick() {
+    var eventId = $(this).data('id'); // Get the event ID
+    var eventName = $(this).data('event-name');
+    var datetime = $(this).data('datetime');
+    var actualLink = $(this).data('link');
+    var description = $(this).data('description');
+    var meetScheduleLink = $(this).data('meet-schedule-link');
+    showEventDetails(eventName, description, meetScheduleLink, actualLink, datetime, this);
+}
+    // Function to handle event form submission
+    function onEventFormSubmit(e) {
+    e.preventDefault();
+    $.ajax({
+        url: "<?php echo admin_url('leads/event_create') ?>",
+        type: "POST",
+        data: $(this).serialize(),
+        success: function (response) {
+            var jsonResponse = JSON.parse(response);
+            var name = $("#event_name").val();
+            var description = $("#event_description").val();
+            var link = $("#meet_link").val();
+            var date = $("#meeting_datetime").val();
+            var actualLink = $("#meeting_link").val();
+            if (jsonResponse.status === "success") {
+                closeEventModal();
+                initEventSend(jsonResponse.id);
+                // Construct the new event element
+                var newEvent = `<div class="transition-transform transform bg-white hover:scale-105 cursor-pointer border p-4 rounded shadow hover:shadow-lg">
+                <h3 class="text-xl font-bold mb-2">${name}</h3>
+                <p class="mb-2 text-gray-700">${description}</p>
+                <p class="mb-2 text-gray-700">${date}</p>
+                <a href="${link}" target="_blank" class="text-blue-500 hover:text-blue-600 underline">Meet Schedule Link</a>
+                <a href="${actualLink}" target="_blank" class="text-blue-500 hover:text-blue-600 underline">Meet Schedule Link</a>
+                </div>`;
+                $("#eventsContent .grid").append(newEvent);
+
+                // Tab ke hash name ko set karo
+                location.hash = 'event';
+
+                // Page ko refresh karo
+                location.reload();       
+            } else {
+                alert(jsonResponse.message);
+            }
+        }
+    });
+}
+    $(document).ready(function() {
+        if (location.hash) {
+            $('a[href="' + location.hash + '"]').tab('show');
+        }
+    });
+
+
+    $(function () {
+        $("#eventsContent .grid").on('click', '.transition-transform', onGridItemClick);
+        $("#event_form").submit(onEventFormSubmit);
+        $("#contracts_table").DataTable({
+            initComplete: function () {
+                $('#contracts_table_wrapper').removeClass('table-loading');
+            }
+        });
+    });
+
+    function openScheduleModal(eventId) {
+        // console.log("Setting event ID:", eventId); // Debugging line
+        $('#event_id').val(eventId);
+        $('#scheduleModal').modal('show');
+        closeEventModal();
+    }
+
+    function saveSchedule(e) {
+        e.preventDefault();
+        var formData = {
+            eventId: $("#event_id").val(),
+            datetime: $("#meeting_datetime").val(),
+            link: $("#meeting_link").val()
+        };
+
+        $.post("<?php echo admin_url('leads/save_schedule') ?>", formData, handleSaveScheduleResponse);
+        $('#scheduleModal').modal('hide');
+    }
+
+    function handleSaveScheduleResponse(response) {
+        var jsonResponse = JSON.parse(response);
+        if (jsonResponse.status === "success") {
+            $('#scheduleModal').modal('hide');
+            location.hash = 'event';
+            location.reload();
+        } else {
+            alert(jsonResponse.message);
+        }
+    }
+
+    function increaseStatusAndInitSend(eventId) {
+        $.post("<?php echo admin_url('leads/updateStatus'); ?>/" + eventId, function(response) {
+            handleStatusUpdateResponse(response, eventId); // Pass eventId as parameter
+        });
+    }
+
+    function handleStatusUpdateResponse(response, eventId) {
+        var jsonResponse = JSON.parse(response);
+        if (jsonResponse.success) {
+            closeEventModal();
+                location.hash = 'event';
+            location.reload();
+            initEventSend(eventId);
+        } else {
+            alert("An error occurred while updating the status.");
+        }
+    }
+
+
+    function showEventDetails(eventName, description, meetScheduleLink,actuallink,datetime, element) {
+        // Fill in the details in the modal
+        document.getElementById('modal_event_name').textContent = eventName;
+        document.getElementById('modal_description').textContent = description;
+        document.getElementById('modal_date_time').textContent = datetime;
+        document.getElementById('modal_meeting_actual_link').textContent = actuallink;
+        document.getElementById('modal_meet_schedule_link').textContent = meetScheduleLink;
+        document.getElementById('modal_meet_schedule_link').href = meetScheduleLink;
+        var status = $(element).data('status');
+        var id = $(element).data('id');
+
+        // Remove any existing status buttons
+        $('#eventDetailModal').find('.modal-footer button:not(.btn-danger)').remove();
+
+        // Create and append the new button based on status
+        var buttonHtml = '';
+        if (status == 0) {
+            buttonHtml = '<button class="btn btn-info" onclick="increaseStatusAndInitSend(' + id + ')">Sent</button>';
+        } else if (status == 1) {
+            buttonHtml = '<button class="btn btn-success" onclick="openScheduleModal('+ id +')">Scheduled</button>';
+        } else if (status == 2) {
+            buttonHtml = '<button class="btn btn-primary" onclick="updateStatus('+ id +')">Completed</button>';
+        }
+        $('#eventDetailModal').find('.modal-footer').append(buttonHtml);
+
+        $('#eventDetailModal').modal('show');
+        }
+
+    $('#eventDetailModal').on('hidden.bs.modal', resetEventDetailsModal);
+    $("#schedule_form").submit(saveSchedule);
+
+    function resetEventDetailsModal() {
+        $(this).find('.modal-footer button:not(.btn-danger)').remove();
+        document.getElementById('modal_event_name').textContent = "";
+        document.getElementById('modal_description').textContent = "";
+        document.getElementById('modal_date_time').textContent = "";
+        document.getElementById('modal_meeting_actual_link').textContent = "";
+        document.getElementById('modal_meeting_actual_link').href = "";
+        document.getElementById('modal_meet_schedule_link').textContent = "";
+        document.getElementById('modal_meet_schedule_link').href = "";
+    }
+
+
+</script>
+
 
 <script>
  let currentStep = <?php echo $lead->lifecycle_stage; ?>;
@@ -731,7 +1148,7 @@ function refresh_lifecycle(){
     }
     
     document.getElementById("step-" + currentStep).classList.add("active-step");
-
+    // alert(currentStep);
 }
 
 refresh_lifecycle();
@@ -783,6 +1200,7 @@ refresh_lifecycle();
         margin-bottom: 8px;
 
     }
+    
 
     .tab-item::before {
         content: "";
@@ -1034,11 +1452,9 @@ $('#sendMessageForm').on('submit', function(e) {
                         'success'
                         );
                     }
-
                     if(type == "proposal"){
                         proposalChangeStatus($("#composeModal").data("rel-id"));
                     }
-
                 } else {
                     Swal.fire(
                         'Error!',
@@ -1360,42 +1776,6 @@ $(document).ready(function() {
 
 });
 
-
-
-</script>
-
-
-
-<script>
-    function openEventModal(){
-        $("#createEventModal").modal('show');
-    };
-    function closeEventModal() {
-        $("#createEventModal").modal('hide');
-    }
-
-    $("#event_form").submit(function(e) {
-    e.preventDefault();
-    $.ajax({
-        url: "<?php echo admin_url("leads/event_create") ?>",
-        type: "POST",
-        data: $(this).serialize(),
-        success: function(response) {
-            var jsonResponse = JSON.parse(response);  // Parse the JSON response
-            if(jsonResponse.status === "success") {
-                closeEventModal(); // Close the modal
-                initEventSend(jsonResponse.id);
-            } else {
-                alert(jsonResponse.message); // Show the error message
-            }
-        }
-    });
-    });
-    $("#contracts_table").DataTable({
-        initComplete: function() {
-        $('#contracts_table_wrapper').removeClass('table-loading');
-    }
-    });
 
 
 </script>

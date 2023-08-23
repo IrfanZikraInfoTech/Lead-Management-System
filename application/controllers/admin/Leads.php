@@ -191,7 +191,7 @@ class Leads extends AdminController
             $data['mail_activity'] = $this->leads_model->get_mail_activity($id);
             $data['notes']         = $this->misc_model->get_notes($id, 'lead');
             $data['activity_log']  = $this->leads_model->get_lead_activity_log($id);
-            $data['tblevents']     = $this->leads_model->get_all_events($id);
+            $data['tblevents'] = $this->leads_model->get_all_events($id);
             $data['contracts']     = $this->leads_model->get_contracts_for_lead($id);
             $data['invoices']  = $this->leads_model->get_invoice_for_lead($id);
 
@@ -269,6 +269,111 @@ class Leads extends AdminController
 
         echo $this->load->view('admin/leads/kan-ban', $data, true);
     }
+    
+    public function updateStatus($id) {
+        // $this->load->model('Event_model');
+        $success = $this->leads_model->increaseStatus($id);
+    
+        if ($success) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false]);
+        }
+    }
+    public function save_schedule()
+    { 
+        $eventId = $this->input->post('eventId');
+        $datetime = $this->input->post('datetime');
+        $link = $this->input->post('link');
+        // echo $datetime;
+        // echo $link;
+        // echo $eventId;
+        // Call the function to save the schedule
+        $result = $this->leads_model->save_schedule($eventId, $datetime, $link);
+
+        if ($result) {
+            // Respond with success if saved
+            echo json_encode(array('status' => 'success'));
+        } else {
+            // Respond with an error if something went wrong
+            echo json_encode(array('status' => 'error', 'message' => 'Could not save the schedule.'));
+        }
+    }   
+    public function getEventDetails($eventId) {
+        $eventDetails = $this->EventModel->getEventDetails($eventId);
+        echo json_encode($eventDetails);
+    }
+    
+    // public function updateEventDetails() {
+    //     $postData = $this->input->post();
+    //     $eventId = $postData['event_id'];
+    //     unset($postData['event_id']);
+    //     $this->lead_model->updateEvent($eventId, $postData);
+    //     echo json_encode(['status' => 'success']);
+    // }
+    
+    public function update_event_status()
+    {
+        $eventId = $this->input->post('event_id');
+
+        $success = $this->leads_model->update_status_complete($eventId);
+
+        if ($success) {
+            // Redirect or send success response
+        } else {
+            // Redirect or send failure response
+        }
+    }
+
+// function getInactiveLeads($daysInactive = 3) {
+    //     $dateLimit = date('Y-m-d', strtotime('-' . $daysInactive . ' days'));
+    
+    //     $this->db->select('tblleads.*');
+    //     $this->db->from('tblleads');
+    //     $this->db->join('tbllead_activity_log', 'tblleads.id = tbllead_activity_log.leadid');
+    //     $this->db->where('tbllead_activity_log.date <', $dateLimit);
+    //     $this->db->group_by('tblleads.id'); // Lead ko ek baar hi include karne ke liye
+    //     // echo $dateLimit;
+
+    //     $query = $this->db->get();
+    //     echo $this->db->last_query();
+
+    //     print_r( $query->result_array());
+// }
+function getInactiveLeadsAndNotify($daysInactive = 3) {
+    $dateLimit = date('Y-m-d', strtotime('-' . $daysInactive . ' days'));
+
+    $this->db->select('tblleads.*');
+    $this->db->from('tblleads');
+    $this->db->join('tbllead_activity_log', 'tblleads.id = tbllead_activity_log.leadid');
+    $this->db->where('tbllead_activity_log.date <', $dateLimit);
+    $this->db->group_by('tblleads.id'); // Include each lead only once
+
+    $query = $this->db->get();
+    $inactiveLeads = $query->result_array();
+
+    $this->load->library('email');
+
+    foreach ($inactiveLeads as $lead) {
+        // Assume you have an email address in the lead information
+        $emailAddress = $lead['email'];
+        
+        // Construct the email content
+        $subject = "Inactive Lead Alert";
+        $message = "The lead " . $lead['name'] . " has not been updated for over " . $daysInactive . " days.";
+
+        $this->email->from('ahmed@example.com', 'Your Name');
+        $this->email->to('irfan@zikrainfotech.com');
+        $this->email->subject($subject);
+        $this->email->message($message);
+
+        $this->email->send();
+        
+        // Log the action if required
+        // ...
+    }
+}
+
 
     /* Add or update lead */
     public function lead($id = '')
@@ -1847,9 +1952,9 @@ class Leads extends AdminController
         curl_close($ch);
     
         $response_data = json_decode($response, true);
-        $gpt_response = $response_data['choices'][0]['message']['content'];
+        // $gpt_response = $response_data['choices'][0]['message']['content'];
         
-        return $gpt_response;
+        return $response_data;
     }
 
     public function send_proposal_status($id){

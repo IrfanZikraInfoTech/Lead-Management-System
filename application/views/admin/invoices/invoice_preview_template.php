@@ -188,14 +188,32 @@
                                 </li>
                             </ul>
                         </div>
-                        <?php if (!empty($invoice->clientid)) { ?>
+                        <?php if (!empty($invoice->clientid) || $invoice->rel_type == 'lead') { ?>
                         <span<?php if ($invoice->status == Invoices_model::STATUS_CANCELLED) { ?> data-toggle="tooltip"
                             data-title="<?php echo _l('invoice_cancelled_email_disabled'); ?>" <?php } ?>>
+
+                            <?php
+
+                            if($invoice->rel_type == "lead"){
+                                ?>
+
+                            <a href="<?= admin_url("leads/info/".$invoice->rel_id."/proposal/".$invoice->id) ?>" class="btn-with-tooltip btn btn-default<?php if ($invoice->status == Invoices_model::STATUS_CANCELLED) {
+                         echo ' disabled';
+                     } ?>" data-toggle="tooltip" title="<?php echo $_tooltip; ?>" data-placement="bottom"><span
+                                    data-toggle="tooltip" data-title="<?php echo $_tooltip_already_send; ?>"><i
+                                        class="fa-regular fa-envelope"></i></span></a>
+                            <?php 
+                            }else{ ?>
+
+                            
                             <a href="#" class="invoice-send-to-client btn-with-tooltip btn btn-default<?php if ($invoice->status == Invoices_model::STATUS_CANCELLED) {
                          echo ' disabled';
                      } ?>" data-toggle="tooltip" title="<?php echo $_tooltip; ?>" data-placement="bottom"><span
                                     data-toggle="tooltip" data-title="<?php echo $_tooltip_already_send; ?>"><i
                                         class="fa-regular fa-envelope"></i></span></a>
+
+                            <?php } ?>
+
                             </span>
                             <?php } ?>
                             <!-- Single button -->

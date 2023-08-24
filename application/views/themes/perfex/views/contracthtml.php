@@ -228,10 +228,21 @@
         </div>
     </div>
 </div>
+
+
 <?php
    get_template_part('identity_confirmation_form', ['formData' => form_hidden('action', 'sign_contract')]);
    ?>
+
+<style>
+    .swal2-select{
+        display:none !important;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+
+
 $(function() {
     new Sticky('[data-sticky]');
     $(".contract-left table").wrap("<div class='table-responsive'></div>");
@@ -239,5 +250,124 @@ $(function() {
     $('.contract-html-content img').wrap(function() {
         return '<a href="' + $(this).attr('src') + '" data-lightbox="contract"></a>';
     });
+
+
+    
+    <?php 
+    if($custom_contract){
+
+        if($account_made){
+            ?>
+
+        Swal.fire({
+        title: 'Info',
+        showCancelButton: true,
+        confirmButtonColor: '#29b952',
+        text: "Client already created, Please login.",
+        confirmButtonText: 'Go',
+        input: '',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?= site_url() ?>";
+                return;
+            }
+        });
+
+<?php
+        }else{
+
+            ?>
+
+            Swal.fire({
+                title: 'Register',
+                text: "Contract Signed, Please Continue.",
+                }).then((result) => {
+                    
+
+const lead = <?= json_encode($lead); ?>;
+const nameParts = lead.name.split(' ');
+const firstName = nameParts[0] || ''; // Default to an empty string if not present
+const lastName = nameParts[1] || ''; // Default to an empty string if not present
+
+
+Swal.fire({
+  title: 'Register',
+  html:
+    `<input id="first-name" class="swal2-input" placeholder="First Name" value="${firstName}" required>` +
+    `<input id="last-name" class="swal2-input" placeholder="Last Name" value="${lastName}" required>` +
+    `<input id="position" class="swal2-input" placeholder="Position" value="${lead.title}" required>` +
+    `<input id="email" type="email" class="swal2-input" placeholder="Email" value="${lead.email}" required>` +
+    `<input id="company" class="swal2-input" placeholder="Company" value="${lead.company}" required>` +
+    `<input id="phone" type="tel" class="swal2-input" placeholder="Phone" value="${lead.phonenumber}" required>` +
+    `<input id="password" type="password" class="swal2-input" placeholder="Password" required>`,
+  focusConfirm: false,
+  showCancelButton: true,
+  confirmButtonText: 'Register',
+  preConfirm: () => {
+    const firstname = Swal.getPopup().querySelector('#first-name').value
+    const lastname = Swal.getPopup().querySelector('#last-name').value
+    const title = Swal.getPopup().querySelector('#position').value
+    const email = Swal.getPopup().querySelector('#email').value
+    const company = Swal.getPopup().querySelector('#company').value
+    const phonenumber = Swal.getPopup().querySelector('#phone').value
+    const password = Swal.getPopup().querySelector('#password').value
+
+    if (!firstname || !lastname || !title || !email || !company || !phonenumber || !password) {
+      Swal.showValidationMessage('Please fill in all the fields')
+    }
+
+    return { firstname, lastname, title, email, company, phonenumber, password }
+  }
+}).then((result) => {
+    if (result.isConfirmed) {
+        const userData = result.value;
+        userData.original_lead_email = '<?= $lead->email ?>' ;
+        userData.leadid = '<?= $lead->id ?>';
+        
+        Swal.fire({
+            title: 'Please Wait...',
+            html: 'Processing...', // Add any optional text you'd like to show
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            willOpen: () => {
+            Swal.showLoading(); // Show loading indicator
+            },
+        });
+
+        $.ajax({
+            url: '<?= base_url('contract/convert_to_customer') ?>',
+            method: 'GET',
+            data: userData,
+            contentType: 'application/json',
+            success: function(response){
+            Swal.close(); // Close the loading indicator
+            Swal.fire({
+                title: 'Success!',
+                icon: 'success',
+                text: "Registration done, Please login.",
+                confirmButtonText: 'Go',
+            }).then((result) => {
+                window.location.href = '<?= base_url(); ?>';
+            });
+            },
+            error: () => {
+            Swal.close(); // Close the loading indicator
+            Swal.fire('Error!', 'An error occurred while creating the user.', 'error');
+            }
+        });
+    }
+
+});
+
+});
+
+<?php
+    }
+}
+    ?>
+
+
+
+
 })
 </script>

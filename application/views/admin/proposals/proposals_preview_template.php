@@ -152,7 +152,7 @@
                 </div>
                 <?php
                 $this->session->set_userdata('resend', true);
-                if($proposal->rel_type="lead"){
+                if($proposal->rel_type == "lead"){
                     ?>
                 <a href="<?= admin_url("leads/info/".$proposal->rel_id."/proposal/".$proposal->id) ?>" class="btn btn-default btn-with-tooltip"><span data-toggle="tooltip" class="btn-with-tooltip"
                         data-title="<?php echo _l('proposal_send_to_email'); ?>" data-placement="bottom"><i
@@ -191,7 +191,7 @@
                                 href="<?php echo admin_url() . 'proposals/copy/' . $proposal->id; ?>"><?php echo _l('proposal_copy'); ?></a>
                         </li>
                         <?php } ?>
-                        <?php if ($proposal->estimate_id == null && $proposal->invoice_id == null) { ?>
+                        <?php if ($proposal->estimate_id == null) { ?>
                         <?php foreach ($proposal_statuses as $status) {
                                 if (has_permission('proposals', '', 'edit')) {
                                     if ($proposal->status != $status) { ?>
@@ -234,10 +234,10 @@
                      $not_related     = false;
 
                      if ($proposal->rel_type == 'lead') {
-                         if (total_rows(db_prefix() . 'clients', ['leadid' => $proposal->rel_id]) == 0) {
-                             $disable_convert = true;
-                             $help_text       = 'proposal_convert_to_lead_disabled_help';
-                         }
+                        //  if (total_rows(db_prefix() . 'clients', ['leadid' => $proposal->rel_id]) == 0) {
+                        //      $disable_convert = true;
+                        //      $help_text       = 'proposal_convert_to_lead_disabled_help';
+                        //  }
                      } elseif (empty($proposal->rel_type)) {
                          $disable_convert = true;
                          $help_text       = 'proposal_convert_not_related_help';
@@ -252,13 +252,13 @@
                          echo 'data-template="estimate" onclick="proposal_convert_template(this); return false;"';
                      } ?>><?php echo _l('proposal_convert_estimate'); ?></a></li>
                         <?php } ?>
-                        <?php if (has_permission('invoices', '', 'create')) { ?>
+                    <?php if (has_permission('invoices', '', 'create')) { ?>
                         <li <?php if ($disable_convert) {
                          echo 'data-toggle="tooltip" title="' . _l($help_text, _l('proposal_convert_invoice')) . '"';
                      } ?>><a href="#" <?php if ($disable_convert) {
                          echo 'style="cursor:not-allowed;" onclick="return false;"';
                      } else {
-                         echo 'data-template="invoice" onclick="proposal_convert_template(this); return false;"';
+                        echo 'data-template="invoice" data-rel-type="' . ($proposal->rel_type ?? '') . '" data-rel-id="' . ($proposal->rel_id ?? '') . '" onclick="proposal_convert_template(this); return false;"';
                      } ?>><?php echo _l('proposal_convert_invoice'); ?></a></li>
                         <?php } ?>
                     </ul>

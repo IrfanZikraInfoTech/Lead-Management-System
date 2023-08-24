@@ -50,12 +50,34 @@ class Proposal extends ClientsController
                     break;
                 case 'accept_proposal':
                     $success = $this->proposals_model->mark_action_status(3, $id, true);
+                    //$success = true;
                     if ($success) {
                         process_digital_signature_image($this->input->post('signature', false), PROPOSAL_ATTACHMENTS_FOLDER . $id);
 
                         $this->db->where('id', $id);
                         $this->db->update(db_prefix().'proposals', get_acceptance_info_array());
-                        redirect($this->uri->uri_string(), 'refresh');
+
+                        if($proposal->rel_type == 'lead'){
+
+                           
+                            
+                            if($proposal->invoice_id){
+
+                                $invoice = $this->invoices_model->get($proposal->invoice_id);
+                                $this->session->set_userdata('invoice_redirect', true);
+                                redirect(base_url('invoice/'.$proposal->invoice_id.'/'.$invoice->hash));
+    
+                            }else if($proposal->contract_id){
+                                $contract = $this->contracts_model->get($proposal->contract_id);
+                                $this->session->set_userdata('invoice_contract', true);
+                                redirect(base_url('contract/'.$proposal->contract_id.'/'.$contract->hash));
+                            }else{
+                                redirect($this->uri->uri_string(), 'refresh');
+                            }
+                        }else{
+                            redirect($this->uri->uri_string(), 'refresh');
+                        }
+
                     }
 
                     break;

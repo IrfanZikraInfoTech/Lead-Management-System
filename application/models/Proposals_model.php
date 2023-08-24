@@ -317,7 +317,7 @@ class Proposals_model extends App_Model
         }
 
         if ($save_and_send === true) {
-            $this->send_proposal_to_email($id);
+            //$this->send_proposal_to_email($id);
         }
 
         if ($affectedRows > 0) {

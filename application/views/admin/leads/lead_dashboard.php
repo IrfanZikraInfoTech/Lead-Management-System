@@ -27,8 +27,29 @@
     .heading:hover::before {
         width: 100%; /* Scale the line to full width on hover */
     }
+    .chart-hover{
+        background: rgb(0, 135, 171);
+    }
+    .chart-border{
+        background: rgba(85, 199, 219);
+    }
+    .chart-1{
+        background:rgba(110, 231, 183, 1);
+    }
+    .chart-2{
+        background:rgba(59, 167, 255, 1);
+    }
+    .chart-3{
+        background:rgba(85, 199, 219, 1);
+    }
 
 </style>
+
+<div id="chartsHoverColor" class="chart-hover"></div>
+<div id="chartsBorderColor" class="chart-border"></div>
+<div id="chartsColor1" class="chart-1"></div>
+<div id="chartsColor2" class="chart-2"></div>
+<div id="chartsColor3" class="chart-3"></div>
 
 <div id="wrapper">
     <div class="container">
@@ -41,10 +62,10 @@
                 <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
                         <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
-                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)]"><?php echo $total_leads; ?></p>
-                            <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Total Leads</h5>
+                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast "><?php echo $total_leads; ?></p>
+                            <h5 class="text-lg font-medium text-uppercase mb-2 lms-contrast text-[rgba(0,135,171,0.6)]">Total Leads</h5>
                         </div>    
-                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
                             <i class="fas fa-users text-white text-2xl"></i>
                         </div>
                     </div>
@@ -52,10 +73,10 @@
                 <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
                         <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
-                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
-                            <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">New Customers</h5>
+                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
+                            <h5 class="text-lg font-medium text-uppercase mb-2 lms-contrast text-[rgba(0,135,171,0.6)]">New Customers</h5>
                         </div>
-                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
                             <i class="fas fa-user-plus text-white text-2xl"></i>
                         </div>
                     </div>
@@ -63,10 +84,10 @@
                 <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-6">
-                            <p class="text-2xl mb-2 font-bold text-[rgba(0,135,171)]"><?= $top_lead_source ?></p>
-                            <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Top Lead Source</h5>
+                            <p class="text-2xl mb-2 font-bold text-[rgba(0,135,171)] lms-contrast"><?= $top_lead_source ?></p>
+                            <h5 class="text-lg font-medium text-uppercase mb-2 lms-contrast text-[rgba(0,135,171,0.6)]">Top Lead Source</h5>
                         </div>
-                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
                             <i class="fas fa-trophy text-white text-2xl"></i>
                         </div>
                     </div>
@@ -74,10 +95,10 @@
                 <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-6">
-                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)]" id="leadsNotResponded"><?= $leads_not_responded ?></p>
-                            <h6 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Awaiting Response</h6>
+                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast" id="leadsNotResponded"><?= $leads_not_responded ?></p>
+                            <h5 class="text-lg lms-contrast font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Awaiting Response</h6>
                         </div>
-                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
                             <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
                         </div>
                     </div>
@@ -85,10 +106,10 @@
                 <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-5">
-                        <p class="text-2xl font-semibold text-[rgba(0,135,171)]">Conversion: <?= $campaign_performance['conversion_rate'] ?>%</p>
-                            <h5 class="text-lg font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]"><?= $campaign_performance['campaign_name'] ?></h5>
+                        <p class="text-2xl font-semibold text-[rgba(0,135,171)] lms-contrast"><?= $campaign_performance['conversion_rate'] ?>%</p>
+                            <h5 class="text-lg lms-contrast font-medium text-uppercase mb-2 text-[rgba(0,135,171,0.6)]">Conversion rate</h5>
                         </div>
-                            <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                            <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
                             <i class="fas fa-chart-bar text-white text-2xl"></i>
                         </div>
                     </div>
@@ -96,10 +117,10 @@
                 <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
-                            <p class="text-lg mb-2">Interactions: <span  class="font-extrabold text-[rgba(0,135,171)]"><?= $engagement_data['interactions'] ?></span></p>
-                            <h5 class="text-lg font-medium text-uppercase text-monospace mb-2 text-[rgba(0,135,171,0.6)]">Total TEngagement</h5>
+                            <p class="text-lg mb-2 text-[rgba(0,135,171)] lms-contrast">Interactions: <span class="font-extrabold "><?= $engagement_data['interactions'] ?></span></p>
+                            <h5 class="text-lg lms-contrast font-medium text-uppercase text-monospace text-[rgba(0,135,171,0.6)]">Total Interests</h5>
                         </div>
-                        <div class="w-16 h-16 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
+                        <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
                             <i class="fas fa-eye text-white text-2xl"></i>
                         </div>
                     </div>
@@ -108,9 +129,9 @@
             <!-- top cards ends-->
         </div>
         <!-- charts -->
-        <div class="row mt-4 d-flex align-items-stretch ">
+        <div class="flex flex-row gap-4 mt-4 d-flex align-items-stretch ">
             <!-- lead Distribution -->
-            <div class="col-lg-5 col-md-5 col-sm-12 mb-4 ">
+            <div class="md:w-2/4 w-full mb-4 ">
                 <div class="card bg-white shadow-lg rounded-lg hoverable py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Status Distribution</h2>
@@ -121,9 +142,9 @@
                 </div>
             </div>
             <!-- Lead Source Tracking Card -->
-            <div class="col-lg-7 col-md-7 col-sm-12 mb-4">
+            <div class="md:w-2/4 w-full mb-4">
 
-                <div class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="h-full card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center py-2" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Source Tracking</h2>
                         <div class="d-flex justify-content-center">
@@ -202,9 +223,9 @@
                 </div>
             </div>      
         </div>   
-        <div class="row mt-4 d-flex align-items-stretch text-center">
+        <div class="flex flex-row gap-4 text-center">
             <!-- lifecycle -->
-            <div class="col-lg-9 col-md-9 col-sm-9 mb-4 ">
+            <div class="lg:w-4/5 w-full mb-4 ">
                 <div class="card bg-white shadow-lg rounded-lg hoverable h-auto  cursor-pointer rounded-[20px]      
                     shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
@@ -216,23 +237,23 @@
                 </div>
             </div>
             <!-- quick actions -->
-            <div class="col-lg-3 col-md-3 col-sm-3 mb-4">
-                <div class="card bg-white shadow-lg rounded-lg cursor-pointer rounded-[20px] shadow-xl border border-gray-200 transition-all duration-300">
+            <div class="lg:w-1/5 w-full mb-4">
+                <div class="h-full card bg-white shadow-lg rounded-lg cursor-pointer rounded-[20px] shadow-xl border border-gray-200 transition-all duration-300">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-2 font-semibold text-gray-700">
                             Quick Actions
                         </h2>
                         <hr class="mx-auto my-4 w-1/3 bg-gray-300">
-                        <div class="d-flex justify-content-between ">
-                            <div title=" lead's list"class="mb-5 w-20 h-20 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                        <div class="flex flex-col items-between justify-content-between ">
+                            <div title=" lead's list"class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
                                 onclick="window.location.href='<?= admin_url('leads/list')?>'">
                                 <i class="fas fa-tasks text-white text-2xl"></i>
                             </div>
-                            <div title="lead lifecycle" class="mb-5 w-20 h-20 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                            <div title="lead lifecycle" class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
                                 onclick="window.location.href='<?= admin_url('leads/lifecycle')?>'">
                                 <i class="fas fa-project-diagram text-white text-2xl"></i>
                             </div>
-                            <div title="teritory builder" class="mb-5 w-20 h-20 bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                            <div title="teritory builder" class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
                                 onclick="window.location.href='<?= admin_url('leads/territories')?>'">
                                 <i class="fas fa-map-marked-alt text-white text-2xl"></i>
                             </div>
@@ -279,14 +300,39 @@
     $statusCharts_json = json_encode(array_values($statusCharts)); 
     $labels_json = json_encode(array_keys($statusCharts)); 
 ?>
+
+function getChartColors() {
+    return {
+        hoverColor: getComputedStyle(document.getElementById('chartsHoverColor')).backgroundColor,
+        borderColor: getComputedStyle(document.getElementById('chartsBorderColor')).backgroundColor,
+        color1: getComputedStyle(document.getElementById('chartsColor1')).backgroundColor,
+        color2: getComputedStyle(document.getElementById('chartsColor2')).backgroundColor,
+        color3: getComputedStyle(document.getElementById('chartsColor3')).backgroundColor
+    };
+}
+
+
+var colors = getChartColors();
+
+
 var ctx = document.getElementById('leadStatusChart').getContext('2d');
 
 function createGradient(ctx, color1, color2) {
-    var gradient = ctx.createRadialGradient(150, 150, 100, 150, 150, 150); // This will simulate depth
+    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
     gradient.addColorStop(0, color1);
     gradient.addColorStop(1, color2);
     return gradient;
 }
+
+function adjustColor(color, amount) {
+    var colArr = color.substring(4, color.length - 1).split(',');
+    var r = parseInt(colArr[0]) + amount;
+    var g = parseInt(colArr[1]) + amount;
+    var b = parseInt(colArr[2]) + amount;
+    return 'rgb(' + Math.max(Math.min(r, 255), 0) + ',' + Math.max(Math.min(g, 255), 0) + ',' + Math.max(Math.min(b, 255), 0) + ')';
+}
+
+
 
 var leadStatusChart = new Chart(ctx, {
     type: 'pie',
@@ -295,12 +341,12 @@ var leadStatusChart = new Chart(ctx, {
         datasets: [{
             data: <?php echo $statusCharts_json; ?>,
             backgroundColor: [
-                createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 1)'),
-                createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 1)'),
-                createGradient(ctx, 'rgba(85, 199, 219, 0.6)', 'rgba(85, 199, 219, 1)')
+                createGradient(ctx, colors.color1, adjustColor(colors.color1,-20)),
+                createGradient(ctx, colors.color2, adjustColor(colors.color2,-20)),
+                createGradient(ctx, colors.color3, adjustColor(colors.color3,-20))
             ],
-            hoverBackgroundColor: ['rgb(0, 135, 171)','rgb(0, 135, 171)','rgb(0, 135, 171)'],
-            borderColor: ['#fff', '#fff', '#fff'],
+            hoverBackgroundColor: [colors.hoverColor, colors.hoverColor, colors.hoverColor],
+            borderColor: [colors.borderColor, colors.borderColor, colors.borderColor],
             borderWidth: 2, // Increased border width for more pronounced edges
             borderAlign: 'inner',
             hoverBorderColor:  ['#fff', '#fff', '#fff'],
@@ -344,25 +390,22 @@ var leadStatusChart = new Chart(ctx, {
 ?>
 var ctx = document.getElementById('leadSourceChart').getContext('2d');
 
-var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-gradient.addColorStop(0, 'rgba(110, 231, 183, 1)');
-gradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
+var gradient = createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)); // Background gradient
+var borderGradient = createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)); // Border gradient
 
-var borderGradient = ctx.createLinearGradient(0, 0, 0, 400);
-borderGradient.addColorStop(0, 'rgba(110, 231, 183, 1)');
-borderGradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
 
 var leadSourceChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: <?= $sourceTracking_labels_json; ?>,
         datasets: [{
+            label: 'All records',
             data: <?= $sourceTracking_values_json; ?>,
             backgroundColor: gradient,
             borderColor: borderGradient,
             borderWidth: 2,
-            hoverBackgroundColor: ['rgb(0, 135, 171)','rgb(0, 135, 171)','rgb(0, 135, 171)'],
-            hoverBorderColor: 'rgb(0, 135, 171)',
+            hoverBackgroundColor: colors.hoverColor,
+            hoverBorderColor: colors.borderColor,
             borderRadius: 10,
             borderSkipped: false
         }]
@@ -452,8 +495,8 @@ Chart.controllers.bar.prototype.draw = function() {
 // leadBySalespersonChart
 var ctx = document.getElementById('leadBySalespersonChart').getContext('2d');
 var gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
-gradientFill.addColorStop(0, 'rgba(110, 231, 183, 0.6)');  // Starting color with transparency
-gradientFill.addColorStop(1, 'rgba(59, 167, 255, 0.6)');   // Ending color with transparency
+gradientFill.addColorStop(0, adjustColor(colors.color1, 20));  // Starting color, lightened
+gradientFill.addColorStop(1, colors.color2);   // Ending color
 
 var leadBySalespersonChart = new Chart(ctx, {
     type: 'line',
@@ -462,9 +505,9 @@ var leadBySalespersonChart = new Chart(ctx, {
         datasets: [{
             data: Object.values(<?= json_encode($leadsBySalesperson); ?>),
             backgroundColor: gradientFill,  // Use the gradient fill here
-            borderColor: ['#3BA7FF'],
+            borderColor: [colors.borderColor],
             borderWidth: 3,
-            pointBackgroundColor: '#3BA7FF',   // Point color
+            pointBackgroundColor: colors.color3,   // Point color
             pointBorderColor: '#fff',          // Point border color
             pointRadius: 5,                    // Point size
             pointHoverRadius: 7,               // Point size on hover
@@ -491,7 +534,7 @@ var leadBySalespersonChart = new Chart(ctx, {
             backgroundColor: 'rgba(0,0,0,0.7)',  // Slight transparent black background
             titleFontColor: '#fff',    // White color text
             bodyFontColor: '#fff',     // White color text
-            borderColor: '#3BA7FF',    // Border color
+            borderColor: colors.borderColor,    // Border color
             borderWidth: 1             // Border width
         }
     }
@@ -502,9 +545,9 @@ var leadBySalespersonChart = new Chart(ctx, {
 // leadConversionRateChart
 var ctx = document.getElementById('leadConversionRateProgressBarChart').getContext('2d');
 var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-gradient.addColorStop(0, 'rgba(59, 167, 255, 0.6)');
-gradient.addColorStop(1, 'rgba(110, 231, 183, 0.6)');
-var hovercolor = ('rgb(0, 135, 171)');
+gradient.addColorStop(0, colors.color1); // Starting color from helper div
+gradient.addColorStop(1, colors.color2); // Ending color from helper div
+var hovercolor = colors.hoverColor; // Hover color from helper div
 
 var leadConversionRateProgressBarChart = new Chart(ctx, {
     type: 'horizontalBar',
@@ -515,7 +558,7 @@ var leadConversionRateProgressBarChart = new Chart(ctx, {
             data: <?= json_encode($conversionRates['rates']); ?>,
             backgroundColor: gradient,
             hoverBackgroundColor: hovercolor, // Adding hover background color here
-            borderColor: 'rgba(47, 137, 207, 0.8)',
+            borderColor: colors.borderColor,
             borderWidth: 2,
             borderRadius: 20,
             borderSkipped: false
@@ -548,30 +591,35 @@ var ctx = document.getElementById('leadLifecycleChart').getContext('2d');
 
 // Colors for the histogram bars
 var colors = [
-    createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 0.8)'),
-    createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 0.8)'),
-    createGradient(ctx, 'rgba(85, 199, 219, 0.6)', 'rgba(85, 199, 219, 0.8)')
+    createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
+    createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
+    createGradient(ctx, colors.color3, adjustColor(colors.color3, 20))
 ];
 
-var leadLifecycleData = <?= json_encode($leadLifecycleData); ?>;
-var datasets = leadLifecycleData.leads.map(function(stageName, index) {
-    return {
-        label: stageName, // Using stage name as the label
-        data: [leadLifecycleData.times[index]], // Single data point per stage, using "times" array
-        backgroundColor: colors[index % colors.length],
-        borderColor: colors[index % colors.length],
+var leadLifecycleData = <?= json_encode($leadLifecycleData)?>;
+
+var lifecycleData = {
+    labels: leadLifecycleData.leads,
+    datasets: [{
+        label: 'Lead Lifecycle', // This can be customized to your preference
+        data: leadLifecycleData.times,
+        backgroundColor: leadLifecycleData.leads.map(function(stageName, index) {
+            return colors[index % colors.length];
+        }),
+        borderColor: leadLifecycleData.leads.map(function(stageName, index) {
+            return colors[index % colors.length];
+        }),
         borderWidth: 2,
         borderRadius: 4,
-        hoverBackgroundColor: colors[index % colors.length]
-    };
-});
+        hoverBackgroundColor: leadLifecycleData.leads.map(function(stageName, index) {
+            return colors[index % colors.length];
+        })
+    }]
+};
 
 var leadLifecycleChart = new Chart(ctx, {
     type: 'bar',
-    data: {
-        labels: <?= json_encode($leadLifecycleData['leads']); ?>,
-        datasets: datasets
-    },
+    data: lifecycleData,
     options: {
         responsive: true,
         scales: {
@@ -593,6 +641,9 @@ var leadLifecycleChart = new Chart(ctx, {
     }
 });
 
+
+colors = getChartColors();
+
 // leadResponseTimeDonutChart
 document.addEventListener("DOMContentLoaded", function() {  // Ensure the DOM is loaded
     var ctx = document.getElementById('leadResponseTimeDonutChart').getContext('2d');
@@ -604,30 +655,20 @@ document.addEventListener("DOMContentLoaded", function() {  // Ensure the DOM is
         return gradient;
     }
 
-    var hoverColors = [
-        'rgb(110, 231, 183)',
-        'rgb(59, 167, 255)',
-        'rgb(85, 199, 219)',
-        'rgb(0, 135, 171)'
-    ];
+    var hoverColors = colors.color1;
 
     var leadResponseTimeChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Lead 1', 'Lead 2', 'Lead 3', 'Lead 4'],
+            labels: ['Lead 1', 'Lead 2', 'Lead 3'],
             datasets: [{
                 label: 'Response Time (hours)',
-                data: [2, 4, 1, 3],
-                backgroundColor: [
-                    createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 0.8)'),
-                    createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 0.8)'),
-                    createGradient(ctx, 'rgba(85, 199, 219, 0.6)', 'rgba(85, 199, 219, 0.8)'),
-                    createGradient(ctx, 'rgba(0, 135, 171, 0.6)', 'rgba(0, 135, 171, 0.8)')
-                ],
-                borderColor: ['#fff', '#fff', '#fff', '#fff'],
+                data: [2, 4, 1],
+                backgroundColor: [colors.color1, colors.color2, colors.color3],
+                borderColor: colors.borderColor,
                 borderWidth: 2,
                 hoverBorderColor: ['#fff', '#fff', '#fff', '#fff'],
-                hoverBackgroundColor: hoverColors
+                hoverBackgroundColor: colors.hoverColor
             }]
         },
         options: {
@@ -673,10 +714,10 @@ var leadInteractionChart = new Chart(ctx, {
         datasets: [{
             label: 'Interactions',
             data: data,
-            backgroundColor:'rgba(85, 199, 219,0.5)', 
-            borderColor:'rgba(85, 199, 219)',
+            backgroundColor: colors.color1, 
+            borderColor:colors.borderColor,
             borderWidth: 2,
-            hoverBackgroundColor:'rgba(85, 199, 219,0.5)'
+            hoverBackgroundColor:colors.hoverColor
         }]
     },
     options: {

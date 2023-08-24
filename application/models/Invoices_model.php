@@ -531,7 +531,7 @@ class Invoices_model extends App_Model
             $this->log_invoice_activity($insert_id, $lang_key);
 
             if ($save_and_send === true) {
-                $this->send_invoice_to_client($insert_id, '', true, '', true);
+                //$this->send_invoice_to_client($insert_id, '', true, '', true);
             }
             hooks()->do_action('after_invoice_added', $insert_id);
 
@@ -903,7 +903,7 @@ class Invoices_model extends App_Model
         }
 
         if ($save_and_send === true) {
-            $this->send_invoice_to_client($id, '', true, '', true);
+            //$this->send_invoice_to_client($id, '', true, '', true);
         }
 
         do_action_deprecated('after_invoice_updated', [$id], '3.0.0', 'invoice_updated');

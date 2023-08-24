@@ -132,98 +132,120 @@ class Proposals extends AdminController
         }
     }
 
+    public function proposal($id = ''){
 
-    public function proposal($id = '')
-    {
         if ($this->input->post()) {
-            $proposal_data = $this->input->post();
-        if (isset($_FILES['pdf_path']) && $_FILES['pdf_path']['error'] == 0) {
-    
-        // ensure if direct exsits
-        if (!is_dir('./uploads/proposals/')) {
-            mkdir('./uploads/proposals/', 0777, TRUE);
-        }
 
-        $config['file_name'] = uniqid() . '_' . time();
-        $config['upload_path'] = './uploads/proposals/';
-        $config['allowed_types'] = 'pdf';
-        $config['max_size'] = 10000;
+            $proposal_data = $this->input->post();
+
+            if (isset($_FILES['pdf_path']) && $_FILES['pdf_path']['error'] == 0) {
     
-        $this->load->library('upload', $config);
+                // ensure if direct exsits
+                if (!is_dir('./uploads/proposals/')) {
+                    mkdir('./uploads/proposals/', 0777, TRUE);
+                }
+
+                $config['file_name'] = uniqid() . '_' . time();
+                $config['upload_path'] = './uploads/proposals/';
+                $config['allowed_types'] = 'pdf';
+                $config['max_size'] = 10000;
+        
+                $this->load->library('upload', $config);
+        
+                if (!$this->upload->do_upload('pdf_path')) {
+                    set_alert('danger', $this->upload->display_errors());
+                    redirect(admin_url('proposals/proposal/' . $id));
+                    return;
+                } 
+                else {
+                    $data = $this->upload->data();
+                    $proposal_data['pdf_path'] = $data['file_name'];
+                }
+            }
+
+            if ($id == ''){
+
+                if (!has_permission('proposals', '', 'create')) {
+                    access_denied('proposals');
+                }
     
-            if (!$this->upload->do_upload('pdf_path')) {
-            set_alert('danger', $this->upload->display_errors());
-            redirect(admin_url('proposals/proposal/' . $id));
-            return;
+                $id = $this->proposals_model->add($proposal_data);
+    
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('proposal')));
+                    $proposal = $this->proposals_model->get($id);
+                    if(isset($proposal_data['save_and_send']) && $proposal->rel_type == 'lead'){
+                        $this->session->set_userdata('resend', true);
+                        redirect(admin_url('leads/info/'.$proposal->rel_id.'/proposal/'.$id));
+                    }else{
+                        if ($this->set_proposal_pipeline_autoload($id)) {
+                            redirect(admin_url('proposals'));
+                        } else {
+                            redirect(admin_url('proposals/list_proposals/' . $id));
+                        }
+                    }
+                }
+                
             } 
             else {
-                $data = $this->upload->data();
-                $proposal_data['pdf_path'] = $data['file_name'];
+                if (!has_permission('proposals', '', 'edit')) {
+                    access_denied('proposals');
+                }
+                $success = $this->proposals_model->update($proposal_data, $id);
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('proposal')));
+                }
+                $proposal = $this->proposals_model->get($id);
+                if(isset($proposal_data['save_and_send']) && $proposal->rel_type == 'lead'){
+                    $this->session->set_userdata('resend', true);
+                    redirect(admin_url('leads/info/'.$proposal->rel_id.'/proposal/'.$id));
+                }else{
+                    if ($this->set_proposal_pipeline_autoload($id)) {
+                        redirect(admin_url('proposals'));
+                    } else {
+                        redirect(admin_url('proposals/list_proposals/' . $id));
+                    }
+                }
             }
         }
+
+
         if ($id == '') {
-        if (!has_permission('proposals', '', 'create')) {
-            access_denied('proposals');
-        }
-        $id = $this->proposals_model->add($proposal_data);
-        if ($id) {
-            set_alert('success', _l('added_successfully', _l('proposal')));
-        if ($this->set_proposal_pipeline_autoload($id)) {
-            redirect(admin_url('proposals'));
+            $title = _l('add_new', _l('proposal_lowercase'));
         } else {
-            redirect(admin_url('proposals/list_proposals/' . $id));
+            $data['proposal'] = $this->proposals_model->get($id);
+
+            if (!$data['proposal'] || !user_can_view_proposal($id)) {
+                blank_page(_l('proposal_not_found'));
+            }
+
+            $data['estimate'] = $data['proposal'];
+            $data['is_proposal'] = true;
+            $title = _l('edit', _l('proposal_lowercase'));
         }
-    }
-        } 
-        else {
-        if (!has_permission('proposals', '', 'edit')) {
-            access_denied('proposals');
-        }
-        $success = $this->proposals_model->update($proposal_data, $id);
-        if ($success) {
-        set_alert('success', _l('updated_successfully', _l('proposal')));
-        }
-        if ($this->set_proposal_pipeline_autoload($id)) {
-        redirect(admin_url('proposals'));
-        } else {
-        redirect(admin_url('proposals/list_proposals/' . $id));
-        }
-    }
-        }
-        if ($id == '') {
-        $title = _l('add_new', _l('proposal_lowercase'));
-        } else {
-        $data['proposal'] = $this->proposals_model->get($id);
-    
-        if (!$data['proposal'] || !user_can_view_proposal($id)) {
-        blank_page(_l('proposal_not_found'));
-        }
-    
-        $data['estimate']= $data['proposal'];
-        $data['is_proposal'] = true;
-        $title = _l('edit', _l('proposal_lowercase'));
-    }
-    
+
         $this->load->model('taxes_model');
         $data['taxes'] = $this->taxes_model->get();
         $this->load->model('invoice_items_model');
         $data['ajaxItems'] = false;
+
         if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-        $data['items'] = $this->invoice_items_model->get_grouped();
+            $data['items'] = $this->invoice_items_model->get_grouped();
         } else {
-        $data['items'] = [];
-        $data['ajaxItems'] = true;
+            $data['items'] = [];
+            $data['ajaxItems'] = true;
         }
+
         $data['items_groups'] = $this->invoice_items_model->get_groups();
-        
         $data['statuses'] = $this->proposals_model->get_statuses();
         $data['staff'] = $this->staff_model->get('', ['active' => 1]);
-        $data['currencies']= $this->currencies_model->get();
+        $data['currencies'] = $this->currencies_model->get();
         $data['base_currency'] = $this->currencies_model->get_base_currency();
-        
         $data['title'] = $title;
+
         $this->load->view('admin/proposals/proposal', $data);
-    } 
+    }
+
 
     // show pdf
     public function show_pdf($id = '') {
@@ -429,13 +451,15 @@ class Proposals extends AdminController
         }
         if ($this->input->post()) {
             $this->load->model('invoices_model');
-            $invoice_id = $this->invoices_model->add($this->input->post());
+            $post_data = $this->input->post();
+            $post_data['rel_type'] = $this->proposals_model->get($id)->rel_type;
+            $post_data['rel_id'] = $this->proposals_model->get($id)->rel_id;
+            $invoice_id = $this->invoices_model->add($post_data);
             if ($invoice_id) {
                 set_alert('success', _l('proposal_converted_to_invoice_success'));
                 $this->db->where('id', $id);
                 $this->db->update(db_prefix() . 'proposals', [
-                    'invoice_id' => $invoice_id,
-                    'status'     => 3,
+                    'invoice_id' => $invoice_id
                 ]);
                 log_activity('Proposal Converted to Invoice [InvoiceID: ' . $invoice_id . ', ProposalID: ' . $id . ']');
                 hooks()->do_action('proposal_converted_to_invoice', ['proposal_id' => $id, 'invoice_id' => $invoice_id]);
@@ -477,8 +501,8 @@ class Proposals extends AdminController
         $data['add_items']      = $this->_parse_items($data['proposal']);
 
         if ($data['proposal']->rel_type == 'lead') {
-            $this->db->where('leadid', $data['proposal']->rel_id);
-            $data['customer_id'] = $this->db->get(db_prefix() . 'clients')->row()->userid;
+            // $this->db->where('leadid', $data['proposal']->rel_id);
+            $data['lead_id'] = $data['proposal']->rel_id;
         } else {
             $data['customer_id'] = $data['proposal']->rel_id;
             $data['project_id'] = $data['proposal']->project_id;
@@ -806,5 +830,22 @@ class Proposals extends AdminController
                 echo $duedate;
             }
         }
+    }
+
+    public function check_proposal_invoiced($id){
+
+        if(total_rows('tblproposals', 'id = '.$id.' AND invoice_id IS NOT NULL')){
+            echo json_encode([
+                'success' => true,
+                'check' => true,
+            ]);
+        }else{
+            echo json_encode([
+                'success' => true,
+                'check' => false,
+            ]);
+        }
+
+        
     }
 }

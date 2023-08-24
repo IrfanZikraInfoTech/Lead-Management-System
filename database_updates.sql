@@ -3277,7 +3277,15 @@ alter table tblproposals add pdf_path text null;
 alter table tblleads add email_message_id text null;
 alter table tblleads add lifecycle_stage int not null default 0;
 
+alter table tblevent add status int not null default 0;
+
+
 ALTER TABLE tblcontracts add rel_type varchar(25) default '';
 ALTER TABLE tblcontracts add rel_id int null;
 ALTER TABLE tblinvoices add rel_type varchar(25) default '';
 ALTER TABLE tblinvoices add rel_id int null;
+
+
+alter table tblinvoices add proposal_link int null;
+
+alter table tblproposals add contract_id int null after invoice_id;

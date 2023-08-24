@@ -1024,20 +1024,19 @@ public function updateEvent($eventId, $updatedData) {
      * @return array
      */
 
-    public function get_invoice_for_lead($id)
-    {
-         $this->db->select('tblinvoices.*, tblleads.name as lead_name');
-         $this->db->from('tblinvoices');
-         $this->db->join('tblleads', 'tblinvoices.rel_id = tblleads.id AND tblinvoices.rel_type = "lead"', 'left');
-         $query = $this->db->get();
-     
-         // Check if the query returns a result and then return the data.
-         if ($query->num_rows() > 0) {
-             return $query->result();
-         }
-     
-         return false;
+    public function get_invoice_for_lead($id) {
+        $this->db->select('invoices.*, proposals.subject AS proposal_subject, projects.name AS project_name');
+        $this->db->from('invoices');
+        $this->db->join('proposals', 'proposals.invoice_id = invoices.id', 'left');
+        $this->db->join('projects', 'projects.id = invoices.project_id', 'left'); // Assuming project_id is in the invoices table
+        $this->db->where('invoices.rel_id', $id);
+        $this->db->where('invoices.rel_type', 'lead');
+        $query = $this->db->get();
+    
+        return $query->result_array();
     }
+    
+    
 
 
     public function get_lead_activity_log($id)
@@ -1388,8 +1387,6 @@ public function updateEvent($eventId, $updatedData) {
         return $kanBan->get();
     }
 
-    // dahboard widgets:
-
     // In Leads_model.php
     public function statusCharts() {
         $this->db->select('tblleads_status.name AS status_name, COUNT(tblleads.id) AS total');
@@ -1427,14 +1424,21 @@ public function updateEvent($eventId, $updatedData) {
     
     // lead distribution by salesperson 
     public function getLeadsBySalesperson() {
-        // Dummy data for demonstration purposes
-        return [
-            'Ali' => 10,
-            'Sana' => 25,
-            'Ahmed' => 5,
-            'Sara' => 15
-        ];
+        $this->db->select('tblstaff.firstname, COUNT(tblleads.id) as leads');
+        $this->db->from('tblleads');
+        $this->db->join('tblstaff', 'FIND_IN_SET(tblstaff.staffid, tblleads.assigned) > 0'); // Join with tblstaff
+        $this->db->group_by('tblstaff.firstname'); // Group by name instead of ID
+        $query = $this->db->get();
+    
+        $result = $query->result_array();
+        $leadsBySalesperson = [];
+        foreach ($result as $row) {
+            $leadsBySalesperson[$row['firstname']] = $row['leads'];
+        }
+    
+        return $leadsBySalesperson;
     }
+    
 
     // Dummy function to fetch lead conversion rates
     public function getLeadConversionRates() {
@@ -1544,63 +1548,77 @@ public function get_total_leads() {
 
 }
 
-public function getNewCustomersCount() {
-    $query = $this->db->get('tblclients`');
-    return $query->num_rows(); // Returns the number of rows in the result
-}
-public function getEngagementData() {
-    // Filhal, main dummy data return 
-    return [
-        'interactions' => 150, 
-    ];
-}
-public function getLeadSources() {
-    $this->db->select('tblleads_sources.name AS source_name, COUNT(tblleads.id) AS total');
-    $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left');
-    $this->db->group_by('tblleads.source');
-    $this->db->order_by('total', 'desc'); // Sorting by total in descending order to get top sources
-    $this->db->limit(3); // Limiting to top 3 sources
-    $query = $this->db->get('tblleads');
-
-    $result = $query->result_array();
-    $leadSources = [];
-    foreach ($result as $row) {
-        $leadSources[] = [
-            'source' => $row['source_name'],
-            'count' => $row['total'], // You can modify this part if you want to calculate the percentage or any other logic
+    public function getNewCustomersCount() {
+        $query = $this->db->get('tblclients`');
+        return $query->num_rows(); // Returns the number of rows in the result
+    }
+    public function getEngagementData() {
+        $this->db->select('tblleads.status');
+        $this->db->join('tblleads_status', 'tblleads.status = tblleads_status.id');
+        $result = $this->db->get('tblleads');
+        $interactions = $result->num_rows(); // Yahan par aap jo logic apply karna chahte hain wo kar sakte hain
+    
+        return [
+            'interactions' => $interactions,
         ];
     }
+    public function getLeadSources() {
+        $this->db->select('tblleads_sources.name AS source_name, COUNT(tblleads.id) AS total');
+        $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left');
+        $this->db->group_by('tblleads.source');
+        $this->db->order_by('total', 'desc'); // Sorting by total in descending order to get top sources
+        $this->db->limit(3); // Limiting to top 3 sources
+        $query = $this->db->get('tblleads');
 
-    return $leadSources;
-}
+        $result = $query->result_array();
+        $leadSources = [];
+        foreach ($result as $row) {
+            $leadSources[] = [
+                'source' => $row['source_name'],
+                'count' => $row['total'], // You can modify this part if you want to calculate the percentage or any other logic
+            ];
+        }
 
-public function get_top_lead_source() {
-    $this->db->select('tblleads_sources.name'); // Selecting the name column from the source table
-    $this->db->from('tblleads');
-    $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left'); // Joining on the source ID
-    $this->db->group_by('tblleads.source');
-    $this->db->order_by('COUNT(tblleads.source)', 'desc');
-    $this->db->limit(1);
-    $query = $this->db->get();
-    $result = $query->row();
-    return $result->name; // Returning the name of the top lead source
-}
+        return $leadSources;
+    }
+
+    public function get_top_lead_source() {
+        $this->db->select('tblleads_sources.name'); // Selecting the name column from the source table
+        $this->db->from('tblleads');
+        $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left'); // Joining on the source ID
+        $this->db->group_by('tblleads.source');
+        $this->db->order_by('COUNT(tblleads.source)', 'desc');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result->name; // Returning the name of the top lead source
+    }
 
 
     public function getLeadsNotRespondedInAWeek() {
         // Yahaan pe hum dummy data return kar rahe hain
         return 0;  // for example, 150 leads haven't responded
     }
+
     public function get_campaign_performance() {
-        // Filhal ke liye dummy data
+        // 'lead' ke saath matching rows ko count kare
+        $this->db->where('sent_by', 'lead');
+        $total_leads_sent_by_lead = $this->db->count_all_results('tbl_leadsinbox');
+     
+        // Total leads ko count kare
+        $total_leads = $this->db->count_all('tblleads');
+     
+        // Conversion rate calculate kare
+        $conversion_rate = 0;
+        if ($total_leads > 0) {
+            $conversion_rate = ($total_leads_sent_by_lead / $total_leads) * 100;
+        }
+     
         return [
-            'campaign_name' => 'Spring Sale',
-            'total_sent' => 1000,
-            'opened' => 750,
-            'clicked' => 250,
-            'conversion_rate' => 25 // yeh percentage hai
+            'conversion_rate' => $conversion_rate,
         ];
     }
+    
 
     //Lead Email Communication
 

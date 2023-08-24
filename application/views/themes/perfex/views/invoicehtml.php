@@ -443,3 +443,33 @@ $(function() {
     }
 });
 </script>
+<style>
+    .swal2-select{
+        display:none !important;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+<?php 
+if($invoice->status == 2 && $contract){
+
+    $this->session->set_userdata('contract_redirect', true);
+
+    ?>
+    Swal.fire({
+    title: 'Invoice Paid!',
+    showCancelButton: true,
+    confirmButtonColor: '#29b952',
+    text: "Please follow up with the contract",
+    confirmButtonText: 'Go',
+    input: '',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "<?= site_url() ?>contract/<?= $contract->id ?>/<?= $contract->hash ?>";
+            return;
+        }
+    });
+<?php
+}
+?>
+</script>

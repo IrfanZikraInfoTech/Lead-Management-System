@@ -155,7 +155,7 @@
         </div>
 
         <div class="flex flex-row w-full p-20">
-            <div class="flex flex-col w-full py-20 bg-white px-[200px] gap-4">
+            <div id="demographics" class="flex flex-col w-full py-20 bg-white px-[200px] gap-4">
 
                 <!-- Demographics -->
                 <div class="text-center">
@@ -337,14 +337,16 @@
             $("#zip-table-body").empty();
 
             $(".county-select").each(function(){
-    
 
                 let countyFIPS = $(this).val();
+
+                let countyName = $(this).children("option:selected").text();
+
                 $.get('<?= admin_url("leads/get_zips") ?>', { countyFIPS: countyFIPS }, function(data) {
                     let zipData = JSON.parse(data);
                     zipData.forEach(item => {
                         let row = `<tr data-zip="${item.zip}">
-                            <td class="py-2 px-3 border-b border-gray-300">${item.city} (${item.zip})</td>
+                            <td class="py-2 px-3 border-b border-gray-300">${countyName} | ${item.city} (${item.zip})</td>
                             <td class="py-2 px-3 border-b border-gray-300">
                                 <button class="remove-zip bg-red-500 text-white text-center py-1 px-2 rounded-md" data-zip="${item.zip}">Remove</button>
                             </td>
@@ -391,7 +393,12 @@
         });
 
         // Extract Stats
-      
+        let stats = {};
+        $("#stats-table-body tr").each(function() {
+            let key = $(this).find("td").eq(0).text();
+            let value = $(this).find("td").eq(1).text();
+            stats[key] = value;
+        });
 
         // Package data into an object
         let territoryData = {
@@ -404,62 +411,76 @@
         console.log(territoryData);
 
         Swal.fire({
-            title: 'Enter Territory Title',
-            input: 'text',
+        title: 'Enter Territory Title and Value',
+        html: `
+            <input id="swal-input1" class="swal2-input" placeholder="Territory Title">
+            <input id="swal-input2" class="swal2-input" type="number" placeholder="Value (in $)">
 
-            <?php
-            if(isset($territory)){
-                echo 'inputValue: "'.$territory[0]["title"].'",';
+        `,
+        didOpen: function() {
+            var valueFromTable = document.querySelector("#stats-table-body tr:nth-child(1) td:nth-child(2)").textContent.trim();
+            document.getElementById("swal-input2").value = parseFloat((valueFromTable.replace(/,/g, ""))*2);
+        <?php
+        if (isset($territory)) {
+            echo '
+                        document.getElementById("swal-input1").value = "' . $territory[0]["title"] . '"; 
+                    ';
+        }
+        ?>
+        },
+        showCancelButton: true,
+        preConfirm: () => {
+            const title = document.getElementById('swal-input1').value;
+            const value = document.getElementById('swal-input2').value;
+
+            if (!title) {
+                Swal.showValidationMessage('Please fill in all the fields')
             }
-            
-            ?>
-
-            inputPlaceholder: 'Territory Title',
-            showCancelButton: true,
-            inputValidator: (value) => {
-                if (!value) {
-                    return 'You need to provide a title!';
-                }
+            else if (!value) {
+                Swal.showValidationMessage('Please fill in all the fields')
             }
-        }).then((result) => {
-            if (result.isConfirmed && result.value) {
-                // Extend territoryData with the provided title, population, and value
-                territoryData.title = result.value;
 
-                territoryData.population = parseInt(territoryData.stats['Total Population'].replace(/,/g, '')) || 0;
+            return { title: title, value: value };
+        }
+    }).then((result) => {
+        if (result.isConfirmed && result.value) {
+            // Extend territoryData with the provided title, population, and value
+            territoryData.title = result.value.title;
+            territoryData.value = parseFloat(result.value.value);
 
-                territoryData.value = territoryData.stats['Total Population'] * 2; // You need to define how you compute the value.
+            territoryData.population = parseInt(territoryData.stats['Total Population'].replace(/,/g, '')) || 0;
 
+            let jsonData = JSON.stringify(territoryData);
 
-                let jsonData = JSON.stringify(territoryData);
-
-                // Send the territoryData to the server to save it
-                $.ajax({
-                    type: "POST",
-                    url: '<?= admin_url("leads/save_territory") ?>',
-                    data: { 
-                        'territoryData': jsonData
-                        <?php 
-                        if(isset($territory)){
-                            echo ", 'territory_id' : '".$territory[0]["id"]."'";
-                        }
-                        ?>
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        // Handle the server response here.
-                        if (response.success) {
-                            Swal.fire('Saved!', 'Territory has been saved.', 'success');
-                        } else {
-                            Swal.fire('Error!', 'There was a problem saving the territory.', 'error');
-                        }
-                    },
-                    error: function() {
-                        Swal.fire('Error!', 'There was a problem communicating with the server.', 'error');
+            // Send the territoryData to the server to save it
+            $.ajax({
+                type: "POST",
+                url: '<?= admin_url("leads/save_territory") ?>',
+                data: {
+                    'territoryData': jsonData,
+                    'territoryValue': territoryData.value
+                    <?php 
+                    if(isset($territory)){
+                        echo ", 'territory_id' : '".$territory[0]["id"]."'";
                     }
-                });
-            }
-        });
+                    ?>
+                },
+                dataType: 'json',
+                success: function(response) {
+                    // Handle the server response here.
+                    if (response.success) {
+                        Swal.fire('Saved!', 'Territory has been saved.', 'success');
+                    } else {
+                        Swal.fire('Error!', 'There was a problem saving the territory.', 'error');
+                    }
+                },
+                error: function() {
+                    Swal.fire('Error!', 'There was a problem communicating with the server.', 'error');
+                }
+            });
+        }
+    });
+
 
     });
     function drawMap(zipCodes) {
@@ -623,6 +644,9 @@
                     } else if (key.startsWith('%')) {
                         value = (value.toFixed(2) + '%');
                     }
+                    else if (key == 'Median Income') {
+                        value = (value.toFixed(2) + '$');
+                    }
 
                     let row = `<tr>
                                     <td class="py-2 px-3">${key}</td>
@@ -689,12 +713,34 @@
         return gradient;
     }
 
+    var genderPieChart;
+    var ageDistributionChart;
+    var racePieChart;
+    var medianIncomeChart;
+    var housingPieChart;
+
     function renderCharts(stats) {
+
+        if (genderPieChart) { 
+            genderPieChart.destroy(); // Destroy the previous instance if it exists
+        }
+        if (ageDistributionChart) { 
+            ageDistributionChart.destroy(); // Destroy the previous instance if it exists
+        }
+        if (racePieChart) { 
+            racePieChart.destroy(); // Destroy the previous instance if it exists
+        }
+        if (medianIncomeChart) { 
+            medianIncomeChart.destroy(); // Destroy the previous instance if it exists
+        }
+        if (housingPieChart) { 
+            housingPieChart.destroy(); // Destroy the previous instance if it exists
+        }
 
 
         // Gender Distribution Pie Chart
         var ctx = document.getElementById("genderPieChart").getContext('2d');
-        new Chart(ctx, {
+        genderPieChart = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: ["Male", "Female"],
@@ -742,14 +788,12 @@
 
 
         var ctx = document.getElementById('ageBarChart').getContext('2d');
-
         var gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
         gradientFill.addColorStop(0, 'rgba(110, 231, 183, 0.6)');  // Starting color with transparency
         gradientFill.addColorStop(1, 'rgba(59, 167, 255, 0.6)');   // Ending color with transparency
 
-
         // Age Distribution Bar Chart
-        new Chart(document.getElementById("ageBarChart"), {
+        ageDistributionChart = new Chart(document.getElementById("ageBarChart"), {
             type: 'line',
             data: {
                 labels: ["Under 5", "Under 18", "21 and Over", "Working Age (25 to 64)", "65 and Over"],
@@ -781,8 +825,9 @@
                 }
             }
         });
+
         var ctxRace = document.getElementById("racePieChart").getContext('2d');
-        new Chart(ctxRace, {
+        racePieChart = new Chart(ctxRace, {
             type: 'pie',
             data: {
                 labels: ["White", "Black or African American", "Asian", "Native Hawaiian", "Some Other Race", "Two or More Races", "Hispanic (of Any Race)"],
@@ -832,8 +877,6 @@
             }
         });
 
-
-
         // Median Income Bar Chart
         var ctxIncome = document.getElementById("medianIncomeBarChart").getContext('2d');
 
@@ -841,7 +884,7 @@
         gradientIncome.addColorStop(0, 'rgba(110, 231, 183, 0.6)');  // Starting color with transparency
         gradientIncome.addColorStop(1, 'rgba(59, 167, 255, 0.6)');   // Ending color with transparency
 
-        new Chart(ctxIncome, {
+        medianIncomeChart = new Chart(ctxIncome, {
             type: 'bar',
             data: {
                 labels: ["Median Income"],
@@ -863,7 +906,7 @@
 
 
         var ctxHousing = document.getElementById("housingPieChart").getContext('2d');
-        new Chart(ctxHousing, {
+        housingPieChart = new Chart(ctxHousing, {
             type: 'pie',
             data: {
                 labels: ["Owned", "Rented"],
@@ -907,8 +950,6 @@
                 }
             }
         });
-
-
     
     }
 

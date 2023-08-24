@@ -140,29 +140,10 @@ class Leads extends AdminController
         $this->load->view('admin/leads/lead_dashboard', $data);
     }
 
-    public function mypdf($id){
+    public function territory_pdf($id){
         $data['territory'] = $this->leads_model->get_territory($id);
         $this->load->view('admin/dynamic_pdf/index', $data);
-
     }
-
-    // public function fetch_events_for_calander() {
-    //     $this->load->model('Leads_model'); // Apne model ka naam yahan dalen
-    //     $events = $this->Leads_model->get_all_events(); // Apne function ko call karo
-    
-    //     $output_events = array();
-    //     foreach ($events as $event) {
-    //         $output_events[] = array(
-    //             'title' => $event['event_name'], // event_name column ka use karo
-    //             'start' => $event['datetime'],   // datetime column ka use karo
-    //             // Agar end time nahi hai to ise chhod do, warna appropriate column ka use karo
-    //             'url'   => $event['meet_schedule_link'] // Meeting link ke liye, agar aap ise calendar pe click karke open karna chahte hain
-    //         );
-    //     }
-    
-    //     header('Content-Type: application/json');
-    //     echo json_encode($output_events); // JSON format mein events return karo
-    // }
     
     
     //widget work end 
@@ -266,7 +247,7 @@ class Leads extends AdminController
             $data['activity_log']  = $this->leads_model->get_lead_activity_log($id);
             $data['tblevents'] = $this->leads_model->get_all_events($id);
             $data['contracts']     = $this->leads_model->get_contracts_for_lead($id);
-            $data['invoices']  = $this->leads_model->get_invoice_for_lead($id);
+            $data['invoices']  =    $this->leads_model->get_invoice_for_lead($id);
 
             if (is_gdpr() && get_option('gdpr_enable_consent_for_leads') == '1') {
                 $this->load->model('gdpr_model');
@@ -413,40 +394,47 @@ class Leads extends AdminController
 
     //     print_r( $query->result_array());
 // }
-function getInactiveLeadsAndNotify($daysInactive = 3) {
-    $dateLimit = date('Y-m-d', strtotime('-' . $daysInactive . ' days'));
 
-    $this->db->select('tblleads.*');
-    $this->db->from('tblleads');
-    $this->db->join('tbllead_activity_log', 'tblleads.id = tbllead_activity_log.leadid');
-    $this->db->where('tbllead_activity_log.date <', $dateLimit);
-    $this->db->group_by('tblleads.id'); // Include each lead only once
 
-    $query = $this->db->get();
-    $inactiveLeads = $query->result_array();
+    function getInactiveLeadsAndNotify($daysInactive = 3) {
+        $dateLimit = date('Y-m-d', strtotime('-' . $daysInactive . ' days'));
+    
+        $this->db->select('tblleads.*');
+        $this->db->from('tblleads');
+        $this->db->join('tbllead_activity_log', 'tblleads.id = tbllead_activity_log.leadid');
+        $this->db->where('tbllead_activity_log.date <', $dateLimit);
+        $this->db->group_by('tblleads.id'); // Include each lead only once
+    
+        $query = $this->db->get();
+        $inactiveLeads = $query->result_array();
+    
+        $this->load->library('email');
+    
+        foreach ($inactiveLeads as $lead) {
+            // Assume you have an email address in the lead information
+            $emailAddress = $lead['email'];
+            
+            // Construct the email content
+            $subject = "Inactive Lead Alert";
+            $message = "The lead " . $lead['name'] . " has not been updated for over " . $daysInactive . " days.";
+            if (filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
 
-    $this->load->library('email');
-
-    foreach ($inactiveLeads as $lead) {
-        // Assume you have an email address in the lead information
-        $emailAddress = $lead['email'];
-        
-        // Construct the email content
-        $subject = "Inactive Lead Alert";
-        $message = "The lead " . $lead['name'] . " has not been updated for over " . $daysInactive . " days.";
-
-        $this->email->from('ahmed@example.com', 'Your Name');
-        $this->email->to('irfan@zikrainfotech.com');
-        $this->email->subject($subject);
-        $this->email->message($message);
-
-        $this->email->send();
-        
-        // Log the action if required
-        // ...
+            $this->email->from(get_option("smtp_email"), get_option('companyname'));
+            $this->email->to($emailAddress); // Use the email address from the lead
+            $this->email->subject($subject);
+            $this->email->message(get_option('email_header') . $message . get_option('email_footer'));
+            
+            }else{
+                echo 'Invalid email address for lead ' . $lead['name'];
+            }
+    
+            if (!$this->email->send()) {
+                echo 'Email sending failed for lead ' . $lead['name'] . '. Error: ' . $this->email->print_debugger();
+            }else{
+                echo 'Sent';
+            }
+        }
     }
-}
-
 
     /* Add or update lead */
     public function lead($id = '')
@@ -471,7 +459,7 @@ function getInactiveLeadsAndNotify($daysInactive = 3) {
                 $proposalWarning = false;
                 $message         = '';
                 $success         = $this->leads_model->update($this->input->post(), $id);
-
+                
                 if ($success) {
                     $emailNow = $this->db->select('email')->where('id', $id)->get(db_prefix() . 'leads')->row()->email;
 
@@ -760,9 +748,13 @@ function getInactiveLeadsAndNotify($daysInactive = 3) {
         }
 
         if ($this->input->post()) {
+           
             $default_country  = get_option('customer_default_country');
             $data             = $this->input->post();
             $data['password'] = $this->input->post('password', false);
+
+
+            
 
             $original_lead_email = $data['original_lead_email'];
             unset($data['original_lead_email']);
@@ -1795,7 +1787,6 @@ function getInactiveLeadsAndNotify($daysInactive = 3) {
 
             $email_sent = $this->email->send(false);
 
-
             // Check if the campaign was added successfully
             if ($email_sent) {
 
@@ -2004,7 +1995,7 @@ function getInactiveLeadsAndNotify($daysInactive = 3) {
 
         $headers = [
             'Content-Type: application/json',
-            'Authorization: Bearer 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'
+            'Authorization: Bearer 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'
         ];
     
         $data = [
@@ -2025,19 +2016,29 @@ function getInactiveLeadsAndNotify($daysInactive = 3) {
         curl_close($ch);
     
         $response_data = json_decode($response, true);
-        // $gpt_response = $response_data['choices'][0]['message']['content'];
+         $gpt_response = $response_data['choices'][0]['message']['content'];
         
-        return $response_data;
+        return $gpt_response;
     }
 
-    public function send_proposal_status($id){
+    public function send_proposal_status($id, $contract_id = null){
         $this->load->model("proposals_model");
         if($this->proposals_model->send_proposal_to_email($id)){
-            echo json_encode(['success'=>true]);
+    
+            if ($contract_id !== null) {
+                $this->db->where('id', $id);
+                if($this->db->update('tblproposals',['contract_id'=>$contract_id])){
+                    echo json_encode(['success'=>true]);
+                }
+            } else {
+                echo json_encode(['success'=>true]); // Success without contract
+            }
+            
         }else{
             echo json_encode(['success'=>false]);
         } 
     }
+    
 
     //Territory Builder Stuff
     public function get_counties() {
@@ -2221,11 +2222,13 @@ function getInactiveLeadsAndNotify($daysInactive = 3) {
     public function save_territory() {
         $territoryData = json_decode($_POST['territoryData'], true); 
         $territoryId = $_POST['territory_id'] ?? null;
+        
 
         // Extract data from POST request
         $title = $territoryData['title'];
         $population = $territoryData['population'];
-        $value = ($territoryData['value']) ?? 0;
+
+        $value = $_POST['territoryValue'] ?? 0;
 
         if ($territoryId) {
 

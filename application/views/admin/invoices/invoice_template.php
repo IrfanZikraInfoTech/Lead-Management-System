@@ -35,9 +35,9 @@
                 <div class="form-group f_client_id">
                             <label><span class="text-danger">* </span>Type</label><br>
                             <select id="typeSelector" name="rel_type" data-live-search="true" data-width="100%" class="w-full rounded-md h-9 focus:outline-none border">
-                                <option value="" class="p-5" <?php echo (!isset($contract->rel_type) || $contract->rel_type == '') ? 'selected' : ''; ?>>Select</option> <!-- Placeholder -->
-                                <option value="customer" <?php echo (isset($contract->rel_type) && $contract->rel_type == 'customer') ? 'selected' : ''; ?>>Customer</option>
-                                <option value="lead" <?php echo (isset($contract->rel_type) && $contract->rel_type == 'lead') ? 'selected' : ''; ?>>Lead</option>
+                                <option value="" class="p-5" <?php echo (!isset($invoice->rel_type) || $invoice->rel_type == '') ? 'selected' : ''; ?>>Select</option> <!-- Placeholder -->
+                                <option value="customer" <?php echo (isset($invoice->rel_type) && $invoice->rel_type == 'customer') ? 'selected' : ''; ?>>Customer</option>
+                                <option value="lead" <?php echo (isset($invoice->rel_type) && $invoice->rel_type == 'lead') ? 'selected' : ''; ?>>Lead</option>
                             </select>
                         </div>
                 <div class="f_client_id">
@@ -58,9 +58,14 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group f_client_id" id="leadForm">
+
+                <?php 
+                
+                ?>
+
+                <div class="form-group f_lead_id" id="leadForm">
                             <label><span class="text-danger">* </span>Leads</label><br>
-                            <select id="leadid" name="rel_id" data-live-search="true" data-width="100%" class="w-full rounded-md h-9 focus:outline-none border" data-selected="<?php echo isset($contract->rel_id) ? $contract->rel_id : ''; ?>">
+                            <select id="invoice_lead_dropdown" name="rel_id" data-live-search="true" data-width="100%" class="w-full rounded-md h-9 p-2 focus:outline-none border" data-selected="<?php echo isset($invoice->rel_id) ? $invoice->rel_id : ''; ?>">
                             </select>
                 </div>
                 <?php

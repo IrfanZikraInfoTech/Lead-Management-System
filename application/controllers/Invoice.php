@@ -71,6 +71,25 @@ class Invoice extends ClientsController
         $data['hash']      = $hash;
         $data['invoice']   = hooks()->apply_filters('invoice_html_pdf_data', $invoice);
         $data['bodyclass'] = 'viewinvoice';
+        
+        
+        $proposal = $this->proposals_model->get('', ['invoice_id'=>$id, 'status'=>3]);
+ 
+        if($proposal && $this->session->userdata('invoice_redirect')){
+            
+            if (isset($proposal[0])) {
+                $proposal = $proposal[0];
+
+                if (isset($proposal['contract_id']) && $proposal['contract_id']) {
+                    $contract = $this->contracts_model->get(($proposal['contract_id']));
+                    $data['contract'] = $contract;
+                }
+            }
+    
+        }
+        
+
+        
         $this->data($data);
         $this->view('invoicehtml');
         add_views_tracking('invoice', $id);

@@ -795,11 +795,26 @@ class Clients extends ClientsController
             set_alert('warning', _l('access_denied'));
             redirect(site_url());
         }
-        $data['contracts'] = $this->contracts_model->get('', [
-            'client'                => get_client_user_id(),
-            'not_visible_to_client' => 0,
-            'trash'                 => 0,
-        ]);
+
+        $client = $this->clients_model->get(get_client_user_id());
+        if (!is_null($client->leadid)) {
+
+            $data['contracts'] = $this->contracts_model->get('', [
+                'rel_type'              => 'lead',
+                'rel_id'                => $client->leadid,
+                'not_visible_to_client' => 0,
+                'trash'                 => 0,
+            ]);
+
+        }else{
+            $data['contracts'] = $this->contracts_model->get('', [
+                'client'                => get_client_user_id(),
+                'not_visible_to_client' => 0,
+                'trash'                 => 0,
+            ]);
+        }
+
+        
 
         $data['contracts_by_type_chart'] = json_encode($this->contracts_model->get_contracts_types_chart_data());
         $data['title']                   = _l('clients_contracts');
@@ -815,9 +830,19 @@ class Clients extends ClientsController
             redirect(site_url());
         }
 
-        $where = [
-            'clientid' => get_client_user_id(),
-        ];
+        $client = $this->clients_model->get(get_client_user_id());
+        if (!is_null($client->leadid)) {
+            $where = [
+                'rel_type' => 'lead',
+                'rel_id' => $client->leadid
+            ];
+        }else{
+            $where = [
+                'clientid' => get_client_user_id(),
+            ];
+        }
+
+        
 
         if (is_numeric($status)) {
             $where['status'] = $status;

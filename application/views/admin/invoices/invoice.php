@@ -62,7 +62,7 @@ $(document).ready(function() {
 
     function clearValues() {
         if($('#typeSelector').val() == 'customer') {
-            $("#leadid").val('').trigger('change');
+            $("#invoice_lead_dropdown").val('').trigger('change');
         } else if($('#typeSelector').val() == 'lead') {
             $("#clientid").val('').trigger('change');
         }
@@ -75,7 +75,7 @@ $(document).ready(function() {
 function init_ajax_lead_dropdown() {
     $.get(admin_url + 'leads/get_all_leads', function(response) {
         var leads = JSON.parse(response);
-        var $leadSelect = $('#leadid');
+        var $leadSelect = $('#invoice_lead_dropdown');
         var selectedLead = $leadSelect.data('selected'); // Get the lead ID to be selected
 
         $leadSelect.empty(); // Clear current options

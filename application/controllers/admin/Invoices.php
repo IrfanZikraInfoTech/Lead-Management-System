@@ -8,6 +8,7 @@ class Invoices extends AdminController
     {
         parent::__construct();
         $this->load->model('invoices_model');
+        $this->load->model('proposals_model');
         $this->load->model('credit_notes_model');
     }
 
@@ -147,7 +148,7 @@ class Invoices extends AdminController
         }
 
         if (total_rows('invoices', [
-            'YEAR(date)' => date('Y', strtotime(to_sql_date($date))),
+            'YEAR(date)' => date('Y', time()),
             'number' => $number,
             'status !=' => Invoices_model::STATUS_DRAFT,
         ]) > 0) {
@@ -324,6 +325,14 @@ class Invoices extends AdminController
                         $this->session->set_userdata('send_later', true);
                     }
 
+                    elseif (isset($invoice_data['save_and_send'])) {
+
+                        $proposal = $this->proposals_model->get('',['invoice_id'=>$id]);
+
+                        $this->session->set_userdata('resend', true);
+                        $redUrl = admin_url('leads/info/'.$proposal->rel_id.'/proposal/'.$proposal->id);
+                    }
+
                     redirect($redUrl);
                 }
             } else {
@@ -350,7 +359,18 @@ class Invoices extends AdminController
                     set_alert('success', _l('updated_successfully', _l('invoice')));
                 }
 
-                redirect(admin_url('invoices/list_invoices/' . $id));
+                $proposal = $this->proposals_model->get('',['invoice_id'=>$id])[0];
+
+                if (isset($invoice_data['save_and_send']) && $proposal) {
+                    // print_r($proposal);
+                    // return;
+                    $this->session->set_userdata('resend', true);
+                    redirect(admin_url('leads/info/'.$proposal['rel_id'].'/proposal/'.$proposal['id']));
+                }else{
+                    redirect(admin_url('invoices/list_invoices/' . $id));
+                }
+
+                
             }
         }
         if ($id == '') {

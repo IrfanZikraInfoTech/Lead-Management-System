@@ -104,7 +104,7 @@ ob_end_clean();
 $mpdf->WriteHTML($page10);
 
 
-$mpdf->Output();
+$mpdf->Output('territory.pdf', 'I');
 
 ?>
 

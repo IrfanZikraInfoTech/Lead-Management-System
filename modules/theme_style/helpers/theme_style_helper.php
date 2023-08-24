@@ -91,6 +91,49 @@ function get_styling_areas($type = 'admin')
                 'css'                  => 'color',
                 'additional_selectors' => '',
             ],
+            [
+                'name'                 => 'Contrast Color',
+                'id'                   => 'lms-contrast',
+                'target'               => 'div.lms-contrast',
+                'css'                  => 'background-color',
+                'additional_selectors' => 'p.lms-contrast|color+h5.lms-contrast|color',
+            ],
+            [
+                'name'                 => 'Charts Hover',
+                'id'                   => 'chart-hover',
+                'target'               => 'div.chart-hover',
+                'css'                  => 'background-color',
+                'additional_selectors' => '',
+            ],
+            [
+                'name'                 => 'Charts Border',
+                'id'                   => 'chart-border',
+                'target'               => 'div.chart-border',
+                'css'                  => 'background-color',
+                'additional_selectors' => '',
+            ],
+
+            [
+                'name'                 => 'Charts Color 1',
+                'id'                   => 'chart-1',
+                'target'               => 'div.chart-1',
+                'css'                  => 'background-color',
+                'additional_selectors' => '',
+            ],
+            [
+                'name'                 => 'Charts Color 2',
+                'id'                   => 'chart-2',
+                'target'               => 'div.chart-2',
+                'css'                  => 'background-color',
+                'additional_selectors' => '',
+            ],
+            [
+                'name'                 => 'Charts Color 3',
+                'id'                   => 'chart-3',
+                'target'               => 'div.chart-3',
+                'css'                  => 'background-color',
+                'additional_selectors' => '',
+            ],
         ],
         'customers' => [
             [
@@ -239,6 +282,7 @@ function get_styling_areas($type = 'admin')
                 'css'                  => 'border-bottom-color',
                 'additional_selectors' => '',
             ],
+
         ],
         'modals' => [
             [
@@ -312,6 +356,7 @@ function get_styling_areas($type = 'admin')
                 'example'              => '<button type="button" class="btn btn-danger">' . _l('theme_style_button_danger') . '</button>',
             ],
         ],
+
     ];
 
 

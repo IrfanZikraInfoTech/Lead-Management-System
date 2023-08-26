@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-26 07:59:07 --> 404 Page Not Found: /index
 ERROR - 2023-08-26 08:02:46 --> 404 Page Not Found: /index
 ERROR - 2023-08-26 08:03:23 --> 404 Page Not Found: /index
@@ -311,3 +312,42 @@ FROM `tblleads`
 LEFT JOIN `tbl_territories` ON `tblleads`.`rel_id` = `tbl_territories`.`id`
 WHERE `tblleads`.`rel_id` != 0
 AND `tblleads`.`id` = '90'
+=======
+ERROR - 2023-08-26 10:43:28 --> Query error: Incorrect DATETIME value: '' - Invalid query: SELECT *
+FROM `tblleads`
+WHERE `dateadded` = ''
+ERROR - 2023-08-26 20:22:36 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 20:22:36 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 20:22:36 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 20:22:36 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-26 20:26:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 20:26:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 20:26:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 20:26:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-26 20:34:48 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 20:34:48 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 20:34:48 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 20:34:48 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-26 20:59:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 20:59:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 20:59:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 20:59:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-26 21:04:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 21:04:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 21:04:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 21:04:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+>>>>>>> Stashed changes
+ERROR - 2023-08-26 22:58:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 22:58:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 22:58:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 22:58:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-26 22:58:54 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 22:58:54 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 22:58:54 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 22:58:54 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-26 22:59:16 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 22:59:16 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 22:59:16 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to Ahmed sir"
+ERROR - 2023-08-26 23:01:11 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-26 23:01:11 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-26 23:01:11 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to Ahmed sir"

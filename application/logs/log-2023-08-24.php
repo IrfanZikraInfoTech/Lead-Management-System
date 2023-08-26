@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ERROR - 2023-08-24 12:46:48 --> Severity: Warning --> include_once(D:\xampp\htdocs\Lead-Management-System\application\hooks./../libraries/App_modules.php): Failed to open stream: Permission denied D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 12
 ERROR - 2023-08-24 12:46:48 --> Severity: Warning --> include_once(): Failed opening 'D:\xampp\htdocs\Lead-Management-System\application\hooks./../libraries/App_modules.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 12
 ERROR - 2023-08-24 12:46:48 --> Severity: Warning --> include_once(D:\xampp\htdocs\Lead-Management-System\application\hooks./../../system/helpers/directory_helper.php): Failed to open stream: Permission denied D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 14
@@ -712,4 +713,288 @@ WHERE `county_fips` LIKE '%01001%' ESCAPE '!'
 ERROR - 2023-08-24 21:33:54 --> Query error: Table 'lms.tbl_zip_maps' doesn't exist - Invalid query: SELECT `zip`, `city`
 FROM `tbl_zip_maps`
 WHERE `county_fips` LIKE '%01001%' ESCAPE '!'
+>>>>>>> Stashed changes
+=======
+ERROR - 2023-08-24 13:06:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:06:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:06:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:06:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:08:35 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:08:35 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:08:35 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:08:35 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:08:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:08:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:08:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:08:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:09:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:09:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:09:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:09:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:21:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:21:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:21:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:21:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:27:20 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:27:20 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:27:20 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:27:20 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:27:20 --> Severity: Warning --> Undefined variable $stepNumber C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 1121
+ERROR - 2023-08-24 13:27:29 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:27:29 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:27:29 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:27:29 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:28:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:28:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:28:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:28:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:35:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:35:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:35:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:35:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:35:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:35:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:35:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:35:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:38:22 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:38:22 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:38:22 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:38:22 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:40:57 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:40:57 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:40:57 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:40:57 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:41:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:41:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:41:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:41:21 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:43:43 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:43:43 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:43:43 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:43:43 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:44:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:44:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:44:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:44:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:44:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:44:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:44:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:44:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:44:31 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:44:31 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:44:31 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:44:31 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:49:59 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:49:59 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:49:59 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:49:59 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:52:08 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:52:08 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:52:08 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:52:08 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:52:19 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:52:19 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:52:19 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:52:19 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:52:43 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:52:43 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:52:43 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:52:43 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:52:56 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:52:56 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:52:56 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:52:56 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:53:12 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:53:12 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:53:12 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:53:12 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:53:32 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:53:32 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:53:32 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:53:32 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:53:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:53:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:53:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:53:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 13:55:54 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:55:54 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 13:55:54 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 13:55:54 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:05:27 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:05:27 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:05:27 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:05:27 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:05:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:05:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:05:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:05:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:06:55 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:06:55 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:06:55 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:06:55 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:07:39 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:07:39 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:07:40 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:07:40 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:07:51 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:07:51 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:07:51 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:07:51 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:08:10 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\wamp64\www\Lead-Management-System\application\helpers\leads_helper.php 166
+ERROR - 2023-08-24 15:08:10 --> Severity: Warning --> foreach() argument must be of type array|object, string given C:\wamp64\www\Lead-Management-System\application\helpers\fields_helper.php 334
+ERROR - 2023-08-24 15:08:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:08:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:08:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:08:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:08:17 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:08:17 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:08:17 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:08:17 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:09:48 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:09:48 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:09:48 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:09:48 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:10:17 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:10:17 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:10:17 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:10:17 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:10:37 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:10:37 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:10:37 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:10:37 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:10:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:10:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:10:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:10:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:20:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:20:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:20:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:20:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:20:07 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:20:07 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:20:07 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:20:07 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:20:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:20:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:20:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:20:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:25:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:25:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:25:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:25:25 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:26:18 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:26:18 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:26:18 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:26:18 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:26:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:26:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:26:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:26:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:27:18 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:27:18 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:27:18 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:27:18 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:27:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:27:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:27:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:27:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:28:19 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:28:19 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:28:19 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:28:19 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:29:42 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:29:42 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:29:42 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:29:42 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:30:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:30:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 15:30:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 15:30:14 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 15:32:08 --> Severity: error --> Exception: Call to undefined method Leads_model::getLeadConversionRates() C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 98
+ERROR - 2023-08-24 15:45:39 --> Severity: error --> Exception: syntax error, unexpected token "public", expecting end of file C:\wamp64\www\Lead-Management-System\application\models\Leads_model.php 1544
+ERROR - 2023-08-24 15:58:12 --> Severity: Warning --> Undefined variable $interactions C:\wamp64\www\Lead-Management-System\application\models\Leads_model.php 1530
+ERROR - 2023-08-24 15:58:12 --> Severity: Warning --> Undefined variable $interactions C:\wamp64\www\Lead-Management-System\application\models\Leads_model.php 1530
+ERROR - 2023-08-24 16:02:51 --> Severity: error --> Exception: Call to undefined method CI_DB_mysqli_driver::interactions() C:\wamp64\www\Lead-Management-System\application\models\Leads_model.php 1531
+ERROR - 2023-08-24 16:23:33 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 16:23:33 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 16:23:33 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 16:23:33 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 16:34:00 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 16:34:00 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 16:34:00 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 16:34:00 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 20:33:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:33:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 20:33:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:33:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 20:37:40 --> Severity: Warning --> Undefined array key 6 C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 27
+ERROR - 2023-08-24 20:37:40 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:37:40 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 20:37:40 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:37:40 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 20:37:51 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:37:51 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 20:37:51 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:37:51 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 20:39:01 --> Severity: Warning --> Undefined array key 6 C:\wamp64\www\Lead-Management-System\application\views\admin\leads\leads_info.php 46
+ERROR - 2023-08-24 20:39:01 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:39:01 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 20:39:01 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:39:01 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 20:39:08 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:39:08 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 20:39:08 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:39:08 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:41:18 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:42:50 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:42:50 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:42:50 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 122
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 124
+ERROR - 2023-08-24 20:42:51 --> Severity: Warning --> Undefined variable $hrefAttr C:\wamp64\www\Lead-Management-System\application\views\admin\tables\leads.php 127
+ERROR - 2023-08-24 15:43:05 --> 404 Page Not Found: admin/Leads/10
+ERROR - 2023-08-24 15:45:31 --> 404 Page Not Found: admin/Leads/10
+ERROR - 2023-08-24 20:49:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:49:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-24 20:49:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-24 20:49:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-24 21:01:15 --> Severity: error --> Exception: Call to undefined method Leads_model::view_by_admin() C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 151
+ERROR - 2023-08-24 21:02:06 --> Severity: error --> Exception: Call to undefined method Leads_model::set_view_by_admin() C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 216
+ERROR - 2023-08-24 21:02:18 --> Severity: error --> Exception: Call to undefined method Leads_model::set_view_by_admin() C:\wamp64\www\Lead-Management-System\application\controllers\admin\Leads.php 216
+ERROR - 2023-08-24 21:42:06 --> Query error: Duplicate entry '1' for key 'tbl_leadsinbox.PRIMARY' - Invalid query: INSERT INTO `tbl_leadsinbox` (`id`, `view_by_admin`) VALUES ('1', 1)
 >>>>>>> Stashed changes

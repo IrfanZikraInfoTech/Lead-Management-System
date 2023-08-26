@@ -57,14 +57,14 @@
 
         <div class="row">
             <div class="col-12 text-center my-3">
-                <h2 class="text-2xl text-gray-900 mb-6 heading ">Lead Dashboard</h2>
-            </div>        
+                <h2 class="text-2xl text-gray-900 mb-6 heading">Lead Dashboard</h2>
+            </div> 
             <!-- top cards -->
             <div class="flex flex-wrap gap-3 justify-start ">
                 <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
-                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast "><?php echo $total_leads; ?></p>
+                            <p id=" total_leads" class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast "><?php echo $total_leads; ?></p>
                             <h5 class="text-lg font-medium text-uppercase mb-2 lms-contrast text-[rgba(0,135,171,0.6)]">Total Leads</h5>
                         </div>    
                         <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
@@ -75,7 +75,7 @@
                 <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
                         <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
-                            <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
+                            <p id="new_customers_count" class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
                             <h5 class="text-lg font-medium text-uppercase mb-2 lms-contrast text-[rgba(0,135,171,0.6)]">New Customers</h5>
                         </div>
                         <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
@@ -116,10 +116,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
+
+                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
-                            <p class="text-lg mb-2 text-[rgba(0,135,171)] lms-contrast">Interactions: <span class="font-extrabold "><?= $engagement_data['interactions'] ?></span></p>
+                            <p class="text-lg mb-2 text-[rgba(0,135,171)] lms-contrast">Interactions: <span class="font-extrabold "><?= $engagement_data['interactions'] ?>%</span></p>
                             <h5 class="text-lg lms-contrast font-medium text-uppercase text-monospace text-[rgba(0,135,171,0.6)]">Total Interests</h5>
                         </div>
                         <div class="w-16 h-16 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center ml-auto">
@@ -296,6 +297,12 @@
 <script>
 
 
+
+
+
+
+
+
 // leadStatusChart
 <?php 
     $statusCharts_json = json_encode(array_values($statusCharts)); 
@@ -389,11 +396,17 @@ var leadStatusChart = new Chart(ctx, {
     $sourceTracking_values_json = json_encode(array_values($sourceTrackingChart)); 
     $sourceTracking_labels_json = json_encode(array_map('ucfirst', array_keys($sourceTrackingChart))); 
 ?>
+ var sourceTracking_values = <?= $sourceTracking_values_json; ?>;
+ var sourceTracking_labels = <?= $sourceTracking_labels_json; ?>;
+
 var ctx = document.getElementById('leadSourceChart').getContext('2d');
 
 var gradient = createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)); // Background gradient
 var borderGradient = createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)); // Border gradient
 
+var borderGradient = ctx.createLinearGradient(0, 0, 0, 400);
+borderGradient.addColorStop(0, 'rgba(110, 231, 183, 1)');
+borderGradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
 
 var leadSourceChart = new Chart(ctx, {
     type: 'bar',
@@ -402,6 +415,7 @@ var leadSourceChart = new Chart(ctx, {
         datasets: [{
             label: 'All records',
             data: <?= $sourceTracking_values_json; ?>,
+            label: 'All records',
             backgroundColor: gradient,
             borderColor: borderGradient,
             borderWidth: 2,
@@ -410,7 +424,25 @@ var leadSourceChart = new Chart(ctx, {
             borderRadius: 10,
             borderSkipped: false
         }]
+        // datasets: datasets
+
     },
+
+    // data: {
+    //         labels: sourceTracking_labels,
+    //         datasets: [{
+    //             data: sourceTracking_values,
+    //             backgroundColor: gradient,
+    //             borderColor: borderGradient,
+    //             borderWidth: 2,
+    //             hoverBackgroundColor: 'rgb(0, 135, 171)',
+    //             hoverBorderColor: 'rgb(0, 135, 171)',
+    //             borderRadius: 10,
+    //             borderSkipped: false
+    //         }]
+    //     },
+
+
     options: {
         elements: {
             bar: {
@@ -453,9 +485,11 @@ var leadSourceChart = new Chart(ctx, {
                 display: true,
                 position: 'top',
                 labels: {
-                    color: '#333'
+                    color: '#333',
+                    boxWidth: 20, // Set the width of the box next to the label
+                    usePointStyle: true // Use this line to make the box a point
                 }
-            },
+            },    
             animation: {
                 duration: 1000,
                 easing: 'easeInOutQuart',
@@ -501,13 +535,14 @@ Chart.controllers.bar.prototype.draw = function() {
 // leadBySalespersonChart
 var ctx = document.getElementById('leadBySalespersonChart').getContext('2d');
 var gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
-gradientFill.addColorStop(0, adjustColor(colors.color1, 20));  // Starting color, lightened
-gradientFill.addColorStop(1, colors.color2);   // Ending color
+gradientFill.addColorStop(0, 'rgba(110, 231, 183, 0.6)');  // Starting color with transparency
+gradientFill.addColorStop(1, 'rgba(59, 167, 255, 0.6)');   // Ending color with transparency
 
+var leadsBySalespersonData = <?= json_encode($leadsBySalesperson); ?>;
 var leadBySalespersonChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: Object.keys(<?= json_encode($leadsBySalesperson); ?>),
+        labels: Object.keys(leadsBySalespersonData),
         datasets: [{
             data: Object.values(<?= json_encode($leadsBySalesperson); ?>),
             backgroundColor: gradientFill,  // Use the gradient fill here
@@ -525,7 +560,17 @@ var leadBySalespersonChart = new Chart(ctx, {
         responsive: true,
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Number of Leads'  // Y-axis label
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Salesperson'      // X-axis label
+                }
             }
         },
         animation: {
@@ -545,7 +590,6 @@ var leadBySalespersonChart = new Chart(ctx, {
         }
     }
 });
-
 
 
 // leadConversionRateChart
@@ -593,8 +637,8 @@ var leadConversionRateProgressBarChart = new Chart(ctx, {
         }
     }
 });
-var ctx = document.getElementById('leadLifecycleChart').getContext('2d');
 
+var ctx = document.getElementById('leadLifecycleChart').getContext('2d');
 // Colors for the histogram bars
 var colors = [
     createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),

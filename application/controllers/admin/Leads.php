@@ -152,9 +152,13 @@ class Leads extends AdminController
   
     
     
-    
-    //widget work end 
 
+    
+    //
+
+    
+    
+    
     public function list($id = '')
     {
         close_setup_menu();
@@ -230,6 +234,9 @@ class Leads extends AdminController
     
 
     public function info($id, $rel_type = null, $rel_id = null){
+       echo $this->leads_model->view_by_admin($id);
+        
+
         $reminder_data         = '';
         $data['lead_locked']   = false;
         $data['openEdit']      = $this->input->get('edit') ? true : false;
@@ -395,10 +402,6 @@ class Leads extends AdminController
             echo json_encode(array('status' => 'error', 'message' => 'Could not save the schedule.'));
         }
     }   
-    public function getEventDetails($eventId) {
-        $eventDetails = $this->EventModel->getEventDetails($eventId);
-        echo json_encode($eventDetails);
-    }
     
     // public function updateEventDetails() {
     //     $postData = $this->input->post();

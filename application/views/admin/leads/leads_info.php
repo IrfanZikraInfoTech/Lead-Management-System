@@ -1,3 +1,16 @@
+
+<style>
+    .text-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.text-scroll{
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+</style>
+
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php init_head(); ?>
 
@@ -33,7 +46,7 @@
 
 
                     </div>
-                </div>
+            </div>
             </div>
 
             <div class="lg:flex relative bg-white shadow-lg rounded-2xl -mt-10">
@@ -142,7 +155,7 @@
                                 ?>
                                     <div class="flex justify-between text-lg text-gray-700 mb-3">
                                         <span class="font-semibold">Territory:</span>
-                                        <span class="cursor-pointer"><?= $lead->description ?: '<i class="fas fa-align-left" title="No Territory Available"></i>'; ?></span>
+                                        <span class="cursor-pointer"><?= $lead->description ?: '<i class="fas fa-map-marked-alt" title="No Territory Available"></i>'; ?></span>
                                     </div>
                                     <?php
                                 }
@@ -155,36 +168,35 @@
                 <!-- SECOND OVERLAPPING DIV -->
                 <div class="w-full lg:w-2/3 p-10 ">
                     
-                    <!-- Lead Life Cycle -->
+                    <!-- Lead Life Cycle button-->
                     <div class="shadow-xl p-2 mb-5 border-2 border-solid border-gray-200 rounded-xl">
-                        <div class="flex flex-row rounded-xl overflow-x-auto no-scrollbar dragscroll gap-2" >
+                        <div class="flex flex-row rounded-xl overflow-x-auto no-scrollbar dragscroll gap-2">
                             <?php 
-                                $currentStepFromDB = $lead->lifecycle_stage;
-                                $stepNumber = 0;
-                                
-                                if ($lifecycle) {
+                            $currentStepFromDB = $lead->lifecycle_stage;
+                            $stepNumber = 0;
 
-                                    $cycleFlowData = json_decode($lifecycle['flow'], true);
-                                    foreach($cycleFlowData as $flowItem):
-                                        if (isset($flowItem['name'])) {
-                                            $class = ($stepNumber < $currentStepFromDB) ? 'completed-step' : '';
-                                            echo '<button onclick="move_lifecycle('.$stepNumber.');" class="bg-gray-200 px-4 py-2 transition-all duration-300 ease-in-out rounded-xl border border-transparent hover:border-gray-300 ' . $class . '" id="step-' . $stepNumber . '">';
-                                                echo '<p class="text-gray-900 my-1">' . htmlspecialchars($flowItem['name']) . '</p>';
-                                            echo '</button>';
-                                            $stepNumber++;
+                            if ($lifecycle) {
+                                $cycleFlowData = json_decode($lifecycle['flow'], true);
+                                foreach($cycleFlowData as $flowItem):
+                                if (isset($flowItem['name'])) {
+                                    $class = ($stepNumber < $currentStepFromDB) ? 'completed-step' : '';
+                                    echo '<button onclick="move_lifecycle('.$stepNumber.');" class="my-3 bg-gray-200 px-4 py-2 rounded-full border hover:border-gray-300 transition-all duration-300 ease-in-out shadow-md hover:shadow-xl ' . $class . '" id="step-' . $stepNumber . '">';
+                                    echo '<div class="text-gray-900 my-1 whitespace-nowrap text-scroll overflow-x-auto  no-scrollbar dragscroll w-24">' . htmlspecialchars($flowItem['name']) . '</div>';
+                                    echo '</button>';
+                                    $stepNumber++;
 
-                                            if($stepNumber < count($cycleFlowData)){
-                                                echo '<div class="text-3xl flex items-center">➡️</div>';
-                                            }
-                                            
-                                        }
-                                    endforeach;
-                                }else {
-                                    echo '<h2 class="text-lg text-center p-2 w-full">Lifecycle not defined!</h2>';
+                                    if($stepNumber < count($cycleFlowData)){
+                                    echo '<div class="text-2xl flex items-center">➡️</div>';
+                                    }
                                 }
+                                endforeach;
+                            } else {
+                                echo '<h2 class="text-lg text-center p-2 w-full">Lifecycle not defined!</h2>';
+                            }
                             ?>
                         </div>
                     </div>
+
                     
 
                     <div class="rounded-xl pt-4 border-2 border-solid border-gray-200">
@@ -435,10 +447,10 @@
                             <div class="tab-pane fade text-gray-800 p-4" role="tabpanel" id="invoices"aria-labelledby="invoices-tab">
                                 <?php if (has_permission('proposals', '', 'create')) { ?>
                                 <a href="<?php echo admin_url('invoices/invoice'); ?>"
-                                    class="btn btn-primary mbot25"><?php echo 'New Invoice'; ?></a>
+                                    class="btn btn-primary mbot25 "><?php echo 'New Invoice'; ?></a>
                                 <?php } ?>
-                                <div class="bg-white overflow-x-auto no-scrollbar dragscroll gap-2">
-                                    <table id="table_invoices" class="table no-scrollbar ">
+                                <div class="bg-white">
+                                    <table id="table_invoices" class="table no-scrollbar">
                                         <thead class="bg-gray-200">
                                             <tr>
                                                 <th>#</th>
@@ -632,10 +644,10 @@
                                     ?>
                             </div>
                                 <?php $i++; } ?>
-                        </div> 
+                            </div> 
     
+                        </div>
                     </div>
-                </div>
                 
             </div>
 

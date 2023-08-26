@@ -21,8 +21,8 @@
                     <?php if (isset($territory) && !empty($territory[0]['data']['counties'])){ ?>
                         <?php foreach ($territory[0]['data']['counties'] as $index => $county): ?>
                             <?php foreach ($county as $code => $name): ?>
-                                <div class="flex lg:flex-row flex-col gap-2" id="countyContainer-<?php echo $index; ?>">
-                                    <div class="lg:w-4/5 w-full">
+                                <div class="flex flex-col lg:flex-row gap-2" id="countyContainer-<?php echo $index; ?>">
+                                    <div class="w-full lg:w-4/5">
                                         <label for="county-<?php echo $index; ?>" class="block text-sm font-medium text-gray-700 mb-1">Select County</label>
                                         <select id="county-<?php echo $index; ?>" data-placeholder="Select a county..." class="mt-1 w-full sm:w-full md:w-full lg:w-full xl:w-full overflow-x-auto p-2 border rounded-md focus:ring focus:ring-opacity-50 focus:ring-blue-300 transition duration-200 county-select">
                                             <!-- Assuming you have a function to get all counties, you can loop through and set selected if it matches -->
@@ -33,6 +33,7 @@
                                         <button class="text-center py-2 btn-danger rounded remove-county" data-target="#countyContainer-<?php echo $index; ?>">Remove</button>
                                     </div>
                                 </div>
+
                             <?php endforeach; ?>
                         <?php endforeach; ?>
                     <?php }else{?>
@@ -97,7 +98,7 @@
                     <button id="update-stats" class="bg-green-600 text-white px-5 py-2 rounded-md hover:bg-green-700 transition duration-200 w-full">Update Stats</button>
                 </div>
             </div>
-            <div class="w-full lg:w-2/4">
+            <div class="w-2/4">
 
             <div class="flex flex-col gap-4 mb-4">  
                 <div class="w-full flex flex-row gap-2">     

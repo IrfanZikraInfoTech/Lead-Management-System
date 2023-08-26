@@ -277,19 +277,7 @@ public function updateEvent($eventId, $updatedData) {
         $query = $this->db->get();
         return $query->result_array();
     }
-    public function get_filtered_leads($start_date, $end_date)
-    {if ($startDate !== null && $endDate !== null) {
-        $stmt = $db->prepare("SELECT * FROM leads WHERE date >= :dateadd AND date <= :endDate");
-        $stmt->bindParam(':dateadd', $startDate);
-        $stmt->bindParam(':endDate', $endDate);
-    } else {
-        $this->db->where('dateadd >=', $start_date);
-        $this->db->where('dateadd <=', $end_date);
-        $query = $this->db->get('tblleads');
-        
-        return $query->result_array();
-    }
-}
+ 
     
     
     
@@ -1522,34 +1510,6 @@ public function updateEvent($eventId, $updatedData) {
     }
     
 
-//     public function getLeadLifecycleData() {
-//     $query = $this->db->query("SELECT id, flow FROM tbl_lead_lifecycle");
-//     $result = $query->result();
-
-//     $leads = [];
-//     $times = array_fill(0, count($result), 0); // Initialize time array with zeros
-
-//     foreach ($result as $index => $row) {
-//         $stages = json_decode($row->flow);
-//         foreach ($stages as $stage) {
-//             if (!in_array($stage->name, $leads)) {
-//                 $leads[] = $stage->name;
-//             }
-//         }
-//         $this->db->select("COUNT(tblleads.id) AS leads_count");
-//         $this->db->from('tblleads');
-//         $this->db->where('lifecycle_stage', $row->id);
-//         $query = $this->db->get();
-//         $leadCountRow = $query->row();
-//         $times[$index] = (int)$leadCountRow->leads_count;
-//     }
-
-//     return [
-//         'leads' => $leads,
-//         'times' => [$times]
-//     ];
-// }
-
     
     
 
@@ -1612,37 +1572,33 @@ public function get_total_leads($start_date = null, $end_date = null) {
 // }
 
 
-    public function getNewCustomersCount() {
-        $query = $this->db->get('tblclients`');
-        return $query->num_rows(); // Returns the number of rows in the result
-    }
-    public function getEngagementData() {
-        $this->db->where('sent_by', 'lead');
-            $total_leads_sent_by_lead = $this->db->count_all_results('tbl_leadsinbox');
-         
-            // Total leads ko count kare
-            $total_leads = $this->db->count_all('tblleads');
-         
-            // Conversion rate calculate kare
-            $interactions = 0;
-            if ($total_leads > 0) {
-                $interactions = ($total_leads_sent_by_lead / $total_leads) * 100;
-            }
-            return [
-                'interactions' => $interactions,
-            ];
-    }
-    public function getLeadSources($start_date = null, $end_date = null) {
-        if ($start_date && $end_date) {
-            $this->db->where("dateadded >=", $start_date);
-            $this->db->where("dateadded <=", $end_date);
+public function getNewCustomersCount() {
+    $query = $this->db->get('tblclients`');
+    return $query->num_rows(); // Returns the number of rows in the result
+}
+public function getEngagementData() {
+    $this->db->where('sent_by', 'lead');
+        $total_leads_sent_by_lead = $this->db->count_all_results('tbl_leadsinbox');
+     
+        // Total leads ko count kare
+        $total_leads = $this->db->count_all('tblleads');
+     
+        // Conversion rate calculate kare
+        $interactions = 0;
+        if ($total_leads > 0) {
+            $interactions = ($total_leads_sent_by_lead / $total_leads) * 100;
         }
-        $this->db->select('tblleads_sources.name AS source_name, COUNT(tblleads.id) AS total');
-        $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left');
-        $this->db->group_by('tblleads.source');
-        $this->db->order_by('total', 'desc'); // Sorting by total in descending order to get top sources
-        $this->db->limit(3); // Limiting to top 3 sources
-        $query = $this->db->get('tblleads');
+        return [
+            'interactions' => $interactions,
+        ];
+}
+public function getLeadSources() {
+    $this->db->select('tblleads_sources.name AS source_name, COUNT(tblleads.id) AS total');
+    $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left');
+    $this->db->group_by('tblleads.source');
+    $this->db->order_by('total', 'desc'); // Sorting by total in descending order to get top sources
+    $this->db->limit(3); // Limiting to top 3 sources
+    $query = $this->db->get('tblleads');
 
         $result = $query->result_array();
         $leadSources = [];
@@ -1674,9 +1630,18 @@ public function get_total_leads($start_date = null, $end_date = null) {
 
 
     public function getLeadsNotRespondedInAWeek() {
-        // Yahaan pe hum dummy data return kar rahe hain
-        return 0;  // for example, 150 leads haven't responded
+        // Database connection (assuming you're using CodeIgniter or similar)
+        $this->db->select('lead_id');
+        $this->db->from('tbl_leadsinbox');
+        $this->db->where('view_by_admin', 0);
+        $this->db->where('sent_by', 'lead');  // Additional condition
+        $this->db->group_by('lead_id');  // To make sure each lead is counted only once
+        $query = $this->db->get();
+        
+        return $query->num_rows();  // This will return the number of unique leads where view_by_admin is 0 and sent_by is 'lead'
     }
+    
+    
 
     public function get_campaign_performance() {
         // 'isdefault' ke saath matching rows ko 'tblleads_status' se join kare aur count kare
@@ -1701,6 +1666,7 @@ public function get_total_leads($start_date = null, $end_date = null) {
             'conversion_rate' => $conversion_rate,
         ];
     }
+    
     
 
     //Lead Email Communication
@@ -1806,7 +1772,33 @@ public function get_total_leads($start_date = null, $end_date = null) {
         return $this->db->update('tblleads');
     }
     
+
     
+
+    // view by admin card 
+    public function view_by_admin($lead_id)
+    {
+   // Pehle check karenge ki record mojood hai ya nahi
+   $this->db->select('*');
+   $this->db->from('tbl_leadsinbox');
+   $this->db->where('lead_id', $lead_id);
+   $query = $this->db->get();
+   
+   // Agar record mojood hai to update karenge
+   if($query->num_rows() > 0) {
+    //    $this->db->set('view_by_admin', 1);
+       $this->db->where('lead_id', $lead_id);
+       return $this->db->update('tbl_leadsinbox',['view_by_admin'=>1]);
+   }
+    }
+    
+    // public function view_by_admin($lead_id)
+    // {
+        
+    //     $this->db->set('view_by_admin', 1);
+    //     $this->db->where('lead_id', $lead_id);
+    //     return $this->db->update('tbl_leadsinbox');
+    // }
 }
 
 

@@ -157,6 +157,7 @@ ERROR - 2023-08-23 16:33:24 --> Could not find the language line "LMS"
 ERROR - 2023-08-23 16:34:22 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
 ERROR - 2023-08-23 16:38:52 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
 ERROR - 2023-08-23 16:59:29 --> Query error: Unknown column 'rel_id' in 'where clause' - Invalid query: SELECT *
 FROM `tblevent`
 WHERE `rel_id` = '87'
@@ -191,3 +192,73 @@ ERROR - 2023-08-23 20:30:17 --> Could not find the language line "Maryam Malik -
 ERROR - 2023-08-23 20:30:26 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
 ERROR - 2023-08-23 20:30:31 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
 ERROR - 2023-08-23 20:30:31 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+=======
+ERROR - 2023-08-23 16:48:51 --> Query error: Unknown column 'rel_id' in 'where clause' - Invalid query: SELECT *
+FROM `tblevent`
+WHERE `rel_id` = '7'
+ERROR - 2023-08-23 16:48:58 --> Query error: Unknown column 'rel_id' in 'where clause' - Invalid query: SELECT *
+FROM `tblevent`
+WHERE `rel_id` = '8'
+ERROR - 2023-08-23 16:49:07 --> Query error: Unknown column 'rel_id' in 'where clause' - Invalid query: SELECT *
+FROM `tblevent`
+WHERE `rel_id` = '8'
+ERROR - 2023-08-23 16:52:18 --> Query error: Unknown column 'rel_id' in 'where clause' - Invalid query: SELECT *
+FROM `tblevent`
+WHERE `rel_id` = '8'
+ERROR - 2023-08-23 16:59:53 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 17:07:24 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 17:09:47 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 18:09:34 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 18:09:41 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 19:04:06 --> Severity: error --> Exception: Undefined constant "i" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 359
+ERROR - 2023-08-23 19:04:21 --> Severity: error --> Exception: Undefined constant "i" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 358
+ERROR - 2023-08-23 19:07:54 --> Severity: error --> Exception: Undefined constant "i" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 356
+ERROR - 2023-08-23 19:11:00 --> Severity: error --> Exception: Undefined constant "i" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 356
+ERROR - 2023-08-23 19:14:09 --> Severity: error --> Exception: Undefined constant "i" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 358
+ERROR - 2023-08-23 19:21:59 --> Severity: Warning --> Undefined variable $sourceTracking_values_js C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 346
+ERROR - 2023-08-23 19:21:59 --> Severity: Warning --> Undefined variable $sourceTracking_labels_js C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 347
+ERROR - 2023-08-23 20:04:33 --> Severity: Warning --> Undefined array key "campaign_name" C:\wamp64\www\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 90
+ERROR - 2023-08-23 22:04:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:04:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:04:44 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:04:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:04:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 22:19:30 --> Severity: error --> Exception: Call to undefined method Leads_model::getSalespersonNameById() C:\wamp64\www\Lead-Management-System\application\models\Leads_model.php 1438
+ERROR - 2023-08-23 22:39:15 --> Query error: Unknown column 'tblstaff.id' in 'on clause' - Invalid query: SELECT `tblstaff`.`firstname`, COUNT(tblleads.id) as leads
+FROM `tblleads`
+JOIN `tblstaff` ON `tblleads`.`assigned` = `tblstaff`.`id`
+GROUP BY `tblstaff`.`firstname`
+ERROR - 2023-08-23 22:41:06 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:41:11 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:41:11 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 22:41:24 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:41:48 --> Could not find the language line "features"
+ERROR - 2023-08-23 22:42:17 --> Could not find the language line "features"
+ERROR - 2023-08-23 22:42:32 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:42:32 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 22:42:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:42:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 22:42:45 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 22:42:45 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 22:42:45 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to Ahmed sir"
+ERROR - 2023-08-23 23:08:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:08:38 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 23:08:42 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:08:42 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 23:08:42 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:08:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:08:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 23:08:49 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to Ahmed sir"
+ERROR - 2023-08-23 23:08:55 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:09:36 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-23 23:09:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:09:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 23:09:58 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:10:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:10:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, atika ibrahim"
+ERROR - 2023-08-23 23:10:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:10:03 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+ERROR - 2023-08-23 23:10:10 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:10:16 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik"
+ERROR - 2023-08-23 23:10:16 --> Could not find the language line "atika ibrahim - atika ibrahim assigned to marium malik, Ahmed sir"
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+
 <?php
 
 defined('BASEPATH') or exit('No direct script access allowed');
@@ -252,4 +253,3 @@ foreach ($rResult as $aRow) {
 
     $output['aaData'][] = $row;
 }
-

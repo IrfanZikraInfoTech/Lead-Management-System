@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<<<<<<< Updated upstream
 ERROR - 2023-08-24 12:46:48 --> Severity: Warning --> include_once(D:\xampp\htdocs\Lead-Management-System\application\hooks./../libraries/App_modules.php): Failed to open stream: Permission denied D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 12
 ERROR - 2023-08-24 12:46:48 --> Severity: Warning --> include_once(): Failed opening 'D:\xampp\htdocs\Lead-Management-System\application\hooks./../libraries/App_modules.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 12
 ERROR - 2023-08-24 12:46:48 --> Severity: Warning --> include_once(D:\xampp\htdocs\Lead-Management-System\application\hooks./../../system/helpers/directory_helper.php): Failed to open stream: Permission denied D:\xampp\htdocs\Lead-Management-System\application\hooks\InitModules.php 14
@@ -648,3 +649,67 @@ ERROR - 2023-08-24 21:27:56 --> 404 Page Not Found: /index
 ERROR - 2023-08-24 21:31:07 --> 404 Page Not Found: /index
 ERROR - 2023-08-24 21:34:02 --> 404 Page Not Found: /index
 ERROR - 2023-08-24 21:34:53 --> 404 Page Not Found: /index
+=======
+ERROR - 2023-08-24 16:44:48 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-24 16:44:58 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 16:44:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 16:44:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 16:44:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 16:44:58 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 16:44:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 16:44:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 16:44:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 16:46:09 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-24 19:56:36 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-24 19:56:42 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-24 20:02:58 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-24 20:04:20 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:04:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:04:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:04:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:04:20 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:04:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:04:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:04:20 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:12:36 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-24 20:12:42 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:12:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:12:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:12:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:12:42 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:12:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:12:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:12:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:13:29 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:13:29 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:13:29 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:13:29 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:13:29 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:13:29 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:13:29 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:13:29 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2019
+ERROR - 2023-08-24 20:15:36 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2020
+ERROR - 2023-08-24 20:15:36 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2020
+ERROR - 2023-08-24 20:15:36 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2020
+ERROR - 2023-08-24 20:15:36 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2020
+ERROR - 2023-08-24 20:15:37 --> Severity: Warning --> Undefined array key "choices" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2020
+ERROR - 2023-08-24 20:15:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2020
+ERROR - 2023-08-24 20:15:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2020
+ERROR - 2023-08-24 20:15:37 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 2020
+ERROR - 2023-08-24 20:17:12 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-24 21:33:39 --> Query error: Table 'lms.tbl_zip_maps' doesn't exist - Invalid query: SELECT `zip`, `city`
+FROM `tbl_zip_maps`
+WHERE `county_fips` LIKE '%01001%' ESCAPE '!'
+ERROR - 2023-08-24 21:33:45 --> Query error: Table 'lms.tbl_zip_maps' doesn't exist - Invalid query: SELECT `zip`, `city`
+FROM `tbl_zip_maps`
+WHERE `county_fips` LIKE '%01001%' ESCAPE '!'
+ERROR - 2023-08-24 21:33:47 --> Query error: Table 'lms.tbl_zip_maps' doesn't exist - Invalid query: SELECT `zip`, `city`
+FROM `tbl_zip_maps`
+WHERE `county_fips` LIKE '%01001%' ESCAPE '!'
+ERROR - 2023-08-24 21:33:52 --> Query error: Table 'lms.tbl_zip_maps' doesn't exist - Invalid query: SELECT `zip`, `city`
+FROM `tbl_zip_maps`
+WHERE `county_fips` LIKE '%01001%' ESCAPE '!'
+ERROR - 2023-08-24 21:33:54 --> Query error: Table 'lms.tbl_zip_maps' doesn't exist - Invalid query: SELECT `zip`, `city`
+FROM `tbl_zip_maps`
+WHERE `county_fips` LIKE '%01001%' ESCAPE '!'
+>>>>>>> Stashed changes

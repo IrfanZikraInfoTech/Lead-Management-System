@@ -8,15 +8,15 @@
     }
     ?>
 
-    <div class="content">
-        <div class="w-full flex flex-row justify-center gap-20">
-            <div class="w-2/4 p-6 bg-white shadow-lg rounded-lg space-y-6">
-                <div class="flex flex-row justify-between pb-4">
+<div class="content mx-auto lg:container">
+    <div class="w-full flex flex-col lg:flex-row justify-center gap-6">
+        <div class="w-full lg:w-2/4 p-6 bg-white shadow-lg rounded-lg space-y-6">
+            <div class="flex flex-row justify-between pb-4">
                 <h1 class="text-2xl font-bold text-gray-800border-b">Territory Builder</h1>
                 <button class="px-6 py-2 btn-primary rounded" id="add-county">Add</button>
-                </div>
+            </div>
 
-                <div class="flex flex-col gap-4" id="all-county-container">
+            <div class="flex flex-col gap-4" id="all-county-container">
                     <!-- Check if territory is defined and counties are present -->
                     <?php if (isset($territory) && !empty($territory[0]['data']['counties'])){ ?>
                         <?php foreach ($territory[0]['data']['counties'] as $index => $county): ?>
@@ -24,12 +24,12 @@
                                 <div class="flex lg:flex-row flex-col gap-2" id="countyContainer-<?php echo $index; ?>">
                                     <div class="lg:w-4/5 w-full">
                                         <label for="county-<?php echo $index; ?>" class="block text-sm font-medium text-gray-700 mb-1">Select County</label>
-                                        <select id="county-<?php echo $index; ?>" data-placeholder="Select a county..." class="mt-1 w-full p-2 border rounded-md focus:ring focus:ring-opacity-50 focus:ring-blue-300 transition duration-200 county-select">
+                                        <select id="county-<?php echo $index; ?>" data-placeholder="Select a county..." class="mt-1 w-full sm:w-full md:w-full lg:w-full xl:w-full overflow-x-auto p-2 border rounded-md focus:ring focus:ring-opacity-50 focus:ring-blue-300 transition duration-200 county-select">
                                             <!-- Assuming you have a function to get all counties, you can loop through and set selected if it matches -->
                                             <option value="<?php echo $code; ?>" selected><?php echo $name; ?></option>
                                         </select>
                                     </div>
-                                    <div class="lg:w-1/5 w-full flex flex-col justify-end">
+                                    <div class="lg:w-1/5 w-full  flex flex-col justify-end">
                                         <button class="text-center py-2 btn-danger rounded remove-county" data-target="#countyContainer-<?php echo $index; ?>">Remove</button>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                     </table>
                     <hr>
                     <div class="flex items-center gap-2">
-                        <input type="text" id="new-zip" placeholder="Enter ZIP Code" class="flex-grow border rounded-md p-2 focus:ring focus:ring-opacity-50 focus:ring-blue-300 transition duration-200">
+                        <input type="text" id="new-zip" placeholder="Enter ZIP Code" class="overflow-x-auto flex-grow border rounded-md p-2 focus:ring focus:ring-opacity-50 focus:ring-blue-300 transition duration-200">
                         <button id="add-zip" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">Add</button>
                     </div>
                 </div>
@@ -96,14 +96,11 @@
                 <div class="text-center">
                     <button id="update-stats" class="bg-green-600 text-white px-5 py-2 rounded-md hover:bg-green-700 transition duration-200 w-full">Update Stats</button>
                 </div>
-
             </div>
-            <div class="w-2/4">
+            <div class="w-full lg:w-2/4">
 
-            <div class="flex flex-col gap-4 mb-4">
-                    
-                <div class="w-full flex flex-row gap-2">
-                    
+            <div class="flex flex-col gap-4 mb-4">  
+                <div class="w-full flex flex-row gap-2">     
                     <!-- Back Button -->
                     <a href="<?= admin_url("leads/territories") ?>" class="w-1/5 text-center py-3 transform transition-transform duration-300 ease-in-out bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl hover:-translate-y-1 text-white rounded-lg hover:text-white focus:text-white">
                         Back
@@ -117,10 +114,8 @@
                     <button class="w-4/5 text-center py-3 ml-3 transform transition-transform duration-300 ease-in-out bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl hover:-translate-y-1 text-white rounded-lg" id="save_territory">
                         SAVE
                     </button>
-
-                </div>
-                
-                </div>
+                </div> 
+            </div>
 
                 <div class="w-full p-6 bg-white shadow-lg rounded-lg space-y-6">
                     <table class="w-full bg-white rounded-md overflow-hidden">
@@ -152,9 +147,8 @@
             </div>
         </div>
 
-        <div class="flex flex-row w-full p-20">
-            <div id="demographics" class="flex flex-col w-full py-20 bg-white px-[200px] gap-4">
-
+        <div class="flex flex-row w-full p-6 lg:p-20">
+            <div id="demographics" class="flex flex-col w-full py-20 bg-white px-6 lg:px-[200px] gap-4">
                 <!-- Demographics -->
                 <div class="text-center">
                     <h3 class="font-bold text-xl mb-4">Demographics</h3>

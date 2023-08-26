@@ -61,8 +61,8 @@
             </div>        
             <!-- top cards -->
             <div class="flex flex-wrap gap-3 justify-start ">
-                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
-                        <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
+                    <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
                             <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast "><?php echo $total_leads; ?></p>
                             <h5 class="text-lg font-medium text-uppercase mb-2 lms-contrast text-[rgba(0,135,171,0.6)]">Total Leads</h5>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
                         <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
                             <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-6">
                             <p class="text-2xl mb-2 font-bold text-[rgba(0,135,171)] lms-contrast"><?= $top_lead_source ?></p>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-6">
                             <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast" id="leadsNotResponded"><?= $leads_not_responded ?></p>
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-5">
                         <p class="text-2xl font-semibold text-[rgba(0,135,171)] lms-contrast"><?= $campaign_performance['conversion_rate'] ?>%</p>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
                             <p class="text-lg mb-2 text-[rgba(0,135,171)] lms-contrast">Interactions: <span class="font-extrabold "><?= $engagement_data['interactions'] ?></span></p>
@@ -144,18 +144,17 @@
                 </div>
             </div>
             <!-- Lead Source Tracking Card -->
-            <div class="md:w-2/4 w-full mb-4">
-
-                <div class="h-full card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
-                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
-                        <h2 class="card-title ms-1 text-uppercase text-center py-2" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Source Tracking</h2>
-                        <div class="d-flex justify-content-center">
-                            <canvas id="leadSourceChart"  style="max-width: 83%; height: auto;"class=" mx-auto"></canvas>
-                        </div>
+        <div class="md:w-1/2 w-full mb-4">
+            <div class="h-full card bg-white shadow-lg rounded-lg hoverable h-100 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                    <h2 class="card-title ms-1 text-uppercase text-center py-2" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Source Tracking</h2>
+                    <div class="d-flex justify-content-center w-full px-4">
+                        <canvas id="leadSourceChart" style="max-width: 100%; height: auto;" class="mx-auto"></canvas>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         <div class="row mt-4 d-flex align-items-stretch">
             <!-- Lead Distribution by Salesperson -->
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
@@ -430,7 +429,10 @@ var leadSourceChart = new Chart(ctx, {
         scales: {
             x: {
                 barPercentage: 0.5,
-                categoryPercentage: 0.7
+                categoryPercentage: 0.7,
+                ticks: {
+                    autoSkip: true // Skips some labels to avoid crowding
+                }
             },
             y: {
                 beginAtZero: true,
@@ -468,7 +470,9 @@ var leadSourceChart = new Chart(ctx, {
                         var meta = chartInstance.controller.getDatasetMeta(i);
                         meta.data.forEach(function(bar, index) {
                             var data = dataset.data[index];
-                            ctx.fillText(data, bar.x, bar.y - 5);
+                            if (bar.width > 15) { // Only print if the bar is wide enough
+                                ctx.fillText(data, bar.x, bar.y - 5);
+                            }
                         });
                     });
                 }

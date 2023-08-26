@@ -1612,29 +1612,25 @@ public function get_total_leads($start_date = null, $end_date = null) {
 // }
 
 
-
-    public function getNewCustomersCount($start_date = null, $end_date = null) {
-        if ($start_date && $end_date) {
-            $this->db->where("datecreated >=", $start_date);
-            $this->db->where("datecreated <=", $end_date);
-        }
-        $query = $this->db->get('tblclients');
-        return $query->num_rows();
+    public function getNewCustomersCount() {
+        $query = $this->db->get('tblclients`');
+        return $query->num_rows(); // Returns the number of rows in the result
     }
-
-    public function getEngagementData($start_date = null, $end_date = null) {
-        if ($start_date && $end_date) {
-            $this->db->where("dateadded >=", $start_date);
-            $this->db->where("dateadded <=", $end_date);
-        }
-        $this->db->select('tblleads.status');
-        $this->db->join('tblleads_status', 'tblleads.status = tblleads_status.id');
-        $result = $this->db->get('tblleads');
-        $interactions = $result->num_rows(); // Yahan par aap jo logic apply karna chahte hain wo kar sakte hain
-    
-        return [
-            'interactions' => $interactions,
-        ];
+    public function getEngagementData() {
+        $this->db->where('sent_by', 'lead');
+            $total_leads_sent_by_lead = $this->db->count_all_results('tbl_leadsinbox');
+         
+            // Total leads ko count kare
+            $total_leads = $this->db->count_all('tblleads');
+         
+            // Conversion rate calculate kare
+            $interactions = 0;
+            if ($total_leads > 0) {
+                $interactions = ($total_leads_sent_by_lead / $total_leads) * 100;
+            }
+            return [
+                'interactions' => $interactions,
+            ];
     }
     public function getLeadSources($start_date = null, $end_date = null) {
         if ($start_date && $end_date) {
@@ -1682,24 +1678,25 @@ public function get_total_leads($start_date = null, $end_date = null) {
         return 0;  // for example, 150 leads haven't responded
     }
 
-    public function get_campaign_performance($start_date = null, $end_date = null) {
-        if ($start_date && $end_date) {
-            $this->db->where("created_at >=", $start_date);
-            $this->db->where("created_at <=", $end_date);
-        }
-        // 'lead' ke saath matching rows ko count kare
-        $this->db->where('sent_by', 'lead');
-        $total_leads_sent_by_lead = $this->db->count_all_results('tbl_leadsinbox');
-     
+    public function get_campaign_performance() {
+        // 'isdefault' ke saath matching rows ko 'tblleads_status' se join kare aur count kare
+        $this->db->select('COUNT(tblleads.id) as total_default_leads');
+        $this->db->from('tblleads');
+        $this->db->join('tblleads_status', 'tblleads.status = tblleads_status.id');
+        $this->db->where('tblleads_status.isdefault', 1);
+        $query = $this->db->get();
+    
+        $total_default_leads = $query->row()->total_default_leads;
+    
         // Total leads ko count kare
         $total_leads = $this->db->count_all('tblleads');
-     
+    
         // Conversion rate calculate kare
         $conversion_rate = 0;
         if ($total_leads > 0) {
-            $conversion_rate = ($total_leads_sent_by_lead / $total_leads) * 100;
+            $conversion_rate = ($total_default_leads / $total_leads) * 100;
         }
-     
+    
         return [
             'conversion_rate' => $conversion_rate,
         ];

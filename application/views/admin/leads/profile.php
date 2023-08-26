@@ -216,7 +216,7 @@
                 </div>
                 <dl>
                     <dt class="lead-field-heading tw-font-medium tw-text-neutral-500 no-mtop">
-                        <?php echo _l('lead_add_edit_status'); ?>
+                        <?php echo ('Edit Status'); ?>
                     </dt>
                     <dd class="tw-text-neutral-900 tw-mt-2 mbot15">
                         <?php

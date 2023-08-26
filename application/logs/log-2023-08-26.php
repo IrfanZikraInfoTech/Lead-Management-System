@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<<<<<<< Updated upstream
 ERROR - 2023-08-26 07:59:07 --> 404 Page Not Found: /index
 ERROR - 2023-08-26 08:02:46 --> 404 Page Not Found: /index
 ERROR - 2023-08-26 08:03:23 --> 404 Page Not Found: /index
@@ -297,3 +298,16 @@ ERROR - 2023-08-26 19:26:02 --> 404 Page Not Found: /index
 ERROR - 2023-08-26 19:26:05 --> 404 Page Not Found: /index
 ERROR - 2023-08-26 19:26:09 --> 404 Page Not Found: /index
 ERROR - 2023-08-26 19:26:14 --> 404 Page Not Found: /index
+=======
+ERROR - 2023-08-26 00:07:30 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-26 20:30:09 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-26 21:19:49 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-26 21:33:38 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-26 21:33:44 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-26 22:03:35 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+>>>>>>> Stashed changes
+ERROR - 2023-08-26 22:48:29 --> Query error: Unknown column 'tblleads.rel_id' in 'where clause' - Invalid query: SELECT `tblleads`.*, `tbl_territories`.`data`
+FROM `tblleads`
+LEFT JOIN `tbl_territories` ON `tblleads`.`rel_id` = `tbl_territories`.`id`
+WHERE `tblleads`.`rel_id` != 0
+AND `tblleads`.`id` = '90'

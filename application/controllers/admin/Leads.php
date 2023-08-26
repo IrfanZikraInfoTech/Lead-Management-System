@@ -1969,7 +1969,7 @@ class Leads extends AdminController
         $body = $this->makeAIRequest($messages_array, $model, 700);
         $subject = $this->makeAIRequest($messages_array_subject, "gpt-3.5-turbo", 40);
 
-        echo json_encode(['success' => true, 'subject' =>$subject, 'body' => $body]);
+        echo json_encode(['success' => true, 'subject' =>$subject, 'body' => $body, 'message' => $model_error]);
     }
 
     public function proposalAIRequest($proposal_id, $model, $prompt=null){
@@ -2043,7 +2043,7 @@ class Leads extends AdminController
 
         $headers = [
             'Content-Type: application/json',
-            'Authorization: Bearer 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'
+            'Authorization: Bearer ' . get_option('lead_api_key'),
         ];
     
         $data = [
@@ -2064,7 +2064,13 @@ class Leads extends AdminController
         curl_close($ch);
     
         $response_data = json_decode($response, true);
-         $gpt_response = $response_data['choices'][0]['message']['content'];
+        var_dump($response_data);
+        if (isset($response_data['choices'])) {
+            $gpt_response = $response_data['choices'][0]['message']['content'];
+        } else {
+            // Handle the error, possibly logging additional information
+            $gpt_response = null;
+        }
         
         return $gpt_response;
     }

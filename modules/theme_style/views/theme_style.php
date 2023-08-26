@@ -269,7 +269,7 @@ $(function() {
             format: "hex"
         });
 
-        $(this).colorpicker().on('changeColor', function(e) {   
+        $(this).colorpicker().on('changeColor', function(e) {
             var color = e.color.toHex();
             var _class = 'custom_style_' + $(this).find('input').data('id');
             var val = $(this).find('input').val();

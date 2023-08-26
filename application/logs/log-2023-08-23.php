@@ -157,3 +157,37 @@ ERROR - 2023-08-23 16:33:24 --> Could not find the language line "LMS"
 ERROR - 2023-08-23 16:34:22 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
 ERROR - 2023-08-23 16:38:52 --> Severity: Warning --> Undefined array key "content_type" C:\xampp\htdocs\Lead-Management-System\application\views\admin\leads\lead_dashboard.php 131
 >>>>>>> Stashed changes
+ERROR - 2023-08-23 16:59:29 --> Query error: Unknown column 'rel_id' in 'where clause' - Invalid query: SELECT *
+FROM `tblevent`
+WHERE `rel_id` = '87'
+ERROR - 2023-08-23 17:00:29 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 17:00:29 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-23 17:00:31 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 17:00:31 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-23 17:08:01 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 17:08:01 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-23 17:08:41 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 17:08:41 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-23 17:20:14 --> Severity: Warning --> Undefined array key "charts" C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 361
+ERROR - 2023-08-23 17:20:14 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\Lead-Management-System\modules\theme_style\helpers\theme_style_helper.php 474
+ERROR - 2023-08-23 17:22:41 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 17:22:48 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 17:44:34 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 17:45:26 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 17:45:34 --> Could not find the language line "LMS"
+ERROR - 2023-08-23 18:13:14 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 18:13:14 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-23 18:46:39 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 18:46:39 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-23 18:48:11 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 18:48:11 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-23 18:48:14 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 18:48:14 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"
+ERROR - 2023-08-23 17:27:27 --> Severity: error --> Exception: syntax error, unexpected variable "$data", expecting "function" or "const" C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 552
+ERROR - 2023-08-23 20:28:11 --> Severity: Warning --> Undefined variable $lead C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 525
+ERROR - 2023-08-23 20:28:11 --> Severity: Warning --> Attempt to read property "id" on null C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 525
+ERROR - 2023-08-23 20:28:11 --> Severity: Warning --> Undefined variable $lead C:\xampp\htdocs\Lead-Management-System\application\controllers\admin\Leads.php 531
+ERROR - 2023-08-23 20:30:17 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim, Ahmed Usman"
+ERROR - 2023-08-23 20:30:26 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 20:30:31 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Atika Ibrahim"
+ERROR - 2023-08-23 20:30:31 --> Could not find the language line "Maryam Malik - Maryam Malik assigned to Maryam Malik, Ahmed Usman"

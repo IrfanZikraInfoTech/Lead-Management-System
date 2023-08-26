@@ -393,6 +393,7 @@ function get_styling_areas($type = 'admin')
  * Will fetch from database the stored applied styles and return
  * @return object
  */
+
 function get_applied_styling_area()
 {
     $theme_style = get_option('theme_style');
@@ -507,3 +508,4 @@ function render_theme_styling_picker($id, $value, $target, $css, $additional = '
     <span class="input-group-addon"><i></i></span>
     </div>';
 }
+

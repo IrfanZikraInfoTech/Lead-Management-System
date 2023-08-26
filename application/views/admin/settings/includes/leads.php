@@ -85,4 +85,11 @@ $validationFields = hooks()->apply_filters('lead_available_dupicate_validation_f
   </label>
   <input type="text" id="settings[lead_modal_class]" name="settings[lead_modal_class]" class="form-control" value="<?php echo get_option('lead_modal_class'); ?>">
 </div>
+
+<div class="form-group">
+  <label for="settings[lead_api_key]" class="control-label">
+    <?php echo ('API Key'); ?> (Put your API key here)
+  </label>
+  <input type="text" id="settings[lead_api_key]" name="settings[lead_api_key]" class="form-control" value="<?php echo get_option('lead_api_key'); ?>">
+</div>
 <?php hooks()->do_action('after_leads_settings'); ?>

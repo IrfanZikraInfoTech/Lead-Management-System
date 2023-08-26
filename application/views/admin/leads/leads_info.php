@@ -2,31 +2,16 @@
 <?php init_head(); ?>
 
 <div id="wrapper" class="bg-gray-100">
-
-    <div class="content mx-auto py-0.5">
+    <div class="content mx-auto py-0.5 pt-8">
 
         <div class="relative w-full">
 
             <div class="w-full rounded-t-2xl shadow-lg z-10 text-white font-semibold bg-cyan-600 lms-contrast ">
                 <div class="pb-16">
-                <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-8">Name :<?php echo $lead->name; ?></div>
-                        <div class="text-lg sm:text-lg md:text-xl font-bold flex pt-5">
-                            <span class="text-base sm:text-lg md:text-lg pl-8">Status:</span>
-                            <div class="bg-white ml-3 customStatus rounded ">
-                                <?php
-                                    $selected = '';
-                                    if (isset($lead)) {
-                                        $selected = $lead->status;
-                                        $lead_id = $lead->id; // Yeh lead ki ID ko store karega
-                                    } elseif (isset($status_id)) {
-                                        $selected = $status_id;
-                                    }
-                                    echo render_leads_status_select($statuses, $selected, 'lead_add_edit_status_' . $lead_id); // ID ko bhi dynamic bana diya
-                                ?>
-                            </div>
+                <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-8"><?php echo $lead->name; ?></div>
+                <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-4"><?php echo $lead->status_name; ?></div>
 
-                        </div>
-                        <div class="text-sm sm:text-md flex mt-6 pl-8 mx-3">
+                        <div class="text-sm sm:text-md flex mt-6 pl-5 mx-3">
                             <div><?php echo $lead->email ? $lead->email : '<i class="cursor-pointer fas fa-envelope" title="No Email Available"></i>'; ?></div>
                             <div class="mx-2">|</div>
                             <div><?php echo $lead->phonenumber ? $lead->phonenumber : '<i class="cursor-pointer fas fa-phone" title="No Phone number Available"></i>'; ?></div>
@@ -447,39 +432,38 @@
                             </div>
 
 
-                            <div class="tab-pane fade text-gray-800 p-4" role="tabpanel" id="invoices" aria-labelledby="invoices-tab">
-    <?php if (has_permission('proposals', '', 'create')) { ?>
-    <a href="<?php echo admin_url('invoices/invoice'); ?>"
-        class="btn btn-primary mbot25 mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><?php echo 'New Invoice'; ?></a>
-    <?php } ?>
-    <div class="w-full mx-auto" style="overflow:auto">
-        <div class="bg-white">
-            <table id="table_invoices" class="table no-scrollbar">
-                <thead class="bg-gray-200">
-                    <tr>
-                        <th>#</th>
-                        <th>Amount</th>
-                        <th>Total Tax</th>
-                        <th>Date</th>
-                        <th>Proposal</th>
-                        <th>Project</th>
-                        <th>Due Date</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-600">
-                <?php foreach ($invoices as $invoice) : ?>
-                    <tr>
-                        <td><?php echo '<a href="' . admin_url('invoices/list_invoices/' . $invoice['id']) . '" target="_blank">' . format_invoice_number($invoice['id']) . '</a>'; ?></td>
-                        <td><?php echo $invoice['total']; ?></td>
-                        <td><?php echo $invoice['total_tax']; ?></td>
-                        <td><?php echo $invoice['date']; ?></td>
-                        <td><?php echo $invoice['proposal_subject']; ?></td>
-                        <td><?php echo $invoice['project_name']; ?></td>
-                        <td><?php echo $invoice['duedate']; ?></td>
-                        <td><?php echo $invoice['status']; ?></td>
-                    </tr>
-                <?php endforeach; ?>
+                            <div class="tab-pane fade text-gray-800 p-4" role="tabpanel" id="invoices"aria-labelledby="invoices-tab">
+                                <?php if (has_permission('proposals', '', 'create')) { ?>
+                                <a href="<?php echo admin_url('invoices/invoice'); ?>"
+                                    class="btn btn-primary mbot25"><?php echo 'New Invoice'; ?></a>
+                                <?php } ?>
+                                <div class="bg-white overflow-x-auto no-scrollbar dragscroll gap-2">
+                                    <table id="table_invoices" class="table no-scrollbar ">
+                                        <thead class="bg-gray-200">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Amount</th>
+                                                <th>Total Tax</th>
+                                                <th>Date</th>
+                                                <th>Proposal</th>
+                                                <th>Project</th>
+                                                <th>Due Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-gray-600">
+                                        <?php foreach ($invoices as $invoice) : ?>
+                                            <tr>
+                                                <td><?php echo '<a href="' . admin_url('invoices/list_invoices/' . $invoice['id']) . '" target="_blank">' . format_invoice_number($invoice['id']) . '</a>'; ?></td>
+                                                <td><?php echo $invoice['total']; ?></td>
+                                                <td><?php echo $invoice['total_tax']; ?></td>
+                                                <td><?php echo $invoice['date']; ?></td>
+                                                <td><?php echo $invoice['proposal_subject']; ?></td>
+                                                <td><?php echo $invoice['project_name']; ?></td>
+                                                <td><?php echo $invoice['duedate']; ?></td>
+                                                <td><?php echo $invoice['status']; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
 
                 </tbody>
             </table>
@@ -1139,7 +1123,11 @@ refresh_lifecycle();
         
     }
 
-    #contracts_table_wrapper .row .col-sm-12::-webkit-scrollbar {
+    #contracts_table_wrapper .row .col-sm-12::-webkit-scrollbar  {
+        height: 4px; /* You can adjust the height as per your need */
+        background: #f0f0f0; /* Light background color for the scrollbar */
+    }
+    #table_invoices_wrapper .row .col-sm-12::-webkit-scrollbar  {
         height: 4px; /* You can adjust the height as per your need */
         background: #f0f0f0; /* Light background color for the scrollbar */
     }
@@ -1285,13 +1273,13 @@ function makeAIRequest(){
 
                 $("#subject").val(response.subject);
                 tinymce.get('body').setContent(response.body);
-            } else {
+            } else{
                 Swal.fire(
                     'Error!',
-                    'Some error!',
+                    response.message,
                     'error'
-                );
-            }
+                ); 
+            }  
         },
         error: function() {
             Swal.close();

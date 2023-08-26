@@ -12,33 +12,32 @@
                         New Territory
                     </a>
                 </div>
-                <div class="hide-scrollbar" style="overflow-x: auto;">
-                    <table id="territories_table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Title
-                                </th>
-                                <th>
-                                    Population
-                                </th>
-                                <th>
-                                    Value
-                                </th>
-                                <th>
-                                    Data
-                                </th>
-                                <th>
-                                    PDF
-                                </th>
-                                <th>
-                                    Date
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                foreach($territories as $territory){
+                <table id="territories_table" class="table table-striped table-bordered overflow-x-hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Population
+                            </th>
+                            <th>
+                                Value
+                            </th>
+                            <th>
+                                Data
+                            </th>
+                            <th>
+                                PDF
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($territories as $territory){
 
                                     $date = new DateTime($territory['created_at']);
                                     $formattedDate = $date->format('F d, Y - h:i A');

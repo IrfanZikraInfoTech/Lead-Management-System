@@ -418,14 +418,11 @@
                 <div class="form-group">
                     <label for="lead_value"><?php echo _l('lead_value'); ?></label>
                     <div class="input-group" data-toggle="tooltip" title="<?php echo _l('lead_value_tooltip'); ?>">
-                        <input type="number" class="form-control" name="lead_value" value="<?php if (isset($lead)) {
-                echo $lead->lead_value;
-            }?>">
+                    <input type="number" class="form-control" id="value-input" name="lead_value" value="<?php if (isset($lead)) { echo $lead->lead_value; }?>">
                         <div class="input-group-addon">
                             <?php echo $base_currency->symbol; ?>
                         </div>
                     </div>
-                    </label>
                 </div>
                 <?php $value = (isset($lead) ? $lead->company : ''); ?>
                 <?php echo render_input('company', 'lead_company', $value); ?>
@@ -456,14 +453,26 @@
                         <?php foreach ($this->app->get_available_languages() as $availableLanguage) {
                    $selected = '';
                    if (isset($lead)) {
-                       if ($lead->default_language == $availableLanguage) {
+                        if ($lead->default_language == $availableLanguage) {
                            $selected = 'selected';
-                       }
-                   } ?>
+                        }
+                        } ?>
                         <option value="<?php echo $availableLanguage; ?>" <?php echo $selected; ?>>
                             <?php echo ucfirst($availableLanguage); ?></option>
                         <?php
-               } ?>
+                    } ?>
+                    </select>
+                </div>
+                <!-- Lead Territory -->
+                <div class="form-group">
+                    <label for="Lead Territiry" class="control-label"><?php echo _l('Lead Territiry'); ?></label>
+                    <select name="lead_territiry" data-live-search="true" id="territory-dropdown" class="form-control">
+                        <option value="" disabled selected>Select territory</option> <!-- Placeholder option -->
+                        <?php
+                        foreach($territories as $territory){
+                            echo '<option value="' . $territory['id'] . '" data-value="' . $territory['value'] . '">' . $territory['title'] . '</option>';
+                        }
+                        ?>
                     </select>
                 </div>
                 <?php } ?>
@@ -531,6 +540,7 @@
     <?php echo form_close(); ?>
 </div>
 <?php if (isset($lead) && $lead_locked == true) { ?>
+
 <script>
 $(function() {
     // Set all fields to disabled if lead is locked
@@ -543,3 +553,11 @@ $(function() {
 });
 </script>
 <?php } ?>
+<script>
+    $(document).ready(function() {
+        $("#territory-dropdown").on('change', function() {
+            var selectedValue = $(this).find("option:selected").data('value');
+            $("#value-input").val(selectedValue);
+        });
+    });
+</script>

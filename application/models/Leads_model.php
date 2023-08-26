@@ -268,6 +268,31 @@ public function updateEvent($eventId, $updatedData) {
 
         return false;
     }
+    public function get_lead_with_territory($lead_id) {
+        $this->db->select('tblleads.*, tbl_territories.data');
+        $this->db->from('tblleads');
+        $this->db->join('tbl_territories', 'tblleads.rel_id = tbl_territories.id', 'left');
+        $this->db->where('tblleads.rel_id !=', 0);
+        $this->db->where('tblleads.id', $lead_id); // filter by specific lead ID
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function get_filtered_leads($start_date, $end_date)
+    {if ($startDate !== null && $endDate !== null) {
+        $stmt = $db->prepare("SELECT * FROM leads WHERE date >= :dateadd AND date <= :endDate");
+        $stmt->bindParam(':dateadd', $startDate);
+        $stmt->bindParam(':endDate', $endDate);
+    } else {
+        $this->db->where('dateadd >=', $start_date);
+        $this->db->where('dateadd <=', $end_date);
+        $query = $this->db->get('tblleads');
+        
+        return $query->result_array();
+    }
+}
+    
+    
+    
 
     public function lead_assigned_member_notification($lead_id, $assigned, $integration = false)
     {
@@ -945,7 +970,8 @@ public function updateEvent($eventId, $updatedData) {
         }
 
         return false;
-    }
+    }   
+
 
     /**
      * Update canban lead status when drag and drop
@@ -1388,7 +1414,11 @@ public function updateEvent($eventId, $updatedData) {
     }
 
     // In Leads_model.php
-    public function statusCharts() {
+    public function statusCharts($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("dateadded >=", $start_date);
+            $this->db->where("dateadded <=", $end_date);
+        }
         $this->db->select('tblleads_status.name AS status_name, COUNT(tblleads.id) AS total');
         $this->db->join('tblleads_status', 'tblleads.status = tblleads_status.id', 'left');
         $this->db->group_by('tblleads.status');
@@ -1406,7 +1436,11 @@ public function updateEvent($eventId, $updatedData) {
     
 
     // source tracking
-    public function sourceTrackingChart() {
+    public function sourceTrackingChart($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("dateadded >=", $start_date);
+            $this->db->where("dateadded <=", $end_date);
+        }
         $this->db->select('tblleads_sources.name AS source_name, COUNT(tblleads.id) AS total');
         $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left');
         $this->db->group_by('tblleads.source');
@@ -1423,7 +1457,11 @@ public function updateEvent($eventId, $updatedData) {
     }
     
     // lead distribution by salesperson 
-    public function getLeadsBySalesperson() {
+    public function getLeadsBySalesperson($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("dateadded >=", $start_date);
+            $this->db->where("dateadded <=", $end_date);
+        }
         $this->db->select('tblstaff.firstname, COUNT(tblleads.id) as leads');
         $this->db->from('tblleads');
         $this->db->join('tblstaff', 'FIND_IN_SET(tblstaff.staffid, tblleads.assigned) > 0'); // Join with tblstaff
@@ -1448,7 +1486,11 @@ public function updateEvent($eventId, $updatedData) {
         );
     }
 
-    public function getLeadLifecycleData() {
+    public function getLeadLifecycleData($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("dateadded >=", $start_date);
+            $this->db->where("dateadded <=", $end_date);
+        }
         $query = $this->db->query("SELECT flow FROM tbl_lead_lifecycle");
         $result = $query->result();
     
@@ -1538,21 +1580,53 @@ public function updateEvent($eventId, $updatedData) {
 
     // random cards
 
-public function get_total_leads() {
+// public function get_total_leads() {
 
-        $this->db->select('COUNT(*) as total');
-        $this->db->from('tblleads');
-        $query = $this->db->get();
-        $result = $query->row();
-        return $result->total;
+//         $this->db->select('COUNT(*) as total');
+//         $this->db->from('tblleads');
+//         $query = $this->db->get();
+//         $result = $query->row();
+//         return $result->total;
 
-}
-
-    public function getNewCustomersCount() {
-        $query = $this->db->get('tblclients`');
-        return $query->num_rows(); // Returns the number of rows in the result
+// }
+public function get_total_leads($start_date = null, $end_date = null) {
+    $this->db->select('COUNT(*) as total');
+    $this->db->from('tblleads');
+    
+    if ($start_date && $end_date) {
+        $this->db->where("dateadded >=", $start_date);
+        $this->db->where("dateadded <=", $end_date);
     }
-    public function getEngagementData() {
+
+    $query = $this->db->get();
+    $result = $query->row();
+    return $result->total;
+}
+// public function getLeadsByDate($start_date = null, $end_date = null) {
+//     if ($start_date && $end_date) {
+//         $this->db->where("dateadded >=", $start_date);
+//         $this->db->where("dateadded <=", $end_date);
+//     }
+//     $query = $this->db->get('tblleads');  // Assuming 'leads_table' is your table name
+//     return $query->result();
+// }
+
+
+
+    public function getNewCustomersCount($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("datecreated >=", $start_date);
+            $this->db->where("datecreated <=", $end_date);
+        }
+        $query = $this->db->get('tblclients');
+        return $query->num_rows();
+    }
+
+    public function getEngagementData($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("dateadded >=", $start_date);
+            $this->db->where("dateadded <=", $end_date);
+        }
         $this->db->select('tblleads.status');
         $this->db->join('tblleads_status', 'tblleads.status = tblleads_status.id');
         $result = $this->db->get('tblleads');
@@ -1562,7 +1636,11 @@ public function get_total_leads() {
             'interactions' => $interactions,
         ];
     }
-    public function getLeadSources() {
+    public function getLeadSources($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("dateadded >=", $start_date);
+            $this->db->where("dateadded <=", $end_date);
+        }
         $this->db->select('tblleads_sources.name AS source_name, COUNT(tblleads.id) AS total');
         $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left');
         $this->db->group_by('tblleads.source');
@@ -1582,7 +1660,11 @@ public function get_total_leads() {
         return $leadSources;
     }
 
-    public function get_top_lead_source() {
+    public function get_top_lead_source($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("dateadded >=", $start_date);
+            $this->db->where("dateadded <=", $end_date);
+        }
         $this->db->select('tblleads_sources.name'); // Selecting the name column from the source table
         $this->db->from('tblleads');
         $this->db->join('tblleads_sources', 'tblleads.source = tblleads_sources.id', 'left'); // Joining on the source ID
@@ -1600,7 +1682,11 @@ public function get_total_leads() {
         return 0;  // for example, 150 leads haven't responded
     }
 
-    public function get_campaign_performance() {
+    public function get_campaign_performance($start_date = null, $end_date = null) {
+        if ($start_date && $end_date) {
+            $this->db->where("created_at >=", $start_date);
+            $this->db->where("created_at <=", $end_date);
+        }
         // 'lead' ke saath matching rows ko count kare
         $this->db->where('sent_by', 'lead');
         $total_leads_sent_by_lead = $this->db->count_all_results('tbl_leadsinbox');

@@ -53,6 +53,8 @@
 
 <div id="wrapper">
     <div class="container">
+        <!-- Date Picker Fields -->
+
         <div class="row">
             <div class="col-12 text-center my-3">
                 <h2 class="text-2xl text-gray-900 mb-6 heading ">Lead Dashboard</h2>

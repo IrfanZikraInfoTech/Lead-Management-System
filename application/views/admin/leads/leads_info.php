@@ -2,6 +2,7 @@
 <?php init_head(); ?>
 
 <div id="wrapper" class="bg-gray-100">
+
     <div class="content mx-auto py-0.5">
 
         <div class="relative w-full">
@@ -111,6 +112,57 @@
                                 <span class="font-semibold">Description:</span>
                                 <span class="cursor-pointer"><?= $lead->description ?: '<i class="fas fa-align-left" title="No Description Available"></i>'; ?></span>
                             </div>
+                            
+                            <?php
+                                if (isset($territories) && !empty($territories[0]['data'])) {
+                                    $decoded_data = json_decode($territories[0]['data'], true);
+
+                                    if ($decoded_data === null) {
+                                        echo "JSON decoding failed";
+                                        return;
+                                    }
+
+                                    if (!empty($decoded_data)) {
+                                        if (isset($decoded_data['stats'])) {
+                                            $stats_data = $decoded_data['stats'];
+                                ?>
+                                <div class="flex justify-between text-lg text-gray-700 mb-3">
+                                    <span class="font-semibold">Territory</span>
+                                </div>
+                                <div >
+                                    <table class="w-full bg-gray-100 rounded-md overflow-hidden">
+                                        <thead>
+                                            <tr>
+                                                <th class="py-2 border-b text-left text-gray-900" style="font-size: larger; font-weight: bold;">Name</th>
+                                                <th class="py-2 px-3 border-b text-right text-gray-900" style="font-size: larger; font-weight: bold;">Estimate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="stats-table-body" class="divide-y divide-gray-200">
+                                            <?php
+                                            foreach ($stats_data as $key => $value) {
+                                                echo '<tr>';
+                                                echo '<td class="py-2">' . $key . '</td>';
+                                                echo '<td class="py-2 px-3 text-right">' . $value . '</td>';
+                                                echo '</tr>';
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    <?php
+                                    }
+                                }
+                                }
+                                else {
+                                ?>
+                                    <div class="flex justify-between text-lg text-gray-700 mb-3">
+                                        <span class="font-semibold">Territory:</span>
+                                        <span class="cursor-pointer"><?= $lead->description ?: '<i class="fas fa-align-left" title="No Territory Available"></i>'; ?></span>
+                                    </div>
+                                    <?php
+                                }
+                            ?>
+
                     </div>
                 </div>
             
@@ -395,43 +447,46 @@
                             </div>
 
 
-                            <div class="tab-pane fade text-gray-800 p-4" role="tabpanel" id="invoices"aria-labelledby="invoices-tab">
-                                <?php if (has_permission('proposals', '', 'create')) { ?>
-                                <a href="<?php echo admin_url('invoices/invoice'); ?>"
-                                    class="btn btn-primary mbot25"><?php echo 'New Invoice'; ?></a>
-                                <?php } ?>
-                                <div class="bg-white">
-                                    <table id="table_invoices" class="table no-scrollbar">
-                                        <thead class="bg-gray-200">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Amount</th>
-                                                <th>Total Tax</th>
-                                                <th>Date</th>
-                                                <th>Proposal</th>
-                                                <th>Project</th>
-                                                <th>Due Date</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="text-gray-600">
-                                        <?php foreach ($invoices as $invoice) : ?>
-                                            <tr>
-                                                <td><?php echo '<a href="' . admin_url('invoices/list_invoices/' . $invoice['id']) . '" target="_blank">' . format_invoice_number($invoice['id']) . '</a>'; ?></td>
-                                                <td><?php echo $invoice['total']; ?></td>
-                                                <td><?php echo $invoice['total_tax']; ?></td>
-                                                <td><?php echo $invoice['date']; ?></td>
-                                                <td><?php echo $invoice['proposal_subject']; ?></td>
-                                                <td><?php echo $invoice['project_name']; ?></td>
-                                                <td><?php echo $invoice['duedate']; ?></td>
-                                                <td><?php echo $invoice['status']; ?></td>
-                                            </tr>
-                                        <?php endforeach; ?>
+                            <div class="tab-pane fade text-gray-800 p-4" role="tabpanel" id="invoices" aria-labelledby="invoices-tab">
+    <?php if (has_permission('proposals', '', 'create')) { ?>
+    <a href="<?php echo admin_url('invoices/invoice'); ?>"
+        class="btn btn-primary mbot25 mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><?php echo 'New Invoice'; ?></a>
+    <?php } ?>
+    <div class="w-full mx-auto" style="overflow:auto">
+        <div class="bg-white">
+            <table id="table_invoices" class="table no-scrollbar">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th>#</th>
+                        <th>Amount</th>
+                        <th>Total Tax</th>
+                        <th>Date</th>
+                        <th>Proposal</th>
+                        <th>Project</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600">
+                <?php foreach ($invoices as $invoice) : ?>
+                    <tr>
+                        <td><?php echo '<a href="' . admin_url('invoices/list_invoices/' . $invoice['id']) . '" target="_blank">' . format_invoice_number($invoice['id']) . '</a>'; ?></td>
+                        <td><?php echo $invoice['total']; ?></td>
+                        <td><?php echo $invoice['total_tax']; ?></td>
+                        <td><?php echo $invoice['date']; ?></td>
+                        <td><?php echo $invoice['proposal_subject']; ?></td>
+                        <td><?php echo $invoice['project_name']; ?></td>
+                        <td><?php echo $invoice['duedate']; ?></td>
+                        <td><?php echo $invoice['status']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
 
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 
                             <div class="tab-pane fade text-gray-800 p-4" id="tasks" role="tabpanel"aria-labelledby="tasks-tab">
                                 <?php init_relation_tasks_table(['data-new-rel-id' => $lead->id, 'data-new-rel-type' => 'lead']); ?>

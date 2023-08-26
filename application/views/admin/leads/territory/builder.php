@@ -123,7 +123,6 @@
                 </div>
 
                 <div class="w-full p-6 bg-white shadow-lg rounded-lg space-y-6">
-
                     <table class="w-full bg-white rounded-md overflow-hidden">
                         <thead class="bg-gray-100 ">
                             <tr>
@@ -142,7 +141,6 @@
                             <?php endif; ?>
                         </tbody>
                     </table>
-                
                 </div>
 
                 <div class="w-full p-6 bg-white shadow-lg rounded-lg space-y-6">

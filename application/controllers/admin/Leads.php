@@ -54,23 +54,27 @@ class Leads extends AdminController
     // widgets work
     public function index() {
         $this->load->model('Leads_model');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+    
+        $this->load->model('Leads_model');
+        $total_leads = $this->Leads_model->get_total_leads( );  // Fixed: changed 'leads_model' to 'Leads_model'
+    
+        // $total_leads= $this->leads_model->get_total_leads();
 
- // ctop cards
-        $total_leads= $this->leads_model->get_total_leads();
+        $new_customers_count =$this->leads_model->getNewCustomersCount( );
 
-        $new_customers_count =$this->leads_model->getNewCustomersCount();
-
-        $engagement_data=  $this->leads_model->getEngagementData();
-        $leadSources = $this->leads_model->getLeadSources(); // Assuming a function to get lead sources from the model
-        $top_lead_source= $this->leads_model->get_top_lead_source();
+        $engagement_data=  $this->leads_model->getEngagementData( );
+        $leadSources = $this->leads_model->getLeadSources( ); // Assuming a function to get lead sources from the model
+        $top_lead_source= $this->leads_model->get_top_lead_source( );
         $leads_not_responded= $this->leads_model->getLeadsNotRespondedInAWeek();
-        $campaign_performance=$this->leads_model->get_campaign_performance();
+        $campaign_performance=$this->leads_model->get_campaign_performance( );
         
         // Fetch lead status counts
-        $statusCharts = $this->Leads_model->statusCharts();
+        $statusCharts = $this->Leads_model->statusCharts( );
         
         // Fetch lead source counts
-        $sourceTrackingChart = $this->Leads_model->sourceTrackingChart();
+        $sourceTrackingChart = $this->Leads_model->sourceTrackingChart( );
         $totalLeadsFromSources = array_sum($sourceTrackingChart);
         $leadSources = [];
         foreach ($sourceTrackingChart as $source => $count) {
@@ -80,6 +84,7 @@ class Leads extends AdminController
                 'count' => round($percentage), // This will round the percentage to the nearest whole number
             ];
         }
+        
         
         // Sort the lead sources by count in descending order
         usort($leadSources, function ($a, $b) {
@@ -92,7 +97,7 @@ class Leads extends AdminController
 
         
         // Fetch lead distribution by salesperson
-        $leadsBySalesperson = $this->Leads_model->getLeadsBySalesperson();
+        $leadsBySalesperson = $this->Leads_model->getLeadsBySalesperson( );
     
         // Fetch Lead Conversion Rates
         $conversionRates = $this->Leads_model->getLeadConversionRates();
@@ -101,21 +106,21 @@ class Leads extends AdminController
         $leadLifecycleData = $this->Leads_model->getLeadLifecycleData();
         
         // Fetch Lead Response Times
-        $leadResponseTimes = $this->Leads_model->get_lead_response_times(); // Assuming you've added this function to your Leads_model.
+        $leadResponseTimes = $this->Leads_model->get_lead_response_times( ); // Assuming you've added this function to your Leads_model.
     
         //getLeadInteractions
         $leadInteractions = $this->Leads_model->getLeadInteractions();
         
         // ctop cards
-        $total_leads= $this->leads_model->get_total_leads();
+        $total_leads= $this->leads_model->get_total_leads( );
 
-        $new_customers_count =$this->leads_model->getNewCustomersCount();
+        $new_customers_count =$this->leads_model->getNewCustomersCount( );
 
-        $engagement_data=  $this->leads_model->getEngagementData();
-        $leadSources = $this->leads_model->getLeadSources(); // Assuming a function to get lead sources from the model
-        $top_lead_source= $this->leads_model->get_top_lead_source();
-        $leads_not_responded= $this->leads_model->getLeadsNotRespondedInAWeek();
-        $campaign_performance=$this->leads_model->get_campaign_performance();
+        $engagement_data=  $this->leads_model->getEngagementData( );
+        $leadSources = $this->leads_model->getLeadSources( ); // Assuming a function to get lead sources from the model
+        $top_lead_source= $this->leads_model->get_top_lead_source( );
+        $leads_not_responded= $this->leads_model->getLeadsNotRespondedInAWeek( );
+        $campaign_performance=$this->leads_model->get_campaign_performance( );
 
 
         // Send all data sets to the view
@@ -144,6 +149,8 @@ class Leads extends AdminController
         $data['territory'] = $this->leads_model->get_territory($id);
         $this->load->view('admin/dynamic_pdf/index', $data);
     }
+  
+    
     
     
     //widget work end 
@@ -172,6 +179,12 @@ class Leads extends AdminController
         $data['statuses'] = $this->leads_model->get_status();
         $data['sources']  = $this->leads_model->get_source();
         $data['title']    = _l('leads');
+        
+        $data['territories'] = $this->leads_model->get_territories();
+        // echo json_encode(['territories' => $data]);
+        // var_dump($data);
+        // $this->load->view('admin/leads/profile', $data);
+        
         // in case accesed the url leads/index/ directly with id - used in search
         $data['leadid']   = $id;
         $data['isKanBan'] = $this->session->has_userdata('leads_kanban_view') &&
@@ -179,7 +192,15 @@ class Leads extends AdminController
 
         $this->load->view('admin/leads/manage_leads', $data);
     }
-    
+    public function get_territories()
+    {
+        $data['territories'] = $this->leads_model->get_territories();
+        echo json_encode(['territories' => $data]);
+        // var_dump($data);
+        $this->load->view('admin/leads/profile', $data);
+    }
+        
+
     public function save_flow() {
         $flowItems = $this->input->post('flowItems');
         $id = $this->input->post('id'); // If you're updating an existing record
@@ -261,11 +282,15 @@ class Leads extends AdminController
             $data['total_attachments'] = $leadProfileBadges->getCount('attachments');
             $data['total_tasks']       = $leadProfileBadges->getCount('tasks');
             $data['total_proposals']   = $leadProfileBadges->getCount('proposals');
-            // $data['total_events']      = $leadProfileBadges->getCount('events');
         }
 
         $data['statuses'] = $this->leads_model->get_status();
         $data['sources']  = $this->leads_model->get_source();
+        $data['territories'] = $this->leads_model->get_lead_with_territory($id);
+        
+
+
+
 
         $data = hooks()->apply_filters('lead_view_data', $data);
 
@@ -285,7 +310,24 @@ class Leads extends AdminController
 
         $this->load->view('admin/leads/leads_info', $data);
     }
+    // public function leads_with_territory() {
+    //     $this->load->model('your_model_name');
+    //     $leads = $this->leads_model->get_leads_with_territory();
+    //     $leads_with_territory = array_filter($leads, function($lead) {
+    //         return !is_null($lead['territory_column']);
+    //     });
+    //     $data['leads_with_territory'] = $leads_with_territory;
+    //     $this->load->view('your_view', $data);
+    // }
+    public function filter_leads()
+    {
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        
+        $filtered_leads = $this->leads_model->get_filtered_leads( );
 
+        echo json_encode($filtered_leads);
+    }
     public function territories(){
         $data['territories'] = $this->leads_model->get_territories();
         $this->load->view("admin/leads/territory/manage", $data);
@@ -444,6 +486,10 @@ class Leads extends AdminController
             if (isset($post_data['assigned']) && is_array($post_data['assigned'])) {
                 $post_data['assigned'] = implode(',', $post_data['assigned']);
             }
+            if (isset($post_data['lead_territiry'])) {
+                $post_data['rel_id'] = $post_data['lead_territiry']; 
+                unset($post_data['lead_territiry']);
+            }
             if ($id == '') {
                 $id      = $this->leads_model->add($post_data);
                 $message = $id ? _l('added_successfully', _l('lead')) : '';
@@ -534,11 +580,13 @@ class Leads extends AdminController
             $data['total_attachments'] = $leadProfileBadges->getCount('attachments');
             $data['total_tasks']       = $leadProfileBadges->getCount('tasks');
             $data['total_proposals']   = $leadProfileBadges->getCount('proposals');
-            $data['total_events']      = $leadProfileBadges->getCount('events');
+            $data['total_events']      = $leadProfileBadges->getCount('events'); 
         }
     
         $data['statuses'] = $this->leads_model->get_status();
         $data['sources']  = $this->leads_model->get_source();
+        $data['territories'] = $this->leads_model->get_territories();
+
     
         $data = hooks()->apply_filters('lead_view_data', $data);
     

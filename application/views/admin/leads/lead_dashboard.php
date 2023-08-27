@@ -61,7 +61,7 @@
             </div> 
             <!-- top cards -->
             <div class="flex flex-wrap gap-3 justify-start ">
-                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 ">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
                             <p id=" total_leads" class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast "><?php echo $total_leads; ?></p>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 ">
                         <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
                             <p id="new_customers_count" class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast" data-target="<?= $new_customers_count ?>"><?= $new_customers_count ?></p>
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 ">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-6">
                             <p class="text-2xl mb-2 font-bold text-[rgba(0,135,171)] lms-contrast"><?= $top_lead_source ?></p>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 ">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-6">
                             <p class="text-3xl font-extrabold text-[rgba(0,135,171)] lms-contrast" id="leadsNotResponded"><?= $leads_not_responded ?></p>
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 cursor-pointer">
+                <div class="w-full xl:w-1/4 lg:flex-grow lg:w-1/4 md:w-2/4 p-4 ">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">
                         <div class="mr-5">
                         <p class="text-2xl font-semibold text-[rgba(0,135,171)] lms-contrast"><?= $campaign_performance['conversion_rate'] ?>%</p>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
 
-                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                <div class="w-full lg:flex-grow md:flex-grow-0 lg:w-1/4 md:w-1/2 p-4 ">
                     <div class="bg-white p-6 rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200 transform transition-all duration-500 ease-in-out hover:scale-105 relative flex items-center justify-center">    
                         <div class="mr-6">
                             <p class="text-lg mb-2 text-[rgba(0,135,171)] lms-contrast">Interactions: <span class="font-extrabold "><?= $engagement_data['interactions'] ?>%</span></p>
@@ -135,7 +135,7 @@
         <div class="flex flex-row gap-4 mt-4 d-flex align-items-stretch ">
             <!-- lead Distribution -->
             <div class="md:w-2/4 w-full mb-4 ">
-                <div class="card bg-white shadow-lg rounded-lg hoverable py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card bg-white shadow-lg rounded-lg hoverable py-3  rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Status Distribution</h2>
                         <div class="d-flex justify-content-center">
@@ -146,7 +146,7 @@
             </div>
             <!-- Lead Source Tracking Card -->
         <div class="md:w-1/2 w-full mb-4">
-            <div class="h-full card bg-white shadow-lg rounded-lg hoverable h-100 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+            <div class="h-full card bg-white shadow-lg rounded-lg hoverable h-100  rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                     <h2 class="card-title ms-1 text-uppercase text-center py-2" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Source Tracking</h2>
                     <div class="d-flex justify-content-center w-full px-4">
@@ -159,7 +159,7 @@
         <div class="row mt-4 d-flex align-items-stretch">
             <!-- Lead Distribution by Salesperson -->
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div  class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div  class="card bg-white shadow-lg rounded-lg hoverable h-100   rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Distribution by Salesperson</h2>
                         <div class="d-flex justify-content-center">
@@ -170,7 +170,7 @@
             </div>
             <!-- Lead Conversion Rate Over Time -->
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4 ">
-                <div  class="card bg-white shadow-lg rounded-lg hoverable h-100  cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div  class="card bg-white shadow-lg rounded-lg hoverable h-100   rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Conversion Rate Over Time</h2>
                         <div class="d-flex justify-content-center">
@@ -183,11 +183,18 @@
         <div class="row mt-4 d-flex align-items-stretch ">
             <!-- lead source top 3 -->
             <div class="col-lg-3 col-md-3 col-sm-12 mb-4">
-                <div class=" card bg-white shadow-lg rounded-lg hoverable  py-1 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class=" card bg-white shadow-lg rounded-lg hoverable  py-1  rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
                                 Top Leads Source</h2>
-                        <?php foreach ($leadSources as $source): ?>
+                        <?php
+                        $totalCount = 0;
+                        foreach($leadSources as $source){
+                            $totalCount += $source['count'];
+                        }
+
+
+                        foreach ($leadSources as $source): ?>
                             <div class="mb-4 flex flex-col items-center">
                                 <div class="relative w-32 h-32">
                                     <svg class="absolute transform -rotate-90" width="100%" height="95%" viewBox="0 0 42 42">
@@ -198,11 +205,11 @@
                                             </linearGradient>
                                         </defs>
                                         <circle class="text-gray-300" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="#f3f3f3" stroke-width="5"></circle>
-                                        <circle class="text-blue-600" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="url(#gradient)" stroke-width="5" stroke-dasharray="<?= $source['count'] * 0.3183098861837907 ?>, 100"></circle>
+                                        <circle class="text-blue-600" r="15.91549430918954" cx="21" cy="21" fill="transparent" stroke="url(#gradient)" stroke-width="5" stroke-dasharray="<?= round(($source['count']/$totalCount)*100, 2) ?>, 100"></circle>
                                     </svg>
 
                                         <div class="absolute top-0 left-0 flex justify-center items-center w-full h-full">
-                                            <p class="text-2xl font-semibold"><?= $source['count'] ?>%</p>
+                                            <p class="text-2xl font-semibold"><?= round(($source['count']/$totalCount)*100, 2) ?>%</p>
                                         </div>
                                 </div>
                                 <p class="text-gray-600 font-bold text-center mb-2"><?= $source['source'] ?></p>
@@ -214,12 +221,12 @@
 
                 <!-- calender -->
             <div class="col-lg-9 col-md-9 col-sm-12 mb-4">
-                <div class="card bg-white shadow-lg rounded-lg hoverable h-95 py-3 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-95 py-3  rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4" style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">
                         Event Calendar</h2>
                         <div class="d-flex justify-content-center w-[85%] h-[500px] mx-auto overflow-x-auto overflow-y-auto">
-                            <div id="calendar" class="w-full h-full"></div>
+                            <div id="events-calendar" class="w-full h-full"></div>
                         </div>
                     </div>
                 </div>
@@ -228,9 +235,9 @@
         <div class="flex flex-row gap-4 text-center">
             <!-- lifecycle -->
             <div class="lg:w-4/5 w-full mb-4 ">
-                <div class="card bg-white shadow-lg rounded-lg hoverable h-auto  cursor-pointer rounded-[20px]      
+                <div class="card bg-white h-full shadow-lg rounded-lg hoverable h-auto   rounded-[20px]      
                     shadow-xl hover:shadow-2xl border border-gray-200">
-                    <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
+                    <div class="h-full card-body d-flex flex-column justify-content-center align-items-center py-4">
                     <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Lifecycle</h2>
                         <div class="d-flex justify-content-center">
                             <canvas class="mx-auto"id="leadLifecycleChart" style="max-width: 80%; height: auto;"></canvas>
@@ -240,22 +247,22 @@
             </div>
             <!-- quick actions -->
             <div class="lg:w-1/5 w-full mb-4">
-                <div class="h-full card bg-white shadow-lg rounded-lg cursor-pointer rounded-[20px] shadow-xl border border-gray-200 transition-all duration-300">
+                <div class="h-full card bg-white shadow-lg rounded-lg  rounded-[20px] shadow-xl border border-gray-200 transition-all duration-300">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-2 font-semibold text-gray-700">
                             Quick Actions
                         </h2>
                         <hr class="mx-auto my-4 w-1/3 bg-gray-300">
                         <div class="flex flex-col items-between justify-content-between ">
-                            <div title=" lead's list"class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                            <div title=" lead's list"class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl  active:translate-y-1 active:shadow-inner cursor-pointer"
                                 onclick="window.location.href='<?= admin_url('leads/list')?>'">
                                 <i class="fas fa-tasks text-white text-2xl"></i>
                             </div>
-                            <div title="lead lifecycle" class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                            <div title="lead lifecycle" class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl  active:translate-y-1 active:shadow-inner cursor-pointer"
                                 onclick="window.location.href='<?= admin_url('leads/lifecycle')?>'">
                                 <i class="fas fa-project-diagram text-white text-2xl"></i>
                             </div>
-                            <div title="teritory builder" class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl cursor-pointer active:translate-y-1 active:shadow-inner"
+                            <div title="teritory builder" class="mb-5 w-20 h-20 lms-contrast bg-[rgba(0,135,171)] rounded-full flex items-center justify-center mx-auto shadow-inner-xl relative transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl  active:translate-y-1 active:shadow-inner cursor-pointer"
                                 onclick="window.location.href='<?= admin_url('leads/territories')?>'">
                                 <i class="fas fa-map-marked-alt text-white text-2xl"></i>
                             </div>
@@ -264,10 +271,10 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4 d-flex align-items-stretch ">
-            <!-- response time -->
+        <!-- <div class="row mt-4 d-flex align-items-stretch ">
+            
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2  rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Response Time Distribution</h2>
                         <div class="d-flex justify-content-center">
@@ -276,9 +283,9 @@
                     </div>
                 </div>
             </div>
-            <!-- history -->
+            
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2 cursor-pointer rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
+                <div class="card bg-white shadow-lg rounded-lg hoverable h-100 py-2  rounded-[20px] shadow-xl hover:shadow-2xl border border-gray-200">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center py-4">
                         <h2 class="card-title ms-1 text-uppercase text-center mb-4"style="font-weight: bold; color: #343a40; letter-spacing: 1.5px;">Lead Interaction History</h2>
                         <div class="d-flex justify-content-center">
@@ -287,13 +294,44 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- charts end -->
     </div>
 </div>
 
 <?php init_tail(); ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.3/chart.min.js" integrity="sha512-fMPPLjF/Xr7Ga0679WgtqoSyfUoQgdt8IIxJymStR5zV3Fyb6B3u/8DcaZ6R6sXexk5Z64bCgo2TYyn760EdcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+
+<script>
+var eventsArray = <?= json_encode($events); ?>;
+
+var transformedEvents = eventsArray.map(function(event) {
+    return {
+        id: event.id,
+        title: event.event_name,
+        start: event.datetime,
+        url: event.link,
+        description: event.description
+        // add other needed fields
+    };
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('events-calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    timeZone: 'America/New_York', // Set your desired time zone here
+    events: transformedEvents // Here's where the events get passed in
+  });
+
+  calendar.render();
+});
+
+</script>
+
 <script>
 
 
@@ -351,13 +389,25 @@ var leadStatusChart = new Chart(ctx, {
             backgroundColor: [
                 createGradient(ctx, colors.color1, adjustColor(colors.color1,-20)),
                 createGradient(ctx, colors.color2, adjustColor(colors.color2,-20)),
-                createGradient(ctx, colors.color3, adjustColor(colors.color3,-20))
+                createGradient(ctx, colors.color3, adjustColor(colors.color3,-20)),
+                createGradient(ctx, colors.color1, adjustColor(colors.color1,-20)),
+                createGradient(ctx, colors.color2, adjustColor(colors.color2,-20)),
+                createGradient(ctx, colors.color3, adjustColor(colors.color3,-20)),
+                createGradient(ctx, colors.color1, adjustColor(colors.color1,-20)),
+                createGradient(ctx, colors.color2, adjustColor(colors.color2,-20)),
+                createGradient(ctx, colors.color3, adjustColor(colors.color3,-20)),
+                createGradient(ctx, colors.color1, adjustColor(colors.color1,-20)),
+                createGradient(ctx, colors.color2, adjustColor(colors.color2,-20)),
+                createGradient(ctx, colors.color3, adjustColor(colors.color3,-20)),
+                createGradient(ctx, colors.color1, adjustColor(colors.color1,-20)),
+                createGradient(ctx, colors.color2, adjustColor(colors.color2,-20)),
+                createGradient(ctx, colors.color3, adjustColor(colors.color3,-20)),
             ],
             hoverBackgroundColor: [colors.hoverColor, colors.hoverColor, colors.hoverColor],
-            borderColor: [colors.borderColor, colors.borderColor, colors.borderColor],
+            borderColor: colors.borderColor,
             borderWidth: 2, // Increased border width for more pronounced edges
             borderAlign: 'inner',
-            hoverBorderColor:  ['#fff', '#fff', '#fff'],
+            hoverBorderColor:  '#fff',
         }]
     },
     options: {
@@ -402,11 +452,6 @@ var leadStatusChart = new Chart(ctx, {
 var ctx = document.getElementById('leadSourceChart').getContext('2d');
 
 var gradient = createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)); // Background gradient
-var borderGradient = createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)); // Border gradient
-
-var borderGradient = ctx.createLinearGradient(0, 0, 0, 400);
-borderGradient.addColorStop(0, 'rgba(110, 231, 183, 1)');
-borderGradient.addColorStop(1, 'rgba(59, 167, 255, 1)');
 
 var leadSourceChart = new Chart(ctx, {
     type: 'bar',
@@ -417,7 +462,7 @@ var leadSourceChart = new Chart(ctx, {
             data: <?= $sourceTracking_values_json; ?>,
             label: 'All records',
             backgroundColor: gradient,
-            borderColor: borderGradient,
+            borderColor: colors.borderColor,
             borderWidth: 2,
             hoverBackgroundColor: colors.hoverColor,
             hoverBorderColor: colors.borderColor,
@@ -427,20 +472,6 @@ var leadSourceChart = new Chart(ctx, {
         // datasets: datasets
 
     },
-
-    // data: {
-    //         labels: sourceTracking_labels,
-    //         datasets: [{
-    //             data: sourceTracking_values,
-    //             backgroundColor: gradient,
-    //             borderColor: borderGradient,
-    //             borderWidth: 2,
-    //             hoverBackgroundColor: 'rgb(0, 135, 171)',
-    //             hoverBorderColor: 'rgb(0, 135, 171)',
-    //             borderRadius: 10,
-    //             borderSkipped: false
-    //         }]
-    //     },
 
 
     options: {
@@ -535,8 +566,8 @@ Chart.controllers.bar.prototype.draw = function() {
 // leadBySalespersonChart
 var ctx = document.getElementById('leadBySalespersonChart').getContext('2d');
 var gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
-gradientFill.addColorStop(0, 'rgba(110, 231, 183, 0.6)');  // Starting color with transparency
-gradientFill.addColorStop(1, 'rgba(59, 167, 255, 0.6)');   // Ending color with transparency
+gradientFill.addColorStop(0, colors.color1);  // Starting color with transparency
+gradientFill.addColorStop(1, colors.color2);   // Ending color with transparency
 
 var leadsBySalespersonData = <?= json_encode($leadsBySalesperson); ?>;
 var leadBySalespersonChart = new Chart(ctx, {
@@ -643,10 +674,20 @@ var ctx = document.getElementById('leadLifecycleChart').getContext('2d');
 var colors = [
     createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
     createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
-    createGradient(ctx, colors.color3, adjustColor(colors.color3, 20))
+    createGradient(ctx, colors.color3, adjustColor(colors.color3, 20)),
+    createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
+    createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
+    createGradient(ctx, colors.color3, adjustColor(colors.color3, 20)),
+    createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
+    createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
+    createGradient(ctx, colors.color3, adjustColor(colors.color3, 20)),
+    createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
+    createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
+    createGradient(ctx, colors.color3, adjustColor(colors.color3, 20)),
 ];
 
 var leadLifecycleData = <?= json_encode($leadLifecycleData)?>;
+// var leadLifecycleData = {"leads":["Capture Lead","1st Meet","Proposal Sent","Proposal Accepted","Converted"],"times":[2,3,1,0,8]};
 
 var lifecycleData = {
     labels: leadLifecycleData.leads,
@@ -714,7 +755,7 @@ document.addEventListener("DOMContentLoaded", function() {  // Ensure the DOM is
             datasets: [{
                 label: 'Response Time (hours)',
                 data: [2, 4, 1],
-                backgroundColor: [colors.color1, colors.color2, colors.color3],
+                backgroundColor: [colors.color1, colors.color2, colors.color3, colors.color1, colors.color2, colors.color3, colors.color1, colors.color2, colors.color3, colors.color1, colors.color2, colors.color3, ],
                 borderColor: colors.borderColor,
                 borderWidth: 2,
                 hoverBorderColor: ['#fff', '#fff', '#fff', '#fff'],
@@ -792,50 +833,6 @@ var leadInteractionChart = new Chart(ctx, {
 
 // // calender
 
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    timeZone: 'America/New_York', // Set your desired time zone here
-    events: [
-      {
-        title: 'Meeting',
-        start: '2023-08-10T10:00:00' // Use ISO 8601 format for accurate time
-      },
-      {
-        title: 'Conference',
-        start: '2023-08-15T14:00:00',
-        end: '2023-08-17T17:00:00'
-      }
-      // Add more events as needed
-    ]
-  });
-
-  calendar.render();
-});
-// document.addEventListener('DOMContentLoaded', function() {
-//   var calendarEl = document.getElementById('calendar');
-
-//   var calendar = new FullCalendar.Calendar(calendarEl, {
-//     initialView: 'dayGridMonth',
-//     timeZone: 'America/New_York', // Set your desired time zone here
-//     events: function(fetchInfo, successCallback, failureCallback) {
-//       $.ajax({
-//         url: '<?php echo base_url('leads/fetch_events_for_calander')?>', // Aapke controller ka path yahan dalein
-//         type: 'GET',
-//         success: function(data) {
-//           successCallback(data);
-//         },
-//         error: function() {
-//           failureCallback('There was an error while fetching events.');
-//         }
-//       });
-//     }
-//   });
-
-//   calendar.render();
-// });
 
 </script>
 

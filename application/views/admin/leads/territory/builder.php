@@ -1,5 +1,31 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php init_head(); ?>
+
+<style>
+.chart-hover{
+        background: rgb(0, 135, 171);
+    }
+    .chart-border{
+        background: rgba(85, 199, 219);
+    }
+    .chart-1{
+        background:rgba(110, 231, 183, 1);
+    }
+    .chart-2{
+        background:rgba(59, 167, 255, 1);
+    }
+    .chart-3{
+        background:rgba(85, 199, 219, 1);
+    }
+</style>
+
+<div id="chartsHoverColor" class="chart-hover"></div>
+<div id="chartsBorderColor" class="chart-border"></div>
+<div id="chartsColor1" class="chart-1"></div>
+<div id="chartsColor2" class="chart-2"></div>
+<div id="chartsColor3" class="chart-3"></div>
+
+
 <div id="wrapper">
     
     <?php if(isset($territory[0]['data'])){
@@ -699,12 +725,6 @@
 
     }?>
 
-    function createGradient(ctx, startColor, endColor) {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, startColor);
-        gradient.addColorStop(1, endColor);
-        return gradient;
-    }
 
     var genderPieChart;
     var ageDistributionChart;
@@ -712,7 +732,28 @@
     var medianIncomeChart;
     var housingPieChart;
 
+    
+    function getChartColors() {
+        return {
+            hoverColor: getComputedStyle(document.getElementById('chartsHoverColor')).backgroundColor,
+            borderColor: getComputedStyle(document.getElementById('chartsBorderColor')).backgroundColor,
+            color1: getComputedStyle(document.getElementById('chartsColor1')).backgroundColor,
+            color2: getComputedStyle(document.getElementById('chartsColor2')).backgroundColor,
+            color3: getComputedStyle(document.getElementById('chartsColor3')).backgroundColor
+        };
+    }
+
+    function adjustColor(color, amount) {
+        var colArr = color.substring(4, color.length - 1).split(',');
+        var r = parseInt(colArr[0]) + amount;
+        var g = parseInt(colArr[1]) + amount;
+        var b = parseInt(colArr[2]) + amount;
+        return 'rgb(' + Math.max(Math.min(r, 255), 0) + ',' + Math.max(Math.min(g, 255), 0) + ',' + Math.max(Math.min(b, 255), 0) + ')';
+    }
+
+
     function renderCharts(stats) {
+        
 
         if (genderPieChart) { 
             genderPieChart.destroy(); // Destroy the previous instance if it exists
@@ -730,6 +771,33 @@
             housingPieChart.destroy(); // Destroy the previous instance if it exists
         }
 
+        var colors = getChartColors();
+
+        function createGradient(ctx, startColor, endColor) {
+            let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, startColor);
+            gradient.addColorStop(1, endColor);
+            return gradient;
+        }
+
+        function pieBGs(ctx)
+        {
+            return [
+                        createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
+                        createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
+                        createGradient(ctx, colors.color3, adjustColor(colors.color3, 20)),
+                        createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
+                        createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
+                        createGradient(ctx, colors.color3, adjustColor(colors.color3, 20)),
+                        createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
+                        createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
+                        createGradient(ctx, colors.color3, adjustColor(colors.color3, 20)),
+                        createGradient(ctx, colors.color1, adjustColor(colors.color1, 20)),
+                        createGradient(ctx, colors.color2, adjustColor(colors.color2, 20)),
+                        createGradient(ctx, colors.color3, adjustColor(colors.color3, 20)),
+                    ];
+        }
+
 
         // Gender Distribution Pie Chart
         var ctx = document.getElementById("genderPieChart").getContext('2d');
@@ -739,11 +807,8 @@
                 labels: ["Male", "Female"],
                 datasets: [{
                     data: [stats['% Male'], stats['% Female']],
-                    backgroundColor: [
-                        createGradient(ctx, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 1)'),
-                        createGradient(ctx, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 1)')
-                    ],
-                    hoverBackgroundColor: ['rgb(0, 135, 171)','rgb(0, 135, 171)','rgb(0, 135, 171)'],
+                    backgroundColor: pieBGs(ctx),
+                    hoverBackgroundColor: colors.hoverColor,
                     borderColor: ['#fff', '#fff', '#fff'],
                     borderWidth: 2, // Increased border width for more pronounced edges
                     borderAlign: 'inner',
@@ -781,10 +846,6 @@
 
 
         var ctx = document.getElementById('ageBarChart').getContext('2d');
-        var gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
-        gradientFill.addColorStop(0, 'rgba(110, 231, 183, 0.6)');  // Starting color with transparency
-        gradientFill.addColorStop(1, 'rgba(59, 167, 255, 0.6)');   // Ending color with transparency
-
         // Age Distribution Bar Chart
         ageDistributionChart = new Chart(document.getElementById("ageBarChart"), {
             type: 'line',
@@ -799,10 +860,10 @@
                         stats['% Working Age (25 to 64)'], 
                         stats['% 65 and Over']
                     ],
-                    backgroundColor: gradientFill,  // Use the gradient fill here
-                    borderColor: ['#3BA7FF'],
+                    backgroundColor:  createGradient(ctx, colors.color1, colors.color2),  // Use the gradient fill here
+                    borderColor: colors.borderColor,
                     borderWidth: 3,
-                    pointBackgroundColor: '#3BA7FF',   // Point color
+                    pointBackgroundColor: colors.borderColor,   // Point color
                     pointBorderColor: '#fff',          // Point border color
                     pointRadius: 5,                    // Point size
                     pointHoverRadius: 7,               // Point size on hover
@@ -826,20 +887,12 @@
                 labels: ["White", "Black or African American", "Asian", "Native Hawaiian", "Some Other Race", "Two or More Races", "Hispanic (of Any Race)"],
                 datasets: [{
                     data: [stats['% White'], stats['% Black or African American'], stats['% Asian'], stats['% Native Hawaiian'], stats['% Some Other Race'], stats['% Two or More Races'], stats['% Hispanic (of Any Race)']],
-                    backgroundColor: [
-                        createGradient(ctxRace, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 1)'),
-                        createGradient(ctxRace, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 1)'),
-                        createGradient(ctxRace, 'rgba(85, 199, 219, 0.6)', 'rgba(85, 199, 219, 1)'),
-                        createGradient(ctxRace, 'rgba(245, 166, 35, 0.6)', 'rgba(245, 166, 35, 1)'),
-                        createGradient(ctxRace, 'rgba(255, 102, 204, 0.6)', 'rgba(255, 102, 204, 1)'),
-                        createGradient(ctxRace, 'rgba(102, 255, 102, 0.6)', 'rgba(102, 255, 102, 1)'),
-                        createGradient(ctxRace, 'rgba(160, 82, 45, 0.6)', 'rgba(160, 82, 45, 1)')
-                    ],
-                    hoverBackgroundColor: ['rgb(0, 135, 171)','rgb(0, 135, 171)','rgb(0, 135, 171)'],
-                    borderColor: ['#fff', '#fff', '#fff'],
+                    backgroundColor: pieBGs(ctxRace),
+                    hoverBackgroundColor: colors.hoverColor,
+                    borderColor: '#fff',
                     borderWidth: 2, // Increased border width for more pronounced edges
                     borderAlign: 'inner',
-                    hoverBorderColor:  ['#fff', '#fff', '#fff'],
+                    hoverBorderColor:  '#fff',
                 }]
             },
             options: {
@@ -884,8 +937,8 @@
                 datasets: [{
                     label: 'Income in $',
                     data: [stats['Median Income']],
-                    backgroundColor: gradientIncome, // use the gradient fill
-                    borderColor: ['#3BA7FF'],
+                    backgroundColor: pieBGs(ctxIncome), // use the gradient fill
+                    borderColor: colors.borderColor,
                     borderWidth: 2,
                     hoverBackgroundColor: 'rgb(0, 135, 171)',
                     hoverBorderColor:  ['#fff'],
@@ -905,15 +958,12 @@
                 labels: ["Owned", "Rented"],
                 datasets: [{
                     data: [stats['% Owned Houses'], stats['% Rented Houses']],
-                    backgroundColor: [
-                        createGradient(ctxHousing, 'rgba(110, 231, 183, 0.6)', 'rgba(110, 231, 183, 1)'),
-                        createGradient(ctxHousing, 'rgba(59, 167, 255, 0.6)', 'rgba(59, 167, 255, 1)')
-                    ],
-                    hoverBackgroundColor: ['rgb(0, 135, 171)','rgb(0, 135, 171)','rgb(0, 135, 171)'],
-                    borderColor: ['#fff', '#fff', '#fff'],
+                    backgroundColor: pieBGs(ctxHousing),
+                    hoverBackgroundColor: colors.hoverColor,
+                    borderColor: colors.borderColor,
                     borderWidth: 2, // Increased border width for more pronounced edges
                     borderAlign: 'inner',
-                    hoverBorderColor:  ['#fff', '#fff', '#fff'],
+                    hoverBorderColor:  '#fff',
                 }]
             },
             options: {

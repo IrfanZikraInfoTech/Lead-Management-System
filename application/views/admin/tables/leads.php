@@ -73,7 +73,8 @@ if (!$filter || ($filter && $filter != 'lost' && $filter != 'junk')) {
 }
 
 if (has_permission('leads', '', 'view') && $this->ci->input->post('assigned')) {
-    array_push($where, 'AND assigned =' . $this->ci->db->escape_str($this->ci->input->post('assigned')));
+    array_push($where, "AND FIND_IN_SET(" . $this->ci->db->escape_str($this->ci->input->post('assigned')) . ", assigned) > 0");
+
 }
 
 if ($this->ci->input->post('status')

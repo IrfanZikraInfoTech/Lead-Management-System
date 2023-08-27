@@ -466,7 +466,7 @@
                 <!-- Lead Territory -->
                 <div class="form-group">
                     <label for="Lead Territiry" class="control-label"><?php echo _l('Lead Territiry'); ?></label>
-                    <select name="lead_territiry" data-live-search="true" id="territory-dropdown" class="form-control">
+                    <select name="territory_id" data-live-search="true" id="territory-dropdown" class="form-control">
                         <option value="" disabled selected>Select territory</option> <!-- Placeholder option -->
                         <?php
                         foreach($territories as $territory){

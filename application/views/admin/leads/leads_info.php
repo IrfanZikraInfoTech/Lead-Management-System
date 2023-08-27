@@ -15,24 +15,27 @@
 <?php init_head(); ?>
 
 <div id="wrapper" class="bg-gray-100">
-    <div class="content mx-auto py-0.5 pt-8">
+    <div class="content mx-auto py-0.5 py-8">
 
         <div class="relative w-full">
 
-            <div class="w-full rounded-t-2xl shadow-lg z-10 text-white font-semibold bg-cyan-600 lms-contrast ">
+            <div class="w-full rounded-t-2xl shadow-lg z-10 text-white font-semibold bg-cyan-600 lms-contrast">
+
                 <div class="pb-16">
-                <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-8"><?php echo $lead->name; ?></div>
-                <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-4"><?php echo $lead->status_name; ?></div>
 
-                        <div class="text-sm sm:text-md flex mt-6 pl-5 mx-3">
-                            <div><?php echo $lead->email ? $lead->email : '<i class="cursor-pointer fas fa-envelope" title="No Email Available"></i>'; ?></div>
-                            <div class="mx-2">|</div>
-                            <div><?php echo $lead->phonenumber ? $lead->phonenumber : '<i class="cursor-pointer fas fa-phone" title="No Phone number Available"></i>'; ?></div>
-                            <div class="mx-2">|</div>
-                            <div><?php echo ($lead->city && $lead->country) ? ($lead->city . ', ' . $lead->country) : '<i class="cursor-pointer fas fa-map-marker-alt" title="No city/Country Available"></i>'; ?></div>
-                        </div>
+                    <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-8"><?php echo $lead->name; ?></div>
 
+                    <div class="text-xl sm:text-xl md:text-2xl font-bold px-8 pt-4"><?php echo $lead->status_name; ?></div>
+
+                    <div class="text-sm sm:text-md flex mt-6 pl-5 mx-3">
+                        <div><?php echo $lead->email ? $lead->email : '<i class="cursor-pointer fas fa-envelope" title="No Email Available"></i>'; ?></div>
+                        <div class="mx-2">|</div>
+                        <div><?php echo $lead->phonenumber ? $lead->phonenumber : '<i class="cursor-pointer fas fa-phone" title="No Phone number Available"></i>'; ?></div>
+                        <div class="mx-2">|</div>
+                        <div><?php echo ($lead->city && $lead->country) ? ($lead->city . ', ' . $lead->country) : '<i class="cursor-pointer fas fa-map-marker-alt" title="No city/Country Available"></i>'; ?></div>
                     </div>
+
+                </div>
                     <!-- Buttons at the top-right -->
                     <div class="absolute top-4 sm:top-8 md:top-8 right-4 sm:right-8 flex flex-col space-y-2 sm:space-y-4">
                         <button onclick="window.history.back();" title="Manage leads" class="cursor-pointer bg-white text-info w-8 h-8 sm:w-10 sm:h-10 md:w-10 md:h-10 flex items-center justify-center rounded-full">                            
@@ -126,6 +129,7 @@
                                 ?>
                                 <div class="flex justify-between text-lg text-gray-700 mb-3">
                                     <span class="font-semibold">Territory</span>
+                                    <a href="<?= admin_url('leads/territory_builder/edit/'.$territories[0]['id']) ?>"><?= $territories[0]['title'] ?></a>
                                 </div>
                                 <div >
                                     <table class="w-full bg-gray-100 rounded-md overflow-hidden">
@@ -155,7 +159,7 @@
                                 ?>
                                     <div class="flex justify-between text-lg text-gray-700 mb-3">
                                         <span class="font-semibold">Territory:</span>
-                                        <span class="cursor-pointer"><?= $lead->description ?: '<i class="fas fa-map-marked-alt" title="No Territory Available"></i>'; ?></span>
+                                        <span class="cursor-pointer"><i class="fas fa-map-marked-alt" title="No Territory Available"></i></span>
                                     </div>
                                     <?php
                                 }
@@ -227,7 +231,7 @@
                                     <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200 rounded-t-xl" id="activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="true">Activity</a>
                                 </li>
                                 <li class="tab-item pt-[6px]">
-                                    <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200 rounded-t-xl" id="attachments-tab" data-toggle="tab" href="#attachments" role="tab" aria-controls="attachments" aria-selected="false">Attachments</a>
+                                    <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200 rounded-t-xl" id="attachments-tab" data-toggle="tab" href="#attachments" role="tab" aria-controls="attachments" aria-selected="false" onclick="init_lead(<?= $lead->id ?>, true);">Attachments</a>
                                 </li>
                                 <li class="tab-item pt-[6px]">
                                     <a class="text-lg text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-200 hover:bg-gray-200 rounded-t-xl" id="reminders-tab" data-toggle="tab" href="#reminders" role="tab" aria-controls="reminders" aria-selected="false" onclick="initDataTable('.table-reminders-leads', admin_url + 'misc/get_reminders/' + <?php echo $lead->id; ?> + '/' + 'lead', undefined, undefined,undefined,[1, 'asc']);">Reminders</a>
@@ -445,6 +449,7 @@
 
 
                             <div class="tab-pane fade text-gray-800 p-4" role="tabpanel" id="invoices"aria-labelledby="invoices-tab">
+
                                 <?php if (has_permission('proposals', '', 'create')) { ?>
                                 <a href="<?php echo admin_url('invoices/invoice'); ?>"
                                     class="btn btn-primary mbot25 "><?php echo 'New Invoice'; ?></a>
@@ -477,43 +482,13 @@
                                             </tr>
                                         <?php endforeach; ?>
 
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
 
                             <div class="tab-pane fade text-gray-800 p-4" id="tasks" role="tabpanel"aria-labelledby="tasks-tab">
                                 <?php init_relation_tasks_table(['data-new-rel-id' => $lead->id, 'data-new-rel-type' => 'lead']); ?>
-                            </div>
-
-                            <div role="tabpanel" class="tab-pane fade text-gray-800 p-4" id="attachments"aria-labelledby="attachments-tab" role="tabpanel">
-                                <?php echo form_open('admin/leads/add_lead_attachment', ['class' => 'dropzone mtop15 mbot15', 'id' => 'lead-attachment-upload']); ?>
-                                <?php echo form_close(); ?>
-                                <?php if (1 == 1) { ?>
-                                <hr />
-                                <div class=" pull-left">
-                                    <?php if (count($lead->attachments) > 0) { ?>
-                                    <a href="<?php echo admin_url('leads/download_files/' . $lead->id); ?>" class="bold">
-                                        <?php echo _l('download_all'); ?> (.zip)
-                                    </a>
-                                    <?php } ?>
-                                </div>
-                                <div class="tw-flex tw-justify-end tw-items-center tw-space-x-2">
-                                    <button class="gpicker">
-                                        <i class="fa-brands fa-google" aria-hidden="true"></i>
-                                        <?php echo _l('choose_from_google_drive'); ?>
-                                    </button>
-                                    <div id="dropbox-chooser-lead"></div>
-                                </div>
-                                <div class=" clearfix"></div>
-                                <?php } ?>
-                                <?php if (count($lead->attachments) > 0) { ?>
-                                <div class="mtop20" id="lead_attachments">
-                                    <?php $this->load->view('admin/leads/leads_attachments_template', ['attachments' => $lead->attachments]); ?>
-                                </div>
-                                <?php } ?>
                             </div>
 
                             <div role="tabpanel" class="tab-pane fade text-gray-800 p-4" id="reminders"aria-labelledby="reminders-tab">
@@ -852,22 +827,66 @@
     // Function to handle event form submission
     function onEventFormSubmit(e) {
         e.preventDefault();
+        
+        // Validate the meet link
+        var link = $("#meet_link").val();
+        var name = $("#event_name").val();
+        var description = $("#event_description").val();
+
+        var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i');
+        
+            // Check for empty name
+        if(name.trim() === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Event name cannot be empty!'
+            });
+            return;
+        }
+
+        // Check for empty description
+        if(description.trim() === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Event description cannot be empty!'
+            });
+            return;
+        }
+
+        if(!urlPattern.test(link)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please enter a valid meet link!'
+            });
+            return;
+        }
+
         $.ajax({
             url: "<?php echo admin_url('leads/event_create') ?>",
             type: "POST",
             data: $(this).serialize(),
             success: function (response) {
                 var jsonResponse = JSON.parse(response);
+
                 var name = $("#event_name").val();
                 var description = $("#event_description").val();
                 var link = $("#meet_link").val();
                 var date = $("#meeting_datetime").val();
                 var actualLink = $("#meeting_link").val();
+                
                 if (jsonResponse.status === "success") {
                     closeEventModal();
                     initEventSend(jsonResponse.id);
 
-                    // Construct the new event element
+                    // Existing code for constructing new event goes here...
                     var newEvent = `<div class="event-card transition-transform transform bg-white hover:scale-105 cursor-pointer border p-4 rounded shadow hover:shadow-lg"
                                     data-event-name="${name}"
                                     data-description="${description}"
@@ -885,12 +904,16 @@
                     $("#eventsContent .grid").append(newEvent);
 
                 } else {
-                    alert(jsonResponse.message);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: jsonResponse.message
+                    });
                 }
-
             }
         });
     }
+
 
     $(document).ready(function() {
         if (location.hash) {
@@ -1261,11 +1284,11 @@ function makeAIRequest(){
     let _url = '';
 
     if(rel_type == "compose"){
-        _url = '<?= admin_url("leads/compose_context/"); ?>'+rel_id+'/'+model+'/'+prompt;
-    }else if(rel_type == "proposal"){
-        _url = '<?= admin_url("leads/proposalAIRequest/"); ?>'+rel_id+'/'+model+'/'+prompt;
-    }else if(rel_type == "event"){
-        _url = '<?= admin_url("leads/eventAIRequest/"); ?>'+rel_id+'/'+model+'/'+prompt;
+        _url = '<?= admin_url("leads/compose_context/"); ?>' + rel_id + '/' + model + '/' + encodeURIComponent(prompt);
+    } else if(rel_type == "proposal"){
+        _url = '<?= admin_url("leads/proposalAIRequest/"); ?>' + rel_id + '/' + model + '/' + encodeURIComponent(prompt);
+    } else if(rel_type == "event"){
+        _url = '<?= admin_url("leads/eventAIRequest/"); ?>' + rel_id + '/' + model + '/' + encodeURIComponent(prompt);
     }
 
 
@@ -1514,14 +1537,15 @@ function initEventSend(id){
                     tinymce.get('body').setContent(response.body);
                     
                     initEmailMessage("Send Event", "event", id);
+                
+                } else{
+                Swal.fire(
+                    'Error!',
+                    response.message,
+                    'error'
+                ); 
+                }  
 
-                } else {
-                    Swal.fire(
-                        'Error!',
-                        'Some error!',
-                        'error'
-                    );
-                }
             },
             error: function() {
                 alert('An error occurred while processing the request.');
@@ -1658,13 +1682,13 @@ function initProposalModelSelection(id, contract = null){
                     let id_joined = id + ',' + (contract !== null ? contract : '');
                     initEmailMessage("Send Proposal", "proposal", id_joined);
 
-                } else {
-                    Swal.fire(
-                        'Error!',
-                        'Some error!',
-                        'error'
-                    );
-                }
+                } else{
+                Swal.fire(
+                    'Error!',
+                    response.message,
+                    'error'
+                ); 
+                }  
             },
             error: function() {
                 alert('An error occurred while processing the request.');
@@ -1828,6 +1852,12 @@ $(document).ready(function() {
     $("#contracts_table").DataTable({
         initComplete: function() {
         $('#contracts_table_wrapper').removeClass('table-loading');
+    }
+    });
+
+    $("#table_invoices").DataTable({
+        initComplete: function() {
+        $('#table_invoices_wrapper').removeClass('table-loading');
     }
     });
 

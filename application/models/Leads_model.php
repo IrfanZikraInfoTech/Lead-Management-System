@@ -35,9 +35,13 @@ class Leads_model extends App_Model
     }
     
     
-    public function get_all_events($lead_id) {
-        $this->db->where('rel_id
-        ', $lead_id); // Assuming 'lead_id' is the column that connects events to leads
+    public function get_all_events($lead_id = null) {
+
+        if($lead_id){
+            $this->db->where('rel_id', $lead_id); 
+        }
+        
+
         $query = $this->db->get('tblevent');
         return $query->result_array();
     }
@@ -269,10 +273,10 @@ public function updateEvent($eventId, $updatedData) {
         return false;
     }
     public function get_lead_with_territory($lead_id) {
-        $this->db->select('tblleads.*, tbl_territories.data');
+        $this->db->select('tblleads.*, tbl_territories.data, tbl_territories.title, tbl_territories.id');
         $this->db->from('tblleads');
-        $this->db->join('tbl_territories', 'tblleads.rel_id = tbl_territories.id', 'left');
-        $this->db->where('tblleads.rel_id !=', 0);
+        $this->db->join('tbl_territories', 'tblleads.territory_id = tbl_territories.id', 'left');
+        $this->db->where('tblleads.territory_id !=', 0);
         $this->db->where('tblleads.id', $lead_id); // filter by specific lead ID
         $query = $this->db->get();
         return $query->result_array();
@@ -1468,11 +1472,39 @@ public function updateEvent($eventId, $updatedData) {
 
     // Dummy function to fetch lead conversion rates
     public function getLeadConversionRates() {
+        // Initialize arrays for dates and rates
+        $dates = [];
+        $rates = [];
+    
+        // Generate date labels for the last 6 months
+        for ($i = 5; $i >= 0; $i--) {
+            $month = date('M', strtotime("-$i months"));
+            array_unshift($dates, $month);
+        }
+    
+        // Calculate rates
+        foreach ($dates as $index => $month) {
+            // Get the first and last day of the month
+            $firstDayOfMonth = date('Y-m-01', strtotime("-$index months"));
+            $lastDayOfMonth = date('Y-m-t', strtotime("-$index months"));
+    
+            // Query converted leads for the month
+            $this->db->from('tblleads');
+            $this->db->where('date_converted >=', $firstDayOfMonth);
+            $this->db->where('date_converted <=', $lastDayOfMonth);
+            $this->db->where('status', 1);
+            $convertedLeads = $this->db->count_all_results();
+    
+            // Add rate to array
+            array_push($rates, round($convertedLeads, 2));
+        }
+    
         return array(
-            'dates' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            'rates' => [45, 50, 65, 55, 70, 75]
+            'dates' => $dates,
+            'rates' => $rates
         );
     }
+    
 
     public function getLeadLifecycleData($start_date = null, $end_date = null) {
         if ($start_date && $end_date) {
@@ -1494,14 +1526,20 @@ public function updateEvent($eventId, $updatedData) {
         $times = array_fill(0, count($leads), 0);
     
         foreach ($leads as $index => $stageName) {
-            $this->db->select("COUNT(tblleads.id) AS leads_count");
+            // This $index corresponds to the stage number you have in your tblleads table.
+            $stageIndex = $index;  // Assuming index starts from 1 in your tblleads.lifecycle_stage
+        
+            // Query to count leads at this stage
+            $this->db->select("COUNT(id) AS leads_count");
             $this->db->from('tblleads');
-            $this->db->join('tbl_lead_lifecycle', 'tblleads.lifecycle_stage = tbl_lead_lifecycle.id', 'left');
-            $this->db->where("JSON_EXTRACT(tbl_lead_lifecycle.flow, '$[*].name') LIKE", '%"'.$stageName.'"%');
+            $this->db->where('lifecycle_stage', $stageIndex);
             $query = $this->db->get();
             $row = $query->row();
+        
+            // Store the count of leads at this stage in the $times array
             $times[$index] = (int)$row->leads_count;
         }
+        
     
         return [
             'leads' => $leads,

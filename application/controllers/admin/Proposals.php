@@ -246,6 +246,24 @@ class Proposals extends AdminController
         $this->load->view('admin/proposals/proposal', $data);
     }
 
+    public function show_pdf_bu($id)
+    {
+        $proposal = $this->proposals_model->get($id);
+
+        if (!$proposal) {
+            show_404(); // Show a 404 error if the proposal doesn't exist.
+            return;
+        }
+
+        $pdf_path = './uploads/proposals/' . $proposal->pdf_path;
+            if (!file_exists($pdf_path)) {
+            show_404(); // Show a 404 error if the PDF file doesn't exist.
+            return;
+        }
+
+        $this->load->view('admin/proposals/view_pdf', ['file_name' => $proposal->pdf_path, 'base_uri' => base_url()]);
+    }
+
 
     // show pdf
     public function show_pdf($id = '') {

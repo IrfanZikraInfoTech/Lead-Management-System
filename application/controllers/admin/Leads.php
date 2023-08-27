@@ -141,6 +141,8 @@ class Leads extends AdminController
             'campaign_performance'=>$campaign_performance,
             // 'chart_color' => $chart_color
         ];
+
+        $data['events'] = $this->leads_model->get_all_events();
         
         $this->load->view('admin/leads/lead_dashboard', $data);
     }
@@ -150,14 +152,6 @@ class Leads extends AdminController
         $this->load->view('admin/dynamic_pdf/index', $data);
     }
   
-    
-    
-
-    
-    //
-
-    
-    
     
     public function list($id = '')
     {
@@ -234,7 +228,7 @@ class Leads extends AdminController
     
 
     public function info($id, $rel_type = null, $rel_id = null){
-       echo $this->leads_model->view_by_admin($id);
+       $this->leads_model->view_by_admin($id);
         
 
         $reminder_data         = '';
@@ -1854,6 +1848,12 @@ class Leads extends AdminController
                 // Add the new campaign to the database using the model
                 $message_id = $this->leads_model->add_message($data);
 
+                $aId     = $this->leads_model->log_lead_activity($lead_id, "Email sent, ".$subject);
+                if ($aId) {
+                    $this->db->where('id', $aId);
+                    $this->db->update(db_prefix() . 'lead_activity_log', ['custom_activity' => 1]);
+                }
+
                 if($message_id){
                     echo json_encode(array('success' => true, 'message' => 'Message added successfully.'));
                 }else{
@@ -1917,6 +1917,12 @@ class Leads extends AdminController
         // Add the new campaign to the database using the model
         $message_id = $this->leads_model->add_message($data);
 
+        $aId     = $this->leads_model->log_lead_activity($lead_id, "Reply Recieved, ".$message);
+                if ($aId) {
+                    $this->db->where('id', $aId);
+                    $this->db->update(db_prefix() . 'lead_activity_log', ['custom_activity' => 1]);
+                }
+
         if($message_id){
             echo json_encode(array('success' => true, 'message' => 'Message added successfully.'));
             //Send mails to all assigned staff members / Pausing for now since I dont have multiple staff members assigned functionality
@@ -1969,10 +1975,20 @@ class Leads extends AdminController
         $messages_array[] = ['role' => 'system', 'content' => $systemPrompt];
         $messages_array_subject[] = ['role' => 'system', 'content' => $subjectPrompt];
 
-        $body = $this->makeAIRequest($messages_array, $model, 700);
-        $subject = $this->makeAIRequest($messages_array_subject, "gpt-3.5-turbo", 40);
+        $bodyResponse = $this->makeAIRequest($messages_array, $model, 700);
+        $subjectResponse = $this->makeAIRequest($messages_array_subject, "gpt-3.5-turbo", 40);
 
-        echo json_encode(['success' => true, 'subject' =>$subject, 'body' => $body, 'message' => $model_error]);
+        $response = [
+            'success' => $bodyResponse['success'] && $subjectResponse['success'], 
+            'subject' => $subjectResponse['content'] ?? null, 
+            'body' => $bodyResponse['content'] ?? null
+        ];
+
+        if (!$response['success']) {
+            $response['message'] = $bodyResponse['message'];
+        }
+    
+        echo json_encode($response);
     }
 
     public function proposalAIRequest($proposal_id, $model, $prompt=null){
@@ -2000,11 +2016,20 @@ class Leads extends AdminController
             $body_flow[] = ['role' => 'system', 'content' => $bodyMessage];
             $subject_flow[] = ['role' => 'system', 'content' => 'I want you to generate me subject for my email to my lead. I want to send him proposal with subject ```'.$subject.'```'];
 
+            $bodyResponse = $this->makeAIRequest($body_flow, $model, 700);
+            $subjectResponse = $this->makeAIRequest($subject_flow, "gpt-3.5-turbo", 40);
 
-            $body = $this->makeAIRequest($body_flow, $model, 700);
-            $subject = $this->makeAIRequest($subject_flow, "gpt-3.5-turbo", 40);
+            $response = [
+                'success' => $bodyResponse['success'] && $subjectResponse['success'], 
+                'subject' => $subjectResponse['content'] ?? null, 
+                'body' => $bodyResponse['content'] ?? null
+            ];
 
-            echo json_encode(['success' => true, 'subject' =>$subject, 'body' => $body]);
+            if (!$response['success']) {
+                $response['message'] = $bodyResponse['message'];
+            }
+        
+            echo json_encode($response);
         }
     }
 
@@ -2023,27 +2048,36 @@ class Leads extends AdminController
             $subject = $event->event_name;
             $link = $event->meet_schedule_link;
         
-            $bodyMessage = "I am ".$staff_fullname.". I want you to generate me body of email to my lead, I want to send ".$lead_name." an event invite. Subject of the meeting is ```".$subject."``` and link to the schedule is: ```".$link."``` \n Make sure to give me the body of the email in html format with proper spaces and newlines. Please add link in <a> tag.";
+            $bodyMessage = "I am ".$staff_fullname.". I want you to generate me body of email to my lead, I want to send ".$lead_name." a virtual meeting invite. Subject of the meeting is ```".$subject."``` and link where the lead can click and schedule the meeting is: ```".$link."``` \n Make sure to give me the body of the email in html format with proper spaces and newlines. Please add link in <a> tag.";
 
             if($prompt){
                 $bodyMessage .= $prompt;
             }
 
             $body_flow[] = ['role' => 'system', 'content' => $bodyMessage];
-            $subject_flow[] = ['role' => 'system', 'content' => 'I want you to generate me subject for my email to my lead. I want to send him an event invitation with subject ```'.$subject.'```'];
+            $subject_flow[] = ['role' => 'system', 'content' => 'I want you to generate me subject for my email to my lead. I want to send him a virtual meeting invitation with subject ```'.$subject.'```'];
+
+            $bodyResponse = $this->makeAIRequest($body_flow, $model, 700);
+            $subjectResponse = $this->makeAIRequest($subject_flow, "gpt-3.5-turbo", 40);
 
 
-            $body = $this->makeAIRequest($body_flow, $model, 700);
-            $subject = $this->makeAIRequest($subject_flow, "gpt-3.5-turbo", 40);
+            $response = [
+                'success' => $bodyResponse['success'] && $subjectResponse['success'], 
+                'subject' => $subjectResponse['content'] ?? null, 
+                'body' => $bodyResponse['content'] ?? null
+            ];
 
-            echo json_encode(['success' => true, 'subject' =>$subject, 'body' => $body]);
+            if (!$response['success']) {
+                $response['message'] = $bodyResponse['message'];
+            }
+        
+            echo json_encode($response);
         }
     }
 
     
 
     public function makeAIRequest($message_array, $model, $max_token){
-
         $headers = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . get_option('lead_api_key'),
@@ -2064,19 +2098,34 @@ class Leads extends AdminController
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
     
         $response = curl_exec($ch);
+        $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-    
+
         $response_data = json_decode($response, true);
-        var_dump($response_data);
+    
+        if ($http_status == 401) {
+            return ['success' => false, 'message' => 'Incorrect API key!'];
+        } elseif ($http_status >= 400) {
+            
+            if(str_contains($response_data['error']['message'], '`gpt-4` does not exist')){
+                return ['success' => false, 'message' => 'GPT-4 Model not found!'];
+            }else{
+                return ['success' => false, 'message' => $response_data['error']['message']];
+            }
+
+            
+        }
+    
+        
         if (isset($response_data['choices'])) {
             $gpt_response = $response_data['choices'][0]['message']['content'];
         } else {
-            // Handle the error, possibly logging additional information
             $gpt_response = null;
         }
         
-        return $gpt_response;
+        return ['success' => true, 'content' => $gpt_response];
     }
+    
 
     public function send_proposal_status($id, $contract_id = null){
         $this->load->model("proposals_model");
